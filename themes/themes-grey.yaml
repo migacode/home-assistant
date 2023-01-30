@@ -1,0 +1,252 @@
+# =============================================================================
+# Datei: themes-grey.yaml
+# Zweck: Layout und Farben des Frontends (CSS)
+# Autor: Michael Gasbers (kontakt@migano.de)
+# Letzte Änderung: 30.01.2023
+# =============================================================================
+
+# =============================================================================
+# Cool Dark Grey
+# =============================================================================
+Cool-Dark-Grey:
+  # -----------------------------------------------------------------------
+  # System (UI)
+  # -----------------------------------------------------------------------
+  # Schrift (Text)
+  primary-text-color:   '#cccccc'           # Haupttexte
+  secondary-text-color: '#aaaaaa'           # Info-Texte und Einstellungs-Icons
+  primary-color:        '#888888'           # Interne Verweise/Links
+  paper-listbox-color:  '#aaaaaa'           # Geräte-Listen
+  mdc-theme-primary:    '#88cc88'           # Konfigurations-Buttons/Links
+  disabled-text-color:  '#666666'           # Nicht aktive/änderbare Einträge
+  # Editor (intern)
+  codemirror-atom:      '#ff8800'
+  codemirror-attribute: '#00cc00'
+  codemirror-comment:   '#555555'
+  codemirror-keyword:   '#00cccc'
+  codemirror-property:  '#cccc00'
+  codemirror-string:    '#ffddbb'
+  code-editor-background-color:   '#333333'
+  # Hintergrund
+  primary-background-color:       '#111111' # Einstellungen
+  card-background-color:          '#222222' # Einstellungs-Listem
+  mdc-text-field-fill-color:      '#888888' # Eingabefelder und Dropdown-Menüs
+  input-fill-color:               '#888888' # Weitere Dropdown-Menüs
+  secondary-background-color:     '#666666' # Zusatzinformationen
+  paper-listbox-background-color: '#2f2f2f' # Geräte-Listen
+  table-row-background-color:     '#2f2f2f' # Tabellenzeilen 1
+  table-row-alternative-background-color: '#202020' # Tabellenzeilen 2
+  # -----------------------------------------------------------------------
+  # Menü links (Sidebar)
+  # -----------------------------------------------------------------------
+  sidebar-text-color:          '#888888'    # Texte
+  sidebar-selected-text-color: '#cccccc'    # Text des ausgewählten Eintrags
+  sidebar-icon-color:          '#888888'    # Icons
+  sidebar-selected-icon-color: '#cccccc'    # Icon des ausgewählten Eintrags
+  sidebar-background-color:    '#222222'    # Hintergrund
+  divider-color:               '#333333'    # Trennlinien
+  light-primary-color:         '#888888'    # Button "Person"
+  scrollbar-thumb-color:       '#444444'    # Scrollbar
+  # -----------------------------------------------------------------------
+  # Dashboard (Kopfzeile/Header)
+  # -----------------------------------------------------------------------
+  text-primary-color:          '#cccccc'    # Icons und Text
+  app-header-background-color: '#222222'    # Hintergrund (nicht verlaufsfähig)
+  # -----------------------------------------------------------------------
+  # Dashboard (Hintergrund)
+  # -----------------------------------------------------------------------
+  # lovelace-background: 'center / cover no-repeat url("/local/lovelace_bg.jpg") fixed' # Bild skaliert
+  # lovelace-background: 'center / auto repeat url("/local/lovelace_bg.jpg") fixed'     # Bild wiederholt
+  lovelace-background: 'linear-gradient(to bottom, rgba(34,34,34,1), rgba(0,0,0,1))'
+  # -----------------------------------------------------------------------
+  # Karten (Textfarben siehe System / UI)
+  # -----------------------------------------------------------------------
+  # Überschriften
+  ha-card-header-color: 'rgba(255,128,64,0.5)'
+  # Hintergrund
+  # ha-card-background: '#242424'
+  ha-card-background: 'linear-gradient(to bottom, rgba(56,56,56,1), rgba(16,16,16,1))'
+  # Trennlinien
+  entities-divider-color: '#383838'
+  # Umrandung
+  ha-card-border-width:  '2px'
+  ha-card-border-color:  '#383838'
+  ha-card-border-radius: '6px'
+  # Schatten
+  ha-card-box-shadow: '4px 4px 4px rgba(0,0,0,0.3), -4px 4px 4px rgba(0,0,0,0.3)'
+  # Icons
+  paper-item-icon-color: '#888888'          # Standard-Icons
+  dark-primary-color:    '#888888'          # Icons in Tile-Cards
+  state-icon-color:      '#888888'          # Status-Icon
+  # Schalter (Switches)
+  switch-checked-button-color:   '#44cc44'  # Knopf bei Stellung "An"
+  switch-checked-track-color:    '#000000'  # Hintergrund bei Stellung "An"
+  switch-unchecked-button-color: '#666666'  # Knopf bei Stellung "Aus"
+  switch-unchecked-track-color:  '#000000'  # Hintergrund bei Stellung "Aus"
+  # Schieberegler (Slider)
+  paper-slider-knob-color:       '#aaaaaa'  # Knopf bei Wertangabe
+  paper-slider-knob-start-color: '#666666'  # Knopf in Nullstellung
+  paper-slider-active-color:     '#888888'  # Linie von Start bis Knopf (Wert)
+  paper-slider-container-color:  '#333333'  # Linie von Knopf (Wert) bis Ende
+
+# =============================================================================
+# Pure Dark Grey
+# =============================================================================
+Pure-Dark-Grey:
+  # -----------------------------------------------------------------------
+  # System (UI)
+  # -----------------------------------------------------------------------
+  # Schrift (Text)
+  primary-text-color:   '#cccccc'           # Haupttexte
+  secondary-text-color: '#aaaaaa'           # Info-Texte und Einstellungs-Icons
+  primary-color:        '#888888'           # Interne Verweise/Links
+  paper-listbox-color:  '#aaaaaa'           # Geräte-Listen
+  mdc-theme-primary:    '#cccccc'           # Konfigurations-Buttons/Links
+  disabled-text-color:  '#666666'           # Nicht aktive/änderbare Einträge
+  # Editor (intern)
+  codemirror-atom:      '#ff8800'
+  codemirror-attribute: '#00cc00'
+  codemirror-comment:   '#555555'
+  codemirror-keyword:   '#00cccc'
+  codemirror-property:  '#cccc00'
+  codemirror-string:    '#ffddbb'
+  code-editor-background-color:   '#333333'
+  # Hintergrund
+  primary-background-color:       '#111111' # Einstellungen
+  card-background-color:          '#222222' # Einstellungs-Listem
+  mdc-text-field-fill-color:      '#888888' # Eingabefelder und Dropdown-Menüs
+  input-fill-color:               '#888888' # Weitere Dropdown-Menüs
+  secondary-background-color:     '#666666' # Zusatzinformationen
+  paper-listbox-background-color: '#2f2f2f' # Geräte-Listen
+  table-row-background-color:     '#2f2f2f' # Tabellenzeilen 1
+  table-row-alternative-background-color: '#202020' # Tabellenzeilen 2
+  # -----------------------------------------------------------------------
+  # Menü links (Sidebar)
+  # -----------------------------------------------------------------------
+  sidebar-text-color:          '#888888'    # Texte
+  sidebar-selected-text-color: '#cccccc'    # Text des ausgewählten Eintrags
+  sidebar-icon-color:          '#888888'    # Icons
+  sidebar-selected-icon-color: '#cccccc'    # Icon des ausgewählten Eintrags
+  sidebar-background-color:    '#222222'    # Hintergrund
+  divider-color:               '#333333'    # Trennlinien
+  light-primary-color:         '#888888'    # Button "Person"
+  scrollbar-thumb-color:       '#444444'    # Scrollbar
+  # -----------------------------------------------------------------------
+  # Dashboard (Kopfzeile/Header)
+  # -----------------------------------------------------------------------
+  text-primary-color:          '#cccccc'    # Icons und Text
+  app-header-background-color: '#222222'    # Hintergrund (nicht verlaufsfähig)
+  # -----------------------------------------------------------------------
+  # Dashboard (Hintergrund)
+  # -----------------------------------------------------------------------
+  lovelace-background: '#111111'
+  # -----------------------------------------------------------------------
+  # Karten (Textfarben siehe System / UI)
+  # -----------------------------------------------------------------------
+  # Überschriften
+  ha-card-header-color: 'rgba(255,255,255,0.5)'
+  # Hintergrund
+  ha-card-background: '#242424'
+  # Trennlinien
+  entities-divider-color: '#383838'
+  # Umrandung
+  ha-card-border-width:  '2px'
+  ha-card-border-color:  '#383838'
+  ha-card-border-radius: '6px'
+  # Schatten
+  ha-card-box-shadow: '4px 4px 4px rgba(0,0,0,0.3), -4px 4px 4px rgba(0,0,0,0.3)'
+  # Icons
+  paper-item-icon-color: '#888888'          # Standard-Icons
+  dark-primary-color:    '#888888'          # Icons in Tile-Cards
+  state-icon-color:      '#888888'          # Status-Icon
+  # Schalter (Switches)
+  switch-checked-button-color:   '#eeeeee'  # Knopf bei Stellung "An"
+  switch-checked-track-color:    '#000000'  # Hintergrund bei Stellung "An"
+  switch-unchecked-button-color: '#555555'  # Knopf bei Stellung "Aus"
+  switch-unchecked-track-color:  '#000000'  # Hintergrund bei Stellung "Aus"
+  # Schieberegler (Slider)
+  paper-slider-knob-color:       '#bbbbbb'  # Knopf bei Wertangabe
+  paper-slider-knob-start-color: '#666666'  # Knopf in Nullstellung
+  paper-slider-active-color:     '#888888'  # Linie von Start bis Knopf (Wert)
+  paper-slider-container-color:  '#333333'  # Linie von Knopf (Wert) bis Ende
+
+# =============================================================================
+# Pure Light Grey
+# =============================================================================
+Pure-Light-Grey:
+  # -----------------------------------------------------------------------
+  # System (UI)
+  # -----------------------------------------------------------------------
+  # Schrift (Text)
+  primary-text-color:   '#222222'           # Haupttexte
+  secondary-text-color: '#555555'           # Info-Texte und Einstellungs-Icons
+  primary-color:        '#888888'           # Interne Verweise/Links
+  paper-listbox-color:  '#555555'           # Geräte-Listen
+  mdc-theme-primary:    '#333333'           # Konfigurations-Buttons/Links
+  disabled-text-color:  '#aaaaaa'           # Nicht aktive/änderbare Einträge
+  # Editor (intern)
+  codemirror-atom:      '#884400'
+  codemirror-attribute: '#ff0088'
+  codemirror-comment:   '#888888'
+  codemirror-keyword:   '#000088'
+  codemirror-property:  '#008800'
+  codemirror-string:    '#222222'
+  code-editor-background-color:   '#ffffff'
+  # Hintergrund
+  primary-background-color:       '#eeeeee' # Einstellungen
+  card-background-color:          '#dddddd' # Einstellungs-Listem
+  mdc-text-field-fill-color:      '#cccccc' # Eingabefelder und Dropdown-Menüs
+  input-fill-color:               '#cccccc' # Weitere Dropdown-Menüs
+  secondary-background-color:     '#aaaaaa' # Zusatzinformationen
+  paper-listbox-background-color: '#dddddd' # Geräte-Listen
+  table-row-background-color:     '#d0d0d0' # Tabellenzeilen 1
+  table-row-alternative-background-color: '#dddddd' # Tabellenzeilen 2
+  # -----------------------------------------------------------------------
+  # Menü links (Sidebar)
+  # -----------------------------------------------------------------------
+  sidebar-text-color:          '#888888'    # Texte
+  sidebar-selected-text-color: '#333333'    # Text des ausgewählten Eintrags
+  sidebar-icon-color:          '#888888'    # Icons
+  sidebar-selected-icon-color: '#333333'    # Icon des ausgewählten Eintrags
+  sidebar-background-color:    '#cccccc'    # Hintergrund
+  divider-color:               '#aaaaaa'    # Trennlinien
+  light-primary-color:         '#888888'    # Button "Person"
+  scrollbar-thumb-color:       '#888888'    # Scrollbar
+  # -----------------------------------------------------------------------
+  # Dashboard (Kopfzeile/Header)
+  # -----------------------------------------------------------------------
+  text-primary-color:          '#444444'    # Icons und Text
+  app-header-background-color: '#eeeeee'    # Hintergrund (nicht verlaufsfähig)
+  # -----------------------------------------------------------------------
+  # Dashboard (Hintergrund)
+  # -----------------------------------------------------------------------
+  lovelace-background: '#eeeeee'
+  # -----------------------------------------------------------------------
+  # Karten (Textfarben siehe System / UI)
+  # -----------------------------------------------------------------------
+  # Überschriften
+  ha-card-header-color: 'rgba(0,0,0,0.5)'
+  # Hintergrund
+  ha-card-background: '#e0e0e0'
+  # Trennlinien
+  entities-divider-color: '#aaaaaa'
+  # Umrandung
+  ha-card-border-width:  '2px'
+  ha-card-border-color:  '#bbbbbb'
+  ha-card-border-radius: '6px'
+  # Schatten
+  ha-card-box-shadow: '4px 4px 4px rgba(0,0,0,0.3), -4px 4px 4px rgba(0,0,0,0.3)'
+  # Icons
+  paper-item-icon-color: '#888888'          # Standard-Icons
+  dark-primary-color:    '#888888'          # Icons in Tile-Cards
+  state-icon-color:      '#888888'          # Status-Icon
+  # Schalter (Switches)
+  switch-checked-button-color:   '#eeeeee'  # Knopf bei Stellung "An"
+  switch-checked-track-color:    '#222222'  # Hintergrund bei Stellung "An"
+  switch-unchecked-button-color: '#555555'  # Knopf bei Stellung "Aus"
+  switch-unchecked-track-color:  '#222222'  # Hintergrund bei Stellung "Aus"
+  # Schieberegler (Slider)
+  paper-slider-knob-color:       '#666666'  # Knopf bei Wertangabe
+  paper-slider-knob-start-color: '#bbbbbb'  # Knopf in Nullstellung
+  paper-slider-active-color:     '#333333'  # Linie von Start bis Knopf (Wert)
+  paper-slider-container-color:  '#bbbbbb'  # Linie von Knopf (Wert) bis Ende
