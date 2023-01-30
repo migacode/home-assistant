@@ -1,1 +1,1 @@
-Home Assistant - Tools und Erweiterungen
+<b>Home Assistant</b> - Tools und Erweiterungen
