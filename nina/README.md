@@ -26,6 +26,7 @@ NodeRed-Flow zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard
 <br />
 Dashboard-Karte zur Anzeige von NINA-Warnungen
 <br />
+<br />
 <img src="./img/NINA_no_warnings.png">
 <br />
 <img src="./img/NINA_warnings.png">
