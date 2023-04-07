@@ -1,13 +1,17 @@
 # Home Assistant - NINA Warnungen
 
-
-
-Wie bei jeder Konfigurationsänderung muss zur Aktivierung der Themen Home Assistant leider neu gestartet werden.
-Die neuen Themen stehen danach bei den entsprechenden Einstellungen zur Auswahl.
-
-<hr>
-<b>Previews</b><br /><br />
-<img src="./img/NINA_NodeRED_Flow.png">
+Automation zum Versenden von NINA-Warnungen an
+- Telegram
+- HA-App
+- Dashboard
 <img src="./img/NINA_notification.png">
+
+NodeRed-Flow zum Versenden von NINA-Warnungen an
+- Telegram
+- HA-App
+- Dashboard
+<img src="./img/NINA_NodeRED_Flow.png">
+
+Dashboard-Karte zur Anzeige von NINA-Warnungen
 <img src="./img/NINA_no_warnings.png">
 <img src="./img/NINA_warnings.png">
