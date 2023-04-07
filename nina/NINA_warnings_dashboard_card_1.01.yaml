@@ -1,0 +1,77 @@
+# =============================================================================
+# NINA Warnungen - Home Assistant Dashboard Karte
+# Version 1.01 vom 07.04.2023
+# =============================================================================
+type: vertical-stack
+title: NINA-Warnungen für Hörstel
+cards:
+  - type: markdown
+    content: >-
+      {# ------------------------------------------------------------------- #}
+      {# Entität der NINA-Sensoren (vollständiger Name OHNE Nummer am Ende)  #}
+      {# ------------------------------------------------------------------- #}
+      {% set nina_entity_name = "binary_sensor.nina_warning_hoerstel_" %}
+      {# ------------------------------------------------------------------- #}
+      {% set head_color = "ff8800" %}
+      {% set fg_color_1 = "888888" %}
+      {% set fg_color_2 = "ffffff" %}
+      {% set none_color = "44cc44" %}
+      {% set icon_color = "ffcc00" %}
+      {% set warn_color = ["cccccc", "00ffff", "ffff00", "ff8800", "ff0000"] %}
+
+      {% set ns = namespace() %}
+
+      {% set ns.anzahl_meldungen = 0 %}
+
+      {% for i in range(5) %}
+
+      {% if is_state(nina_entity_name ~ loop.index, 'on') %}
+
+      {% set ns.anzahl_meldungen = ns.anzahl_meldungen + 1 %}
+
+      {% endif %}
+
+      {% endfor %}
+
+      {% if ns.anzahl_meldungen == 0 %}
+
+      **<font color=#{{none_color}}>Keine aktuellen Warnmeldungen</font><font
+      color=#{{icon_color}}>&nbsp;<ha-icon icon="mdi:emoticon-happy"></ha-icon></font>**
+
+      {% else %}
+
+      {% for i in range(5) %}
+
+      {% if is_state(nina_entity_name ~ loop.index, "on") %}
+
+      {% set level = state_attr(nina_entity_name ~ loop.index, "severity") %}
+      {% set from_time = state_attr(nina_entity_name ~ loop.index, "start") | as_timestamp %}
+      {% set to_time = state_attr(nina_entity_name ~ loop.index, "expires") | as_timestamp %}
+
+      **<font color=#{{head_color}}>{{ state_attr(nina_entity_name ~ loop.index,
+      "headline") | trim }}</font>**
+
+      <font color=#{{fg_color_1}}>Warnstufe:</font> **{% if level == "Extreme" %}<font
+      color=#{{warn_color[4]}}>Extrem{% elif level == "Severe" %}<font
+      color=#{{warn_color[3]}}>Schwer{% elif level == "Moderate" %}<font
+      color=#{{warn_color[2]}}>Mäßig{% elif level == "Minor" %}<font color=#{{warn_color[1]}}>Gering{%
+      else %}<font color=#{{fg_color_0}}>Hinweis{% endif %}</font>**
+
+      <font color=#{{fg_color_2}}>{{ state_attr(nina_entity_name ~ loop.index,
+      "description") | trim }}</font>
+
+      <font color=#{{fg_color_1}}>Von </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr bis </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr.</font>
+
+      {% if ns.anzahl_meldungen > 1 and loop.index != ns.anzahl_meldungen
+      %}<hr>{% endif %}
+
+      {% endif %}
+
+      {% endfor %}
+
+      {% endif %}
+    card_mod:
+      style: |-
+        ha-card {
+          margin-top: -10px;
+        }

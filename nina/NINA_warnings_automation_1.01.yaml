@@ -1,0 +1,54 @@
+# =============================================================================
+# NINA Warnungen versenden - Home Assistant Automation
+# Version 1.01 vom 07.04.2023
+# =============================================================================
+- id: "nina_warnings"
+  alias: NINA-Warnungen versenden
+  description: ""
+  variables:
+    alert_message: "
+{# ------------------------------------------------------------------- #}
+{# Entität der NINA-Sensoren (vollständiger Name OHNE Nummer am Ende)  #}
+{# ------------------------------------------------------------------- #}
+{% set nina_entity_name = 'binary_sensor.nina_warning_hoerstel_' %}
+{# ------------------------------------------------------------------- #}
+*NINA-WARNUNG!* (über HA){{'\n'}}{{'\n'}}{% for i in range(5) %}{% if is_state(nina_entity_name ~ loop.index, 'on') %}{% set level = state_attr(nina_entity_name ~ loop.index, 'severity') %}{{ state_attr(nina_entity_name ~ loop.index, 'headline') | trim }}{{'\n'}}{{ 'Warnstufe: ' }}{% if level == 'Extreme' %}Extrem{% elif level == 'Severe' %}Schwer{% elif level == 'Moderate' %}Mäßig{% elif level == 'Minor' %}Gering{% else %}Hinweis{% endif %}{{'\n'}}{{ state_attr(nina_entity_name ~ loop.index, 'description') | trim }}{{'\n'}}Von {{ state_attr(nina_entity_name ~ loop.index, 'start') | as_timestamp | timestamp_custom('%d.%m.%Y um %H:%M Uhr', true) | trim }} bis {{ state_attr(nina_entity_name ~ loop.index, 'expires') | as_timestamp | timestamp_custom('%d.%m.%Y um %H:%M Uhr', true) | trim }}.{{'\n'}}{{'\n'}}{% endif %}{% endfor %}"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.nina_warning_hoerstel_1
+      to: "on"
+    - platform: state
+      entity_id: binary_sensor.nina_warning_hoerstel_2
+      to: "on"
+    - platform: state
+      entity_id: binary_sensor.nina_warning_hoerstel_3
+      to: "on"
+    - platform: state
+      entity_id: binary_sensor.nina_warning_hoerstel_4
+      to: "on"
+    - platform: state
+      entity_id: binary_sensor.nina_warning_hoerstel_5
+      to: "on"
+  action:
+    - parallel:
+      - service: notify.telegram_michael
+        continue_on_error: true
+        data:
+          message: "{{ alert_message }}"
+      - service: notify.mobile_app_galaxy_von_michael
+        continue_on_error: true
+        data:
+          message: "{{ alert_message }}"
+      - service: notify.persistent_notification
+        continue_on_error: true
+        data:
+          message: "{{ alert_message }}"
+      # - service: script.notify_all_michael
+      #   continue_on_error: true
+      #   data:
+      #     message: "{{ alert_message }}"
+      # - service: script.notify_all_steffi
+      #   continue_on_error: true
+      #   data:
+      #     message: "{{ alert_message }}"
+  mode: restart
