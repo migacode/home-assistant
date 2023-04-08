@@ -3,7 +3,7 @@
 
 
 
-
+Integration des DWD-Warndienstes in der configuration.yaml:
 ```yaml
 sensor:
   - platform: dwd_weather_warnings
