@@ -24,7 +24,7 @@ Dabei beachten, als <i>nina_entity_name</i> den Entitäts-Namen generisch ohne N
 <img src="./img/NINA_img_changes_automation.png">
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann in dem Bereich <i>action:</i> die Zeilen für den jeweiligen Service einfach löschen.<br />
 <br />
-2. Nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu püfen und Automatisierungen neu zu laden ;)<br />
+2. Nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu püfen und Automatisierungen neu zu laden :)<br />
 <br />
 
 <a id="nodered"></a>
@@ -57,9 +57,9 @@ Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code ein
 1. An der markierten Stelle den Entitäts-Namen durch den eigenen ersetzen. Dabei beachten, als <i>nina_entity_name</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
 <br />
 <img src="./img/NINA_img_changes_dashboard.png">
-2. Wer einen anderen Ort als Hörstel verwendet, möchte vermutlich auch noch die Überschrift <i>title:</i> anpassen :)<br/>
+2. Wer einen anderen Ort als Hörstel verwendet, möchte vermutlich auch noch die Überschrift mit der Angabe <i>title:</i> anpassen.<br/>
 <br />
-3. Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden color-Variablen anpassen :)<br />
+3. Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden color-Variablen anpassen.<br />
 Darüber hinaus verwendet die Karte das HACS-Modul "card-mod", jedoch nur zur Gestaltung der Karten-Umrandung. Wer card-mod nicht verwendet, oder wem die Karte unformattiert besser gefällt, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
 <br />
 
