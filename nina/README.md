@@ -1,4 +1,4 @@
-# Home Assistant: NINA-Warnungen
+# Home Assistant - NINA-Warnungen
 
 <strong>Erweiterungen für die <a href="https://www.home-assistant.io/integrations/nina/">NINA-Integration</a> von Home Assistant</strong><br />
 <ul>
