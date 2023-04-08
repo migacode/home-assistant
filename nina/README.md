@@ -15,10 +15,21 @@
 <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a><br />
 <br />
 
-Dabei die Entitätsnamen in folgenden Zeilen durch die geweils eigenen ersetzen:<br />
-<ul>
-<li>{% set nina_entity_name = 'binary_sensor.nina_warning_hoerstel_' %}</li>
-</ul>
+Dabei sind in folgenden Zeilen durch die geweils eigenen ersetzen:<br />
+  ...<br />
+{% set nina_entity_name = 'binary_sensor.EIGENER_NINA_ENTITÄTS_NAME_' %} (ohne Nummer)<br />
+  ...<br />
+trigger:<br />
+  ...<br />
+  entity_id: binary_sensor.EIGENER_NINA_ENTITÄTS_NAME_ (1 bis 5)<br />
+  ...<br />
+action:<br />
+  ...<br />
+  - service: notify.EIGENER_TELEGRAM_SERVICE_NAME<br />
+  ...<br />
+  - service: notify.EIGENER_MOBILE_APP_NAME<br />
+  ...<br />
+<br />
 
 Previews:<br />
 <img src="./img/NINA_notification.png">
