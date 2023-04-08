@@ -42,6 +42,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <hr>
 <strong>NodeRed-Flow zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard</strong><br />
 <br />
+... noch in Arbeit ... kommt bald ... :)
 <!--
 <img src="./img/DWD_img_nodered_flow.png">
 NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD_warnings_nodered_flow.json">DWD_warnings_nodered_flow.json</a><br />
@@ -66,8 +67,9 @@ Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD
 <br />
 Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
 1. An der markierten Stelle die Entitäts-Namen durch die eigenen ersetzen.<br />
-<b>HINWEIS:</b> Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden Variablen anpassen :)<br />
+<b>HINWEIS:</b> Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden color-Variablen anpassen :)<br />
 <br />
+Ach ja - wer einen anderen Ort als Hörstel verwendet, sollte ggf. auch den <i>title:</i> und den Ort der Karte anpassen :)
 <img src="./img/DWD_img_changes_dashboard.png">
 <br />
 <hr>
