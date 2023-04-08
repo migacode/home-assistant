@@ -16,23 +16,10 @@
 <br />
 Den Inhalt dieser .yaml-Datei wie folgt anpassen und in die <i>automations.yaml</i> kopieren.<br />
 In folgenden Zeilen die Entitäts-Namen geweils durch die eigenen ersetzen:<br />
-  ...<br />
-{% set nina_entity_name = 'binary_sensor.<i>EIGENER_NINA_ENTITÄTS_NAME_</i>' %} (ohne Nummer)<br />
-  ...<br />
-trigger:<br />
-  ...<br />
-  entity_id: binary_sensor.<i>EIGENER_NINA_ENTITÄTS_NAME_</i> (1 bis 5)<br />
-  ...<br />
-action:<br />
-  ...<br />
-  \- service: notify.<i>EIGENER_TELEGRAM_SERVICE_NAME</i><br />
-  ...<br />
-  \- service: notify.<i>EIGENER_MOBILE_APP_NAME</i><br />
-  ...<br />
-<br />
+<img src="./img/NINA_img_changes.png"><br />
 
 Previews:<br />
-<img src="./img/NINA_notification.png">
+<img src="./img/NINA_img_notification.png">
 
 <a id="nodered"></a>
 <hr>
@@ -40,7 +27,7 @@ Previews:<br />
 <a href="">NINA_warnings_nodered_flow.json</a><br />
 <br />
 Previews:<br />
-<img src="./img/NINA_NodeRED_Flow.png">
+<img src="./img/NINA_img_nodered_flow.png">
 
 <a id="dashboard"></a>
 <hr>
@@ -48,6 +35,6 @@ Previews:<br />
 <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_dashboard_card.yaml"><strong>NINA_warnings_dashboard_card.yaml</strong></a><br />
 <br />
 Previews:<br />
-<img src="./img/NINA_no_warnings.png"><br />
-<img src="./img/NINA_warnings.png">
+<img src="./img/NINA_img_no_warnings.png"><br />
+<img src="./img/NINA_img_warnings.png">
 <hr>
