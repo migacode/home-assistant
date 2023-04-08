@@ -2,6 +2,10 @@
 
 
 
+
+WarnCell-IDs
+https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html
+
 ```yaml
 sensor:
   - platform: dwd_weather_warnings
