@@ -18,7 +18,7 @@ Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NI
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 1. An den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
-Dabei beachten, als <i>nina_entity_name</i> den Entitäts-Namen ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
+Dabei beachten, als <i>nina_entity_name</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
 <br />
 <img src="./img/NINA_img_changes_automation.png">
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann in dem Bereich <i>action:</i> die Zeilen für den jeweiligen Service einfach löschen.<br />
@@ -35,7 +35,7 @@ NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/nina
 <br />
 Die Datei in NodeRED importieren und wie folgt anpassen.<br />
 1. Im Node 1 (NINA-Warnungen triggern) an den markierten Stellen die Entitäts-Namen geweils durch die eigenen ersetzen.<br />
-Dabei beachten, als <i>msg.topic</i> den Entitäts-Namen ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
+Dabei beachten, als <i>msg.topic</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
 <br />
 <img src="./img/NINA_img_changes_flow.png">
 2. Danach noch in den Nodes 7.a und 7.b jeweils den Service-Namen durch den eigenen ersetzen.<br />
