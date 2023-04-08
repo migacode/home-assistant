@@ -7,7 +7,7 @@
 <li><a href="#dashboard">Dashboard-Karte zur Anzeige von NINA-Warnungen in Home Assistant</a></li>
 </ul>
 (1) Für den Versand von Benachrichtigungen an Telegram muss die entsprechende <a href="https://www.home-assistant.io/integrations/telegram">Telegram-Integration</a> natürlich zuvor eingerichtet sein.<br />
-(2) Ebenso erfolgt der Versand an die HA-App natürlich auch nur, wenn diese auf dem Endgerät installiert und eingerichtet ist.<br />
+(2) Ebenso erfolgt der Versand an die HA-App natürlich auch nur, wenn diese auf dem/n Endgerät/en installiert und eingerichtet ist.<br />
 
 <a id="automation"></a>
 <hr>
@@ -20,7 +20,7 @@ Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br
 1. An den markierten Stellen die Entitäts-Namen geweils durch die eigenen ersetzen:<br />
 <br />
 <img src="./img/NINA_img_changes_automation.png">
-2. Nicht vergessen bei den Entwicklerwerkzeugen die Automatisierungen zu püfen und neu zu laden ;)
+2. Nicht vergessen bei den Entwicklerwerkzeugen die Automatisierungen zu püfen und neu zu laden ;)<br />
 <br />
 
 <a id="nodered"></a>
