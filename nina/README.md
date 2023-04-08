@@ -60,7 +60,7 @@ Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code ein
 2. Wer einen anderen Ort als Hörstel verwendet, möchte vermutlich auch noch die Überschrift <i>title:</i> anpassen :)<br/>
 <br />
 3. Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden color-Variablen anpassen :)<br />
-Darüber hinaus verwendet die Karte das HACS-Modul "card-mod", jedoch nur um den oberen Abstand zu verringern. Wer card-mod nicht verwendet, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
+Darüber hinaus verwendet die Karte das HACS-Modul "card-mod", jedoch nur zur Gestaltung der Karten-Umrandung. Wer card-mod nicht verwendet, oder wem die Karte unformattiert besser gefällt, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
 <br />
 
 <hr>
