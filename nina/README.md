@@ -46,8 +46,14 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <hr>
 <strong>Dashboard-Karte zur Anzeige von NINA-Warnungen in Home Assistant</strong><br />
 <br />
-<img src="./img/NINA_img_no_warnings.png"><br />
+<img src="./img/NINA_img_no_warnings.png">
 <img src="./img/NINA_img_warnings.png">
 <br />
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_dashboard_card.yaml"><strong>NINA_warnings_dashboard_card.yaml</strong></a><br />
+Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
+1. An den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
+Dabei beachten, als <i>nina_entity_name</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
+<br />
+Farben ...
+<br />
 <hr>
