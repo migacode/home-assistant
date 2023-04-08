@@ -1,8 +1,6 @@
 # Home Assistant - DWD Warnungen
 
-<hr>
-Integration des DWD-Warndienstes in der <b>configuration.yaml</b> (Beispiel Hörstel)
-
+Die Integration des Warndienstes des <a href="https://www.dwd.de/">Deutschen Wetterdienst</a> (DWD) erfolgt manuell in der <b>configuration.yaml</b> durch Anlage eines Sensors (Beispiel Hörstel)<br/>
 ```yaml
 sensor:
   - platform: dwd_weather_warnings
