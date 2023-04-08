@@ -14,20 +14,20 @@
 <strong>Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard (native)</strong><br />
 <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a><br />
 <br />
-
-Dabei sind in folgenden Zeilen durch die geweils eigenen ersetzen:<br />
+Den Inhalt dieser .yaml-Datei wie folgt anpassen und in die <i>automations.yaml</i> kopieren.<br />
+In folgenden Zeilen die Entitäts-Namen geweils durch die eigenen ersetzen:<br />
   ...<br />
-{% set nina_entity_name = 'binary_sensor.EIGENER_NINA_ENTITÄTS_NAME_' %} (ohne Nummer)<br />
+{% set nina_entity_name = 'binary_sensor.<i>EIGENER_NINA_ENTITÄTS_NAME_</i>' %} (ohne Nummer)<br />
   ...<br />
 trigger:<br />
   ...<br />
-  entity_id: binary_sensor.EIGENER_NINA_ENTITÄTS_NAME_ (1 bis 5)<br />
+  entity_id: binary_sensor.<i>EIGENER_NINA_ENTITÄTS_NAME_</i> (1 bis 5)<br />
   ...<br />
 action:<br />
   ...<br />
-  - service: notify.EIGENER_TELEGRAM_SERVICE_NAME<br />
+  \- service: notify.<i>EIGENER_TELEGRAM_SERVICE_NAME</i><br />
   ...<br />
-  - service: notify.EIGENER_MOBILE_APP_NAME<br />
+  \- service: notify.<i>EIGENER_MOBILE_APP_NAME</i><br />
   ...<br />
 <br />
 
