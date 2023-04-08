@@ -17,10 +17,10 @@
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
-1. In den markierten Zeilen die Entitäts-Namen geweils durch die eigenen ersetzen:<br />
+1. An den markierten Stellen die Entitäts-Namen geweils durch die eigenen ersetzen:<br />
 <br />
 <img src="./img/NINA_img_changes_automation.png">
-2. Nicht vergessen in den Entwickler-Tools die Automatisierungen zu püfen und neu zu laden ;)
+2. Nicht vergessen bei den Entwicklerwerkzeugen die Automatisierungen zu püfen und neu zu laden ;)
 <br />
 
 <a id="nodered"></a>
