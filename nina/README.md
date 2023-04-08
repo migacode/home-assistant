@@ -21,7 +21,7 @@ Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br
 Dabei beachten, als <i>nina_entity_name</i> den Entitäts-Namen ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
 <br />
 <img src="./img/NINA_img_changes_automation.png">
-2. Nicht vergessen bei den Entwicklerwerkzeugen die Automatisierungen zu püfen und neu zu laden ;)<br />
+2. Nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu püfen und Automatisierungen neu zu laden ;)<br />
 <br />
 
 <a id="nodered"></a>
