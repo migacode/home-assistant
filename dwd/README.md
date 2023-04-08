@@ -73,6 +73,6 @@ Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code ein
 2. Wer einen anderen Ort als Hörstel verwendet, möchte vermutlich auch die Überschrift <i>title:</i> sowie die Pfadangaben <i>image:</i> und <i>url_path:<i> für das angezeigte Bild an den entsprechenden Ort anpassen :)<br/>
 Die dazu benötigten Angaben findet man auf den Webseiten des DWD unter <a href="https://www.dwd.de/DE/wetter/warnungen_aktuell/objekt_einbindung/objekteinbindung_node.html">Objekt-Einbindung</a> und <a href="https://www.dwd.de/DE/wetter/warnungen_gemeinden/warnkarten/warnkarten_node.html">Warnkarten</a>.<br />
 <br />
-Ach ja - die Karte verwendet das HACS-Modul "card-mod" nur zur Gestaltung der Karten-Umrandung. Wer card-mod nicht verwendet oder wem die Karte unformattiert besser gefällt, kann die entsprechenden Style-Angaben löschen.
+Ach ja - die Karte verwendet das HACS-Modul "card-mod" nur zur Gestaltung der Karten-Umrandung. Wer card-mod nicht verwendet, oder wem die Karte unformattiert besser gefällt, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
 <br />
 <hr>
