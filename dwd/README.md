@@ -31,7 +31,6 @@ Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 1. An den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
-Dabei beachten, als <i>DWD_entity_name</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
 <br />
 <img src="./img/DWD_img_changes_automation.png">
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann in dem Bereich <i>action:</i> die Zeilen für den jeweiligen Service einfach löschen.<br />
@@ -43,6 +42,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <hr>
 <strong>NodeRed-Flow zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard</strong><br />
 <br />
+<!--
 <img src="./img/DWD_img_nodered_flow.png">
 NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD_warnings_nodered_flow.json">DWD_warnings_nodered_flow.json</a><br />
 <br />
@@ -54,6 +54,7 @@ Dabei beachten, als <i>msg.topic</i> den Entitäts-Namen generisch ohne Nummern,
 2. Danach noch in den Nodes 7.a und 7.b jeweils den Service-Namen durch den eigenen ersetzen.<br />
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node (7.a, 7.b, 7.c) einfach löschen.<br />
 <br />
+-->
 
 <a id="dashboard"></a>
 <hr>
@@ -64,7 +65,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD_warnings_dashboard_card.yaml"><strong>DWD_warnings_dashboard_card.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
-1. An der markierten Stelle den Entitäts-Namen durch den eigenen ersetzen. Dabei beachten, als <i>DWD_entity_name</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
+1. An der markierten Stelle die Entitäts-Namen durch die eigenen ersetzen.<br />
 <b>HINWEIS:</b> Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden Variablen anpassen :)<br />
 <br />
 <img src="./img/DWD_img_changes_dashboard.png">
