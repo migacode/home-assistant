@@ -30,6 +30,7 @@ Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warnc
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD_warnings_automation.yaml">DWD_warnings_automation.yaml</a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
+<br />
 1. An den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
 <br />
 <img src="./img/DWD_img_changes_automation.png">
@@ -66,6 +67,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD_warnings_dashboard_card.yaml"><strong>DWD_warnings_dashboard_card.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
+<br />
 1. An der markierten Stelle die Entitäts-Namen durch die eigenen ersetzen.<br />
 <br />
 <img src="./img/DWD_img_changes_dashboard.png">
