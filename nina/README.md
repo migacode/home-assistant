@@ -3,10 +3,10 @@
 Erweiterungen für die NINA-Integration von Home Assistant
 
 <hr>
-<a href="">NINA_warnings_automation.yaml</a>
+<strong>Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard</strong>
 <br />
 <br />
-Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard
+<a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a>
 <br />
 <br />
 <img src="./img/NINA_notification.png">
