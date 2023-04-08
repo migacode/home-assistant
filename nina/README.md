@@ -29,10 +29,10 @@ In den markierten Zeilen die Entitäts-Namen geweils durch die eigenen ersetzen:
 NoreRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_nodered_flow.json">NINA_warnings_nodered_flow.json</a><br />
 <br />
 1. Die Datei in NodeRED importieren und wie folgt anpassen.<br />
-Im ersten Node "1. NINA-Warnungen triggern" an den markierten Stellen die Entitäts-Namen geweils durch die eigenen ersetzen:<br />
+Im Node 1 (NINA-Warnungen triggern) an den markierten Stellen die Entitäts-Namen geweils durch die eigenen ersetzen:<br />
 <br />
-<img src="./img/NINA_img_changes_flow.png"><br />
-2. Danach in den Nodes 7.a und 7.b die Service-Namen durch die jeweils eigenen ersetzen.<br />
+<img src="./img/NINA_img_changes_flow.png">
+2. Danach in den Nodes 7.a und 7.b jeweils den Service-Namen durch den eigenen ersetzen.<br />
 
 <a id="dashboard"></a>
 <hr>
