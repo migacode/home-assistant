@@ -31,8 +31,8 @@ Dabei beachten, als <i>nina_entity_name</i> den Entitäts-Namen ohne Nummern, ab
 <img src="./img/NINA_img_nodered_flow.png">
 NoreRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_nodered_flow.json">NINA_warnings_nodered_flow.json</a><br />
 <br />
-1. Die Datei in NodeRED importieren und wie folgt anpassen.<br />
-Im Node 1 (NINA-Warnungen triggern) an den markierten Stellen die Entitäts-Namen geweils durch die eigenen ersetzen.<br />
+Die Datei in NodeRED importieren und wie folgt anpassen.<br />
+1. Im Node 1 (NINA-Warnungen triggern) an den markierten Stellen die Entitäts-Namen geweils durch die eigenen ersetzen.<br />
 Dabei beachten, als <i>msg.topic</i> den Entitäts-Namen ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
 <br />
 <img src="./img/NINA_img_changes_flow.png">
