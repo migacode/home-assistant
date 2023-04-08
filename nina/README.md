@@ -39,7 +39,7 @@ Dabei beachten, als <i>msg.topic</i> den Entitäts-Namen ohne Nummern, aber mit 
 <br />
 <img src="./img/NINA_img_changes_flow.png">
 2. Danach noch in den Nodes 7.a und 7.b jeweils den Service-Namen durch den eigenen ersetzen.<br />
-Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node (7.a, 7.b oder 7.c) einfach löschen.<br />
+Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node (7.a, 7.b, 7.c) einfach löschen.<br />
 <br />
 
 <a id="dashboard"></a>
