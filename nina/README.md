@@ -1,9 +1,14 @@
 # Home Assistant - NINA Warnungen
 
 <strong>Erweiterungen für die <a href="https://www.home-assistant.io/integrations/nina/">NINA-Integration</a> von Home Assistant</strong><br />
-<a href="#dashboard">Dashboard-Karten</a>
-  
+Hier findest Du einige Erweiterungen für die 
+<ul>
+<li><a href="#automation">Automation zum Versenden an Telegram (native)</a></li>
+<li><a href="#nodered">Automation zum Versenden an Telegram (NodeRED-Flow)</a></li>
+<li><a href="#dashboard">Dashboard-Karte</a></li>
+</ul>  
 <hr>
+<a id="automation"></a>
 <strong>Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard</strong><br />
 <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a><br />
 <br />
@@ -11,6 +16,7 @@ Previews:<br />
 <img src="./img/NINA_notification.png">
 
 <hr>
+<a id="nodered"></a>
 <strong>NodeRed-Flow zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard</strong><br />
 <a href="">NINA_warnings_nodered_flow.json</a><br />
 <br />
