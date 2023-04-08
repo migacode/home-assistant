@@ -36,7 +36,7 @@ Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br
 <img src="./img/DWD_img_changes_automation.png">
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann in dem Bereich <i>action:</i> die Zeilen für den jeweiligen Service einfach löschen.<br />
 <br />
-2. Nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu püfen und Automatisierungen neu zu laden ;)<br />
+2. Nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu püfen und Automatisierungen neu zu laden :)<br />
 <br />
 
 <a id="nodered"></a>
@@ -71,10 +71,10 @@ Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code ein
 1. An der markierten Stelle die Entitäts-Namen durch die eigenen ersetzen.<br />
 <br />
 <img src="./img/DWD_img_changes_dashboard.png">
-2. Wer einen anderen Ort als Hörstel verwendet, möchte vermutlich auch die Überschrift <i>title:</i> sowie die Pfadangaben <i>image:</i> und <i>url_path:</i> für das angezeigte Bild an den entsprechenden Ort anpassen :)<br/>
+2. Wer einen anderen Ort als Hörstel verwendet, möchte vermutlich auch die Überschrift <i>title:</i> sowie die Pfadangaben <i>image:</i> und <i>url_path:</i> für das angezeigte Bild an den entsprechenden Ort anpassen.<br/>
 Die dazu benötigten Angaben findet man auf den Webseiten des DWD unter <a href="https://www.dwd.de/DE/wetter/warnungen_aktuell/objekt_einbindung/objekteinbindung_node.html">Objekt-Einbindung</a> und <a href="https://www.dwd.de/DE/wetter/warnungen_gemeinden/warnkarten/warnkarten_node.html">Warnkarten</a>.<br />
 <br />
-3. Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden color-Variablen anpassen :)<br />
+3. Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden color-Variablen anpassen.<br />
 Darüber hinaus verwendet die Karte das HACS-Modul "card-mod", jedoch nur zur Gestaltung der Karten-Umrandung. Wer card-mod nicht verwendet, oder wem die Karte unformattiert besser gefällt, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
 <br />
 <hr>
