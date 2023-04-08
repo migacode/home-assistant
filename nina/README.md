@@ -52,7 +52,7 @@ Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NI
 <br />
 Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
 1. An der markierten Stelle den Entitäts-Namen durch den eigenen ersetzen. Dabei beachten, als <i>nina_entity_name</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
-<b>HINWEIS:</b> Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte, kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden Variablen anpassen :)
+<b>HINWEIS:</b> Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt) möchte, kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden Variablen anpassen :)<br />
 <br />
 <img src="./img/NINA_img_changes_dashboard.png">
 <br />
