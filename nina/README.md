@@ -13,6 +13,8 @@
 <hr>
 <strong>Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard (native)</strong><br />
 <br />
+<img src="./img/NINA_img_notification.png">
+<br />
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <i>automations.yaml</i> kopieren.<br />
@@ -20,13 +22,12 @@ In den markierten Zeilen die Entitäts-Namen geweils durch die eigenen ersetzen:
 <br />
 <img src="./img/NINA_img_changes_automation.png"><br />
 
-Previews:<br />
-<img src="./img/NINA_img_notification.png">
-
 <a id="nodered"></a>
 <hr>
 <strong>NodeRed-Flow zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard</strong><br />
-<a href="">NINA_warnings_nodered_flow.json</a><br />
+<img src="./img/NINA_img_nodered_flow.png">
+<br />
+NoreRED-Flow: <a href="">NINA_warnings_nodered_flow.json</a><br />
 <br />
 1. Die Datei in NodeRED importieren und wie folgt anpassen.<br />
 Im ersten Node "1. NINA-Warnungen triggern" an den markierten Stellen die Entitäts-Namen geweils durch die eigenen ersetzen:<br />
@@ -35,15 +36,12 @@ Im ersten Node "1. NINA-Warnungen triggern" an den markierten Stellen die Entit�
 <br />
 2. Danach in den Nodes 7.a und 7.b die Service-Namen durch die jeweils eigenen ersetzen.<br />
 
-Previews:<br />
-<img src="./img/NINA_img_nodered_flow.png">
-
 <a id="dashboard"></a>
 <hr>
 <strong>Dashboard-Karte zur Anzeige von NINA-Warnungen in Home Assistant</strong><br />
-<a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_dashboard_card.yaml"><strong>NINA_warnings_dashboard_card.yaml</strong></a><br />
 <br />
-Previews:<br />
 <img src="./img/NINA_img_no_warnings.png"><br />
 <img src="./img/NINA_img_warnings.png">
+<br />
+Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_dashboard_card.yaml"><strong>NINA_warnings_dashboard_card.yaml</strong></a><br />
 <hr>
