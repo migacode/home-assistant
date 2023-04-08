@@ -5,7 +5,10 @@
 <li><a href="#automation">Native Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard</a></li>
 <li><a href="#nodered">NodeRed-Flow zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard</a></li>
 <li><a href="#dashboard">Dashboard-Karte zur Anzeige von NINA-Warnungen in Home Assistant</a></li>
-</ul>  
+</ul>
+<br />
+Für den Versand von Benachrichtigungen an Telegram muss die entsprechende <a href="https://www.home-assistant.io/integrations/telegram">Telegram-Integration</a> natürlich zuvor eingerichtet sein. Ebenso erfolgt der Versand an die HA-App natürlich auch nur, wenn diese auf dem Endgerät installiert und eingerichtet ist.<br />
+
 <a id="automation"></a>
 <hr>
 <strong>Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard (native)</strong><br />
