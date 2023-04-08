@@ -3,7 +3,7 @@
 
 
 <hr>
-1. Integration des DWD-Warndienstes in der <i>configuration.yaml</i> (Beispiel Hörstel):<br />
+<h1>Integration des DWD-Warndienstes in der <i>configuration.yaml</i> (Beispiel Hörstel)</h1>
 ```yaml
 sensor:
   - platform: dwd_weather_warnings
