@@ -27,7 +27,7 @@ Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warnc
 <strong>Automation zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard (native)</strong><br />
 <br />
 <img src="./img/DWD_img_notification.png">
-Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/DWD/DWD_warnings_automation.yaml">DWD_warnings_automation.yaml</a><br />
+Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD_warnings_automation.yaml">DWD_warnings_automation.yaml</a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 1. An den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
@@ -44,7 +44,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <strong>NodeRed-Flow zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard</strong><br />
 <br />
 <img src="./img/DWD_img_nodered_flow.png">
-NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/DWD/DWD_warnings_nodered_flow.json">DWD_warnings_nodered_flow.json</a><br />
+NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD_warnings_nodered_flow.json">DWD_warnings_nodered_flow.json</a><br />
 <br />
 Die Datei in NodeRED importieren und wie folgt anpassen.<br />
 1. Im Node 1 (DWD-Warnungen triggern) an den markierten Stellen die Entitäts-Namen geweils durch die eigenen ersetzen.<br />
@@ -61,7 +61,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <br />
 <img src="./img/DWD_img_no_warnings.png">
 <img src="./img/DWD_img_warnings.png">
-Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/DWD/DWD_warnings_dashboard_card.yaml"><strong>DWD_warnings_dashboard_card.yaml</strong></a><br />
+Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD_warnings_dashboard_card.yaml"><strong>DWD_warnings_dashboard_card.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
 1. An der markierten Stelle den Entitäts-Namen durch den eigenen ersetzen. Dabei beachten, als <i>DWD_entity_name</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
