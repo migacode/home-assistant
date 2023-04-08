@@ -55,6 +55,6 @@ Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code ein
 <b>HINWEIS:</b> Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden color-Variablen anpassen :)<br />
 <br />
 <img src="./img/NINA_img_changes_dashboard.png">
-Ach ja - wer einen anderen Ort als Hörstel verwendet, möchte vermutlich auch die Überschrift <i>title:</i> anpassen :)<br/>
+Ach ja - wer einen anderen Ort als Hörstel verwendet, möchte vermutlich auch noch die Überschrift <i>title:</i> anpassen :)<br/>
 <br />
 <hr>
