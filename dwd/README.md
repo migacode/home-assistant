@@ -69,7 +69,9 @@ Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code ein
 1. An der markierten Stelle die Entitäts-Namen durch die eigenen ersetzen.<br />
 <b>HINWEIS:</b> Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden color-Variablen anpassen :)<br />
 <br />
-Ach ja - wer einen anderen Ort als Hörstel verwendet, sollte ggf. auch den <i>title:</i> und den Ort der Karte anpassen :)
 <img src="./img/DWD_img_changes_dashboard.png">
+<br />
+Ach ja - wer einen anderen Ort als Hörstel verwendet, möchte vermutlich auch die Überschrift <i>title:</i> sowie die Pfadangaben <i>image</i> und <i>url_path:<i> für das angezeigte Bild an den entsprechenden Ort anpassen :)<br/>
+Die Angaben dazu findet man auf den Webseiten des DWD unter <a href="https://www.dwd.de/DE/wetter/warnungen_aktuell/objekt_einbindung/objekteinbindung_node.html">Objekt-Einbindung</a>.<br />
 <br />
 <hr>
