@@ -13,9 +13,9 @@
 <hr>
 <strong>Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard (native)</strong><br />
 <br />
-Download: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a><br />
+Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a><br />
 <br />
-Den Inhalt dieser Datei wie folgt anpassen und in die <i>automations.yaml</i> kopieren.<br />
+Den Quelltext wie folgt anpassen und in die <i>automations.yaml</i> kopieren.<br />
 In den markierten Zeilen die Entitäts-Namen geweils durch die eigenen ersetzen:<br />
 <img src="./img/NINA_img_changes.png"><br />
 
