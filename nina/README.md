@@ -49,7 +49,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <strong>Dashboard-Karte zur Anzeige von NINA-Warnungen in Home Assistant</strong><br />
 <br />
 <img src="./img/NINA_img_no_warnings.png">
-<img src="./img/NINA_img_warnings.png">
+<img src="./img/NINA_img_warning.png">
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_dashboard_card.yaml"><strong>NINA_warnings_dashboard_card.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
