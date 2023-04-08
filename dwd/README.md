@@ -1,10 +1,7 @@
-# Home Assistant - DWD Warnungen (Deutscher Wetterdienst)
-
-<strong>Erweiterungen für die DWD-Integration von Home Assistant</strong><br />
+# Home Assistant - DWD Warnungen
 
 <hr>
-
-Integration des DWD-Warndienstes in der <i>configuration.yaml</i> (Beispiel Hörstel)
+Integration des DWD-Warndienstes in der <b>configuration.yaml</b> (Beispiel Hörstel)
 
 ```yaml
 sensor:
@@ -17,7 +14,7 @@ Tipp: Als <i>region_name</i> nicht den Namen, sondern die entsprechende <i>Warnc
 Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html
 
 <hr>
-
+<strong>Erweiterungen für die DWD-Integration (Deutscher Wetterdienst) von Home Assistant</strong><br />
 <ul>
 <li><a href="#automation">Native Automation zum Versenden von DWD-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
 <li><a href="#nodered">NodeRed-Flow zum Versenden von DWD-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
