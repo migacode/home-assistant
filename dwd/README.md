@@ -71,8 +71,7 @@ Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code ein
 <br />
 <img src="./img/DWD_img_changes_dashboard.png">
 <br />
-Ach ja - wer einen anderen Ort als Hörstel verwendet, möchte vermutlich auch die Überschrift <i>title:</i> sowie die Pfadangaben <i>image</i> und <i>url_path:<i> für das angezeigte Bild an den entsprechenden Ort anpassen :)<br/>
-Die Angaben dazu findet man auf den Webseiten des DWD unter <a href="https://www.dwd.de/DE/wetter/warnungen_aktuell/objekt_einbindung/objekteinbindung_node.html">Objekt-Einbindung</a>.<br />
-und den <a href="https://www.dwd.de/DE/wetter/warnungen_gemeinden/warnkarten/warnkarten_node.html">Warnkarten</a>
+Ach ja - wer einen anderen Ort als Hörstel verwendet, möchte vermutlich auch die Überschrift <i>title:</i> sowie die Pfadangaben <i>image:</i> und <i>url_path:<i> für das angezeigte Bild an den entsprechenden Ort anpassen :)<br/>
+Die dazu benötigten Angaben findet man auf den Webseiten des DWD unter <a href="https://www.dwd.de/DE/wetter/warnungen_aktuell/objekt_einbindung/objekteinbindung_node.html">Objekt-Einbindung</a> und <a href="https://www.dwd.de/DE/wetter/warnungen_gemeinden/warnkarten/warnkarten_node.html">Warnkarten</a>.
 <br />
 <hr>
