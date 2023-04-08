@@ -17,6 +17,7 @@
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
+<br />
 1. An den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
 Dabei beachten, als <i>nina_entity_name</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
 <br />
@@ -34,6 +35,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_nodered_flow.json">NINA_warnings_nodered_flow.json</a><br />
 <br />
 Die Datei in NodeRED importieren und wie folgt anpassen.<br />
+<br />
 1. Im Node 1 (NINA-Warnungen triggern) an den markierten Stellen die Entitäts-Namen geweils durch die eigenen ersetzen.<br />
 Dabei beachten, als <i>msg.topic</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
 <br />
@@ -51,6 +53,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/nina/NINA_warnings_dashboard_card.yaml"><strong>NINA_warnings_dashboard_card.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
+<br />
 1. An der markierten Stelle den Entitäts-Namen durch den eigenen ersetzen. Dabei beachten, als <i>nina_entity_name</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
 <b>HINWEIS:</b> Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden color-Variablen anpassen :)<br />
 <br />
