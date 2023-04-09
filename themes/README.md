@@ -1,4 +1,4 @@
-# Home Assistant Themen
+# Home Assistant // Themen
 
 Für alle, die gerne eine weniger bunte Benutzeroberfläche in Home Assistant möchten, habe ich die folgenden Themen erstellt.
 Die Farben für die Einstellung von Lichtern sowie die Statusanzeigen von Entitäten bleiben dabei selbstverständlich erhalten.
