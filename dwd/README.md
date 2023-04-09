@@ -51,7 +51,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <img src="./img/DWD_img_nodered_flow.png">
 NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_nodered_flow.json">DWD_warnings_nodered_flow.json</a><br />
 <br />
-Die Datei in NodeRED importieren und wie folgt anpassen.<br />
+Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 (Wer den Sensor wie oben angeben für Hörstel angelegt hat, kann Schritt 1. und 2. direkt überspringen ;)<br />
 <br />
 1. In Node 1 (DWD-Warnungen triggern) an den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
