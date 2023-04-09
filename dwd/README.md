@@ -43,20 +43,17 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <hr>
 <strong>NodeRED-Flow zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard</strong><br />
 <br />
-... noch in Arbeit ... kommt bald ... :)
-<!--
 <img src="./img/DWD_img_nodered_flow.png">
 NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD_warnings_nodered_flow.json">DWD_warnings_nodered_flow.json</a><br />
 <br />
 Die Datei in NodeRED importieren und wie folgt anpassen.<br />
-1. Im Node 1 (DWD-Warnungen triggern) an den markierten Stellen die Entitäts-Namen geweils durch die eigenen ersetzen.<br />
-Dabei beachten, als <i>msg.topic</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
+1. In den Nodes 1 (DWD-Warnungen triggern) und 2 (Schleife über alle Warnungen) an den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
 <br />
-<img src="./img/DWD_img_changes_flow.png">
-2. Danach noch in den Nodes 7.a und 7.b jeweils den Service-Namen durch den eigenen ersetzen.<br />
-Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node (7.a, 7.b, 7.c) einfach löschen.<br />
+<img src="./img/DWD_img_changes_flow_1.png">
+<img src="./img/DWD_img_changes_flow_2.png">
+2. Danach noch in den Nodes 5.a und 5.b jeweils den Service-Namen durch den eigenen ersetzen.<br />
+Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node (5.a, 5.b, 5.c) einfach löschen.<br />
 <br />
--->
 
 <a id="dashboard"></a>
 <hr>
