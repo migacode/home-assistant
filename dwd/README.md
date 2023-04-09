@@ -63,7 +63,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 
 <a id="dashboard"></a>
 <hr>
-<strong>Dashboard-Karte zur Anzeige von DWD-Warnungen in Home Assistant</strong><br />
+<strong>Dashboard-(Lovelace-)Karte zur Anzeige von DWD-Warnungen in Home Assistant</strong><br />
 <br />
 <img src="./img/DWD_img_no_warnings.png">
 <img src="./img/DWD_img_warning.png">
