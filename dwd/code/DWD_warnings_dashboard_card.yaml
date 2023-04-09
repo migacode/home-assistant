@@ -1,0 +1,75 @@
+# =============================================================================
+# DWD-Warnungen - Home Assistant Dashboard Karte
+# -----------------------------------------------------------------------------
+# Version: 1.02
+# Datum:   08.04.2023
+# Quelle:  https://github.com/migacode/home-assistant/tree/main/dwd
+# =============================================================================
+type: vertical-stack
+title: DWD-Warnungen für Hörstel
+cards:
+  - type: picture
+    image: https://www.dwd.de/DWD/warnungen/warnstatus/SchilderEM.jpg
+    tap_action:
+      action: url
+      url_path: https://www.dwd.de/DE/wetter/warnungen_gemeinden/warnkarten/warnkarten_node.html?ort=H%C3%B6rstel
+    card_mod:
+      style: |-
+        ha-card {
+          margin-top: -10px;
+          border-bottom-width: 0px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+  - type: markdown
+    content: >-
+      {# ------------------------------------------------------------------- #}
+      {# Entitäten der DWD-Sensoren (vollständige Namen)                     #}
+      {# ------------------------------------------------------------------- #}
+      {% set dwd_entity_name_cw = "sensor.dwd_warnungen_hoerstel_current_warning_level" %}
+      {% set dwd_entity_name_aw = "sensor.dwd_warnungen_hoerstel_advance_warning_level" %}
+      {# ------------------------------------------------------------------- #}
+      {% set head_color = "ff8800" %}
+      {% set fg_color_1 = "888888" %}
+      {% set fg_color_2 = "ffffff" %}
+      {% set none_color = "44cc44" %}
+      {% set icon_color = "ffcc00" %}
+      {% set warn_color = ["cccccc", "00ffff", "ffff00", "ff8800", "ff0000"] %}
+      {% set number_current_warnings = state_attr(dwd_entity_name_cw, "warning_count") %}
+      {% set number_advanced_warnings = state_attr(dwd_entity_name_aw, "warning_count") %}
+      {% if ((number_current_warnings == 0 or number_current_warnings == None) and (number_advanced_warnings == 0 or number_advanced_warnings == None)) %}
+      **<font color=#{{none_color}}>Keine aktuellen Warnmeldungen</font><font color=#{{icon_color}}>&nbsp;<ha-icon icon="mdi:emoticon-happy"></ha-icon></font>**
+      {% else %}
+      {% if number_current_warnings != 0 and number_current_warnings != None %}
+      {% for i in range(number_current_warnings) %}
+      {% set level = state_attr(dwd_entity_name_cw, "warning_"  ~ loop.index ~ "_level") %}
+      {% set from_time = state_attr(dwd_entity_name_cw, "warning_" ~ loop.index ~ "_start") | as_timestamp %}
+      {% set to_time = state_attr(dwd_entity_name_cw, "warning_" ~ loop.index ~ "_end") | as_timestamp %}
+      **<font color=#{{head_color}}>{{ state_attr(dwd_entity_name_cw, "warning_" ~ loop.index ~ "_headline") | trim }}</font>**{{"\n"}}
+      <font color=#{{fg_color_1}}>Aktuelle Warnstufe:</font> <font color=#{{warn_color[level]}}>**{{ level | trim }}**</font>{{"\n"}}
+      <font color=#{{fg_color_2}}>{{ state_attr(dwd_entity_name_cw, "warning_" ~ loop.index ~ "_description") | trim }}</font>{{"\n"}}
+      <font color=#{{fg_color_1}}>Von </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr bis </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr.</font>
+      {% if ((number_current_warnings > 1 and loop.index != number_current_warnings) or (number_advanced_warnings != 0 and number_advanced_warnings != None)) %}<hr>{% endif %}
+      {% endfor %}
+      {% endif %}
+      {% if number_advanced_warnings != 0 and number_advanced_warnings != None %}
+      {% for i in range(number_advanced_warnings) %}
+      {% set level = state_attr(dwd_entity_name_aw, "warning_"  ~ loop.index ~ "_level") %}
+      {% set from_time = state_attr(dwd_entity_name_aw, "warning_" ~ loop.index ~ "_start") | as_timestamp %}
+      {% set to_time = state_attr(dwd_entity_name_aw, "warning_" ~ loop.index ~ "_end") | as_timestamp %}
+      **<font color=#{{head_color}}>{{ state_attr(dwd_entity_name_aw, "warning_" ~ loop.index ~ "_headline") | trim }}</font>**{{"\n"}}
+      <font color=#{{fg_color_1}}>Erweiterte Warnstufe:</font> <font color=#{{warn_color[level]}}>**{{ level | trim }}**</font>{{"\n"}}
+      <font color=#{{fg_color_2}}>{{ state_attr(dwd_entity_name_aw, "warning_" ~ loop.index ~ "_description") | trim }}</font>{{"\n"}}
+      <font color=#{{fg_color_1}}>Von </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr bis </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr.</font>
+      {% if number_advanced_warnings > 1 and loop.index != number_advanced_warnings %}<hr>{% endif %}
+      {% endfor %}
+      {% endif %}
+      {% endif %}
+    card_mod:
+      style: |-
+        ha-card {
+          margin-top: -10px;
+          border-top-width: 0px;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+        }
