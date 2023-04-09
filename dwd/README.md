@@ -32,13 +32,15 @@ Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 <br />
-1. An den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
+1. An den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
 (Wer den Sensor wie oben angeben angelegt hat, braucht dessen Entitäten nicht mehr ändern ;)<br />
+<img src="./img/DWD_img_changes_automation_1.png">
 <br />
-<img src="./img/DWD_img_changes_automation.png">
+2. An den markierten Stellen die Entitäts-Namen der Services jeweils durch die eigenen ersetzen.<br />
+<img src="./img/DWD_img_changes_automation_2.png">
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann in dem Bereich <i>action:</i> die Zeilen für den jeweiligen Service einfach löschen.<br />
 <br />
-2. Nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automatisierungen neu zu laden :)<br />
+3. Nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automatisierungen neu zu laden :)<br />
 <br />
 
 <a id="nodered"></a>
