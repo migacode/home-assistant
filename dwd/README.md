@@ -36,7 +36,7 @@ Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br
 (Wer den Sensor wie oben angeben für Hörstel angelegt hat, kann diesen Schritt überspringen ;)<br />
 <br />
 <img src="./img/DWD_img_changes_automation_1.png">
-2. An den markierten Stellen die Entitäts-Namen der Services jeweils durch die eigenen ersetzen.<br />
+2. An den markierten Stellen die Entitäts-Namen der Benachrichtigungs-Dienste jeweils durch die eigenen ersetzen.<br />
 <br />
 <img src="./img/DWD_img_changes_automation_2.png">
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann in dem Bereich <i>action:</i> die Zeilen für den jeweiligen Service einfach löschen.<br />
@@ -54,13 +54,13 @@ NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 (Wer den Sensor wie oben angeben für Hörstel angelegt hat, kann Schritt 1. und 2. direkt überspringen ;)<br />
 <br />
-1. In Node 1 (DWD-Warnungen triggern) an den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
+1. In Node 1 (DWD-Warnungen triggern) an den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
 <br />
 <img src="./img/DWD_img_changes_flow_1.png">
 2. In Node 2 (Schleife über alle Warnungen) an den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
 <br />
 <img src="./img/DWD_img_changes_flow_2.png">
-3. In den Nodes 5.a und 5.b jeweils den Service-Namen durch den eigenen ersetzen.<br />
+3. In den Nodes 5.a und 5.b jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.<br />
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node (5.a, 5.b, 5.c) einfach löschen.<br />
 <br />
 
