@@ -37,7 +37,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <img src="./img/NINA_img_nodered_flow.png">
 NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_nodered_flow.json">NINA_warnings_nodered_flow.json</a><br />
 <br />
-Die Datei in NodeRED importieren und wie folgt anpassen.<br />
+Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
 1. Im Node 1 (NINA-Warnungen triggern) an den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
 Dabei beachten, für den Eintrag <i>msg.topic</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
