@@ -9,7 +9,7 @@ sensor:
 ```
 Der <i>name</i> ist frei wählbar, Home Assistant setzt daraus allerdings die Namen der zugehörigen Entitäten zusammen ;)<br />
 <b>Tipp:</b> Als <i>region_name</i> nicht den Namen des Ortes, sondern die entsprechende <i>Warncell-ID</i> eintragen, welche in folgender Liste zu finden ist.<br />
-Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html
+Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html<br />
 <b>Hinweis:</b> Neue Sensoren werden in Home Assistant leider erst nach einem Neustart aktiv.
 
 <hr>
@@ -33,6 +33,7 @@ Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 <br />
 1. An den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
+(Wer den Sensor wie oben angeben angelegt hat, braucht dessen Entitäten nicht mehr ändern ;)<br />
 <br />
 <img src="./img/DWD_img_changes_automation.png">
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann in dem Bereich <i>action:</i> die Zeilen für den jeweiligen Service einfach löschen.<br />
