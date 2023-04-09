@@ -33,7 +33,7 @@ Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/DWD
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 <br />
 1. An den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
-(Wer den Sensor wie oben angeben angelegt hat, kann diesen Schritt überspringen ;)<br />
+(Wer den Sensor wie oben angeben für Hörstel angelegt hat, kann diesen Schritt überspringen ;)<br />
 <br />
 <img src="./img/DWD_img_changes_automation_1.png">
 2. An den markierten Stellen die Entitäts-Namen der Services jeweils durch die eigenen ersetzen.<br />
@@ -54,7 +54,7 @@ NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/
 Die Datei in NodeRED importieren und wie folgt anpassen.<br />
 <br />
 1. In Node 1 (DWD-Warnungen triggern) an den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
-(Wer den Sensor wie oben angeben angelegt hat, kann diesen Schritt überspringen ;)<br />
+(Wer den Sensor wie oben angeben für Hörstel angelegt hat, kann diesen Schritt überspringen ;)<br />
 <br />
 <img src="./img/DWD_img_changes_flow_1.png">
 2. In Node 2 (Schleife über alle Warnungen) an den markierten Stellen die Entitäts-Namen jeweils durch die eigenen ersetzen.<br />
