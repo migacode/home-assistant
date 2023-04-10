@@ -40,11 +40,10 @@ NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/nina
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
 1. Im Node 1 (NINA-Warnungen triggern) an den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
-Dabei beachten, für den Eintrag <i>msg.topic</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
 <br />
 <img src="./img/NINA_img_changes_flow_1.png">
 2. In Node 2 (Warnungen auslesen und Nachricht zusammenbauen) an den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
-Dabei beachten, für den Eintrag <i>msg.topic</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
+Dabei beachten, für den Eintrag <i>nina_entity_name</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
 <br />
 <img src="./img/NINA_img_changes_flow_2.png">
 3. In den Nodes 3.a und 3.b jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.<br />
