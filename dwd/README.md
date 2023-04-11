@@ -13,8 +13,7 @@ Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warnc
 <b>Hinweis:</b> Neue Sensoren werden in Home Assistant leider erst nach einem Neustart aktiv.
 
 <hr>
-<h2>Erweiterungen für die DWD-Integration (Deutscher Wetterdienst) von Home Assistant</h2>
-<ul>
+<h2>Erweiterungen für die DWD-Integration (Deutscher Wetterdienst) von Home Assistant</h2><ul>
 <li><a href="#automation">Native Automation zum Versenden von DWD-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
 <li><a href="#nodered">NodeRED-Flow zum Versenden von DWD-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
 <li><a href="#dashboard">Dashboard-(Lovelace-)Karte zur Anzeige von DWD-Warnungen in Home Assistant</a></li>
@@ -25,7 +24,6 @@ Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warnc
 <a id="automation"></a>
 <hr>
 <h3>Automation zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard (native)</h3>
-<br />
 <img src="./img/DWD_img_notification.png">
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_automation.yaml">DWD_warnings_automation.yaml</a><br />
 <br />
@@ -65,7 +63,6 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <a id="dashboard"></a>
 <hr>
 <h3>Dashboard-(Lovelace-)Karte zur Anzeige von DWD-Warnungen in Home Assistant</h3>
-<br />
 <img src="./img/DWD_img_no_warnings.png">
 <img src="./img/DWD_img_warning.png">
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_dashboard_card.yaml"><strong>DWD_warnings_dashboard_card.yaml</strong></a><br />
