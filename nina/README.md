@@ -1,7 +1,6 @@
-# Home Assistant // NINA-Warnungen
+<h1>Home Assistant // NINA-Warnungen</h1>
 
-<strong>Erweiterungen für die <a href="https://www.home-assistant.io/integrations/nina/">NINA-Integration</a> von Home Assistant</strong><br />
-<ul>
+<h2>Erweiterungen für die <a href="https://www.home-assistant.io/integrations/nina/">NINA-Integration</a> von Home Assistant</h2><ul>
 <li><a href="#automation">Native Automation zum Versenden von NINA-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
 <li><a href="#nodered">NodeRED-Flow zum Versenden von NINA-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
 <li><a href="#dashboard">Dashboard-(Lovelace-)Karte zur Anzeige von NINA-Warnungen in Home Assistant</a></li>
@@ -11,8 +10,7 @@
 
 <a id="automation"></a>
 <hr>
-<strong>Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard (native)</strong><br />
-<br />
+<h3>Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard (native)</h3>
 <img src="./img/NINA_img_notification.png">
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a><br />
 <br />
@@ -32,8 +30,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 
 <a id="nodered"></a>
 <hr>
-<strong>NodeRED-Flow zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard</strong><br />
-<br />
+<h3>NodeRED-Flow zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard</h3>
 <img src="./img/NINA_img_nodered_flow.png">
 NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_nodered_flow.json">NINA_warnings_nodered_flow.json</a><br />
 <br />
@@ -51,8 +48,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 
 <a id="dashboard"></a>
 <hr>
-<strong>Dashboard-(Lovelace-)Karte zur Anzeige von NINA-Warnungen in Home Assistant</strong><br />
-<br />
+<h3>Dashboard-(Lovelace-)Karte zur Anzeige von NINA-Warnungen in Home Assistant</h3>
 <img src="./img/NINA_img_no_warnings.png">
 <img src="./img/NINA_img_warning.png">
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_dashboard_card.yaml"><strong>NINA_warnings_dashboard_card.yaml</strong></a><br />
