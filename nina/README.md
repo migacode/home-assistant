@@ -11,7 +11,7 @@
 <a id="automation"></a>
 <hr>
 <h3>Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard (native)</h3>
-<img src="./img/NINA_img_notification_1.png"><img src="./img/NINA_img_notification_2.png">
+<img style="float:left;" src="./img/NINA_img_notification_ha.png"><img style="float:left;" src="./img/NINA_img_notification_nr.png"><br />
 Quelltext&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
