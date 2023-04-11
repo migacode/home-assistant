@@ -14,7 +14,6 @@ Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warnc
 
 <hr>
 <h2>Erweiterungen für die DWD-Integration (Deutscher Wetterdienst) von Home Assistant</h2>
-<br />
 <ul>
 <li><a href="#automation">Native Automation zum Versenden von DWD-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
 <li><a href="#nodered">NodeRED-Flow zum Versenden von DWD-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
@@ -47,7 +46,6 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <a id="nodered"></a>
 <hr>
 <h3>NodeRED-Flow zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard</h3>
-<br />
 <img src="./img/DWD_img_nodered_flow.png">
 NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_nodered_flow.json">DWD_warnings_nodered_flow.json</a><br />
 <br />
