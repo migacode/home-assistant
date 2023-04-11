@@ -1,4 +1,4 @@
-# Home Assistant // DWD-Warnungen
+<h1>Home Assistant // DWD-Warnungen</h1>
 
 Die Integration des Warndienstes des <a href="https://www.dwd.de/">Deutschen Wetterdienst</a> (DWD) erfolgt manuell in der <b>configuration.yaml</b> durch Anlage eines Sensors (hier als Beispiel für die Stadt Hörstel).<br/>
 ```yaml
@@ -13,7 +13,7 @@ Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warnc
 <b>Hinweis:</b> Neue Sensoren werden in Home Assistant leider erst nach einem Neustart aktiv.
 
 <hr>
-<h1>Erweiterungen für die DWD-Integration (Deutscher Wetterdienst) von Home Assistant</h1>
+<h2>Erweiterungen für die DWD-Integration (Deutscher Wetterdienst) von Home Assistant</h2>
 <br />
 <ul>
 <li><a href="#automation">Native Automation zum Versenden von DWD-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
@@ -25,7 +25,7 @@ Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warnc
 
 <a id="automation"></a>
 <hr>
-<strong>Automation zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard (native)</strong><br />
+<h3>Automation zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard (native)</h3>
 <br />
 <img src="./img/DWD_img_notification.png">
 Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_automation.yaml">DWD_warnings_automation.yaml</a><br />
