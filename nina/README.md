@@ -1,6 +1,6 @@
 <h1>Home Assistant // NINA-Warnungen</h1>
 
-Der Warndienst <b>NINA</b> vom <a href="https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-nina_node.html">Bundesamt für Bevölkerungsschutz und Katastrophenhilfe</a> kann auch in Home Assistant eingebunden werden. Dazu muss in den Einstellungen lediglich die <a href="https://www.home-assistant.io/integrations/nina/">NINA-Integration</a> hinzugefügt werden.
+Der Warndienst <b>NINA</b> vom <a href="https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-nina_node.html">Bundesamt für Bevölkerungsschutz und Katastrophenhilfe</a> kann auch in Home Assistant eingebunden werden. Dazu muss in den Einstellungen von Home Assistant lediglich die <a href="https://www.home-assistant.io/integrations/nina/">NINA-Integration</a> hinzugefügt werden.
 
 <hr>
 <h2>Erweiterungen für die NINA-Integration von Home Assistant</h2><ul>
