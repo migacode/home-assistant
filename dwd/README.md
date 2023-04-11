@@ -25,7 +25,7 @@ Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warnc
 <hr>
 <h3>Automation zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard (native)</h3>
 <img src="./img/DWD_img_notification.png">
-Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_automation.yaml">DWD_warnings_automation.yaml</a><br />
+Quelltext&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_automation.yaml">DWD_warnings_automation.yaml</a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 <br />
@@ -45,7 +45,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <hr>
 <h3>NodeRED-Flow zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard</h3>
 <img src="./img/DWD_img_nodered_flow.png">
-NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_nodered_flow.json">DWD_warnings_nodered_flow.json</a><br />
+NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_nodered_flow.json">DWD_warnings_nodered_flow.json</a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 (Wer den Sensor wie oben angeben für Hörstel angelegt hat, kann Schritt 1. und 2. direkt überspringen ;)<br />
@@ -65,7 +65,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <h3>Dashboard-(Lovelace-)Karte zur Anzeige von DWD-Warnungen in Home Assistant</h3>
 <img src="./img/DWD_img_no_warnings.png">
 <img src="./img/DWD_img_warning.png">
-Quelltext: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_dashboard_card.yaml"><strong>DWD_warnings_dashboard_card.yaml</strong></a><br />
+Quelltext&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_dashboard_card.yaml"><strong>DWD_warnings_dashboard_card.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
 <br />
