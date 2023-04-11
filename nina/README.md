@@ -1,5 +1,8 @@
 <h1>Home Assistant // NINA-Warnungen</h1>
 
+Die vom <a href="https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-nina_node.html">Bundesamt für Bevölkerungsschutz und Katastrophenhilfe" herausgegebenen Warnungen über der Dienst NINA stehen für HA über eine vollwertige Integration zur Verfügung
+
+<hr>
 <h2>Erweiterungen für die <a href="https://www.home-assistant.io/integrations/nina/">NINA-Integration</a> von Home Assistant</h2><ul>
 <li><a href="#automation">Native Automation zum Versenden von NINA-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
 <li><a href="#nodered">NodeRED-Flow zum Versenden von NINA-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
