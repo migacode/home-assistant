@@ -46,7 +46,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 
 <a id="nodered"></a>
 <hr>
-<strong>NodeRED-Flow zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard</strong><br />
+<h3>NodeRED-Flow zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard</h3>
 <br />
 <img src="./img/DWD_img_nodered_flow.png">
 NodeRED-Flow: <a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_nodered_flow.json">DWD_warnings_nodered_flow.json</a><br />
@@ -66,7 +66,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 
 <a id="dashboard"></a>
 <hr>
-<strong>Dashboard-(Lovelace-)Karte zur Anzeige von DWD-Warnungen in Home Assistant</strong><br />
+<h3>Dashboard-(Lovelace-)Karte zur Anzeige von DWD-Warnungen in Home Assistant</h3>
 <br />
 <img src="./img/DWD_img_no_warnings.png">
 <img src="./img/DWD_img_warning.png">
