@@ -1,9 +1,9 @@
 # =============================================================================
 # DWD-Warnungen - Home Assistant Dashboard Karte
 # -----------------------------------------------------------------------------
-# Version: 1.02
-# Datum:   08.04.2023
-# Quelle:  https://github.com/migacode/home-assistant/tree/main/dwd
+# Version: 1.04
+# Datum:   14.04.2023
+# Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 type: vertical-stack
 title: DWD-Warnungen für Hörstel
@@ -35,6 +35,8 @@ cards:
       {% set none_color = "44cc44" %}
       {% set icon_color = "ffcc00" %}
       {% set warn_color = ["cccccc", "00ffff", "ffff00", "ff8800", "ff0000"] %}
+      {% set weather_warnidx = ['EIS', 'FROST', 'GEWITTER', 'HAGEL', 'HITZE', 'KALT', 'KÄLTE', 'ORKAN', 'REGEN', 'SCHNEE', 'STURM', 'WASSER', 'WIND'] %}
+      {% set weather_symbols = ['❄️', '❄️', '⛈', '🌨', '☀️', '❄️', '❄️', '🌪', '🌧', '☃️', '🌪', '🌊', '🌬'] %}
       {% set number_current_warnings = state_attr(dwd_entity_name_cw, "warning_count") %}
       {% set number_advanced_warnings = state_attr(dwd_entity_name_aw, "warning_count") %}
       {% if ((number_current_warnings == 0 or number_current_warnings == None) and (number_advanced_warnings == 0 or number_advanced_warnings == None)) %}
@@ -45,7 +47,7 @@ cards:
       {% set level = state_attr(dwd_entity_name_cw, "warning_"  ~ loop.index ~ "_level") %}
       {% set from_time = state_attr(dwd_entity_name_cw, "warning_" ~ loop.index ~ "_start") | as_timestamp %}
       {% set to_time = state_attr(dwd_entity_name_cw, "warning_" ~ loop.index ~ "_end") | as_timestamp %}
-      **<font color=#{{head_color}}>{{ state_attr(dwd_entity_name_cw, "warning_" ~ loop.index ~ "_headline") | trim }}</font>**{{"\n"}}
+      {% set cw_headline = state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_headline') %}**<font color=#{{head_color}}>{{ cw_headline | trim }}</font>**{{' '}}{% for item in weather_warnidx %}{% if item in cw_headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}{{'\n'}}
       <font color=#{{fg_color_1}}>Aktuelle Warnstufe:</font> <font color=#{{warn_color[level]}}>**{{ level | trim }}**</font>{{"\n"}}
       <font color=#{{fg_color_2}}>{{ state_attr(dwd_entity_name_cw, "warning_" ~ loop.index ~ "_description") | trim }}</font>{{"\n"}}
       <font color=#{{fg_color_1}}>Von </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr bis </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr.</font>
@@ -57,7 +59,7 @@ cards:
       {% set level = state_attr(dwd_entity_name_aw, "warning_"  ~ loop.index ~ "_level") %}
       {% set from_time = state_attr(dwd_entity_name_aw, "warning_" ~ loop.index ~ "_start") | as_timestamp %}
       {% set to_time = state_attr(dwd_entity_name_aw, "warning_" ~ loop.index ~ "_end") | as_timestamp %}
-      **<font color=#{{head_color}}>{{ state_attr(dwd_entity_name_aw, "warning_" ~ loop.index ~ "_headline") | trim }}</font>**{{"\n"}}
+      {% set aw_headline = state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_headline') %}**<font color=#{{head_color}}>{{ aw_headline | trim }}</font>**{{' '}}{% for item in weather_warnidx %}{% if item in aw_headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}{{'\n'}}
       <font color=#{{fg_color_1}}>Erweiterte Warnstufe:</font> <font color=#{{warn_color[level]}}>**{{ level | trim }}**</font>{{"\n"}}
       <font color=#{{fg_color_2}}>{{ state_attr(dwd_entity_name_aw, "warning_" ~ loop.index ~ "_description") | trim }}</font>{{"\n"}}
       <font color=#{{fg_color_1}}>Von </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr bis </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr.</font>

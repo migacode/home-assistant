@@ -1,9 +1,9 @@
 # =============================================================================
 # DWD-Warnungen versenden - Home Assistant Automation
 # -----------------------------------------------------------------------------
-# Version: 1.12
-# Datum:   12.04.2023
-# Quelle:  https://github.com/migacode/home-assistant/tree/main/dwd
+# Version: 1.15
+# Datum:   15.04.2023
+# Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 - id: "dwd_warnings"
   alias: DWD-Warnungen versenden
@@ -16,7 +16,30 @@
 {% set dwd_entity_name_cw = 'sensor.dwd_warnungen_hoerstel_current_warning_level' %}
 {% set dwd_entity_name_aw = 'sensor.dwd_warnungen_hoerstel_advance_warning_level' %}
 {# ------------------------------------------------------------------- #}
-{% set number_current_warnings = state_attr(dwd_entity_name_cw, 'warning_count') %}{% set number_advanced_warnings = state_attr(dwd_entity_name_aw, 'warning_count') %}{% if ((number_current_warnings != 0 and number_current_warnings != None) or (number_advanced_warnings != 0 and number_advanced_warnings != None)) %}⚡ *DWD-WARNUNG!* ⚡️ (über HA){{'\n'}}{{'\n'}}{% if number_current_warnings != 0 and number_current_warnings != None %}{% for i in range(number_current_warnings) %}{{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_headline') | trim }}{{'\n'}}{{ 'Aktuelle Warnstufe: ' ~ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_level') | trim }}{{'\n'}}{{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}Von {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_start') | as_timestamp | timestamp_custom('%d.%m.%Y um %H:%M Uhr', true) | trim }} bis {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_end') | as_timestamp | timestamp_custom('%d.%m.%Y um %H:%M Uhr', true) | trim }}.{{'\n'}}{{'\n'}}{% endfor %}{% endif %}{% if number_advanced_warnings != 0 and number_advanced_warnings != None %}{% for i in range(number_advanced_warnings) %}{{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_headline') | trim }}{{'\n'}}{{ 'Erweiterte Warnstufe: ' ~ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_level') | trim }}{{'\n'}}{{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}Von {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_start') | as_timestamp | timestamp_custom('%d.%m.%Y um %H:%M Uhr', true) | trim }} bis {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_end') | as_timestamp | timestamp_custom('%d.%m.%Y um %H:%M Uhr', true) | trim }}.{{'\n'}}{{'\n'}}{% endfor %}{% endif %}{% endif %}"
+{%- set weather_warnidx = ['EIS', 'FROST', 'GEWITTER', 'HAGEL', 'HITZE', 'KALT', 'KÄLTE', 'ORKAN', 'REGEN', 'SCHNEE', 'STURM', 'WASSER', 'WIND'] %}
+{%- set weather_symbols = ['❄️', '❄️', '⛈', '🌨', '☀️', '❄️', '❄️', '🌪', '🌧', '☃️', '🌪', '🌊', '🌬'] %}
+{%- set blitz = '⚡' %}
+{%- set trennlinie = '\n───\n' %}
+{%- set number_current_warnings = state_attr(dwd_entity_name_cw, 'warning_count') %}
+{%- set number_advanced_warnings = state_attr(dwd_entity_name_aw, 'warning_count') %}
+{%- if ((number_current_warnings != 0 and number_current_warnings != None) or (number_advanced_warnings != 0 and number_advanced_warnings != None)) %}
+{%- if number_current_warnings != None and number_advanced_warnings != None %}
+{%- set number_all_warnings = number_current_warnings + number_advanced_warnings %}
+{% else %}
+{%- set number_all_warnings = 0 %} ## der Einfachheit halber nicht weiter differenziert
+{% endif %}
+{{blitz}} ***DWD-WARNUNG{% if number_all_warnings > 1 %}EN ({{ number_all_warnings }}){% endif %}*** {{blitz}} (über HA){{trennlinie}}
+{%- if number_current_warnings != 0 and number_current_warnings != None %}{%- for i in range(number_current_warnings) %}
+{%- set cw_headline = state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_headline') %}***{{ cw_headline | trim }}***{{' '}}{% for item in weather_warnidx %}{% if item in cw_headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}{{'\n'}}
+{{- 'Aktuelle Warnstufe: ***' ~ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_level') ~ '***' | trim }}{{'\n'}}
+{{- state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}Von {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_end') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.{{trennlinie}}
+{% endfor %}{% endif %}
+{%- if number_advanced_warnings != 0 and number_advanced_warnings != None %}{%- for i in range(number_advanced_warnings) %}
+{%- set aw_headline = state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_headline') %}***{{ aw_headline | trim }}***{{' '}}{% for item in weather_warnidx %}{% if item in aw_headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}{{'\n'}}
+{{- 'Erweiterte Warnstufe: ***' ~ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_level') ~ '***' | trim }}{{'\n'}}
+{{- state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}Von {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_end') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.{{trennlinie}}
+{% endfor %}{% endif %}
+{% endif %}"
   trigger:
     - platform: state
       entity_id:
@@ -31,15 +54,18 @@
       - service: notify.telegram_michael
         continue_on_error: true
         data:
-          message: "{{ alert_message }}"
+          message: "{{ alert_message | trim }}"
       - service: notify.mobile_app_galaxy_von_michael
         continue_on_error: true
         data:
-          message: "{{ alert_message }}"
+          message: "{% set appmsg = alert_message | replace('***','') | trim %}{{ appmsg[0:320] ~ '\n(Details siehe HA-App)' }}"
+          data:
+            ledColor: "red"
+            vibrationPattern: "100, 1000, 100, 1000, 100"
       - service: notify.persistent_notification
         continue_on_error: true
         data:
-          message: "{{ alert_message }}"
+          message: "{{ alert_message | replace('***','**') | trim }}"
       # - service: script.notify_all_michael
       #   continue_on_error: true
       #   data:
