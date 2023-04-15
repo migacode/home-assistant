@@ -22,10 +22,10 @@
 {%- set ns = namespace() %}{%- set ns.anzahl_meldungen = 0 %}{%- for i in range(5) %}{%- if is_state(nina_entity_name ~ loop.index, 'on') %}{%- set ns.anzahl_meldungen = ns.anzahl_meldungen + 1 %}{% endif %}{% endfor %}
 {{blitz}} ***NINA-WARNUNG{% if ns.anzahl_meldungen > 1 %}EN ({{ ns.anzahl_meldungen }}){% endif %}*** {{blitz}} (über HA){{trennlinie}}
 {%- for i in range(5) %}{%- if is_state(nina_entity_name ~ loop.index, 'on') %}
-{%- set headline = state_attr(nina_entity_name ~ loop.index, 'headline') %}***{{ headline | trim }}***{{' '}}{% for item in weather_warnidx %}{% if item in headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}{{'\n'}}
+{%- set headline = state_attr(nina_entity_name ~ loop.index, 'headline') %}***{{ headline | trim }}***{{' '}}{% for item in weather_warnidx %}{% if item in headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}{{'\n'}}{{'XXX'}}
 {%- set level = state_attr(nina_entity_name ~ loop.index, 'severity') %}{{ 'Warnstufe: ' }}***{% if level == 'Extreme' %}Extrem{% elif level == 'Severe' %}Schwer{% elif level == 'Moderate' %}Mäßig{% elif level == 'Minor' %}Gering{% else %}Hinweis{% endif %}***{{'\n'}}
-{{- state_attr(nina_entity_name ~ loop.index, 'description') | trim }}{{'\n'}}Von {{ state_attr(nina_entity_name ~ loop.index, 'start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(nina_entity_name ~ loop.index, 'expires') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.{{trennlinie}}
-{% endif %}{% endfor %}"
+{{- state_attr(nina_entity_name ~ loop.index, 'description') | trim }}{{'\n'}}{{'ZZZ'}}Von {{ state_attr(nina_entity_name ~ loop.index, 'start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(nina_entity_name ~ loop.index, 'expires') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.
+{{trennlinie}}{% endif %}{% endfor %}"
   trigger:
     - platform: state
       entity_id: binary_sensor.nina_warning_hoerstel_1
@@ -44,23 +44,21 @@
       to: "on"
   action:
     - parallel:
+      # Nachricht für Telegram formatieren und versenden
       - service: notify.telegram_michael
         continue_on_error: true
         data:
-          message: "{{ alert_message | trim }}"
+          message: "{{ alert_message | regex_replace('[XXX|ZZZ]','') | trim }}"
+      # Nachricht für die HA-App formatieren, kürzen und versenden
       - service: notify.mobile_app_galaxy_von_michael
         continue_on_error: true
         data:
-          message: "{% set appmsg = alert_message | replace('***','') | trim %}{{ appmsg[0:320] ~ '\n(Details siehe HA-App)' }}"
+          message: "{% set appmsg = alert_message | regex_replace('XXX.+\n.+\nZZZ','') | replace('***','')  | trim %}{{ appmsg[0:255] ~ '\n(Details siehe HA-App)' }}"
           data:
             ledColor: "red"
-            vibrationPattern: "100, 1000, 100, 1000, 100"
+      # Nachricht für das Dashboard formatieren und versenden
       - service: notify.persistent_notification
         continue_on_error: true
         data:
-          message: "{{ alert_message | replace('***','**') | trim }}"
-      # - service: script.notify_all_michael
-      #   continue_on_error: true
-      #   data:
-      #     message: "{{ alert_message }}"
+          message: "{{ alert_message | regex_replace('[XXX|ZZZ]','') | replace('***','**') | trim }}"
   mode: restart
