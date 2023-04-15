@@ -1,9 +1,9 @@
 # =============================================================================
 # NINA-Warnungen versenden - Home Assistant Automation
 # -----------------------------------------------------------------------------
-# Version: 1.12
-# Datum:   12.04.2023
-# Quelle:  https://github.com/migacode/home-assistant/tree/main/nina
+# Version: 1.15
+# Datum:   15.04.2023
+# Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 - id: "nina_warnings"
   alias: NINA-Warnungen versenden
@@ -15,7 +15,17 @@
 {# ------------------------------------------------------------------- #}
 {% set nina_entity_name = 'binary_sensor.nina_warning_hoerstel_' %}
 {# ------------------------------------------------------------------- #}
-⚡ *NINA-WARNUNG!* ⚡️ (über HA){{'\n'}}{{'\n'}}{% for i in range(5) %}{% if is_state(nina_entity_name ~ loop.index, 'on') %}{% set level = state_attr(nina_entity_name ~ loop.index, 'severity') %}{{ state_attr(nina_entity_name ~ loop.index, 'headline') | trim }}{{'\n'}}{{ 'Warnstufe: ' }}{% if level == 'Extreme' %}Extrem{% elif level == 'Severe' %}Schwer{% elif level == 'Moderate' %}Mäßig{% elif level == 'Minor' %}Gering{% else %}Hinweis{% endif %}{{'\n'}}{{ state_attr(nina_entity_name ~ loop.index, 'description') | trim }}{{'\n'}}Von {{ state_attr(nina_entity_name ~ loop.index, 'start') | as_timestamp | timestamp_custom('%d.%m.%Y um %H:%M Uhr', true) | trim }} bis {{ state_attr(nina_entity_name ~ loop.index, 'expires') | as_timestamp | timestamp_custom('%d.%m.%Y um %H:%M Uhr', true) | trim }}.{{'\n'}}{{'\n'}}{% endif %}{% endfor %}"
+{%- set weather_warnidx = ['EIS', 'FROST', 'GEWITTER', 'HAGEL', 'HITZE', 'KALT', 'KÄLTE', 'ORKAN', 'REGEN', 'SCHNEE', 'STURM', 'WASSER', 'WIND'] %}
+{%- set weather_symbols = ['❄️', '❄️', '🌩', '🌩', '☀️', '❄️', '❄️', '🌪', '☂️', '⛄️', '🌪', '🌊', '💨'] %}
+{%- set blitz = '⚡' %}
+{%- set trennlinie = '\n───\n' %}
+{%- set ns = namespace() %}{%- set ns.anzahl_meldungen = 0 %}{%- for i in range(5) %}{%- if is_state(nina_entity_name ~ loop.index, 'on') %}{%- set ns.anzahl_meldungen = ns.anzahl_meldungen + 1 %}{% endif %}{% endfor %}
+{{blitz}} ***NINA-WARNUNG{% if ns.anzahl_meldungen > 1 %}EN ({{ ns.anzahl_meldungen }}){% endif %}*** {{blitz}} (über HA){{trennlinie}}
+{%- for i in range(5) %}{%- if is_state(nina_entity_name ~ loop.index, 'on') %}
+{%- set headline = state_attr(nina_entity_name ~ loop.index, 'headline') %}***{{ headline | trim }}***{{' '}}{% for item in weather_warnidx %}{% if item in headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}{{'\n'}}
+{%- set level = state_attr(nina_entity_name ~ loop.index, 'severity') %}{{ 'Warnstufe: ' }}***{% if level == 'Extreme' %}Extrem{% elif level == 'Severe' %}Schwer{% elif level == 'Moderate' %}Mäßig{% elif level == 'Minor' %}Gering{% else %}Hinweis{% endif %}***{{'\n'}}
+{{- state_attr(nina_entity_name ~ loop.index, 'description') | trim }}{{'\n'}}Von {{ state_attr(nina_entity_name ~ loop.index, 'start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(nina_entity_name ~ loop.index, 'expires') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.{{trennlinie}}
+{% endif %}{% endfor %}"
   trigger:
     - platform: state
       entity_id: binary_sensor.nina_warning_hoerstel_1
@@ -37,15 +47,18 @@
       - service: notify.telegram_michael
         continue_on_error: true
         data:
-          message: "{{ alert_message }}"
+          message: "{{ alert_message | trim }}"
       - service: notify.mobile_app_galaxy_von_michael
         continue_on_error: true
         data:
-          message: "{{ alert_message }}"
+          message: "{% set appmsg = alert_message | replace('***','') | trim %}{{ appmsg[0:320] ~ '\n(Details siehe HA-App)' }}"
+          data:
+            ledColor: "red"
+            vibrationPattern: "100, 1000, 100, 1000, 100"
       - service: notify.persistent_notification
         continue_on_error: true
         data:
-          message: "{{ alert_message }}"
+          message: "{{ alert_message | replace('***','**') | trim }}"
       # - service: script.notify_all_michael
       #   continue_on_error: true
       #   data:

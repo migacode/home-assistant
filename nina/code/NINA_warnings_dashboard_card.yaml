@@ -1,9 +1,9 @@
 # =============================================================================
 # NINA-Warnungen - Home Assistant Dashboard Karte
 # -----------------------------------------------------------------------------
-# Version: 1.02
-# Datum:   08.04.2023
-# Quelle:  https://github.com/migacode/home-assistant/tree/main/nina
+# Version: 1.14
+# Datum:   14.04.2023
+# Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 type: vertical-stack
 title: NINA-Warnungen für Hörstel
@@ -21,6 +21,8 @@ cards:
       {% set none_color = "44cc44" %}
       {% set icon_color = "ffcc00" %}
       {% set warn_color = ["cccccc", "00ffff", "ffff00", "ff8800", "ff0000"] %}
+      {%- set weather_warnidx = ['EIS', 'FROST', 'GEWITTER', 'HAGEL', 'HITZE', 'KALT', 'KÄLTE', 'ORKAN', 'REGEN', 'SCHNEE', 'STURM', 'WASSER', 'WIND'] %}
+      {%- set weather_symbols = ['❄️', '❄️', '🌩', '🌩', '☀️', '❄️', '❄️', '🌪', '☂️', '⛄️', '🌪', '🌊', '💨'] %}
 
       {% set ns = namespace() %}
 
@@ -51,8 +53,7 @@ cards:
       {% set from_time = state_attr(nina_entity_name ~ loop.index, "start") | as_timestamp %}
       {% set to_time = state_attr(nina_entity_name ~ loop.index, "expires") | as_timestamp %}
 
-      **<font color=#{{head_color}}>{{ state_attr(nina_entity_name ~ loop.index,
-      "headline") | trim }}</font>**
+      {% set headline = state_attr(nina_entity_name ~ loop.index, 'headline') %}**<font color=#{{head_color}}>{{ headline | trim }}</font>**{{' '}}{% for item in weather_warnidx %}{% if item in headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}
 
       <font color=#{{fg_color_1}}>Warnstufe:</font> **{% if level == "Extreme" %}<font
       color=#{{warn_color[4]}}>Extrem{% elif level == "Severe" %}<font
