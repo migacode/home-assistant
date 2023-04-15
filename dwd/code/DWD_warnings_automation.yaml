@@ -26,7 +26,7 @@
 {%- if number_current_warnings != None and number_advanced_warnings != None %}
 {%- set number_all_warnings = number_current_warnings + number_advanced_warnings %}
 {% else %}
-{%- set number_all_warnings = 0 %} ## der Einfachheit halber nicht weiter differenziert
+{%- set number_all_warnings = 0 %}
 {% endif %}
 {{blitz}} ***DWD-WARNUNG{% if number_all_warnings > 1 %}EN ({{ number_all_warnings }}){% endif %}*** {{blitz}} (über HA){{trennlinie}}
 {%- if number_current_warnings != 0 and number_current_warnings != None %}{%- for i in range(number_current_warnings) %}
