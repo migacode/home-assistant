@@ -1,8 +1,8 @@
 # =============================================================================
 # DWD-Warnungen versenden - Home Assistant Automation
 # -----------------------------------------------------------------------------
-# Version: 1.15
-# Datum:   15.04.2023
+# Version: 1.18
+# Datum:   18.04.2023
 # Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 - id: "dwd_warnings"
@@ -17,7 +17,7 @@
 {% set dwd_entity_name_aw = 'sensor.dwd_warnungen_hoerstel_advance_warning_level' %}
 {# ------------------------------------------------------------------- #}
 {%- set weather_warnidx = ['EIS', 'FROST', 'GEWITTER', 'HAGEL', 'HITZE', 'KALT', 'KÄLTE', 'ORKAN', 'REGEN', 'SCHNEE', 'STURM', 'WASSER', 'WIND'] %}
-{%- set weather_symbols = ['❄️', '❄️', '⛈', '🌨', '☀️', '❄️', '❄️', '🌪', '🌧', '☃️', '🌪', '🌊', '🌬'] %}
+{%- set weather_symbols = ['❄️', '❄️', '🌩', '🌩', '☀️', '❄️', '❄️', '🌪', '☂️', '⛄️', '🌪', '🌊', '💨'] %}
 {%- set blitz = '⚡' %}
 {%- set trennlinie = '\n───\n' %}
 {%- set number_current_warnings = state_attr(dwd_entity_name_cw, 'warning_count') %}
@@ -30,12 +30,12 @@
 {% endif %}
 {{blitz}} ***DWD-WARNUNG{% if number_all_warnings > 1 %}EN ({{ number_all_warnings }}){% endif %}*** {{blitz}} (über HA){{trennlinie}}
 {%- if number_current_warnings != 0 and number_current_warnings != None %}{%- for i in range(number_current_warnings) %}
-{%- set cw_headline = state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_headline') %}***{{ cw_headline | trim }}***{{' '}}{% for item in weather_warnidx %}{% if item in cw_headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}{{'\n'}}{{'XXX'}}
+{%- set headline = state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_headline') %}***{{ headline | regex_replace('Amtliche Warnung vor ','',true) | trim }}***{{' '}}{% for item in weather_warnidx %}{% if item in headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}{{'\n'}}{{'XXX'}}
 {{- 'Aktuelle Warnstufe: ***' ~ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_level') ~ '***' | trim }}{{'\n'}}
 {{- state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}{{'ZZZ'}}Von {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_end') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.{{trennlinie}}
 {% endfor %}{% endif %}
 {%- if number_advanced_warnings != 0 and number_advanced_warnings != None %}{%- for i in range(number_advanced_warnings) %}
-{%- set aw_headline = state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_headline') %}***{{ aw_headline | trim }}***{{' '}}{% for item in weather_warnidx %}{% if item in aw_headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}{{'\n'}}{{'XXX'}}
+{%- set headline = state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_headline') %}***{{ headline | regex_replace('Amtliche Warnung vor ','',true) | trim }}***{{' '}}{% for item in weather_warnidx %}{% if item in headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}{{'\n'}}{{'XXX'}}
 {{- 'Erweiterte Warnstufe: ***' ~ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_level') ~ '***' | trim }}{{'\n'}}
 {{- state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}{{'ZZZ'}}Von {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_end') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.{{trennlinie}}
 {% endfor %}{% endif %}
@@ -55,18 +55,17 @@
       - service: notify.telegram_michael
         continue_on_error: true
         data:
-          message: "{{ alert_message | regex_replace('[XXX|ZZZ]','') | trim }}"
+          message: "{{ alert_message | regex_replace('(XXX)|(ZZZ)','') | trim }}"
       # Nachricht für die HA-App formatieren, kürzen und versenden
       - service: notify.mobile_app_galaxy_von_michael
         continue_on_error: true
         data:
-          message: "{% set appmsg = alert_message | regex_replace('XXX.+\n.+\nZZZ','') | replace('***','')  | trim %}{{ appmsg[0:255] ~ '\n(Details siehe HA-App)' }}"
+          message: "{% set appmsg = alert_message | regex_replace('(XXX).+\n.+\n(ZZZ)','') | replace(' Uhr','') | replace(' um ',' ') | replace('***','') | trim %}{{ appmsg[0:255] ~ '\n(Details siehe HA-App)' }}"
           data:
             ledColor: "red"
       # Nachricht für das Dashboard formatieren und versenden
       - service: notify.persistent_notification
         continue_on_error: true
         data:
-          message: "{{ alert_message | regex_replace('[XXX|ZZZ]','') | replace('***','**') | trim }}"
+          message: "{{ alert_message | regex_replace('(XXX)|(ZZZ)','') | replace('***','**') | trim }}"
   mode: restart
-
