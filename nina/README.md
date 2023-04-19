@@ -14,7 +14,7 @@ Der Warndienst <b>NINA</b> vom <a href="https://www.bbk.bund.de/DE/Warnung-Vorso
 <a id="automation"></a>
 <hr>
 <h3>Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard (native)</h3>
-<img style="float:left;" src="./img/NINA_img_notification_ha.png">
+<img style="float:left;" src="./img/NINA_img_notifications.png">
 Quelltext&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
