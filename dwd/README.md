@@ -24,7 +24,7 @@ Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warnc
 <a id="automation"></a>
 <hr>
 <h3>Automation zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard (native)</h3>
-<img src="./img/DWD_img_notification_ha.png">
+<img src="./img/DWD_img_notifications.png">
 Quelltext&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_automation.yaml">DWD_warnings_automation.yaml</a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
