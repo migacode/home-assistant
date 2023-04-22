@@ -1,8 +1,8 @@
 # =============================================================================
 # NINA-Warnungen versenden - Home Assistant Automation
 # -----------------------------------------------------------------------------
-# Version: 1.18
-# Datum:   18.04.2023
+# Version: 1.19
+# Datum:   22.04.2023
 # Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 - id: "nina_warnings"
@@ -10,22 +10,25 @@
   description: ""
   variables:
     alert_message: "
-{# ------------------------------------------------------------------- #}
-{# Entität der NINA-Sensoren (vollständiger Name OHNE Nummer am Ende)  #}
-{# ------------------------------------------------------------------- #}
-{% set nina_entity_name = 'binary_sensor.nina_warning_hoerstel_' %}
-{# ------------------------------------------------------------------- #}
-{%- set weather_warnidx = ['EIS', 'FROST', 'GEWITTER', 'HAGEL', 'HITZE', 'KALT', 'KÄLTE', 'ORKAN', 'REGEN', 'SCHNEE', 'STURM', 'WASSER', 'WIND'] %}
-{%- set weather_symbols = ['❄️', '❄️', '🌩', '🌩', '☀️', '❄️', '❄️', '🌪', '☂️', '⛄️', '🌪', '🌊', '💨'] %}
-{%- set blitz = '⚡' %}
-{%- set trennlinie = '\n───\n' %}
-{%- set ns = namespace() %}{%- set ns.anzahl_meldungen = 0 %}{%- for i in range(5) %}{%- if is_state(nina_entity_name ~ loop.index, 'on') %}{%- set ns.anzahl_meldungen = ns.anzahl_meldungen + 1 %}{% endif %}{% endfor %}
-{{blitz}} ***NINA-WARNUNG{% if ns.anzahl_meldungen > 1 %}EN ({{ ns.anzahl_meldungen }}){% endif %}*** {{blitz}} (über HA){{trennlinie}}
-{%- for i in range(5) %}{%- if is_state(nina_entity_name ~ loop.index, 'on') %}
-{%- set headline = state_attr(nina_entity_name ~ loop.index, 'headline') %}***{{ headline | regex_replace('Amtliche Warnung vor ','',true) | trim }}***{{' '}}{% for item in weather_warnidx %}{% if item in headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}{{'\n'}}{{'XXX'}}
-{%- set level = state_attr(nina_entity_name ~ loop.index, 'severity') %}{{ 'Warnstufe: ' }}***{% if level == 'Extreme' %}Extrem{% elif level == 'Severe' %}Schwer{% elif level == 'Moderate' %}Mäßig{% elif level == 'Minor' %}Gering{% else %}Hinweis{% endif %}***{{'\n'}}
-{{- state_attr(nina_entity_name ~ loop.index, 'description') | trim }}{{'\n'}}{{'ZZZ'}}Von {{ state_attr(nina_entity_name ~ loop.index, 'start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(nina_entity_name ~ loop.index, 'expires') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.
-{{trennlinie}}{% endif %}{% endfor %}"
+{#- ------------------------------------------------------------------- -#}
+{#- Entität der NINA-Sensoren (vollständiger Name OHNE Nummer am Ende)  -#}
+{#- ------------------------------------------------------------------- -#}
+{%- set nina_entity_name = 'binary_sensor.nina_warning_hoerstel_' -%}
+{#- ------------------------------------------------------------------- -#}
+{%- set weather_warnidx = ['EIS', 'FROST', 'GEWITTER', 'HAGEL', 'HITZE', 'KALT', 'KÄLTE', 'ORKAN', 'REGEN', 'SCHNEE', 'STURM', 'WASSER', 'WIND'] -%}
+{%- set weather_symbols = ['❄️', '❄️', '🌩', '🌩', '☀️', '❄️', '❄️', '🌪', '☂️', '⛄️', '🌪', '🌊', '💨'] -%}
+{%- set blitz = '⚡' -%}
+{%- set trennlinie = '\n───\n' -%}
+{%- set ns = namespace() -%}{%- set ns.anzahl_meldungen = 0 -%}{%- for i in range(5) -%}{%- if is_state(nina_entity_name ~ loop.index, 'on') -%}{%- set ns.anzahl_meldungen = ns.anzahl_meldungen + 1 -%}{%- endif -%}{%- endfor -%}
+{{blitz}} ***NINA-WARNUNG{%- if ns.anzahl_meldungen > 1 -%}EN ({{ ns.anzahl_meldungen }}){%- endif -%}*** {{blitz}} (über HA){{trennlinie}}
+{%- for i in range(5) -%}
+  {%- if is_state(nina_entity_name ~ loop.index, 'on') -%}
+    {%- set headline = state_attr(nina_entity_name ~ loop.index, 'headline') -%}***{{ headline | regex_replace('Amtliche Warnung vor ','',true) | trim }}***{{' '}}{%- for item in weather_warnidx -%}{%- if item in headline.upper() -%}{{ weather_symbols[loop.index0] | trim }}{%- endif -%}{%- endfor -%}{{'\n'}}{{'XXX'}}
+    {%- set level = state_attr(nina_entity_name ~ loop.index, 'severity') -%}{{ 'Warnstufe: ' }}***{%- if level == 'Extreme' -%}Extrem{%- elif level == 'Severe' -%}Schwer{%- elif level == 'Moderate' -%}Mäßig{%- elif level == 'Minor' -%}Gering{%- else -%}Hinweis{%- endif -%}***{{'\n'}}
+    {{- state_attr(nina_entity_name ~ loop.index, 'description') | trim }}{{'\n'}}{{'ZZZ'}}Von {{ state_attr(nina_entity_name ~ loop.index, 'start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(nina_entity_name ~ loop.index, 'expires') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.
+    {{trennlinie}}
+  {%- endif -%}
+{%- endfor -%}"
   trigger:
     - platform: state
       entity_id: binary_sensor.nina_warning_hoerstel_1
@@ -53,7 +56,7 @@
       - service: notify.mobile_app_galaxy_von_michael
         continue_on_error: true
         data:
-          message: "{% set appmsg = alert_message | regex_replace('(XXX).+\n.+\n(ZZZ)','') | replace(' Uhr','') | replace(' um ',' ') | replace('***','') | trim %}{{ appmsg[0:255] ~ '\n(Details siehe HA-App)' }}"
+          message: "{%- set appmsg = alert_message | regex_replace('(XXX).+\n.+\n(ZZZ)','') | replace(' Uhr','') | replace(' um ',' ') | replace('***','') | trim -%}{{ appmsg[0:255] ~ '\n(Details siehe HA-App)' }}"
           data:
             ledColor: "red"
       # Nachricht für das Dashboard formatieren und versenden
