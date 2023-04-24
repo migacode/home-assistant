@@ -1,8 +1,8 @@
 # =============================================================================
-# DWD-Warnungen versenden - Home Assistant Automation
+# DWD-Warnungen versenden - Home Assistant Automatisierung
 # -----------------------------------------------------------------------------
-# Version: 1.19
-# Datum:   22.04.2023
+# Version: 1.20
+# Datum:   23.04.2023
 # Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 - id: "dwd_warnings"
@@ -48,12 +48,10 @@
 {%- endif -%}"
   trigger:
     - platform: state
-      entity_id:
-        - sensor.dwd_warnungen_hoerstel_current_warning_level
+      entity_id: sensor.dwd_warnungen_hoerstel_current_warning_level
       attribute: warning_count
     - platform: state
-      entity_id:
-        - sensor.dwd_warnungen_hoerstel_advance_warning_level
+      entity_id: sensor.dwd_warnungen_hoerstel_advance_warning_level
       attribute: warning_count
   action:
     - parallel:
