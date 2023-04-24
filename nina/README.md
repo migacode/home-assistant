@@ -4,7 +4,7 @@ Der Warndienst <b>NINA</b> vom <a href="https://www.bbk.bund.de/DE/Warnung-Vorso
 
 <hr>
 <h2>Erweiterungen für die NINA-Integration von Home Assistant</h2><ul>
-<li><a href="#automation">Native Automation zum Versenden von NINA-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
+<li><a href="#automation">Native Automatisierung zum Versenden von NINA-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
 <li><a href="#nodered">NodeRED-Flow zum Versenden von NINA-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
 <li><a href="#dashboard">Dashboard-(Lovelace-)Karte zur Anzeige von NINA-Warnungen in Home Assistant</a></li>
 </ul>
@@ -13,7 +13,7 @@ Der Warndienst <b>NINA</b> vom <a href="https://www.bbk.bund.de/DE/Warnung-Vorso
 
 <a id="automation"></a>
 <hr>
-<h3>Automation zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard (native)</h3>
+<h3>Automatisierung zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard (native)</h3>
 <img style="float:left;" src="./img/NINA_img_notifications.png">
 Quelltext&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_automation.yaml">NINA_warnings_automation.yaml</a><br />
 <br />
