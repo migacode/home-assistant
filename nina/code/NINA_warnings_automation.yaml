@@ -1,8 +1,8 @@
 # =============================================================================
-# NINA-Warnungen versenden - Home Assistant Automation
+# NINA-Warnungen versenden - Home Assistant Automatisierung
 # -----------------------------------------------------------------------------
-# Version: 1.19
-# Datum:   22.04.2023
+# Version: 1.20
+# Datum:   23.04.2023
 # Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 - id: "nina_warnings"
@@ -20,31 +20,43 @@
 {%- set blitz = '⚡' -%}
 {%- set trennlinie = '\n───\n' -%}
 {%- set ns = namespace() -%}{%- set ns.anzahl_meldungen = 0 -%}{%- for i in range(5) -%}{%- if is_state(nina_entity_name ~ loop.index, 'on') -%}{%- set ns.anzahl_meldungen = ns.anzahl_meldungen + 1 -%}{%- endif -%}{%- endfor -%}
-{{blitz}} ***NINA-WARNUNG{%- if ns.anzahl_meldungen > 1 -%}EN ({{ ns.anzahl_meldungen }}){%- endif -%}*** {{blitz}} (über HA){{trennlinie}}
-{%- for i in range(5) -%}
-  {%- if is_state(nina_entity_name ~ loop.index, 'on') -%}
-    {%- set headline = state_attr(nina_entity_name ~ loop.index, 'headline') -%}***{{ headline | regex_replace('Amtliche Warnung vor ','',true) | trim }}***{{' '}}{%- for item in weather_warnidx -%}{%- if item in headline.upper() -%}{{ weather_symbols[loop.index0] | trim }}{%- endif -%}{%- endfor -%}{{'\n'}}{{'XXX'}}
-    {%- set level = state_attr(nina_entity_name ~ loop.index, 'severity') -%}{{ 'Warnstufe: ' }}***{%- if level == 'Extreme' -%}Extrem{%- elif level == 'Severe' -%}Schwer{%- elif level == 'Moderate' -%}Mäßig{%- elif level == 'Minor' -%}Gering{%- else -%}Hinweis{%- endif -%}***{{'\n'}}
-    {{- state_attr(nina_entity_name ~ loop.index, 'description') | trim }}{{'\n'}}{{'ZZZ'}}Von {{ state_attr(nina_entity_name ~ loop.index, 'start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(nina_entity_name ~ loop.index, 'expires') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.
-    {{trennlinie}}
-  {%- endif -%}
-{%- endfor -%}"
+{%- if ns.anzahl_meldungen > 0 -%}
+  {{blitz}} ***NINA-WARNUNG{%- if ns.anzahl_meldungen > 1 -%}EN ({{ ns.anzahl_meldungen }}){%- endif -%}*** {{blitz}} (über HA){{trennlinie}}
+  {%- for i in range(5) -%}
+    {%- if is_state(nina_entity_name ~ loop.index, 'on') -%}
+      {%- set headline = state_attr(nina_entity_name ~ loop.index, 'headline') -%}***{{ headline | regex_replace('Amtliche Warnung vor ','',true) | trim }}***{{' '}}{%- for item in weather_warnidx -%}{%- if item in headline.upper() -%}{{ weather_symbols[loop.index0] | trim }}{%- endif -%}{%- endfor -%}{{'\n'}}{{'XXX'}}
+      {%- set level = state_attr(nina_entity_name ~ loop.index, 'severity') -%}{{ 'Warnstufe: ' }}***{%- if level == 'Extreme' -%}Extrem{%- elif level == 'Severe' -%}Schwer{%- elif level == 'Moderate' -%}Mäßig{%- elif level == 'Minor' -%}Gering{%- else -%}Hinweis{%- endif -%}***{{'\n'}}
+      {{- state_attr(nina_entity_name ~ loop.index, 'description') | trim }}{{'\n'}}{{'ZZZ'}}Von {{ state_attr(nina_entity_name ~ loop.index, 'start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(nina_entity_name ~ loop.index, 'expires') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.
+      {{trennlinie}}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  Alle NINA-Warnmeldungen wurden aufgehoben.
+{%- endif -%}"
   trigger:
+    # -------------------------------------------------------------------------
+    # Im Standard wird bei jeder Statusänderung (auf on und off) irgendeines
+    # NINA-Sensors getriggert, so dass auch bei Aufhebung einer Warnmeldung
+    # eine Nachricht mit dem Status der verbliebenen Warnungen versendet wird,
+    # selbst wenn sich an diesen zwischenzeitlich nichts verändert hat.
+    # Durch aktivieren (auskommentieren) von [to: "on"] wird immer nur dann
+    # eine Nachricht versendet, wenn eine neue NINA-Warnmeldung erscheint.
+    # -------------------------------------------------------------------------
     - platform: state
       entity_id: binary_sensor.nina_warning_hoerstel_1
-      to: "on"
+      # to: "on"
     - platform: state
       entity_id: binary_sensor.nina_warning_hoerstel_2
-      to: "on"
+      # to: "on"
     - platform: state
       entity_id: binary_sensor.nina_warning_hoerstel_3
-      to: "on"
+      # to: "on"
     - platform: state
       entity_id: binary_sensor.nina_warning_hoerstel_4
-      to: "on"
+      # to: "on"
     - platform: state
       entity_id: binary_sensor.nina_warning_hoerstel_5
-      to: "on"
+      # to: "on"
   action:
     - parallel:
       # Nachricht für Telegram formatieren und versenden
