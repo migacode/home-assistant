@@ -1,15 +1,8 @@
 
-<h1>Home Assistant // Spooky der Hausgeist (Anwesenheits-Simulation)</h1>
+<h1>Home Assistant // Spooky Anwesenheits-Simulation</h1>
 
-Die Integration des Warndienstes des <a href="https://www.dwd.de/">Deutschen Wetterdienst</a> (DWD) erfolgt manuell in der <b>configuration.yaml</b> durch Anlage eines Sensors (hier als Beispiel für die Stadt Hörstel).<br/>
-```yaml
-sensor:
-  - platform: dwd_weather_warnings
-    name: DWD-Warnungen Hoerstel
-    region_name: 805566016
-```
 <hr>
-<h2>Anwesenheits-Simulation für Home Assistant</h2><ul>
+<h2>Spooky der Hausgeist für Home Assistant</h2><ul>
 <li><a href="#automation">Native Automatisierung</a></li>
 <li><a href="#nodered">NodeRED-Flow</a></li>
 </ul>
