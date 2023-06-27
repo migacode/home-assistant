@@ -1,0 +1,59 @@
+# =============================================================================
+# Spooky der Hausgeist (Anwesenheits-Simulation ;)
+# -----------------------------------------------------------------------------
+# Version: 1.00
+# Datum:   27.06.2023
+# Quelle:  https://github.com/migacode/home-assistant
+# =============================================================================
+- id: "spooky_the_house_ghost"
+  alias: Spooky der Hausgeist
+  description: ""
+  variables:
+    # Anzahl der Geräte in den Gruppen spooky_lights und spooky_switches ermitteln
+    count_l: "{{ expand('light.spooky_lights') | map(attribute='entity_id') | list | count }}"
+    count_s: "{{ expand('switch.spooky_switches') | map(attribute='entity_id') | list | count }}"
+    # Wahrscheinlichkeit der Gruppenauswahl nach Anzahl der darin befindlichen Geräte gewichten
+    range_max: "{{ count_l + count_s + 1 }}"
+    random_val: "{{ range(1, range_max) | random }}"
+    # Auswahl eines zufälligen Gerätes aus einer Gruppe
+    device_entity: "
+      {% if count_l > 0 and count_s > 0 %}
+        {% if random_val > count_l %}
+          {{ expand('switch.spooky_switches') | map(attribute='entity_id') | list | random }}
+        {% else %}
+          {{ expand('light.spooky_lights') | map(attribute='entity_id') | list | random }}
+        {% endif %}
+      {% else %}
+        {% if count_l > 0 %}
+          {{ expand('light.spooky_lights') | map(attribute='entity_id') | list | random }}
+        {% endif %}
+        {% if count_s > 0 %}
+          {{ expand('switch.spooky_switches') | map(attribute='entity_id') | list | random }}
+        {% endif %}
+      {% endif %}"
+  trigger:
+    # Alle 5 Minuten (bei Änderung auch Verzögerung weiter unten anpassen)
+    - platform: time_pattern
+      minutes: "/5"
+  condition:
+    # Nur ausführen wenn der Hausgeist-Modus an ist ...
+    - condition: state
+      entity_id: input_boolean.spookymode
+      state: "on"
+    # Nur zwischen Sonnenuntergang und Sonnenaufgang ausführen
+    - condition: sun
+      after: sunset
+      before: sunrise
+  action:
+    # Verzögerung zufällig zwischen 00:00 und 04:59
+    # (Dauer des triggernden time_pattern-Intervalls minus 1 Sekunde)
+    - delay:
+        minutes: "{{range(0,4) | random}}"
+        seconds: "{{range(0,59) | random}}"
+    # Gerät umschalten
+    - service: homeassistant.toggle
+      continue_on_error: true
+      data: {}
+      target:
+        entity_id: "{{ device_entity }}"
+  mode: single
