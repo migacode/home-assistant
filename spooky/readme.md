@@ -23,7 +23,7 @@ Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br
 <a id="nodered"></a>
 <hr>
 <h3>NodeRED-Flow</h3>
-<img src="./img/spooky_img_nodered_flow.png">
+<img src="./img/spooky_img_flow.png">
 NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/spooky/code/spooky_nodered_flow.json">spooky_nodered_flow.json</a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
