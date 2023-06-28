@@ -30,12 +30,13 @@ Idealerweise sollte man sich Dashboard-Karte mit einem Schalter für input_boole
 <h3>Automatisierung (native)</h3>
 Quelltext&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/spooky/code/spooky_automation.yaml">spooky_automation.yaml</a><br />
 <br />
-Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
+Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren (siehe dazu auch den Absatz <a href="#konfiguration">Konfiguration<a>).<br />
 <br />
-1. ...<br />
+1. Intervall ...<br />
 <br />
+2. Verzögerung ...<br />
 <br />
-2. Nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automatisierungen neu zu laden :)<br />
+3. Nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automatisierungen neu zu laden :)<br />
 <br />
 
 <a id="nodered_komplex"></a>
@@ -44,11 +45,11 @@ Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br
 <img src="./img/spooky_img_flow_komplex.png">
 NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/spooky/code/spooky_nodered_flow_komplex.json">spooky_nodered_flow_komplex.json</a><br />
 <br />
-Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
+Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen (siehe dazu auch den Absatz <a href="#konfiguration">Konfiguration<a>).<br />
 <br />
-1. In Node 1 ...<br />
+1. Intervall ...<br />
 <br />
-2. In Node 2 ...<br />
+2. Verzögerung ...<br />
 <br />
 
 <a id="nodered_kompakt"></a>
@@ -57,17 +58,18 @@ Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <img src="./img/spooky_img_flow_kompakt.png">
 NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/spooky/code/spooky_nodered_flow_kompakt.json">spooky_nodered_flow_kompakt.json</a><br />
 <br />
-Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
+Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen (siehe dazu auch den Absatz <a href="#konfiguration">Konfiguration<a>).<br />
 <br />
-1. In Node 1 ...<br />
+1. Intervall ...<br />
 <br />
-2. In Node 2 ...<br />
+2. Verzögerung ...<br />
 <br />
 
 <hr>
-
+<a id="konfiguration"></a>
+<h2>Konfiguration</h2>
 Spooky ist so vorkonfiguriert, dass die Umschaltung der Geräte nur bei Dunkelheit erfolgt (zwischen Sonnenuntergang und Sonnenaufgang) - dies sowie weitere Bedingungen können natürlich leicht geändert und erweitert werden.
-<h2>Zeitabstände</h2>
+<h3>Zeitabstände</h3>
 Der Zeitabstand der Schaltvorgänge kann durch die Parameter Intervall (time_pattern) und Verzögerung (delay) bzw. bei den NodeRED-Flows in den entsprechenden Nodes eingestellt werden.
 Beispiel: Wenn 4 Geräte durchschnittlich alle 20 Minuten ein- oder ausgeschaltet werden sollen, sollte das Intervall 5 Minuten (20 / 4 = 5) betragen.
-Damit verdächtigerweise nicht genau alle 5 Minuten etwas passiert, kann zusätzlich ein zeitlicher Versatz defniert werden, welcher idealerweise fast genauso groß ist wie das Intervall selbst.
+Damit verdächtigerweise nicht genau alle 5 Minuten etwas passiert, kann und sollte zusätzlich ein zeitlicher Versatz definiert werden, welcher als Maximalwert idealerweise fast genauso groß ist wie das Intervall selbst.
