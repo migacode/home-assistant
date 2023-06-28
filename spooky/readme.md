@@ -44,9 +44,9 @@ NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assista
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen (siehe dazu auch den Absatz <a href="#konfiguration">Konfiguration<a>).<br />
 <br />
-1. Intervall ...<br />
+1. Das Intervall in Node 1 auf die gewünschten Werte einstellen.<br />
 <br />
-2. Verzögerung ...<br />
+2. Die Verzögerung in Node 4 auf die gewünschten Werte einstellen.<br />
 <br />
 
 <a id="nodered_kompakt"></a>
@@ -57,9 +57,9 @@ NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assista
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen (siehe dazu auch den Absatz <a href="#konfiguration">Konfiguration<a>).<br />
 <br />
-1. Intervall ...<br />
+1. Das Intervall in Node 1 auf die gewünschten Werte einstellen.<br />
 <br />
-2. Verzögerung ...<br />
+2. Die Verzögerung in Node 2 auf die gewünschten Werte einstellen.<br />
 <br />
 
 <hr>
