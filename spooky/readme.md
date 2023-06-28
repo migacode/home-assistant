@@ -29,9 +29,9 @@ Quelltext&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren (siehe dazu auch den Absatz <a href="#konfiguration">Konfiguration<a>).<br />
 <br />
-1. Intervall ...<br />
+1. Das Intervall im Absatz <i>trigger:</i> unter der Platform <i>time_pattern</i> auf die gewünschten Werte einstellen.<br />
 <br />
-2. Verzögerung ...<br />
+2. Die Verzögerung im Absatz <i>action:</i> unter <i>delay:</i> auf die gewünschten Werte einstellen.<br />
 <br />
 3. Nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automatisierungen neu zu laden :)<br />
 <br />
