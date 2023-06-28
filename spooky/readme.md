@@ -1,4 +1,4 @@
-<h1>Home Assistant // Spooky <img src="./img/ghost_gray.png" width="32" height="32"> Anwesenheits-Simulation</h1>
+<h1>Home Assistant // Spooky <img src="./img/ghost_gray.png" width="40" height="40"> Anwesenheits-Simulation</h1>
 
 <b>Spooky der Hausgeist</b> ist eine einfache Anwesenheits-Simulation für Home Assistant. Dabei werden in regelmäßigen Abständen mit zufälligem zeitlichen Versatz zufällig frei definierbare Geräte wie Lampen, TV oder Radios ein- und ausgeschaltet.
 Dazu verwendet <b>Spooky</b> nur die Standard-Funktionen von Home Assistant und ggf. NodeRED, es werden keine zusätzlichen Integrationen, Add-Ons, HACS-Module oder NodeRED-Paletten benötigt.
