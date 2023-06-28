@@ -6,7 +6,7 @@ Zur Integration von <b>Spooky</b> in Home Assistant stehen drei Varianten zur Ve
 Wobei die NodeRED-Flows deutlich komplexer sind, weil NodeRED im Standard über keinen automatisiert parametrisierbaren Zufallsgenerator verfügt, und das Umschalten von Entitäten nur mit expliziter Angabe der Domain erlaubt. Daher wird in den NodeRED-Flows der Zufallsgenerator per JavaScript-Funktion umgesetzt, und die Umschaltung getrennt nach Gruppen (Domains) verarbeitet.
 
 <hr>
-<h2>Spooky der Hausgeist für Home Assistant</h2><ul>
+<h2>Spooky der Hausgeist für Home Assistant (Varianten)</h2><ul>
 <li><a href="#automation">Native Automatisierung (Yaml-Code)</a></li>
 <li><a href="#nodered-komplex">NodeRED-Flow komplex (Verarbeitung mit Nodes, nur Zufallsgenerator in JavaScript)</a></li>
 <li><a href="#nodered-kompakt">NodeRED-Flow kompakt (Großteil der Verarbeitung in einem JavaScript-Funktionsblock)</a></li>
@@ -16,11 +16,11 @@ Wobei die NodeRED-Flows deutlich komplexer sind, weil NodeRED im Standard über 
 <h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>Spooky</b> noch die folgenden Helfer, welche vorher in Home Assistant angelegt werden müssen.
 Diese bei der Anlage am besten genau so schreiben wie angegeben, damit die Entitäten auch so wie in den Klammern stehend erzeugt werden - ansonsten können diese natürlich auch nachträgliuch manuell angepasst werden.<ul>
-<li>Schalter "Spookymode" (input_boolean.spookymode) zur (De-)Aktivierung der Automatisierung</li>
+<li>Schalter "Spookymode" (input_boolean.spookymode) zur De-/Aktivierung der Automatisierung</li>
 <li>Licht-Gruppe "Spooky Lights" (light.spooky_lights) mit allen einzubeziehenden Lichtern</li>
 <li>Schalter-Gruppe "Spooky Switches" (switch.spooky_switches) mit allen einzubeziehenden Schaltern</li>
 </ul>
-Idealerweise sollte man sich auch eine Dashboard-Karte mit einem Schalter für den <b>Spookymode</b> (input_boolean.spookymode) anlegen, um <b>Spooky</b> bequem über die Bnutzeroberfläche von Home Assistant ein- und ausschalten zu können.
+Idealerweise sollte man sich dann auch eine Dashboard-Karte mit einem Schalter für den <b>Spookymode</b> (input_boolean.spookymode) anlegen, um <b>Spooky</b> bequem über die Bnutzeroberfläche von Home Assistant ein- und ausschalten zu können.
 
 <a id="automation"></a>
 <hr>
