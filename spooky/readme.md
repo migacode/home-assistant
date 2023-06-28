@@ -13,17 +13,14 @@ Wobei die NodeRED-Flows deutlich komplexer sind, weil NodeRED im Standard über 
 </ul>
 
 <hr>
-
+<h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>Spooky</b> noch die folgenden Helfer, welche vorher in Home Assistant angelegt werden müssen.
 Diese bei der Anlage am besten genau so schreiben wie angegeben, damit die Entitäten auch so wie in den Klammern stehend erzeugt werden - ansonsten können diese natürlich auch nachträgliuch manuell angepasst werden.<ul>
-<li>Schalter "Spookymode" (input_boolean.spookymode) zur einfachen (De-)Aktivierung der Automatisierung</li>
+<li>Schalter "Spookymode" (input_boolean.spookymode) zur (De-)Aktivierung der Automatisierung</li>
 <li>Licht-Gruppe "Spooky Lights" (light.spooky_lights) mit allen einzubeziehenden Lichtern</li>
 <li>Schalter-Gruppe "Spooky Switches" (switch.spooky_switches) mit allen einzubeziehenden Schaltern</li>
 </ul>
-
-Idealerweise sollte man sich Dashboard-Karte mit einem Schalter für input_boolean.spookymode anlegen.
-
-
+Idealerweise sollte man sich auch eine Dashboard-Karte mit einem Schalter für den <b>Spookymode</b> (input_boolean.spookymode) anlegen, um <b>Spooky</b> bequem über die Bnutzeroberfläche von Home Assistant ein- und ausschalten zu können.
 
 <a id="automation"></a>
 <hr>
@@ -73,3 +70,4 @@ Spooky ist so vorkonfiguriert, dass die Umschaltung der Geräte nur bei Dunkelhe
 Der Zeitabstand der Schaltvorgänge kann durch die Parameter Intervall (time_pattern) und Verzögerung (delay) bzw. bei den NodeRED-Flows in den entsprechenden Nodes eingestellt werden.
 Beispiel: Wenn 4 Geräte durchschnittlich alle 20 Minuten ein- oder ausgeschaltet werden sollen, sollte das Intervall 5 Minuten (20 / 4 = 5) betragen.
 Damit verdächtigerweise nicht genau alle 5 Minuten etwas passiert, kann und sollte zusätzlich ein zeitlicher Versatz definiert werden, welcher als Maximalwert idealerweise fast genauso groß ist wie das Intervall selbst.
+
