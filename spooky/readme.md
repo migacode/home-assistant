@@ -7,7 +7,7 @@ Wobei die NodeRED-Flows deutlich komplexer sind, weil NodeRED im Standard über 
 
 <hr>
 <h2>Vorbereitung</h2>
-Zur Ausführung benötigt <b>Spooky</b> noch die folgenden Helfer, welche vorher in Home Assistant angelegt werden müssen.
+Zur Ausführung benötigt <b>Spooky</b> die folgenden Helfer, welche vorher in Home Assistant angelegt werden müssen.
 Diese bei der Anlage am besten genau so schreiben wie angegeben, damit die Entitäten auch so wie in den Klammern stehend erzeugt werden - ansonsten können diese natürlich auch nachträglich manuell angepasst werden.<ul>
 <li>Schalter "Spookymode" (input_boolean.spookymode) zur De-/Aktivierung der Automatisierung</li>
 <li>Licht-Gruppe "Spooky Lights" (light.spooky_lights) mit allen einzubeziehenden Lichtern</li>
@@ -22,7 +22,6 @@ Idealerweise sollte man sich dann auch eine Dashboard-Karte mit einem Schalter f
 <li><a href="#nodered_kompakt">NodeRED-Flow kompakt (Großteil der Verarbeitung in einem JavaScript-Funktionsblock)</a></li>
 </ul>
 
-<hr>
 <a id="automation"></a>
 <hr>
 <h3>Automatisierung (native)</h3>
