@@ -66,12 +66,8 @@ Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 
 <hr>
 
-
-
-3.) Bei Bedarf trigger->time_pattern und action->delay anpassen
-Das triggernde time_pattern-Intervall ist abhängig von der Anzahl der Geräte und dem gewünschten Zeitabstand der Schaltvorgänge.
-Beispiel: Bei einer Taktung von 5 Minuten und 4 Geräten wird jedes Gerät durchschnittlich alle 20 Minutes je nach dessen aktuellem Status ein- oder ausgeschaltet.
-20 Minuten / 4 Geräte = 5
-
-5.) Spooky-Modus einschalten ... enjoy ;)
-
+Spooky ist so vorkonfiguriert, dass die Umschaltung der Geräte nur bei Dunkelheit erfolgt (zwischen Sonnenuntergang und Sonnenaufgang) - dies sowie weitere Bedingungen können natürlich leicht geändert und erweitert werden.
+<h2>Zeitabstände</h2>
+Der Zeitabstand der Schaltvorgänge kann durch die Parameter Intervall (time_pattern) und Verzögerung (delay) bzw. bei den NodeRED-Flows in den entsprechenden Nodes eingestellt werden.
+Beispiel: Wenn 4 Geräte durchschnittlich alle 20 Minuten ein- oder ausgeschaltet werden sollen, sollte das Intervall 5 Minuten (20 / 4 = 5) betragen.
+Damit verdächtigerweise nicht genau alle 5 Minuten etwas passiert, kann zusätzlich ein zeitlicher Versatz defniert werden, welcher idealerweise fast genauso groß ist wie das Intervall selbst.
