@@ -1,6 +1,6 @@
-<h1>Home Assistant // Spooky der Hausgeist - Anwesenheits-Simulation</h1>
+<h1><img src="./img/ghost_gray.png" width="24" height="24"> Home Assistant // Spooky der Hausgeist - Anwesenheits-Simulation</h1>
 
-<img src="./img/ghost_gray.png" width="20" height="20"><b>Spooky der Hausgeist</b> ist eine einfache Anwesenheits-Simulation für Home Assistant. Dabei werden in regelmäßigen Abständen mit zufälligem zeitlichen Versatz zufällig frei definierbare Geräte wie Lampen, TV oder Radios ein- und ausgeschaltet.
+<b>Spooky der Hausgeist</b> ist eine einfache Anwesenheits-Simulation für Home Assistant. Dabei werden in regelmäßigen Abständen mit zufälligem zeitlichen Versatz zufällig frei definierbare Geräte wie Lampen, TV oder Radios ein- und ausgeschaltet.
 Dazu verwendet <b>Spooky</b> nur die Standard-Funktionen von Home Assistant und ggf. NodeRED, es werden keine zusätzlichen Integrationen, Add-Ons, HACS-Module oder NodeRED-Paletten benötigt.
 Zur Integration von <b>Spooky</b> in Home Assistant stehen drei Varianten zur Verfügung, welche sich funktional nicht unterscheiden, so dass sich jeder seine bevorzugte Variante aussuchen kann.
 Wobei die NodeRED-Flows deutlich komplexer sind, weil NodeRED im Standard über keinen automatisiert parametrisierbaren Zufallsgenerator verfügt, und das Umschalten von Entitäten nur mit expliziter Angabe der Domain erlaubt. Daher wird in den NodeRED-Flows der Zufallsgenerator per JavaScript-Funktion umgesetzt, und die Umschaltung getrennt nach Gruppen (Domains) verarbeitet.
