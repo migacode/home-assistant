@@ -13,6 +13,8 @@ Diese bei der Anlage am besten genau so schreiben wie angegeben, damit die Entit
 <li>Licht-Gruppe "Spooky Lights" (light.spooky_lights) mit allen einzubeziehenden Lichtern</li>
 <li>Schalter-Gruppe "Spooky Switches" (switch.spooky_switches) mit allen einzubeziehenden Schaltern</li>
 </ul>
+<b>Wichtig</b>: Es müssen beide Helfer-Gruppen angelegt werden, selbst wenn einer davon keine Geräte zugeordnet werden. Spooky erkennt automatisch, ob die Gruppe leer ist.
+<br />
 Idealerweise sollte man sich dann auch eine Dashboard-Karte mit einem Schalter für den <b>Spookymode</b> (input_boolean.spookymode) anlegen, um <b>Spooky</b> bequem über die Benutzeroberfläche von Home Assistant ein- und ausschalten zu können.
 
 <hr>
@@ -65,7 +67,7 @@ Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen (siehe dazu auc
 <hr>
 <a id="konfiguration"></a>
 <h2>Konfiguration</h2>
-<b>Spooky</b> ist so vorkonfiguriert, dass die Umschaltung der Geräte nur bei Dunkelheit erfolgt (zwischen Sonnenuntergang und Sonnenaufgang) - dies sowie weitere Bedingungen können natürlich leicht geändert und erweitert werden.
+<b>Spooky</b> ist so vorkonfiguriert, dass die Umschaltung der Geräte nur bei Dunkelheit erfolgt (zwischen Sonnenuntergang und Sonnenaufgang) - diese sowie weitere Bedingungen können natürlich leicht geändert und erweitert werden.
 <h3>Zeitabstände</h3>
 Der Zeitabstand der Schaltvorgänge kann durch die Parameter Intervall (time_pattern) und Verzögerung (delay) bzw. bei den NodeRED-Flows in den entsprechenden Nodes eingestellt werden.
 Beispiel: Wenn 4 Geräte durchschnittlich alle 20 Minuten ein- oder ausgeschaltet werden sollen, sollte das Intervall 5 Minuten (20 / 4 = 5) betragen.
