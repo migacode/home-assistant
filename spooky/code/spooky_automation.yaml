@@ -2,7 +2,7 @@
 # Spooky der Hausgeist (Anwesenheits-Simulation ;)
 # -----------------------------------------------------------------------------
 # Version: 1.00
-# Datum:   27.06.2023
+# Datum:   29.06.2023
 # Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 - id: "spooky_the_house_ghost"
@@ -36,14 +36,14 @@
     - platform: time_pattern
       minutes: "/5"
   condition:
-    # Nur ausführen wenn der Hausgeist-Modus an ist ...
+    # Nur ausführen wenn der Hausgeist-Modus an ist
     - condition: state
       entity_id: input_boolean.spookymode
       state: "on"
-    # Nur zwischen Sonnenuntergang und Sonnenaufgang ausführen
-    - condition: sun
-      after: sunset
-      before: sunrise
+    # Nur ausführen wenn dämmert oder dunkel ist
+    - condition: state
+      entity_id: sun.sun
+      state: above_horizon
   action:
     # Verzögerung zufällig zwischen 00:00 und 04:59
     # (Dauer des triggernden time_pattern-Intervalls minus 1 Sekunde)
