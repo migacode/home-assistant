@@ -13,7 +13,7 @@ Diese bei der Anlage am besten genau so schreiben wie angegeben, damit die Entit
 <li>Licht-Gruppe "Spooky Lights" (light.spooky_lights) mit allen einzubeziehenden Lichtern</li>
 <li>Schalter-Gruppe "Spooky Switches" (switch.spooky_switches) mit allen einzubeziehenden Schaltern</li>
 </ul>
-<b>Wichtig</b>: Es müssen beide Helfer-Gruppen angelegt werden, selbst wenn einer davon keine Geräte zugeordnet werden. Spooky erkennt automatisch, ob die Gruppe leer ist.
+<b>Wichtig</b>: Es müssen beide Helfer-Gruppen angelegt werden, selbst wenn einer davon keine Geräte zugeordnet werden. Spooky erkennt automatisch, ob die Gruppe leer ist.<br />
 <br />
 Idealerweise sollte man sich dann auch eine Dashboard-Karte mit einem Schalter für den <b>Spookymode</b> (input_boolean.spookymode) anlegen, um <b>Spooky</b> bequem über die Benutzeroberfläche von Home Assistant ein- und ausschalten zu können.
 
