@@ -16,7 +16,7 @@ Diese bei der Anlage am besten genau so schreiben wie angegeben, damit die Entit
 <b>Wichtig</b>: Es müssen beide Helfer-Gruppen angelegt werden, selbst wenn einer davon keine Geräte zugeordnet werden. Spooky erkennt automatisch, ob die Gruppe leer ist.<br />
 <br />
 Idealerweise sollte man sich dann auch eine Dashboard-Karte mit einem Schalter für den <b>Spookymode</b> (input_boolean.spookymode) anlegen, um <b>Spooky</b> bequem über die Benutzeroberfläche von Home Assistant ein- und ausschalten zu können.<br />
-Wer ein passendes Icon dazu sucht -> <i>mdi:ghost</i> <img src="./img/ghost_gray.png" width="16" height="16"> ;)
+Wer ein passendes Icon dazu sucht -> <i>mdi:ghost</i> <span><img src="./img/ghost_gray.png" width="16" height="16"></span> ;)
 
 <hr>
 <h2>Spooky der Hausgeist für Home Assistant (Varianten)</h2><ul>
