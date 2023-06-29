@@ -40,7 +40,7 @@
     - condition: state
       entity_id: input_boolean.spookymode
       state: "on"
-    # Nur ausführen wenn dämmert oder dunkel ist
+    # Nur ausführen wenn es dämmert oder dunkel ist
     - condition: state
       entity_id: sun.sun
       state: above_horizon
