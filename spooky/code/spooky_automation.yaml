@@ -1,34 +1,50 @@
 # =============================================================================
 # Spooky der Hausgeist (Anwesenheits-Simulation ;)
 # -----------------------------------------------------------------------------
-# Version: 1.00
-# Datum:   29.06.2023
+# Version: 1.10
+# Datum:   27.07.2023
 # Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 - id: "spooky_the_house_ghost"
   alias: Spooky der Hausgeist
   description: ""
   variables:
+    # -------------------------------------------------------------------------
+    # Individuelle Geräte-Liste (1) oder Geräte-Gruppen/Helfer (0) verwenden
+    # Hinweis: Die individuelle Geräte-Liste kann auch Geräte-Gruppen enthalten,
+    # so dass bei einer zufälligen Auswahl eines Gruppen-Eintrags auch alle in
+    # der Gruppe enthaltenen Geräte zusammen geschaltet werden.
+    # Bei direkter Verwendung der Geräte-Gruppen hingegen werden diese vor der
+    # Auswahl rekursiv aufgelöst, so dass jeweils immer nur ein einzelnes Gerät
+    # aus allen Gruppen ausgewählt und geschaltet wird.
+    # ACHTUNG: Bei Verwendung der Geräte-Liste muss das Beispiel weiter unten im
+    #          Skript natürlich noch an die eigenen Entitäten angepasst werden!
+    use_device_list: 0
+    # -------------------------------------------------------------------------
     # Anzahl der Geräte in den Gruppen spooky_lights und spooky_switches ermitteln
     count_l: "{{ expand('light.spooky_lights') | map(attribute='entity_id') | list | count }}"
     count_s: "{{ expand('switch.spooky_switches') | map(attribute='entity_id') | list | count }}"
     # Wahrscheinlichkeit der Gruppenauswahl nach Anzahl der darin befindlichen Geräte gewichten
     range_max: "{{ count_l + count_s + 1 }}"
     random_val: "{{ range(1, range_max) | random }}"
-    # Auswahl eines zufälligen Gerätes aus einer Gruppe
+    # Auswahl eines zufälligen Eintrages
     device_entity: "
-      {% if count_l > 0 and count_s > 0 %}
-        {% if random_val > count_l %}
-          {{ expand('switch.spooky_switches') | map(attribute='entity_id') | list | random }}
-        {% else %}
-          {{ expand('light.spooky_lights') | map(attribute='entity_id') | list | random }}
-        {% endif %}
+      {% if use_device_list == 1 %}
+        {{ ['light.licht1','light.licht2','switch.licht3','switch.licht4','group.lichter'] | random }}
       {% else %}
-        {% if count_l > 0 %}
-          {{ expand('light.spooky_lights') | map(attribute='entity_id') | list | random }}
-        {% endif %}
-        {% if count_s > 0 %}
-          {{ expand('switch.spooky_switches') | map(attribute='entity_id') | list | random }}
+        {% if count_l > 0 and count_s > 0 %}
+          {% if random_val > count_l %}
+            {{ expand('switch.spooky_switches') | map(attribute='entity_id') | list | random }}
+          {% else %}
+            {{ expand('light.spooky_lights') | map(attribute='entity_id') | list | random }}
+          {% endif %}
+        {% else %}
+          {% if count_l > 0 %}
+            {{ expand('light.spooky_lights') | map(attribute='entity_id') | list | random }}
+          {% endif %}
+          {% if count_s > 0 %}
+            {{ expand('switch.spooky_switches') | map(attribute='entity_id') | list | random }}
+          {% endif %}
         {% endif %}
       {% endif %}"
   trigger:
@@ -57,3 +73,4 @@
       target:
         entity_id: "{{ device_entity }}"
   mode: single
+
