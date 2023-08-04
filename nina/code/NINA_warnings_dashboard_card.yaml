@@ -1,8 +1,8 @@
 # =============================================================================
 # NINA-Warnungen - Home Assistant Dashboard Karte
 # -----------------------------------------------------------------------------
-# Version: 1.18
-# Datum:   18.04.2023
+# Version: 1.20
+# Datum:   04.08.2023
 # Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 type: vertical-stack
@@ -49,8 +49,10 @@ cards:
       {% if is_state(nina_entity_name ~ loop.index, "on") %}
 
       {% set level = state_attr(nina_entity_name ~ loop.index, "severity") %}
-      {% set from_time = state_attr(nina_entity_name ~ loop.index, "start") | as_timestamp %}
-      {% set to_time = state_attr(nina_entity_name ~ loop.index, "expires") | as_timestamp %}
+      {% set from_time = state_attr(nina_entity_name ~ loop.index, "start") %}
+      {% if from_time != "" %}{% set from_time = from_time | as_timestamp %}{% endif %}
+      {% set to_time = state_attr(nina_entity_name ~ loop.index, "expires") %}
+      {% if to_time != "" %}{% set to_time = to_time | as_timestamp %}{% endif %}
 
       {% set headline = state_attr(nina_entity_name ~ loop.index, 'headline') %}**<font color=#{{head_color}}>{{ headline | regex_replace('Amtliche Warnung vor ','',true) | trim }}</font>**{{' '}}{% for item in weather_warnidx %}{% if item in headline.upper() %}{{ weather_symbols[loop.index0] | trim }}{% endif %}{% endfor %}
 
@@ -58,7 +60,8 @@ cards:
 
       <font color=#{{fg_color_2}}>{{ state_attr(nina_entity_name ~ loop.index, "description") | trim }}</font>
 
-      <font color=#{{fg_color_1}}>Von </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr bis </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr.</font>
+      {% if from_time != "" %}<font color=#{{fg_color_1}}>Von </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ from_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr</font>{% endif %}
+      {% if to_time != "" %}<font color=#{{fg_color_1}}> bis </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%d.%m.%Y", true) | trim }}**</font><font color=#{{fg_color_1}}> um </font><font color=#{{fg_color_2}}>**{{ to_time | timestamp_custom("%H:%M", true) | trim }}**</font><font color=#{{fg_color_1}}> Uhr</font>{% endif %}.
 
       {% if ns.anzahl_meldungen > 1 and loop.index != ns.anzahl_meldungen
       %}<hr>{% endif %}
