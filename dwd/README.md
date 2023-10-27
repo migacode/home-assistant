@@ -8,6 +8,9 @@ sensor:
     region_name: 805566016
 ```
 Der <i>name</i> ist frei wählbar, Home Assistant setzt daraus allerdings die Namen der zugehörigen Entitäten zusammen ;)<br />
+<br />
+In neueren Versionen von Home Assistant braucht nur die Integration des Deutschen Wetterdienstes hinzugefügt werden, dann muss man die entsprechenden Entitäts-IDs in dieser nachsehen.
+<br />
 <b>Tipp:</b> Als <i>region_name</i> nicht den Namen des Ortes, sondern die entsprechende <i>Warncell-ID</i> eintragen, welche in folgender Liste zu finden ist.<br />
 Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html<br />
 <b>Hinweis:</b> Neue Sensoren werden in Home Assistant leider erst nach einem Neustart aktiv.
