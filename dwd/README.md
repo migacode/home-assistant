@@ -9,7 +9,7 @@ sensor:
 ```
 Der <i>name</i> ist frei wählbar, Home Assistant setzt daraus allerdings die Namen der zugehörigen Entitäten zusammen ;)<br />
 <br />
-<b>Hinweis</b>: In neueren Versionen von Home Assistant wird die Integration <u>nicht</u> manuell angelegt, man braucht dazu nur die <a href="https://www.home-assistant.io/integrations/dwd_weather_warnings/">Integration des Deutschen Wetterdienstes</a> hinzufügen. Die entsprechenden Entitäts-Namen (IDs) muss man dann in dieser nachsehen.<br />
+<b>Hinweis</b>: In neueren Versionen von Home Assistant wird die Integration <i>nicht</i> manuell angelegt, man braucht dazu nur die <a href="https://www.home-assistant.io/integrations/dwd_weather_warnings/">Integration des Deutschen Wetterdienstes</a> hinzufügen. Die entsprechenden Entitäts-Namen (IDs) muss man dann in dieser nachsehen.<br />
 <br />
 <b>Tipp:</b> Als <i>region_name</i> nicht den Namen des Ortes, sondern die entsprechende <i>Warncell-ID</i> eintragen, welche in folgender Liste zu finden ist.<br />
 Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html<br />
