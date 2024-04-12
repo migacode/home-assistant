@@ -46,20 +46,28 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <a id="nodered"></a>
 <hr>
 <h3>NodeRED-Flow zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard</h3>
-<img src="./img/DWD_img_nodered_flow.png">
-NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_nodered_flow.json">DWD_warnings_nodered_flow.json</a><br />
+<img src="./img/DWD_img_nodered_flow_1.50.png">
+NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_nodered_flow_1.50.json">DWD_warnings_nodered_flow_1.50.json</a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
-(Wer den Sensor wie oben angeben für Hörstel angelegt hat, kann Schritt 1. und 2. direkt überspringen ;)<br />
 <br />
 1. In Node 1 (DWD-Warnungen triggern) an den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
 <br />
-<img src="./img/DWD_img_changes_flow_1.png">
-2. In Node 2 (Warnungen auslesen und Nachricht zusammenbauen) an den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
+<img src="./img/DWD_img_changes_node_1_1.50.png">
+2. Die Funktionsweise und Darstellung bietet verschiedene Möglichkeiten, die individuell konfiguriert werden können.<br />
+<ul>
+<li>Mindest-Warnstufe</li>
+<li>Unterdrückung doppelter Meldungen</li>
+<li>Mit oder ohne Wetter-Symbole</li>
+<li>Mit oder ohne Aufhebungs-Benachrichtigung</li>
+<li>Reset-Schalter für die doppelten Meldungen</li>
+<li>Diverse andere Punkte</li>
+</ul>
+In Node 2 (Warnungen auslesen und Nachricht zusammenbauen) kann die Konfiguration nach eigenen Wünschen angepasst werden.<br />
 <br />
-<img src="./img/DWD_img_changes_flow_2.png">
-3. In den Nodes 3.a und 3.b jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.<br />
-Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node (3.a, 3.b, 3.c) einfach löschen.<br />
+<img src="./img/DWD_img_changes_node_2_1.50.png">
+3. In den Nodes 3.a bis 3.d jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.<br />
+Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node einfach löschen.<br />
 <br />
 
 <a id="dashboard"></a>
