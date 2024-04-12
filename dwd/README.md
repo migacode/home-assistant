@@ -1,9 +1,7 @@
 <h1>Home Assistant // DWD-Warnungen</h1>
 
 Für die Einbindung des Warndienstes des <a href="https://www.dwd.de/">Deutschen Wetterdienst</a> (DWD) braucht man nur die <a href="https://www.home-assistant.io/integrations/dwd_weather_warnings/">Integration des Deutschen Wetterdienstes</a> hinzufügen. Die entsprechenden Entitäts-Namen (IDs) muss man dann in dieser nachsehen.<br />
-<br />
 <b>Hinweis</b>: In älteren Versionen von Home Assistant muss die Integration manuell in der <b>configuration.yaml</b> durch Anlage eines Sensors (hier als Beispiel für die Stadt Hörstel) angelegt werden.<br/>
-<br/>
 ```yaml
 sensor:
   - platform: dwd_weather_warnings
