@@ -67,9 +67,9 @@ In Node 2 (Warnungen auslesen und Nachricht zusammenbauen) kann die Konfiguratio
 <br />
 <img src="./img/DWD_img_changes_node_2_1.50.png">
 3. In den Nodes 3.a bis 3.d jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.<br />
-Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node einfach löschen.<br />
+Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node einfach löschen oder deaktivieren.<br />
 <br />
-<b>Hinweis</b>: Zur Unterdrückung doppelter Mitteilungen werden bereits angezeigte Meldungen gespeichert. Um die Liste der bereits gezeigten Meldungen wieder zu löschen, ist dem Flow einen entsprechenden Reset-Knopf beigefügt. Die Liste wird allerdings auch automatisch gelöscht, sobald alle Warnmeldungen aufgehoben sind.
+<b>Hinweis</b>: Zur Unterdrückung doppelter Warnmeldungen werden bereits angezeigte Meldungen gespeichert. Um die Liste der bereits gezeigten Meldungen bei Bedarf wieder zu löschen, ist dem Flow ein entsprechender Reset-Knopf beigefügt. Die Liste wird allerdings auch automatisch gelöscht, sobald alle Warnmeldungen aufgehoben sind.
 
 <a id="dashboard"></a>
 <hr>
