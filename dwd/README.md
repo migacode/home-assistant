@@ -61,7 +61,6 @@ Konfiguriert werden können u.a.:
 <li>Unterdrückung doppelter Meldungen</li>
 <li>Mit oder ohne Wetter-Symbole</li>
 <li>Mit oder ohne Aufhebungs-Benachrichtigung</li>
-<li>Reset-Schalter für die doppelten Meldungen</li>
 <li>Diverse andere Punkte</li>
 </ul>
 In Node 2 (Warnungen auslesen und Nachricht zusammenbauen) kann die Konfiguration nach eigenen Wünschen angepasst werden.<br />
@@ -70,7 +69,7 @@ In Node 2 (Warnungen auslesen und Nachricht zusammenbauen) kann die Konfiguratio
 3. In den Nodes 3.a bis 3.d jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.<br />
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node einfach löschen.<br />
 <br />
-<b>Hinweis</b>: Zur Unterdrückung doppelter Mitteilungen werden bereits angezeigte Meldungen gespeichert. Um die Liste der bereits gezeigten Meldungen wieder zu löschen, enthält der Flow einen entsprechenden Reset-Knopf. Diese Liste wird allerdings auch automatisch gelöscht, sobald alle Warnmeldungen aufgehoben sind.
+<b>Hinweis</b>: Zur Unterdrückung doppelter Mitteilungen werden bereits angezeigte Meldungen gespeichert. Um die Liste der bereits gezeigten Meldungen wieder zu löschen, ist dem Flow einen entsprechenden Reset-Knopf beigefügt. Die Liste wird allerdings auch automatisch gelöscht, sobald alle Warnmeldungen aufgehoben sind.
 
 <a id="dashboard"></a>
 <hr>
