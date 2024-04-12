@@ -44,14 +44,16 @@ NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assista
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen (siehe dazu auch den Absatz <a href="#konfiguration">Konfiguration<a>).<br />
 <br />
-1. Das Zeitintervall in Node 1 auf die gewünschten Werte einstellen.<br />
+1. Das Zeitintervall in Node 1 auf die gewünschten Werte einstellen.<br /><br />
 <img src="./img/spooky_img_changes_node_1_1.10.png">
 <br />
 2. Die Verzögerung in Node 2 auf die gewünschten Werte einstellen.<br />
-Hier ist eine Zeitspanne anzugeben, aus der ein zufälliger Wert erzeugt wird, welche Node 2 wartet, bis dieser an Node 3 weiterleitet. Idealerweise beträgt der Maximalwert für die Zeitspanne daher den Wert des Intervalls aus Node 1 in Sekunden minus 1 Sekunde. Beispielsweise bei 5 Minuten (300 Sekunden) in Node 1 also eine Spanne zwischen 0 & 299 Sekunden in Node 2.<br />
+Hier ist eine Zeitspanne anzugeben, aus der ein zufälliger Wert erzeugt wird, welche Node 2 wartet, bis dieser an Node 3 weiterleitet. Idealerweise beträgt der Maximalwert für die Zeitspanne daher den Wert des Intervalls aus Node 1 in Sekunden minus 1 Sekunde. Beispielsweise bei 5 Minuten (300 Sekunden) in Node 1 also eine Spanne zwischen 0 & 299 Sekunden in Node 2.<br /><br />
 <img src="./img/spooky_img_changes_node_2_1.10.png">
 <br />
-
+<br />
+3. Bei Bedarf kann zudem in Node 3 im Abschnitt Konfiguration angegeben werden, ob die Prüfungen des Spooky-Modus und des Sonnenstands innerhalb des Funktionsblocks erfolgen sollen oder oder nicht - bspw. wenn diese in einem eigenen Flow an anderer Stelle in einem vorgelagerten Node erfolgen.<br /><br />
+<img src="./img/spooky_img_changes_node_3_1.10.png">
 <hr>
 <a id="konfiguration"></a>
 <h2>Konfiguration</h2>
