@@ -54,7 +54,8 @@ Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 1. In Node 1 (DWD-Warnungen triggern) an den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
 <br />
 <img src="./img/DWD_img_changes_node_1_1.50.png">
-2. Die Funktionsweise und Darstellung bietet verschiedene Möglichkeiten, die individuell konfiguriert werden können.<br />
+2. Der Funktionsblock des Flows bietet verschiedene Möglichkeiten zur Verarbeitung und Darstellung, die individuell konfiguriert werden können.<br />
+Darüber hinaus hat der Funkitonsblock zwei Ausgänge: Auf dem Ersten gehen die Meldungen so raus wie konfiguriert, auf dem Zweiten gehen immer alle Meldungen raus.<br />Beide Ausgänge liefern zur Weiterverarbeitung jeweils drei verschiedene Meldungen aus: a) voller Text mit allen Symbolen und Sonderzeichen, b) genauso nur gekürzt auf's Wesentliche und c) eine reine Textausgabe ohne Sonderzeichen für nachfolgende Nodes, die solche nicht verarbeiten können.
 <ul>
 <li>Mindest-Warnstufe</li>
 <li>Unterdrückung doppelter Meldungen</li>
@@ -69,6 +70,7 @@ In Node 2 (Warnungen auslesen und Nachricht zusammenbauen) kann die Konfiguratio
 3. In den Nodes 3.a bis 3.d jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.<br />
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node einfach löschen.<br />
 <br />
+<b>Hinweis</b>: Zur Unterdrückung doppelter Mitteilungen werden bereits angezeigte Meldungen gespeichert. Um die Liste der bereits gezeigten Meldungen wieder zu löschen, enthält der Flow einen entsprechenden Reset-Knopf. Diese Liste wird allerdings auch automatisch gelöscht, sobald alle Warnmeldungen aufgehoben sind.
 
 <a id="dashboard"></a>
 <hr>
