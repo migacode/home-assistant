@@ -2,7 +2,7 @@
 
 <b>Spooky der Hausgeist</b> ist eine einfache Anwesenheits-Simulation für Home Assistant. Dabei werden in regelmäßigen Abständen mit zufälligem zeitlichen Versatz frei definierbare Geräte wie Lampen, TV oder Radios zufällig ein- und ausgeschaltet.
 Dazu verwendet <b>Spooky</b> nur die Standard-Funktionen von Home Assistant und ggf. NodeRED, es werden keine zusätzlichen Integrationen, Add-Ons, HACS-Module oder NodeRED-Paletten benötigt.
-Zur Integration von <b>Spooky</b> in Home Assistant stehen drei Varianten zur Verfügung, so dass sich jeder seine bevorzugte Variante aussuchen kann.
+Zur Integration von <b>Spooky</b> in Home Assistant stehen zwei Varianten zur Verfügung, so dass sich jeder seine bevorzugte Variante aussuchen kann.
 <hr>
 <h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>Spooky</b> die folgenden Helfer, welche vorher in Home Assistant angelegt werden müssen.
