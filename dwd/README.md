@@ -54,8 +54,8 @@ Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 1. In Node 1 (DWD-Warnungen triggern) an den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
 <br />
 <img src="./img/DWD_img_changes_node_1_1.50.png">
-2. Der Funktionsblock des Flows bietet verschiedene Möglichkeiten zur Verarbeitung und Darstellung, die individuell konfiguriert werden können.<br />
-Darüber hinaus hat der Funkitonsblock zwei Ausgänge: Auf dem Ersten gehen die Meldungen so raus wie konfiguriert, auf dem Zweiten gehen immer alle Meldungen raus.<br />Beide Ausgänge liefern zur Weiterverarbeitung jeweils drei verschiedene Meldungen aus: a) voller Text mit allen Symbolen und Sonderzeichen, b) genauso nur gekürzt auf's Wesentliche und c) eine reine Textausgabe ohne Sonderzeichen für nachfolgende Nodes, die solche nicht verarbeiten können.
+2. Der Funktionsblock des Flows bietet verschiedene Möglichkeiten zur Verarbeitung und Darstellung, die individuell konfiguriert werden können. Darüber hinaus hat der Funktionsblock zwei Ausgänge: Auf dem Ersten gehen die Meldungen so raus wie konfiguriert, auf dem Zweiten gehen immer alle Meldungen raus. Beide Ausgänge liefern zur Weiterverarbeitung jeweils drei verschiedene Meldungen aus: a) voller Text mit allen Symbolen und Sonderzeichen, b) genauso nur gekürzt auf's Wesentliche und c) eine reine Textausgabe ohne Sonderzeichen für nachfolgende Nodes, die solche nicht verarbeiten können.<br />
+Konfiguriert werden können u.a.:
 <ul>
 <li>Mindest-Warnstufe</li>
 <li>Unterdrückung doppelter Meldungen</li>
