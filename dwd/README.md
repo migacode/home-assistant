@@ -1,6 +1,6 @@
 <h1>Home Assistant // DWD-Warnungen</h1>
 
-Für die Einbindung des Warndienstes des <a href="https://www.dwd.de/">Deutschen Wetterdienst</a> (DWD) braucht man nur die <a href="https://www.home-assistant.io/integrations/dwd_weather_warnings/">Integration des Deutschen Wetterdienstes</a> hinzufügen. Die entsprechenden Entitäts-Namen (IDs) muss man dann in dieser nachsehen.<br />
+Für die Einbindung des Warndienstes des <a href="https://www.dwd.de/">Deutschen Wetterdienst</a> (DWD) braucht man lediglich die <a href="https://www.home-assistant.io/integrations/dwd_weather_warnings/">Integration des Deutschen Wetterdienstes</a> hinzufügen. Die dabei erzeugten Entitäts-Namen (IDs) kann man dann in dieser nachsehen.<br />
 <b>Hinweis</b>: In älteren Versionen von Home Assistant muss die Integration manuell in der <b>configuration.yaml</b> durch Anlage eines Sensors (hier als Beispiel für die Stadt Hörstel) angelegt werden.<br/>
 ```yaml
 sensor:
@@ -9,7 +9,6 @@ sensor:
     region_name: 805566016
 ```
 Der <i>name</i> ist frei wählbar, Home Assistant setzt daraus allerdings die Namen der zugehörigen Entitäten zusammen ;)<br />
-<br />
 <b>Tipp:</b> Als <i>region_name</i> nicht den Namen des Ortes, sondern die entsprechende <i>Warncell-ID</i> eintragen, welche in folgender Liste zu finden ist.<br />
 Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html<br />
 <b>Hinweis:</b> Neue Sensoren werden in Home Assistant leider erst nach einem Neustart aktiv.
