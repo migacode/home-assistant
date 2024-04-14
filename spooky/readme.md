@@ -12,7 +12,8 @@ Diese bei der Anlage am besten genau so schreiben wie angegeben, damit die Entit
 <li>Schalter-Gruppe "Spooky Schalter" (switch.spooky_switches) mit allen sonstigen einzubeziehenden Geräten</li>
 </ul>
 <img src="./img/spooky_img_helper.png">
-<b>Wichtig</b>: Es müssen beide Helfer-Gruppen angelegt werden, selbst wenn einer davon keine Geräte zugeordnet werden. Spooky erkennt automatisch, ob die Gruppe leer ist.<br />
+<b>Hinweis</b>: Alternativ zu den beiden Helfer-Gruppen kann auch im Quelltext der Automatisierung bzw. dem Funktionsblock des NodeRED-Flows eine Geräte-Liste manuell angelegt und verwendet werden. Weitere Details dazu sind in dem jeweiligen Quelltext aufgeführt.<br />
+<b>Wichtig</b>: Bei Verwendung der Helfer-Gruppen müssen auch beide Gruppen angelegt werden, selbst wenn einer davon keine Geräte zugeordnet werden. Spooky erkennt automatisch, ob die Gruppe leer ist.<br />
 <br />
 Idealerweise sollte man sich dann auch eine Dashboard-Karte mit einem Schalter für den <b>Spookymode</b> (input_boolean.spookymode) anlegen, um <b>Spooky</b> bequem über die Benutzeroberfläche von Home Assistant ein- und ausschalten zu können.<br />
 Wer ein passendes Icon dazu sucht -> <i>mdi:ghost</i> <span><sub><img src="./img/ghost_gray.png" width="16" height="16"></sub></span>
@@ -41,7 +42,7 @@ Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren (si
 <hr>
 <h3>NodeRED-Flow</h3>
 <img src="./img/spooky_img_nodered_flow.png">
-<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/spooky/code/spooky_nodered_flow_1.10.json"><strong>spooky_nodered_flow_1.10.json</strong></a><br />
+<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/spooky/code/spooky_nodered_flow_1.20.json"><strong>spooky_nodered_flow_1.20.json</strong></a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen (siehe dazu auch den Absatz <a href="#konfiguration">Konfiguration<a>).<br />
 <br />
