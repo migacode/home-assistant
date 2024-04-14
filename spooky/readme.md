@@ -26,7 +26,7 @@ Wer ein passendes Icon dazu sucht -> <i>mdi:ghost</i> <span><sub><img src="./img
 <a id="automation"></a>
 <hr>
 <h3>Automatisierung (native)</h3>
-Quelltext&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/spooky/code/spooky_automation.yaml">spooky_automation.yaml</a><br />
+<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/spooky/code/spooky_automation.yaml"><strong>spooky_automation.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren (siehe dazu auch den Absatz <a href="#konfiguration">Konfiguration<a>).<br />
 <br />
@@ -41,7 +41,7 @@ Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren (si
 <hr>
 <h3>NodeRED-Flow</h3>
 <img src="./img/spooky_img_nodered_flow.png">
-<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/spooky/code/spooky_nodered_flow_1.10.json">spooky_nodered_flow_1.10.json</a><br />
+<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/spooky/code/spooky_nodered_flow_1.10.json"><strong>spooky_nodered_flow_1.10.json</strong></a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen (siehe dazu auch den Absatz <a href="#konfiguration">Konfiguration<a>).<br />
 <br />
