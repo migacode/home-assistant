@@ -6,8 +6,10 @@ Zur Integration von <b>Spooky</b> in Home Assistant stehen zwei Varianten zur Ve
 <hr>
 <h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>Spooky</b> die folgenden Helfer, welche vorher in Home Assistant angelegt werden müssen.
-Diese bei der Anlage am besten genau so schreiben wie angegeben, damit die Entitäten auch so wie in den Klammern stehend erzeugt werden - ansonsten können diese natürlich auch nachträglich manuell angepasst werden.<ul>
+Diese bei der Anlage am besten genau so schreiben wie angegeben, damit die Entitäten auch so wie in den Klammern stehend erzeugt werden - ansonsten können diese natürlich auch nachträglich manuell angepasst werden.<br />
+Schalter<ul>
 <li>Schalter "Spooky-Modus" (input_boolean.spookymode) zur De-/Aktivierung der Automatisierung</li>
+</ul>Gruppen<ul>
 <li>Licht-Gruppe "Spooky Lichter" (light.spooky_lights) mit allen einzubeziehenden smarten Leuchtmitteln</li>
 <li>Schalter-Gruppe "Spooky Schalter" (switch.spooky_switches) mit allen sonstigen einzubeziehenden Geräten</li>
 </ul>
