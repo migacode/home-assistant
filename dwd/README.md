@@ -46,14 +46,14 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <a id="nodered"></a>
 <hr>
 <h3>NodeRED-Flow zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard</h3>
-<img src="./img/DWD_img_nodered_flow_1.50.png">
-NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_nodered_flow_1.50.json">DWD_warnings_nodered_flow_1.50.json</a><br />
+<img src="./img/DWD_img_nodered_flow.png">
+NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_nodered_flow_1.51.json">DWD_warnings_nodered_flow_1.51.json</a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
 1. In Node 1 (DWD-Warnungen triggern) an den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
 <br />
-<img src="./img/DWD_img_changes_node_1_1.50.png">
+<img src="./img/DWD_img_changes_node_1.png">
 2. Der Funktionsblock des Flows bietet verschiedene Möglichkeiten zur Verarbeitung und Darstellung, die individuell konfiguriert werden können. Darüber hinaus hat der Funktionsblock zwei Ausgänge: Auf dem Ersten gehen die Meldungen so raus wie konfiguriert, auf dem Zweiten gehen immer alle Meldungen raus. Beide Ausgänge liefern zur Weiterverarbeitung jeweils drei verschiedene Meldungen aus: a) voller Text mit allen Symbolen und Sonderzeichen, b) genauso nur gekürzt auf's Wesentliche und c) eine reine Textausgabe ohne Sonderzeichen für nachfolgende Nodes, die solche nicht verarbeiten können.<br />
 Konfiguriert werden können u.a.:
 <ul>
@@ -65,7 +65,7 @@ Konfiguriert werden können u.a.:
 </ul>
 In Node 2 (Warnungen auslesen und Nachricht zusammenbauen) kann die Konfiguration nach eigenen Wünschen angepasst werden.<br />
 <br />
-<img src="./img/DWD_img_changes_node_2_1.50.png">
+<img src="./img/DWD_img_changes_node_2.png">
 3. In den Nodes 3.a bis 3.d jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.<br />
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node einfach löschen oder deaktivieren.<br />
 <br />
