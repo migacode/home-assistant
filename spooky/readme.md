@@ -8,14 +8,13 @@ Zur Integration von <b>Spooky</b> in Home Assistant stehen zwei Varianten zur Ve
 Zur Ausführung benötigt <b>Spooky</b> die folgenden Helfer, welche vorher in Home Assistant angelegt werden müssen.
 Diese bei der Anlage am besten genau so schreiben wie angegeben, damit die Entitäten auch so wie in den Klammern stehend erzeugt werden - ansonsten können diese natürlich auch nachträglich manuell angepasst werden.<br />
 Schalter<ul>
-<li>Schalter "Spooky-Modus" (input_boolean.spookymode) zur De-/Aktivierung der Automatisierung</li>
-</ul>Gruppen<ul>
+<li>Schalter "Spooky-Modus" (input_boolean.spookymode) zur De-/Aktivierung der Automatisierung</li></ul>Gruppen<ul>
 <li>Licht-Gruppe "Spooky Lichter" (light.spooky_lights) mit allen einzubeziehenden smarten Leuchtmitteln</li>
 <li>Schalter-Gruppe "Spooky Schalter" (switch.spooky_switches) mit allen sonstigen einzubeziehenden Geräten</li>
 </ul>
+<b>Wichtig</b>: Bei Verwendung der Helfer-Gruppen müssen auch beide Gruppen angelegt werden, selbst wenn einer davon keine Geräte zugeordnet werden. Spooky erkennt automatisch, ob die Gruppe leer ist.<br />
 <img src="./img/spooky_img_helper.png">
 <b>Hinweis</b>: Alternativ zu den beiden Helfer-Gruppen kann auch im Quelltext der Automatisierung bzw. dem Funktionsblock des NodeRED-Flows eine Geräte-Liste manuell angelegt und verwendet werden. Weitere Details dazu sind in dem jeweiligen Quelltext aufgeführt.<br />
-<b>Wichtig</b>: Bei Verwendung der Helfer-Gruppen müssen auch beide Gruppen angelegt werden, selbst wenn einer davon keine Geräte zugeordnet werden. Spooky erkennt automatisch, ob die Gruppe leer ist.<br />
 <br />
 Idealerweise sollte man sich dann auch eine Dashboard-Karte mit einem Schalter für den <b>Spookymode</b> (input_boolean.spookymode) anlegen, um <b>Spooky</b> bequem über die Benutzeroberfläche von Home Assistant ein- und ausschalten zu können.<br />
 Wer ein passendes Icon dazu sucht -> <i>mdi:ghost</i> <span><sub><img src="./img/ghost_gray.png" width="16" height="16"></sub></span>
