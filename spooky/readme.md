@@ -5,8 +5,7 @@ Dazu verwendet <b>Spooky</b> nur die Standard-Funktionen von Home Assistant und 
 Zur Integration von <b>Spooky</b> in Home Assistant stehen zwei Varianten zur Verfügung, so dass sich jeder seine bevorzugte Variante aussuchen kann.
 <hr>
 <h2>Vorbereitung</h2>
-Zur Ausführung benötigt <b>Spooky</b> die folgenden Helfer, welche vorher in Home Assistant angelegt werden müssen.
-Diese bei der Anlage am besten genau so schreiben wie angegeben, damit die Entitäten auch so wie in den Klammern stehend erzeugt werden - ansonsten können diese natürlich auch nachträglich manuell angepasst werden.<br />
+Zur Ausführung benötigt <b>Spooky</b> die folgenden Helfer, welche vorher in Home Assistant angelegt werden müssen. Dabei beachten, dass die IDs so wie in den Klammern stehend lauten - ansonsten können diese natürlich auch nachträglich manuell angepasst werden.<br />
 <br />
 Schalter<ul>
 <li>Schalter "Spooky-Modus" (input_boolean.spookymode) zur De-/Aktivierung der Automatisierung</li></ul>Gruppen (Geräte-Listen)<ul>
