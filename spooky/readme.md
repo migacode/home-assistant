@@ -13,7 +13,7 @@ Schalter<ul>
 <li>Licht-Gruppe "Spooky Lichter" (light.spooky_lights) mit allen einzubeziehenden smarten Leuchtmitteln</li>
 <li>Schalter-Gruppe "Spooky Schalter" (switch.spooky_switches) mit allen sonstigen einzubeziehenden Geräten</li>
 </ul>
-<b>Wichtig</b>: Bei Verwendung der Helfer-Gruppen müssen auch beide Gruppen angelegt werden, selbst wenn einer davon keine Geräte zugeordnet werden. Spooky erkennt automatisch, ob die Gruppe leer ist.<br />
+<b>Wichtig</b>: Bei Verwendung der Helfer-Gruppen müssen auch beide Gruppen angelegt werden, selbst wenn einer davon keine Geräte zugeordnet werden. Spooky erkennt automatisch, ob die Gruppe leer ist.<br /><br />
 <img src="./img/spooky_img_helper.png">
 <b>Hinweis</b>: Alternativ zu den beiden Helfer-Gruppen kann auch im Quelltext der Automatisierung bzw. dem Funktionsblock des NodeRED-Flows eine Geräte-Liste manuell angelegt und verwendet werden. Weitere Details dazu sind in dem jeweiligen Quelltext aufgeführt.<br />
 <br />
