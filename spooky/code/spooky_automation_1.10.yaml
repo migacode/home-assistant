@@ -1,0 +1,81 @@
+# =============================================================================
+# Spooky der Hausgeist (Anwesenheits-Simulation ;)
+# -----------------------------------------------------------------------------
+# Version: 1.10
+# Datum:   14.04.2024
+# Quelle:  https://github.com/migacode/home-assistant
+# =============================================================================
+- id: "spooky_the_house_ghost"
+  alias: Spooky der Hausgeist
+  description: ""
+  variables:
+    # -------------------------------------------------------------------------
+    # Individuelle Geräte-Liste (1) oder Geräte-Gruppen/Helfer (0) verwenden
+    # Hinweis: Die individuelle Geräte-Liste kann auch Geräte-Gruppen enthalten,
+    # so dass bei einer zufälligen Auswahl eines Gruppen-Eintrags auch alle in
+    # der Gruppe enthaltenen Geräte zusammen geschaltet werden.
+    # Bei direkter Verwendung der Geräte-Gruppen hingegen werden diese vor der
+    # Auswahl rekursiv aufgelöst, so dass jeweils immer nur ein einzelnes Gerät
+    # aus allen Gruppen ausgewählt und geschaltet wird.
+    # ACHTUNG: Bei Verwendung der Geräte-Liste muss das Beispiel weiter unten im
+    #          Skript natürlich noch an die eigenen Entitäten angepasst werden!
+    use_device_list: 0
+    # -------------------------------------------------------------------------
+    # Anzahl der Geräte in den Gruppen spooky_lights und spooky_switches ermitteln
+    count_l: "{{ expand('light.spooky_lights') | map(attribute='entity_id') | list | count }}"
+    count_s: "{{ expand('switch.spooky_switches') | map(attribute='entity_id') | list | count }}"
+    # Wahrscheinlichkeit der Gruppenauswahl nach Anzahl der darin befindlichen Geräte gewichten
+    range_max: "{{ count_l + count_s + 1 }}"
+    random_val: "{{ range(1, range_max) | random }}"
+    # Auswahl eines zufälligen Eintrages
+    device_entity: "
+      {% if use_device_list == 1 %}
+        {{ [
+           'light.licht1',
+           'light.licht2',
+           'switch.licht3',
+           'switch.licht4',
+           'group.lichter'
+           ] | random }}
+      {% else %}
+        {% if count_l > 0 and count_s > 0 %}
+          {% if random_val > count_l %}
+            {{ expand('switch.spooky_switches') | map(attribute='entity_id') | list | random }}
+          {% else %}
+            {{ expand('light.spooky_lights') | map(attribute='entity_id') | list | random }}
+          {% endif %}
+        {% else %}
+          {% if count_l > 0 %}
+            {{ expand('light.spooky_lights') | map(attribute='entity_id') | list | random }}
+          {% endif %}
+          {% if count_s > 0 %}
+            {{ expand('switch.spooky_switches') | map(attribute='entity_id') | list | random }}
+          {% endif %}
+        {% endif %}
+      {% endif %}"
+  trigger:
+    # Alle 5 Minuten (bei Änderung auch Verzögerung weiter unten anpassen)
+    - platform: time_pattern
+      minutes: "/5"
+  condition:
+    # Nur ausführen wenn der Hausgeist-Modus an ist
+    - condition: state
+      entity_id: input_boolean.spookymode
+      state: "on"
+    # Nur ausführen wenn es dämmert oder dunkel ist
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
+  action:
+    # Verzögerung zufällig zwischen 00:00 und 04:59
+    # (Dauer des triggernden time_pattern-Intervalls minus 1 Sekunde)
+    - delay:
+        minutes: "{{range(0,4) | random}}"
+        seconds: "{{range(0,59) | random}}"
+    # Gerät umschalten
+    - service: homeassistant.toggle
+      continue_on_error: true
+      data: {}
+      target:
+        entity_id: "{{ device_entity }}"
+  mode: single
