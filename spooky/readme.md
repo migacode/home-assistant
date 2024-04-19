@@ -28,7 +28,7 @@ Wer ein passendes Icon dazu sucht -> <i>mdi:ghost</i> <span><sub><img src="./img
 <a id="automation"></a>
 <hr>
 <h3>Automatisierung (native)</h3>
-<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/spooky/code/spooky_automation_1.10.yaml"><strong>spooky_automation_1.10.yaml</strong></a><br />
+<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/spooky/code/spooky_automation_1.20.yaml"><strong>spooky_automation_1.20.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren (siehe dazu auch den Absatz <a href="#konfiguration">Konfiguration<a>).<br />
 <br />
