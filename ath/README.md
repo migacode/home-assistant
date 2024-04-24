@@ -69,10 +69,13 @@ Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br
 <b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ATH_nodered_flow_1.00.json"><strong>ATH_nodered_flow_1.00.json</strong></a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
-Im Node 1 bei Bedarf eine andere Uhrzeit einstellen.<br />
-In den Nodes 3.a bis 3.c jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.<br />
-Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node einfach löschen oder deaktivieren.<br />
-<br />
+<ul>
+<li>Im Node 1 bei Bedarf eine andere Uhrzeit einstellen.</li>
+<li>In den Nodes 3.a bis 3.c jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.</li>
+</ul>
+Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node einfach löschen oder deaktivieren.<br /><br />
+Der Flow ist im Standard so konfiguriert, dass er jeden Abend um 18:00 Uhr prüft, ob es am nächsten Tag Abfuhrtermine gibt und wenn dies so ist entsprechende Benachrichtigungen versendet.<br />
+Darüber hinaus enthält der Flow über den Button "Jetzt abfragen" auch die Möglichkeit, jederzeit eine Benachrichtigung über den aktuellen Status zu versenden.<br />
 
 <a id="dashboard"></a>
 <hr>
