@@ -6,17 +6,17 @@ Danach können die gewünschten Funktionen und Erweiterungen mit Hilfe dieser Se
 <br />
 1.) Datei(en) mit Abfuhrinformationen von gewünschtem Anbieter herunterladen (ICS-Format)<br />
 Beispiel: https://www.egst.de/de/abfallabholung -> <i>MEINESTRASSE.ics</i><br />
-(<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)
-
+(<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)<br />
+<br />
 2.) In Home Assistant einen Ordner anlegen<br />
 In der <b>Konsole</b> eingeben: <b>mkdir -p /config/www/ath</b><br />
 <b>HIINWEIS:</b> Anstelle von <i>/config/www/ath</i> kann auch ein beliebiger anderer Pfad gewählt werden, dann müssen jedoch auch alle nachstehenden Auftreten sowie die Pfadangaben in der Datei <i>ath.sh</i>, sowie ggf. die Zugriffsrechte auf diesen Pfad entsprechend geändert werden.<br />
-
+<br />
 3.) Folgende Dateien in den Ordner /config/www/ath kopieren:
 - Das Sensor-Skript <a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ath.sh"><strong>ath.sh</strong></a><br />
 - Die heruntergeladene Datei <i>MEINESTRASSE.ics</i> (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)<br />
-- Gegebenenfalls auf Wunsch weitere ICS-Dateien mit Abfuhrinformationen
-
+- Gegebenenfalls auf Wunsch weitere ICS-Dateien mit Abfuhrinformationen<br />
+<br />
 4.) In der Datei <b>ath.sh</b> die Konfiguration anpassen
 - Bei den Einträgen für <b>DATA_FILES</b> die Dateiname(n) gemäß der(n) zuvor heruntergeladenen Datei(en) eintragen<br />
 - Bei den Einträgen für <b>DATA_NAMES</b> die entsprechend angezeigte(n) Name(n) anpassen<br />
@@ -25,7 +25,7 @@ Wenn mehr als eine Straße konfiguriert wird, müssen die entsprechenden Zeilen 
 <br />
 5.) Das Sensor-Skript (Datei) <b>ath.sh</b> ausführbar machen<br />
 In der <b>Konsole</b> eingeben: <b>chmod +x /config/www/ath/ath.sh</b><br />
-
+<br />
 6.) Die <b>Command-Line-Sensoren</b> für Home Assistant einrichten<br />
 In der <b>configuration.yaml</b> folgende Sensoren anlegen:
 ```yaml
