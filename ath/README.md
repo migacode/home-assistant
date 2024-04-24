@@ -2,7 +2,7 @@
 
 Mit diesem Tool können Abfuhrtermine für Abfall und jede beliebige andere Entsorgung überwacht, und automatisiert Hinweise auf eine am Folgetag anstehende Abfuhr versendet werden.
 Die Einrichtung dieses Tools ist in wenigen einfachen Schritten erledigt. Zur Vorbereitung sind in Home Assistant lediglich zwei Sensoren anzulegen und die zugehörigen Dateien zu kopieren.
-Danach können die gewünschten Funktionen und Erweiterungen mit Hilfe dieser Sensoren zur Verfügung gestellt werden.
+Danach können die gewünschten Funktionen und Erweiterungen mit Hilfe dieser Sensoren zur Verfügung gestellt werden.<br />
 <br />
 1.) Datei(en) mit Abfuhrinformationen herunterladen (ICS-Format)<br />
 Beispiel: https://www.egst.de/de/abfallabholung -> "<i>MEINESTRASSE</i>.ics"<br />
@@ -12,11 +12,11 @@ Beispiel: https://www.egst.de/de/abfallabholung -> "<i>MEINESTRASSE</i>.ics"<br 
 In der Konsole eingeben: mkdir -p /config/www/ath<br />
 HIINWEIS: Anstelle von /config/www/ath kann auch ein beliebiger anderer Pfad gewählt werden, dann müssen jedoch auch alle nachstehenden Auftreten sowie die Pfadangaben in der Datei "ath.sh", sowie ggf. die Zugriffsrechte auf diesen Pfad entsprechend geändert werden.<br />
 
-3.) Folgende Dateien in den Ordner /config/www/ath kopieren<br />
+3.) Folgende Dateien in den Ordner /config/www/ath kopieren
 - <a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ath.sh"><strong>ath.sh</strong></a><br />
 - <i>MEINESTRASSE</i>.ics (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)<br />
 
-4.) In der Datei "ath.sh" die Konfiguration anpassen<br />
+4.) In der Datei "ath.sh" die Konfiguration anpassen
 - Bei den Einträgen für DATA_FILES die Dateiname(n) gemäß der(n) zuvor heruntergeladenen Datei(en) eintragen<br />
 - Bei den Einträgen für DATA_NAMES die entsprechend angezeigte(n) Name(n) anpassen<br />
 Wenn mehr als eine Straße konfiguriert wird, müssen die entsprechenden Zeilen noch auskommentiert und ggf. mit weiteren fortlaufenden Nummern erweitert werden.<br />
