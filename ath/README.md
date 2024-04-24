@@ -80,3 +80,8 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <img src="./img/ATH_dashboard_card_1.png"><img src="./img/ATH_dashboard_card_2.png">
 <b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ATH_dashboard_card.yaml"><strong>ATH_dashboard_card.yaml</strong></a><br />
 <br />
+Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
+<br />
+Die Karte verwendet das HACS-Modul "card-mod", jedoch nur zur Gestaltung der Karten-Umrandung. Wer card-mod nicht verwendet, oder wem die Karte unformatiert besser gefällt, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
+<br />
+<hr>
