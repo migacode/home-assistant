@@ -86,7 +86,7 @@ Darüber hinaus enthält der Flow über den Button "Jetzt abfragen" auch die Mö
 <a id="dashboard"></a>
 <hr>
 <h3>Dashboard-(Lovelace-)Karte zur Anzeige von Abfuhrterminen in Home Assistant</h3>
-<img src="./img/ATH_dashboard_card_1.png"><img src="./img/ATH_dashboard_card_2.png">
+<img src="./img/ATH_img_dashboard_card_1.png"><img src="./img/ATH_img_dashboard_card_2.png">
 <b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ATH_dashboard_card.yaml"><strong>ATH_dashboard_card.yaml</strong></a><br />
 <br />
 Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
