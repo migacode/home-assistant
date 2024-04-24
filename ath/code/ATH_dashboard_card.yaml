@@ -1,0 +1,17 @@
+type: vertical-stack
+title: Abfuhrtermine
+cards:
+  - type: entities
+    card_mod:
+      style: |
+        ha-card {
+          margin-top: -10px;
+        }
+    entities:
+      - entity: sensor.ath_heute
+        name: Heute
+        icon: mdi:trash-can-outline
+      - type: divider
+      - entity: sensor.ath_morgen
+        name: Morgen
+        icon: mdi:trash-can-outline
