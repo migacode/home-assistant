@@ -12,7 +12,7 @@ Beispiel: https://www.egst.de/de/abfallabholung -> <i>MEINESTRASSE.ics</i><br />
 In der <b>Konsole</b> eingeben: <b>mkdir -p /config/www/ath</b><br />
 <b>HIINWEIS:</b> Anstelle von <i>/config/www/ath</i> kann auch ein beliebiger anderer Pfad gewählt werden, dann müssen jedoch auch alle nachstehenden Auftreten sowie die Pfadangaben in der Datei <i>ath.sh</i>, sowie ggf. die Zugriffsrechte auf diesen Pfad entsprechend geändert werden.<br />
 <br />
-3.) Folgende Dateien in den Ordner <b>/config/www/ath<b> kopieren:<ul>
+3.) Folgende Dateien in den Ordner <b>/config/www/ath</b> kopieren:<ul>
 <li>Das Sensor-Skript <a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ath.sh"><strong>ath.sh</strong></a></li>
 <li>Die heruntergeladene Datei <i>MEINESTRASSE.ics</i> (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)</li>
 <li>Gegebenenfalls auf Wunsch weitere ICS-Dateien mit Abfuhrinformationen</li>
@@ -22,7 +22,7 @@ In der <b>Konsole</b> eingeben: <b>mkdir -p /config/www/ath</b><br />
 <li>Bei den Einträgen für <b>DATA_FILES</b> die Dateiname(n) gemäß der(n) zuvor heruntergeladenen Datei(en) eintragen</li>
 <li>Bei den Einträgen für <b>DATA_NAMES</b> die entsprechend angezeigte(n) Name(n) anpassen</li>
 </ul>
-<img src="./img/ATH_img_changes_script.png">
+<img src="./img/ATH_img_changes_script.png"><br />
 Wenn mehr als eine Straße konfiguriert wird, müssen die entsprechenden Zeilen natürlich noch auskommentiert und ggf. mit weiteren fortlaufenden Nummern erweitert werden.<br />
 <br />
 5.) Das Sensor-Skript (Datei) <b>ath.sh</b> ausführbar machen<br />
@@ -45,13 +45,21 @@ und Home Assistant <b>neu starten</b> um die Sensoren zu aktivieren.
 
 <hr>
 <h2>Erweiterungen für die Anzeige von Abfuhrterminen in Home Assistant</h2><ul>
-<!-- <li><a href="#automation">Native Automatisierung zum Versenden von DWD-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li> -->
+<li><a href="#automation">Native Automatisierung zum Versenden von Hinweisen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
 <li><a href="#nodered">NodeRED-Flow zum Versenden von Hinweisen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
 <li><a href="#dashboard">Dashboard-(Lovelace-)Karte zur Anzeige von Abfuhrterminen in Home Assistant</a></li>
 </ul>
 (1) Für den Versand von Benachrichtigungen an Telegram muss die entsprechende <a href="https://www.home-assistant.io/integrations/telegram">Telegram-Integration</a> natürlich zuvor eingerichtet sein.<br />
 (2) Ebenso erfolgt der Versand an die HA-App natürlich auch nur, wenn diese auf dem/n Endgerät/en installiert und eingerichtet ist.<br />
 
+<a id="automation"></a>
+<hr>
+<h3>Automatisierung zum Versenden von Hinweisen an Telegram, HA-App und Dashboard (native)</h3>
+<img src="./img/ATH_img_notifications_1.png"><img src="./img/ATH_img_notifications_2.png">
+<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ATH_automation.yaml"><strong>ATH_automation.yaml</strong></a><br />
+<br />
+Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
+<br />
 
 <a id="nodered"></a>
 <hr>
