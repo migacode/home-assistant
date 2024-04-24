@@ -30,6 +30,7 @@ In der <b>Konsole</b> eingeben: <b>chmod +x /config/www/ath/ath.sh</b><br />
 <br />
 6.) Die <b>Command-Line-Sensoren</b> für Home Assistant einrichten<br />
 In der <b>configuration.yaml</b> folgende Sensoren anlegen:
+
 ```yaml
 command_line:
   - sensor:
