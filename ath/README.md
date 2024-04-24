@@ -9,24 +9,24 @@ Beispiel: https://www.egst.de/de/abfallabholung -> <i>MEINESTRASSE.ics</i><br />
 (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)
 
 2.) In Home Assistant einen Ordner anlegen<br />
-In der <b>Konsole</b> eingeben: mkdir -p /config/www/ath<br />
+In der <b>Konsole</b> eingeben: <b>mkdir -p /config/www/ath<b><br />
 <b>HIINWEIS:</b> Anstelle von <i>/config/www/ath</i> kann auch ein beliebiger anderer Pfad gewählt werden, dann müssen jedoch auch alle nachstehenden Auftreten sowie die Pfadangaben in der Datei <i>ath.sh</i>, sowie ggf. die Zugriffsrechte auf diesen Pfad entsprechend geändert werden.<br />
 
-3.) Folgende Dateien in den Ordner /config/www/ath kopieren
-- <a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ath.sh"><strong>ath.sh</strong></a><br />
-- <i>MEINESTRASSE.ics</i> (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)<br />
-- ggf. weitere ICS-Dateien mit Abfuhrinformationen
+3.) Folgende Dateien in den Ordner /config/www/ath kopieren:
+- Das Sensor-Skript <a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ath.sh"><strong>ath.sh</strong></a><br />
+- Die heruntergeladene Datei <i>MEINESTRASSE.ics</i> (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)<br />
+- Gegebenenfalls auf Wunsch weitere ICS-Dateien mit Abfuhrinformationen
 
 4.) In der Datei <b>ath.sh</b> die Konfiguration anpassen
 - Bei den Einträgen für <b>DATA_FILES</b> die Dateiname(n) gemäß der(n) zuvor heruntergeladenen Datei(en) eintragen<br />
 - Bei den Einträgen für <b>DATA_NAMES</b> die entsprechend angezeigte(n) Name(n) anpassen<br />
 <img src="./img/ATH_img_changes_script.png">
-Wenn mehr als eine Straße konfiguriert wird, müssen die entsprechenden Zeilen noch auskommentiert und ggf. mit weiteren fortlaufenden Nummern erweitert werden.<br />
+Wenn mehr als eine Straße konfiguriert wird, müssen die entsprechenden Zeilen natürlich noch auskommentiert und ggf. mit weiteren fortlaufenden Nummern erweitert werden.<br />
 <br />
-5.) Datei <b>ath.sh</b> ausführbar machen<br />
-In der <b>Konsole</b> eingeben: chmod +x /config/www/ath/ath.sh<br />
+5.) Das Sensor-Skript (Datei) <b>ath.sh</b> ausführbar machen<br />
+In der <b>Konsole</b> eingeben: <b>chmod +x /config/www/ath/ath.sh</b><br />
 
-6.) <b>Command-Line-Sensoren</b> für Home Assistant einrichten<br />
+6.) Die <b>Command-Line-Sensoren</b> für Home Assistant einrichten<br />
 In der <b>configuration.yaml</b> folgende Sensoren anlegen:
 ```yaml
 command_line:
@@ -39,7 +39,7 @@ command_line:
       name: ath_heute
       scan_interval: 60
 ```
-und Home Assistant neu starten um die Sensoren zu aktivieren.
+und Home Assistant <b>neu starten</b> um die Sensoren zu aktivieren.
 
 <hr>
 <h2>Erweiterungen für die Anzeige von Abfuhrterminen in Home Assistant</h2><ul>
