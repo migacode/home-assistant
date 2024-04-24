@@ -56,7 +56,7 @@ und Home Assistant <b>neu starten</b> um die Sensoren zu aktivieren.
 <a id="automation"></a>
 <hr>
 <h3>Automatisierung zum Versenden von Hinweisen an Telegram, HA-App und Dashboard (native)</h3>
-<img src="./img/ATH_img_notifications_1.png">
+<img src="./img/ATH_img_notifications_1.png"><img src="./img/ATH_img_notifications_2.png">
 <b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ATH_automation.yaml"><strong>ATH_automation.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und vollständig in die <b>automations.yaml</b> kopieren.<br />
