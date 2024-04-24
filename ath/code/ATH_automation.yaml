@@ -1,0 +1,39 @@
+# =============================================================================
+# AbfuhrTerminHinweise (ATH)
+# -----------------------------------------------------------------------------
+# Version: 1.00
+# Datum:   24.04.2024
+# Quelle:  https://github.com/migacode/home-assistant
+# =============================================================================
+- id: "ath_notices"
+  alias: Abfuhr-Termin-Hinweise versenden
+  description: ""
+  variables:
+    alert_message: "Abfallabholungen ***heute***:\n{{ states.sensor.ath_heute.state }}\n\nAbfallabholungen ***morgen***:\n{{ states.sensor.ath_morgen.state }}"
+  trigger:
+    - platform: time
+      at: "18:00:00"
+  condition:
+   - condition: not
+     conditions:
+       - condition: state
+         entity_id: sensor.ath_morgen
+         state: "Keine"
+  action:
+    - parallel:
+      # Nachricht für Telegram formatieren und versenden
+      - service: notify.telegram_michael
+        continue_on_error: true
+        data:
+          message: "{{ alert_message }}"
+      # Nachricht für die HA-App formatieren, kürzen und versenden
+      - service: notify.mobile_app_galaxy_von_michael
+        continue_on_error: true
+        data:
+          message: "{{ alert_message | replace('***','') }}"
+      # Nachricht für das Dashboard formatieren und versenden
+      - service: notify.persistent_notification
+        continue_on_error: true
+        data:
+          message: "{{ alert_message }}"
+  mode: single
