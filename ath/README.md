@@ -4,6 +4,7 @@ Mit diesem Tool können Abfuhrtermine für Abfall und jede beliebige andere Ents
 Die Einrichtung dieses Tools ist in wenigen einfachen Schritten erledigt. Zur Vorbereitung sind in Home Assistant lediglich zwei Sensoren anzulegen und die zugehörigen Dateien zu kopieren.
 Danach können die gewünschten Funktionen und Erweiterungen mit Hilfe dieser Sensoren zur Verfügung gestellt werden.<br />
 <br />
+<h2>Vorbereitung</h2>
 1.) Datei(en) mit Abfuhrinformationen von gewünschtem Anbieter herunterladen (ICS-Format)<br />
 Beispiel: https://www.egst.de/de/abfallabholung -> <i>MEINESTRASSE.ics</i><br />
 (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)<br />
@@ -16,7 +17,7 @@ In der <b>Konsole</b> eingeben: <b>mkdir -p /config/www/ath</b><br />
 - Das Sensor-Skript <a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ath.sh"><strong>ath.sh</strong></a><br />
 - Die heruntergeladene Datei <i>MEINESTRASSE.ics</i> (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)<br />
 - Gegebenenfalls auf Wunsch weitere ICS-Dateien mit Abfuhrinformationen<br />
-<br />
+
 4.) In der Datei <b>ath.sh</b> die Konfiguration anpassen
 - Bei den Einträgen für <b>DATA_FILES</b> die Dateiname(n) gemäß der(n) zuvor heruntergeladenen Datei(en) eintragen<br />
 - Bei den Einträgen für <b>DATA_NAMES</b> die entsprechend angezeigte(n) Name(n) anpassen<br />
