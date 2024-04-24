@@ -4,17 +4,17 @@ Mit diesem Tool können Abfuhrtermine für Abfall und jede beliebige andere Ents
 Die Einrichtung dieses Tools ist in wenigen einfachen Schritten erledigt. Zur Vorbereitung sind in Home Assistant lediglich zwei Sensoren anzulegen und die zugehörigen Dateien zu kopieren.
 Danach können die gewünschten Funktionen und Erweiterungen mit Hilfe dieser Sensoren zur Verfügung gestellt werden.<br />
 <br />
-1.) Datei(en) mit Abfuhrinformationen herunterladen (ICS-Format)<br />
-Beispiel: https://www.egst.de/de/abfallabholung -> "<i>MEINESTRASSE</i>.ics"<br />
+1.) Datei(en) mit Abfuhrinformationen von gewünschtem Anbieter herunterladen (ICS-Format)<br />
+Beispiel: https://www.egst.de/de/abfallabholung -> <i>MEINESTRASSE.ics</i><br />
 (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)
 
-2.) In Home Assistant Ordner anlegen<br />
+2.) In Home Assistant einen Ordner anlegen<br />
 In der <b>Konsole</b> eingeben: mkdir -p /config/www/ath<br />
-<b>HIINWEIS:</b> Anstelle von <i>/config/www/ath</i> kann auch ein beliebiger anderer Pfad gewählt werden, dann müssen jedoch auch alle nachstehenden Auftreten sowie die Pfadangaben in der Datei "ath.sh", sowie ggf. die Zugriffsrechte auf diesen Pfad entsprechend geändert werden.<br />
+<b>HIINWEIS:</b> Anstelle von <i>/config/www/ath</i> kann auch ein beliebiger anderer Pfad gewählt werden, dann müssen jedoch auch alle nachstehenden Auftreten sowie die Pfadangaben in der Datei <i>ath.sh</i>, sowie ggf. die Zugriffsrechte auf diesen Pfad entsprechend geändert werden.<br />
 
 3.) Folgende Dateien in den Ordner /config/www/ath kopieren
 - <a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ath.sh"><strong>ath.sh</strong></a><br />
-- <i>MEINESTRASSE</i>.ics (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)<br />
+- <i>MEINESTRASSE.ics</i> (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)<br />
 - ggf. weitere ICS-Dateien mit Abfuhrinformationen
 
 4.) In der Datei <b>ath.sh</b> die Konfiguration anpassen
@@ -22,7 +22,7 @@ In der <b>Konsole</b> eingeben: mkdir -p /config/www/ath<br />
 - Bei den Einträgen für <b>DATA_NAMES</b> die entsprechend angezeigte(n) Name(n) anpassen<br />
 <img src="./img/ATH_img_changes_script.png">
 Wenn mehr als eine Straße konfiguriert wird, müssen die entsprechenden Zeilen noch auskommentiert und ggf. mit weiteren fortlaufenden Nummern erweitert werden.<br />
-
+<br />
 5.) Datei <b>ath.sh</b> ausführbar machen<br />
 In der <b>Konsole</b> eingeben: chmod +x /config/www/ath/ath.sh<br />
 
