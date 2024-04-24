@@ -10,7 +10,7 @@ Beispiel: https://www.egst.de/de/abfallabholung -> <i>MEINESTRASSE.ics</i><br />
 <br />
 2.) In Home Assistant einen Ordner anlegen<br />
 In der <b>Konsole</b> eingeben: <b>mkdir -p /config/www/ath</b><br />
-<b>HIINWEIS:</b> Anstelle von <i>/config/www/ath</i> kann auch ein beliebiger anderer Pfad gewählt werden, dann müssen jedoch auch alle nachstehenden Auftreten sowie die Pfadangaben in der Datei <i>ath.sh</i>, sowie ggf. die Zugriffsrechte auf diesen Pfad entsprechend geändert werden.<br />
+Anstelle von <i>/config/www/ath</i> kann auch ein beliebiger anderer Pfad gewählt werden, dann müssen jedoch auch alle nachstehenden Auftreten sowie die Pfadangaben in der Datei <i>ath.sh</i>, sowie ggf. die Zugriffsrechte auf diesen Pfad entsprechend geändert werden.<br />
 <br />
 3.) Folgende Dateien in den Ordner <b>/config/www/ath</b> kopieren:<ul>
 <li>Das Sensor-Skript <a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ath.sh"><strong>ath.sh</strong></a></li>
@@ -20,7 +20,7 @@ In der <b>Konsole</b> eingeben: <b>mkdir -p /config/www/ath</b><br />
 <br />
 4.) In der Datei <b>ath.sh</b> die Konfiguration anpassen<ul>
 <li>Bei den Einträgen für <b>DATA_FILES</b> die Dateiname(n) gemäß der(n) zuvor heruntergeladenen Datei(en) eintragen</li>
-<li>Bei den Einträgen für <b>DATA_NAMES</b> die entsprechend angezeigte(n) Name(n) anpassen</li>
+<li>Bei den Einträgen für <b>DATA_NAMES</b> die entsprechend gewünschte(n) Anzeige-Name(n) anpassen</li>
 </ul>
 <img src="./img/ATH_img_changes_script.png">
 Wenn mehr als eine Straße konfiguriert wird, müssen die entsprechenden Zeilen natürlich noch auskommentiert und ggf. mit weiteren fortlaufenden Nummern erweitert werden.<br />
@@ -74,7 +74,7 @@ Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <li>In den Nodes 3.a bis 3.c jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.</li>
 </ul>
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node einfach löschen oder deaktivieren.<br /><br />
-Der Flow ist im Standard so konfiguriert, dass er jeden Abend um 18:00 Uhr prüft, ob es am nächsten Tag Abfuhrtermine gibt und wenn dies so ist entsprechende Benachrichtigungen versendet.<br />
+Der Flow ist im Standard so konfiguriert, dass er jeden Abend um 18:00 Uhr prüft, ob es am nächsten Tag Abfuhrtermine gibt, und wenn dies so ist, entsprechende Benachrichtigungen versendet.
 Darüber hinaus enthält der Flow über den Button "Jetzt abfragen" auch die Möglichkeit, jederzeit eine Benachrichtigung über den aktuellen Status zu versenden.<br />
 
 <a id="dashboard"></a>
@@ -85,6 +85,6 @@ Darüber hinaus enthält der Flow über den Button "Jetzt abfragen" auch die Mö
 <br />
 Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
 <br />
-Die Karte verwendet das HACS-Modul "card-mod", jedoch nur zur Gestaltung der Karten-Umrandung. Wer card-mod nicht verwendet, oder wem die Karte unformatiert besser gefällt, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
+Die Karte verwendet das HACS-Modul "card-mod", jedoch nur zur Justierung von Abständen. Wer card-mod nicht verwendet, oder wem die Karte unformatiert besser gefällt, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
 <br />
 <hr>
