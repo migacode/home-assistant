@@ -22,7 +22,7 @@ In der <b>Konsole</b> eingeben: <b>mkdir -p /config/www/ath</b><br />
 <li>Bei den Einträgen für <b>DATA_FILES</b> die Dateiname(n) gemäß der(n) zuvor heruntergeladenen Datei(en) eintragen</li>
 <li>Bei den Einträgen für <b>DATA_NAMES</b> die entsprechend angezeigte(n) Name(n) anpassen</li>
 </ul>
-<img src="./img/ATH_img_changes_script.png"><br />
+<img src="./img/ATH_img_changes_script.png">
 Wenn mehr als eine Straße konfiguriert wird, müssen die entsprechenden Zeilen natürlich noch auskommentiert und ggf. mit weiteren fortlaufenden Nummern erweitert werden.<br />
 <br />
 5.) Das Sensor-Skript (Datei) <b>ath.sh</b> ausführbar machen<br />
