@@ -56,10 +56,11 @@ und Home Assistant <b>neu starten</b> um die Sensoren zu aktivieren.
 <a id="automation"></a>
 <hr>
 <h3>Automatisierung zum Versenden von Hinweisen an Telegram, HA-App und Dashboard (native)</h3>
-<img src="./img/ATH_img_notifications_1.png"><img src="./img/ATH_img_notifications_2.png">
+<img src="./img/ATH_img_notifications_1.png">
 <b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ATH_automation.yaml"><strong>ATH_automation.yaml</strong></a><br />
 <br />
-Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
+Den Quelltext wie folgt anpassen und vollständig in die <b>automations.yaml</b> kopieren.<br />
+<br />
 <img src="./img/ATH_img_changes_automation.png">
 1. An den markierten Stellen bei Bedarf die Uhrzeit und Entitäts-Namen der Benachrichtigungs-Dienste jeweils durch die eigenen ersetzen.<br />
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann in dem Bereich <i>action:</i> die Zeilen für den jeweiligen Service einfach löschen.<br />
