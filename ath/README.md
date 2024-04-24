@@ -20,6 +20,7 @@ In der <b>Konsole</b> eingeben: mkdir -p /config/www/ath<br />
 4.) In der Datei <b>ath.sh</b> die Konfiguration anpassen
 - Bei den Einträgen für <b>DATA_FILES</b> die Dateiname(n) gemäß der(n) zuvor heruntergeladenen Datei(en) eintragen<br />
 - Bei den Einträgen für <b>DATA_NAMES</b> die entsprechend angezeigte(n) Name(n) anpassen<br />
+<img src="./img/ATH_img_changes_script.png">
 Wenn mehr als eine Straße konfiguriert wird, müssen die entsprechenden Zeilen noch auskommentiert und ggf. mit weiteren fortlaufenden Nummern erweitert werden.<br />
 
 5.) Datei <b>ath.sh</b> ausführbar machen<br />
@@ -57,7 +58,8 @@ und Home Assistant neu starten um die Sensoren zu aktivieren.
 <b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ATH_nodered_flow_1.00.json"><strong>ATH_nodered_flow_1.00.json</strong></a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
-In den Nodes 3.a bis 3.d jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.<br />
+Im Node 1 bei Bedarf eine andere Uhrzeit einstellen.<br />
+In den Nodes 3.a bis 3.c jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.<br />
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node einfach löschen oder deaktivieren.<br />
 <br />
 
