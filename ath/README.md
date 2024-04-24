@@ -17,17 +17,18 @@ In der <b>Konsole</b> eingeben: <b>mkdir -p /config/www/ath</b><br />
 <li>Die heruntergeladene Datei <i>MEINESTRASSE.ics</i> (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)</li>
 <li>Gegebenenfalls auf Wunsch weitere ICS-Dateien mit Abfuhrinformationen</li>
 </ul>
-
+<br />
 4.) In der Datei <b>ath.sh</b> die Konfiguration anpassen<ul>
 <li>Bei den Einträgen für <b>DATA_FILES</b> die Dateiname(n) gemäß der(n) zuvor heruntergeladenen Datei(en) eintragen</li>
 <li>Bei den Einträgen für <b>DATA_NAMES</b> die entsprechend angezeigte(n) Name(n) anpassen</li>
 </ul>
-<img src="./img/ATH_img_changes_script.png"><br />
+<img src="./img/ATH_img_changes_script.png">
+<br />
 Wenn mehr als eine Straße konfiguriert wird, müssen die entsprechenden Zeilen natürlich noch auskommentiert und ggf. mit weiteren fortlaufenden Nummern erweitert werden.<br />
 <br />
 5.) Das Sensor-Skript (Datei) <b>ath.sh</b> ausführbar machen<br />
 In der <b>Konsole</b> eingeben: <b>chmod +x /config/www/ath/ath.sh</b><br />
-
+<br />
 6.) Die <b>Command-Line-Sensoren</b> für Home Assistant einrichten<br />
 In der <b>configuration.yaml</b> folgende Sensoren anlegen:
 ```yaml
