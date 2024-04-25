@@ -77,7 +77,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <ul>
 <li>Im Node 1 bei Bedarf eine andere Uhrzeit einstellen.</li>
-<li>In den Nodes 3.a bis 3.c jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.</li>
+<li>In den Nodes 3.a bis 3.d jeweils den Service-Namen für die Benachrichtigung durch den eigenen ersetzen.</li>
 </ul>
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann den entsprechenden Node einfach löschen oder deaktivieren.<br /><br />
 Der Flow ist im Standard so konfiguriert, dass er jeden Abend um 18:00 Uhr prüft, ob es am nächsten Tag Abfuhrtermine gibt, und wenn dies so ist, entsprechende Benachrichtigungen versendet.
