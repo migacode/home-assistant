@@ -37,6 +37,9 @@ DATA_NAMES[1]="Vennweg"
 SEPERATOR=" | "
 # -----------------------------------------------------------------------------
 # Hinweistext / Ausgabe wenn keine Abfuhr geplant ist
+# ACHTUNG: Nicht ändern! Die zugehörige Automatisierung und der NodeRED-Flow
+#          prüfen auf das Vorhandensein dieses Textes. Wenn ein anderer Text
+#          angezeigt werden soll, müssen diese ebenfalls angepasst werden!
 # -----------------------------------------------------------------------------
 NO_COLLECTION="Keine"
 # =============================================================================
