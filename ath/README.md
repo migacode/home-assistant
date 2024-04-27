@@ -125,23 +125,23 @@ Zusätzlich zu den oben angegebenen "Standard"-Sensoren nutzt die Karte exemplar
 
 ```yaml
 - sensor:
-    command: "/config/www/ath/ath.sh -n -s 1 bio"
+    command: "/config/www/ath/ath.sh -n -s 1 bio | cut -d':' -f 1"
     name: ath_next_bio
     scan_interval: 600
 - sensor:
-    command: "/config/www/ath/ath.sh -n -s 1 gelb"
+    command: "/config/www/ath/ath.sh -n -s 1 gelb | cut -d':' -f 1"
     name: ath_next_gelb
     scan_interval: 600
 - sensor:
-    command: "/config/www/ath/ath.sh -n -s 1 rest"
+    command: "/config/www/ath/ath.sh -n -s 1 rest | cut -d':' -f 1"
     name: ath_next_rest
     scan_interval: 600
 - sensor:
-    command: "/config/www/ath/ath.sh -n -s 1 papier"
+    command: "/config/www/ath/ath.sh -n -s 1 papier | cut -d':' -f 1"
     name: ath_next_papier
     scan_interval: 600
 - sensor:
-    command: "/config/www/ath/ath.sh -n -s 1 schadstoff"
+    command: "/config/www/ath/ath.sh -n -s 1 schadstoff | cut -d':' -f 1"
     name: ath_next_schadstoff
     scan_interval: 600
 ```
