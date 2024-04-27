@@ -122,6 +122,7 @@ Darüber hinaus enthält der Flow über den Button "Jetzt abfragen" auch die Mö
 Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
 <br />
 Die Karte nutzt exemplarisch weitere Sensoren, welche den jeweils nächsten Abfuhrtermin der einzelnen Abfallarten für die erste konfigurierte Straße zur Verfügung stellen, und kann natürlich ganz nach Belieben angepasst werden.
+
 ```yaml
 - sensor:
     command: "/config/www/ath/ath.sh -n -s 1 bio"
@@ -144,7 +145,6 @@ Die Karte nutzt exemplarisch weitere Sensoren, welche den jeweils nächsten Abfu
     name: ath_next_schadstoff
     scan_interval: 600
 ```
-<br />
 Die Karte verwendet das HACS-Modul "card-mod", jedoch nur zur Justierung von Abständen. Wer card-mod nicht verwendet, oder wem die Karte unformatiert besser gefällt, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
 <br />
 <hr>
