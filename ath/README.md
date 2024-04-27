@@ -121,7 +121,7 @@ Darüber hinaus enthält der Flow über den Button "Jetzt abfragen" auch die Mö
 <br />
 Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
 <br />
-Zusätzlich zu den oben angegebenen "Standard"-Sensoren nutzt die Karte exemplarisch die folgenden weiteren Sensoren, welche den jeweils nächsten Abfuhrtermin der einzelnen Abfallarten für die erste konfigurierte Straße zur Verfügung stellen. Natürlich können sowohl die Karte als auch die Sensoren ganz nach Belieben angepasst werden.<br />
+Zusätzlich zu den oben angegebenen "Standard"-Sensoren nutzt die Karte exemplarisch die folgenden weiteren Sensoren, welche den jeweils nächsten Abfuhrtermin der einzelnen Abfallarten für die erste konfigurierte Straße zur Verfügung stellen. Vor der Verwendung der Karte müssen diese Sensoren natürlich wie oben bei den ersten Sensoren beschrieben noch angelegt werden. Selbstverständlich können sowohl die Karte als auch die Sensoren ganz nach Belieben angepasst werden.<br />
 
 ```yaml
 - sensor:
