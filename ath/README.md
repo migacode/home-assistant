@@ -68,11 +68,11 @@ Die Ausgabe des Skripts <b>ash.sh</b> lässt sich über verschiedene Parameter e
 <br />
 <i>Filter</i> ist eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens 3 Zeichen lang), die in der Abfuhrart vorkommen soll.<br />
 <h3>Beispiele</h3>
-<b>ath.sh -m</b> sucht für alle Straßen nach allen Abfuhrarten am morgigen Tag<br />
+<b>ath.sh -m</b><br />sucht für alle Straßen nach allen Abfuhrarten am morgigen Tag<br />
 <br />
-<b>ath.sh -h papier</b> sucht für alle Straßen nach einer Abfuhr der Papiertonne am heutigen Tag<br />
+<b>ath.sh -h papier</b><br />sucht für alle Straßen nach einer Abfuhr der Papiertonne am heutigen Tag<br />
 <br />
-<b>ath.sh -n -s 1 -d 0107 bio</b> sucht nur für die Straße mit dem Index 1 nach dem ersten Termin zur Abfuhr der Biotonne ab dem 01.07. des laufenden Jahres<br />
+<b>ath.sh -n -s 1 -d 0107 bio</b><br />sucht nur für die Straße mit dem Index 1 nach dem ersten Termin zur Abfuhr der Biotonne ab dem 01.07. des laufenden Jahres<br />
 
 <hr>
 <h2>Erweiterungen für die Anzeige von Abfuhrterminen in Home Assistant</h2><ul>
@@ -120,6 +120,30 @@ Darüber hinaus enthält der Flow über den Button "Jetzt abfragen" auch die Mö
 <b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ATH_dashboard_card.yaml"><strong>ATH_dashboard_card.yaml</strong></a><br />
 <br />
 Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
+<br />
+Die Karte nutzt exemplarisch weitere Sensoren, welche den jeweils nächsten Abfuhrtermin der einzelnen Abfallarten für die erste konfigurierte Straße zur Verfügung stellen, und kann natürlich ganz nach Belieben angepasst werden.
+```yaml
+- sensor:
+    command: "/config/www/ath/ath.sh -n -s 1 bio"
+    name: ath_next_bio
+    scan_interval: 600
+- sensor:
+    command: "/config/www/ath/ath.sh -n -s 1 gelb"
+    name: ath_next_gelb
+    scan_interval: 600
+- sensor:
+    command: "/config/www/ath/ath.sh -n -s 1 rest"
+    name: ath_next_rest
+    scan_interval: 600
+- sensor:
+    command: "/config/www/ath/ath.sh -n -s 1 papier"
+    name: ath_next_papier
+    scan_interval: 600
+- sensor:
+    command: "/config/www/ath/ath.sh -n -s 1 schadstoff"
+    name: ath_next_schadstoff
+    scan_interval: 600
+```
 <br />
 Die Karte verwendet das HACS-Modul "card-mod", jedoch nur zur Justierung von Abständen. Wer card-mod nicht verwendet, oder wem die Karte unformatiert besser gefällt, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
 <br />
