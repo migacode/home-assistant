@@ -49,14 +49,14 @@ command_line:
 und Home Assistant <b>neu starten</b> um die Sensoren zu aktivieren.<br />
 
 <h3>Das Sensor-Skript kann jedoch noch viel mehr!</h3>
-Die Ausgabe des Skripts <b>ash.sh<b> lässt sich über verschiedene Parameter einstellen, so dass sich damit sehr einfach ganz individuelle Abfragen und Sensoren erstellen lassen.<br />
+Die Ausgabe des Skripts <b>ash.sh</b> lässt sich über verschiedene Parameter einstellen, so dass sich damit sehr einfach ganz individuelle Abfragen und Sensoren erstellen lassen.<br />
 <br />
 <b>Syntax:<b> ath.sh [Zeit] [Optionen] [Filter]<br />
 <br />
 <i>Zeiten</i> (nur einzeln zu verwenden):<br />
- -h\tsucht nach Terminen heute<br />
- -m\tsucht nach Terminen morgen (Default ohne Angabe einer Option)<br />
- -n\tsucht nach den nächsten Terminen ab morgen<br />
+ -h<BLOCKQUOTE>sucht nach Terminen heute</BLOCKQUOTE><br />
+ -m<BLOCKQUOTE>sucht nach Terminen morgen (Default ohne Angabe einer Option)</BLOCKQUOTE><br />
+ -n<BLOCKQUOTE>sucht nach den nächsten Terminen ab morgen</BLOCKQUOTE><br />
 
 <i>Optionen</i><br />
  -s Index  sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)<br />
