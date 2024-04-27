@@ -15,3 +15,25 @@ cards:
       - entity: sensor.ath_morgen
         name: Morgen
         icon: mdi:trash-can-outline
+      - type: divider
+      - type: divider
+      - entity: sensor.ath_naechste
+        name: Nächste
+        icon: mdi:trash-can-outline
+      - type: divider
+      - type: divider
+      - entity: sensor.ath_next_bio
+        name: Biotonne
+        icon: mdi:flower
+      - entity: sensor.ath_next_gelb
+        name: Gelbe Tonne
+        icon: mdi:sack
+      - entity: sensor.ath_next_papier
+        name: Papiertonne
+        icon: mdi:newspaper-variant
+      - entity: sensor.ath_next_rest
+        name: Restmülltonne
+        icon: mdi:trash-can
+      - entity: sensor.ath_next_schadstoff
+        name: Schadstoffmobil
+        icon: mdi:biohazard
