@@ -66,16 +66,13 @@ Die Ausgabe des Skripts <b>ash.sh</b> lässt sich über verschiedene Parameter e
  -d Datum&nbsp;&nbsp;&nbsp;sucht beginnend mit diesem Datum (Format: TTMM) statt morgen<br />
 </code>
 <br />
-<i>Filter</i> ist eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens 3 Zeichen lang), die in der Abfuhrart vorkommen soll<br />
+<i>Filter</i> ist eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens 3 Zeichen lang), die in der Abfuhrart vorkommen soll.<br />
 <h3>Beispiele</h3>
-<b>Beispiel 1:</b> ath.sh -m<br />
-sucht für alle Straßen nach allen Abfuhrarten am morgigen Tag<br />
+<b>ath.sh -m</b> sucht für alle Straßen nach allen Abfuhrarten am morgigen Tag<br />
 <br />
-<b>Beispiel 2:</b> ath.sh -h papier<br />
-sucht für alle Straßen nach einer Abfuhr der Papiertonne am heutigen Tag<br />
+<b>ath.sh -h papier</b> sucht für alle Straßen nach einer Abfuhr der Papiertonne am heutigen Tag<br />
 <br />
-<b>Beispiel 3:</b> ath.sh -n -s 1 -d 0107 bio<br />
-sucht nur für die Straße mit dem Index 1 nach dem ersten Termin zur Abfuhr der Biotonne ab dem 01.07. des laufenden Jahres<br />
+<b>ath.sh -n -s 1 -d 0107 bio</b> sucht nur für die Straße mit dem Index 1 nach dem ersten Termin zur Abfuhr der Biotonne ab dem 01.07. des laufenden Jahres<br />
 
 <hr>
 <h2>Erweiterungen für die Anzeige von Abfuhrterminen in Home Assistant</h2><ul>
