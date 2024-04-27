@@ -53,16 +53,16 @@ Die Ausgabe des Skripts <b>ash.sh</b> lässt sich über verschiedene Parameter e
 <br />
 <b>Syntax:</b> ath.sh [Zeit] [Optionen] [Filter]<br />
 <br />
-<i>Zeiten</i> (nur einzeln zu verwenden):<br />
+<i>Zeiten</i> (nur einzeln zu verwenden):
 <code>
- -h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sucht nach Terminen heute<br />
- -m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sucht nach Terminen morgen (Default ohne Angabe einer Option)<br />
- -n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sucht nach den nächsten Terminen ab morgen<br />
+ -h&nbsp;&nbsp;&nbsp;sucht nach Terminen heute<br />
+ -m&nbsp;&nbsp;&nbsp;sucht nach Terminen morgen (Default ohne Angabe einer Option)<br />
+ -n&nbsp;&nbsp;&nbsp;sucht nach den nächsten Terminen ab morgen<br />
 </code>
-<i>Optionen</i><br />
+<i>Optionen</i>
 <code>
- -s Index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)<br />
- -d Datum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sucht beginnend mit diesem Datum (Format: TTMM) statt morgen<br />
+ -s Index&nbsp;&nbsp;&nbsp;sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)<br />
+ -d Datum&nbsp;&nbsp;&nbsp;sucht beginnend mit diesem Datum (Format: TTMM) statt morgen<br />
 </code>
 <br />
 <i>Filter</i> ist eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens 3 Zeichen lang), die in der Abfuhrart vorkommen soll<br />
