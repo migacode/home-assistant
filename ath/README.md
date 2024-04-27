@@ -1,7 +1,7 @@
 <h1>Home Assistant // AbfuhrTerminHinweise (ATH)</h1>
 
 Mit diesem Tool können Abfuhrtermine für Abfall und jede beliebige andere Entsorgung überwacht, und automatisiert Hinweise auf eine am Folgetag anstehende Abfuhr versendet werden.
-Die Einrichtung dieses Tools ist in wenigen einfachen Schritten erledigt. Zur Vorbereitung sind in Home Assistant lediglich zwei Sensoren anzulegen und die zugehörigen Dateien zu kopieren.
+Die Einrichtung dieses Tools ist in wenigen einfachen Schritten erledigt. Zur Vorbereitung sind in Home Assistant lediglich drei einfache Sensoren anzulegen und die zugehörigen Dateien zu kopieren.
 Danach können die gewünschten Funktionen und Erweiterungen mit Hilfe dieser Sensoren zur Verfügung gestellt werden.<br />
 <h2>Vorbereitung</h2>
 1.) Datei(en) mit Abfuhrinformationen von gewünschtem Anbieter herunterladen (ICS-Format)<br />
@@ -36,13 +36,43 @@ command_line:
   - sensor:
       command: "/config/www/ath/ath.sh"
       name: ath_morgen
-      scan_interval: 60
+      scan_interval: 600
   - sensor:
       command: "/config/www/ath/ath.sh -h"
       name: ath_heute
-      scan_interval: 60
+      scan_interval: 600
+  - sensor:
+      command: "/config/www/ath/ath.sh -n"
+      name: ath_naechste
+      scan_interval: 600
 ```
-und Home Assistant <b>neu starten</b> um die Sensoren zu aktivieren.
+und Home Assistant <b>neu starten</b> um die Sensoren zu aktivieren.<br />
+
+<h3>Das Command-Line-Skript kann jedoch noch viel mehr!</h3>
+Die Ausgabe des Skripts ash.sh lässt sich über verschiedene Parameter einstellen.<br />
+Syntax: ath.sh [Zeit] [Optionen] [Filter]<br />
+
+<i>Zeiten</i> (nur einzeln zu verwenden):<br />
+ -h        sucht nach Terminen heute<br />
+ -m        sucht nach Terminen morgen (Default ohne Angabe einer Option)<br />
+ -n        sucht nach den nächsten Terminen ab morgen<br />
+
+<i>Optionen</i><br />
+ -s Index  sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)<br />
+ -d Datum  sucht beginnend mit diesem Datum (Format: TTMM) statt morgen<br />
+<br />
+<i>Filter</i> ist eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens 3 Zeichen lang), die in der Abfuhrart vorkommen soll<br />
+<br />
+<h3>Beispiele</h3>
+<br />
+<b>Beispiel 1:</b> ath.sh -m<br />
+sucht für alle Straßen nach allen Abfuhrarten am morgigen Tag<br />
+<br />
+<b>Beispiel 2:</b> ath.sh -h papier<br />
+sucht für alle Straßen nach einer Abfuhr der Papiertonne am heutigen Tag<br />
+<br />
+<b>Beispiel 3:</b> ath.sh -n -s 1 -d 0107 bio<br />
+sucht nur für die Straße mit dem Index 1 nach dem ersten Termin zur Abfuhr der Biotonne ab dem 01.07. des laufenden Jahres<br />
 
 <hr>
 <h2>Erweiterungen für die Anzeige von Abfuhrterminen in Home Assistant</h2><ul>
