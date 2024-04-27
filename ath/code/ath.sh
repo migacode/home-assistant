@@ -10,7 +10,7 @@
 #
 # Syntax: ath.sh [Zeit] [Optionen] [Filter]
 #
-# Zeiten (nur einzeln zu verwenden):
+# Zeiten (nur einzeln zu verwenden)
 #  -h        sucht nach Terminen heute
 #  -m        sucht nach Terminen morgen (Default ohne Angabe einer Option)
 #  -n        sucht nach den nächsten Terminen ab morgen
