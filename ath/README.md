@@ -51,16 +51,19 @@ und Home Assistant <b>neu starten</b> um die Sensoren zu aktivieren.<br />
 <h3>Das Sensor-Skript kann jedoch noch viel mehr!</h3>
 Die Ausgabe des Skripts <b>ash.sh</b> lässt sich über verschiedene Parameter einstellen, so dass sich damit sehr einfach ganz individuelle Abfragen und Sensoren erstellen lassen.<br />
 <br />
-<b>Syntax:<b> ath.sh [Zeit] [Optionen] [Filter]<br />
+<b>Syntax:</b> ath.sh [Zeit] [Optionen] [Filter]<br />
 <br />
 <i>Zeiten</i> (nur einzeln zu verwenden):<br />
- -h<BLOCKQUOTE>sucht nach Terminen heute</BLOCKQUOTE><br />
- -m<BLOCKQUOTE>sucht nach Terminen morgen (Default ohne Angabe einer Option)</BLOCKQUOTE><br />
- -n<BLOCKQUOTE>sucht nach den nächsten Terminen ab morgen</BLOCKQUOTE><br />
-
+<code>
+ -h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sucht nach Terminen heute<br />
+ -m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sucht nach Terminen morgen (Default ohne Angabe einer Option)<br />
+ -n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sucht nach den nächsten Terminen ab morgen<br />
+</code>
 <i>Optionen</i><br />
- -s Index  sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)<br />
- -d Datum  sucht beginnend mit diesem Datum (Format: TTMM) statt morgen<br />
+<code>
+ -s Index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)<br />
+ -d Datum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sucht beginnend mit diesem Datum (Format: TTMM) statt morgen<br />
+</code>
 <br />
 <i>Filter</i> ist eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens 3 Zeichen lang), die in der Abfuhrart vorkommen soll<br />
 <h3>Beispiele</h3>
