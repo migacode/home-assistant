@@ -40,6 +40,7 @@
 # -----------------------------------------------------------------------------
 # Absoluter Pfad zu den Dateien mit den Informationen der Abfuhrtermine
 # (Angabe ohne Schrägstrich / Slash am Ende)
+# -----------------------------------------------------------------------------
 FILES_PATH="/config/www/ath"
 # -----------------------------------------------------------------------------
 # Quellangaben der zu verwendenden Info-Dateien
