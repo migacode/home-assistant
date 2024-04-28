@@ -48,8 +48,8 @@ command_line:
 ```
 und Home Assistant <b>neu starten</b> um die Sensoren zu aktivieren.<br />
 
-<h3>Das Sensor-Skript kann jedoch noch viel mehr!</h3>
-Die Ausgabe des Skripts <b>ash.sh</b> lässt sich über verschiedene Parameter einstellen, so dass sich damit sehr einfach ganz individuelle Abfragen und Sensoren erstellen lassen.<br />
+<h3>Das Sensor-Skript kann noch viel mehr!</h3>
+Die Ausgabe des Skripts <b>ash.sh</b> lässt sich über etliche Parameter einstellen, so dass sich damit sehr einfach ganz individuelle Abfragen und Sensoren erstellen lassen. Ein Beispiel für die Verwendung individueller Sensoren ist die <a href="#dashboard">Dashboard-Karte</a> weiter unten.<br />
 <br />
 <b>Syntax:</b> ath.sh [Zeit] [Optionen] [Filter]<br />
 <br />
