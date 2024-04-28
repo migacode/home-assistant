@@ -56,7 +56,7 @@ Die Ausgabe des Skripts <b>ash.sh</b> lässt sich über verschiedene Parameter e
 <i>Zeiten</i> (nur einzeln zu verwenden)
 <code>
  -h&nbsp;&nbsp;&nbsp;sucht nach Terminen heute<br />
- -m&nbsp;&nbsp;&nbsp;sucht nach Terminen morgen (Default ohne Angabe einer Option)<br />
+ -m&nbsp;&nbsp;&nbsp;sucht nach Terminen morgen (Default ohne Zeit-Parameter)<br />
  -n&nbsp;&nbsp;&nbsp;sucht nach den nächsten Terminen ab morgen<br />
 </code>
 <br />
