@@ -3,7 +3,7 @@
 # AbfuhrTerminHinweise (ATH) - Anzeige von Terminen zur Abfallabholung
 # -----------------------------------------------------------------------------
 # Name:    ath.sh
-# Version: 1.22
+# Version: 1.23
 # Datum:   28.04.2024
 # Quelle:  https://github.com/migacode/home-assistant
 # -----------------------------------------------------------------------------
@@ -18,6 +18,7 @@
 # Optionen
 #  -a        unterdrückt die Anzeige der Abfuhr/Abfallarten
 #  -d Datum  sucht beginnend mit diesem Datum (Format: TTMM) statt morgen
+#  -o        unterdrückt die Anzeige des Straßenamens/Ortes
 #  -s Index  sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)
 #  -w        stellt dem Datum (sofern angezeigt) auch den Wochentag voran
 #
@@ -163,6 +164,7 @@ fi
 # ------------------------------
 SEARCH_STREET=0
 SHOW_WEEK_DAY=0
+HIDE_STREET_NAME=0
 HIDE_TRASH_TYPE=0
 ARG_POS=1
 for arg in ${PARAMETER_LIST[@]};
@@ -197,6 +199,10 @@ do
   # Suche nächsten Termin
   # ----------------------
   if [ "$arg" == "n" ]; then SEARCH_MODE="NEXT"; fi
+  # ---------------------------------------
+  # Anzeige des Straßennamens unterdrücken
+  # ---------------------------------------
+  if [ "$arg" == "o" ]; then HIDE_STREET_NAME=1; fi
   # ---------------------------
   # Nur für eine Straße suchen
   # ---------------------------
@@ -333,13 +339,16 @@ do
           fi
           # ------------------------------------------------------------------
           # Wenn es mehr als eine Straße gibt, dann Straßennamen mit anzeigen
+          # (wenn dies nicht unterdrückt werden soll)
           # ------------------------------------------------------------------
-          if [ $NUMBER_OF_STREETS -gt 1 ];
+          if [ $NUMBER_OF_STREETS -gt 1 ] &&
+             [ $HIDE_STREET_NAME -eq 0 ];
           then
             COLLECTIONS_FOUND+="${DATA_NAMES[$CURRENT_STREET]}: "
           fi
           # -------------------------------------------------------------------
-          # Abfuhrarten (nur anzeigen wenn dies nicht unterdrückt werden soll)
+          # Abfuhrarten
+          # (wenn dies nicht unterdrückt werden soll)
           # -------------------------------------------------------------------
           if [ $HIDE_TRASH_TYPE -eq 0 ];
           then
