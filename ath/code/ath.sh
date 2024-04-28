@@ -3,7 +3,7 @@
 # AbfuhrTerminHinweise (ATH) - Anzeige von Terminen zur Abfallabholung
 # -----------------------------------------------------------------------------
 # Name:    ath.sh
-# Version: 1.23
+# Version: 1.24
 # Datum:   28.04.2024
 # Quelle:  https://github.com/migacode/home-assistant
 # -----------------------------------------------------------------------------
@@ -299,19 +299,38 @@ do
       INFO_DATA_FILE="$FILES_PATH/${DATA_FILES[$CURRENT_STREET]}"
       if [ -s "$INFO_DATA_FILE" ];
       then
-        # ------------------
-        # The Magic Line ;) ... extrahiert aus der jeweiligen Datei in folgener Reihenfolge:
-        # - 20 Zeilen nach jedem "BEGIN:VEVENT"
-        # - 20 Zeilen vor jedem "END:VEVENT"
-        # - alle Zeilen, in denen "DTSTART" oder "SUMMARY" vorkommt (ergibt jeweils 2 Zeilen)
-        # - aus diesen zwei Zeilen nur die, in denen die erste das gesuchte Datum enthält (DSTART)
-        # - aus diesen nur die jeweils zweite Zeile, welche die "SUMMARY" (Abfuhrart) enthält
-        # - nur die Abfuhrarten, die den Such-Filter beinhalten
-        # - doppelte Einträge / Zeilen entfernen
-        TOMORROW_COLLECTIONS=$(grep -i -A 20 "BEGIN:VEVENT" "$INFO_DATA_FILE" | grep -i -B 20 "END:VEVENT" | grep -i -E "(DTSTART|SUMMARY)" | grep -A 1 "$SEARCH_DATE" | grep -i -E "SUMMARY" | grep -i "$SEARCH_FILTER" | awk '!seen[$0]++')
-        # ------------------
+        # ---------------------------------------------------------------------
+        # The Magic begins ;) ...
+        # ---------------------------------------------------------------------
+        # - 16 Zeilen nach jedem "BEGIN:VEVENT" und
+        # - 16 Zeilen vor jedem "END:VEVENT" und daraus
+        # - alle Zeilen, in denen "DTSTART" oder "SUMMARY" vorkommt extrahieren
+        # => ergibt jeweils 2 Zeilen
+        # ---------------------------------------------------------------------
+        TOMORROW_COLLECTIONS=$(grep -i -A 16 "BEGIN:VEVENT" "$INFO_DATA_FILE" | grep -i -B 16 "END:VEVENT" | grep -i -E "(DTSTART|SUMMARY)")
+        # ---------------------------------------------------------------------
+        # Nur die Einträge extrahieren, die auch das gesuchte Datum enthalten:
+        # Leider kann sich die Reihenfolge der Eintragszeilen unterscheiden,
+        # d.h. je nachdem ob zuerst DTSTART oder SUMMARY in den zwei Zeilen
+        # steht, steht die entsprechende Abfuhrart "SUMMARY" in der jeweils
+        # anderen Zeile, also danach (A) oder davor (B) ;)
+        # ---------------------------------------------------------------------
+        if [ $(echo "$TOMORROW_COLLECTIONS" | head -n 1 | grep -c -i "DTSTART") -gt 0 ];
+        then
+          TOMORROW_COLLECTIONS=$(echo "$TOMORROW_COLLECTIONS" | grep -A 1 "$SEARCH_DATE")
+        else
+          TOMORROW_COLLECTIONS=$(echo "$TOMORROW_COLLECTIONS" | grep -B 1 "$SEARCH_DATE")
+        fi
+        # ---------------------------------------------------------------------
+        # Nur die Abfuhrarten auswählen, die den Such-Filter beinhalten und
+        # danach alle doppelten Einträge / Zeilen entfernen
+        # ---------------------------------------------------------------------
+        TOMORROW_COLLECTIONS=$(echo "$TOMORROW_COLLECTIONS" | grep -i -E "SUMMARY" | grep -i "$SEARCH_FILTER" | awk '!seen[$0]++')
+        # ---------------------------------------------------------------------
+        # Aus der fertigen "Liste" die Anzahl der Anfuhren ermitteln
+        # ---------------------------------------------------------------------
         NUMBER_OF_COLLECTIONS=$(echo "$TOMORROW_COLLECTIONS" | grep -c -i "SUMMARY")
-        # --------------------------
+        # ---------------------------------------------------------------------
         # Wenn es Abfuhren gibt ...
         # --------------------------
         if [ $NUMBER_OF_COLLECTIONS -gt 0 ];
