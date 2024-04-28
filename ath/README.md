@@ -8,25 +8,25 @@ Danach können die gewünschten Funktionen und Erweiterungen mit Hilfe dieser Se
 Beispiel: https://www.egst.de/de/abfallabholung -> <i>MEINESTRASSE.ics</i><br />
 (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)<br />
 <br />
-2.) In Home Assistant den Ordner <b>/config/www/ath</b> anlegen<br />
-In der <b>Konsole</b> (Terminal) eingeben: <b><i>mkdir -p /config/www/ath</i></b><br />
+2.) In Home Assistant den Ordner <b><i>/config/www/ath</i></b> anlegen<br />
+In der <b>Konsole</b> (Terminal) eingeben: <b>mkdir -p /config/www/ath</b><br />
 Anstelle von <i>/config/www/ath</i> kann auch ein beliebiger anderer Pfad gewählt werden, dann müssen jedoch auch alle nachstehenden Auftreten sowie die Pfadangaben in der Datei <i>ath.sh</i>, sowie ggf. die Zugriffsrechte auf diesen Pfad entsprechend geändert werden.<br />
 <br />
-3.) Folgende Dateien in den Ordner <b>/config/www/ath</b> kopieren:<ul>
+3.) Folgende Dateien in den Ordner <b><i>/config/www/ath</i></b> kopieren:<ul>
 <li>Das Sensor-Skript&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/ath/code/ath.sh"><strong>ath.sh</strong></a></li>
 <li>Die heruntergeladene Datei <i>MEINESTRASSE.ics</i> (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)</li>
 <li>Gegebenenfalls auf Wunsch weitere ICS-Dateien mit Abfuhrinformationen</li>
 </ul>
 <br />
-4.) In der Datei <b>ath.sh</b> die Konfiguration anpassen<ul>
+4.) In der Datei <b><i>ath.sh</i></b> die Konfiguration anpassen<ul>
 <li>Bei den Einträgen für <b>DATA_FILES</b> die Dateiname(n) gemäß der(n) zuvor heruntergeladenen Datei(en) eintragen</li>
 <li>Bei den Einträgen für <b>DATA_NAMES</b> die entsprechend gewünschte(n) Anzeige-Name(n) anpassen</li>
 </ul>
 <img src="./img/ATH_img_changes_script.png">
 Wenn mehr als eine Straße konfiguriert wird, müssen die entsprechenden Zeilen natürlich noch auskommentiert und ggf. mit weiteren fortlaufenden Nummern erweitert werden.<br />
 <br />
-5.) Das Sensor-Skript (Datei) <b>ath.sh</b> ausführbar machen<br />
-In der <b>Konsole</b> (Terminal) eingeben: <b><i>chmod +x /config/www/ath/ath.sh</i></b><br />
+5.) Das Sensor-Skript (Datei) <b><i>ath.sh</i></b> ausführbar machen<br />
+In der <b>Konsole</b> (Terminal) eingeben: <b>chmod +x /config/www/ath/ath.sh</b><br />
 <br />
 6.) Die <b>Command-Line-Sensoren</b> für Home Assistant einrichten<br />
 In der <b>configuration.yaml</b> folgende Sensoren anlegen:
