@@ -62,6 +62,7 @@ Die Ausgabe des Skripts <b>ash.sh</b> lässt sich über verschiedene Parameter e
 <br />
 <i>Optionen</i>
 <code>
+ -a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unterdrückt die Anzeige der Abfuhr/Abfallarten
  -s&nbsp;Index&nbsp;&nbsp;&nbsp;sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)<br />
  -d&nbsp;Datum&nbsp;&nbsp;&nbsp;sucht beginnend mit diesem Datum (Format: TTMM) statt morgen<br />
  -w&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stellt dem Datum (sofern angezeigt) auch den Wochentag voran<br />
@@ -126,23 +127,23 @@ Zusätzlich zu den oben angegebenen "Standard"-Sensoren nutzt die Karte exemplar
 
 ```yaml
 - sensor:
-    command: "/config/www/ath/ath.sh -n -s 1 -w bio | cut -d':' -f 1"
+    command: "/config/www/ath/ath.sh -a -n -s 1 -w bio"
     name: ath_next_bio
     scan_interval: 600
 - sensor:
-    command: "/config/www/ath/ath.sh -n -s 1 -w gelb | cut -d':' -f 1"
+    command: "/config/www/ath/ath.sh -a -n -s 1 -w gelb"
     name: ath_next_gelb
     scan_interval: 600
 - sensor:
-    command: "/config/www/ath/ath.sh -n -s 1 -w rest | cut -d':' -f 1"
+    command: "/config/www/ath/ath.sh -a -n -s 1 -w rest"
     name: ath_next_rest
     scan_interval: 600
 - sensor:
-    command: "/config/www/ath/ath.sh -n -s 1 -w papier | cut -d':' -f 1"
+    command: "/config/www/ath/ath.sh -a -n -s 1 -w papier"
     name: ath_next_papier
     scan_interval: 600
 - sensor:
-    command: "/config/www/ath/ath.sh -n -s 1 -w schadstoff | cut -d':' -f 1"
+    command: "/config/www/ath/ath.sh -a -n -s 1 -w schadstoff"
     name: ath_next_schadstoff
     scan_interval: 600
 ```
