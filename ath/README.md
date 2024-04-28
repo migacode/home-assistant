@@ -70,7 +70,9 @@ Die Ausgabe des Skripts <b>ash.sh</b> lässt sich über verschiedene Parameter e
 </code>
 <br />
 <i>Filter</i>
+<code>
 &nbsp;Eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens drei Zeichen lang), die in der Abfuhrart vorkommen soll.<br />
+</code>
 <h3>Beispiele</h3>
 <b>ath.sh -m</b><br />sucht für alle Straßen nach allen Abfuhrarten am morgigen Tag<br />
 <br />
