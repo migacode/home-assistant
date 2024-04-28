@@ -63,8 +63,8 @@ Die Ausgabe des Skripts <b>ash.sh</b> lässt sich über verschiedene Parameter e
 <i>Optionen</i>
 <code>
  -a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unterdrückt die Anzeige der Abfuhr/Abfallarten
- -s&nbsp;Index&nbsp;&nbsp;&nbsp;sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)<br />
  -d&nbsp;Datum&nbsp;&nbsp;&nbsp;sucht beginnend mit diesem Datum (Format: TTMM) statt morgen<br />
+ -s&nbsp;Index&nbsp;&nbsp;&nbsp;sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)<br />
  -w&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stellt dem Datum (sofern angezeigt) auch den Wochentag voran<br />
 </code>
 <br />
