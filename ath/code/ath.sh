@@ -3,8 +3,8 @@
 # AbfuhrTerminHinweise (ATH) - Anzeige von Terminen zur Abfallabholung
 # -----------------------------------------------------------------------------
 # Name:    ath.sh
-# Version: 1.20
-# Datum:   27.04.2024
+# Version: 1.21
+# Datum:   28.04.2024
 # Quelle:  https://github.com/migacode/home-assistant
 # -----------------------------------------------------------------------------
 #
@@ -18,6 +18,7 @@
 # Optionen
 #  -s Index  sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)
 #  -d Datum  sucht beginnend mit diesem Datum (Format: TTMM) statt morgen
+#  -w        stellt dem Datum (sofern angezeigt) auch den Wochentag voran
 #
 # Filter ist eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens
 # 3 Zeichen lang), die in der Abfuhrart vorkommen soll
@@ -159,6 +160,7 @@ fi
 # Gewünschten Such-Modus ermitteln
 # ---------------------------------
 SEARCH_STREET=0
+SHOW_WEEK_DAY=0
 ARG_POS=1
 for arg in ${PARAMETER_LIST[@]};
 do
@@ -216,6 +218,10 @@ do
       SEARCH_FILTER=""
     fi
   fi
+  # -------------------
+  # Wochentag anzeigen
+  # -------------------
+  if [ "$arg" == "w" ]; then SHOW_WEEK_DAY=1; fi
 done
 # -----------------------------------------------------------------------------
 # Anpassung des abzufragenden Zeitraums
@@ -303,6 +309,19 @@ do
           if [ "$SEARCH_MODE" == "FROM" ] ||
              [ "$SEARCH_MODE" == "NEXT" ];
           then
+            if [ $SHOW_WEEK_DAY -eq 1 ];
+            then
+              case $(date -d "${SEARCH_DATE:0:4}-${SEARCH_DATE:4:2}-${SEARCH_DATE:6:2}" +"%w") in
+                0) WEEK_DAY="Sonntag"    ;;
+                1) WEEK_DAY="Montag"     ;;
+                2) WEEK_DAY="Dienstag"   ;;
+                3) WEEK_DAY="Mittwoch"   ;;
+                4) WEEK_DAY="Donnerstag" ;;
+                5) WEEK_DAY="Freitag"    ;;
+                6) WEEK_DAY="Samstag"    ;;
+              esac
+              COLLECTIONS_FOUND+="$WEEK_DAY "
+            fi
             COLLECTIONS_FOUND+="${SEARCH_DATE:6:2}.${SEARCH_DATE:4:2}.: "
           fi
           # ------------------------------------------------------------------
