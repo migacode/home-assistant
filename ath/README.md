@@ -8,7 +8,7 @@ Danach können die gewünschten Funktionen und Erweiterungen mit Hilfe dieser Se
 Beispiel: https://www.egst.de/de/abfallabholung -> <i>MEINESTRASSE.ics</i><br />
 (<i>MEINESTRASSE</i> durch eigenen Dateinamen ersetzen)<br />
 <br />
-2.) In Home Assistant den Ordner <b>/config/www/ath<b> anlegen<br />
+2.) In Home Assistant den Ordner <b>/config/www/ath</b> anlegen<br />
 In der <b>Konsole</b> (Terminal) eingeben: <b><i>mkdir -p /config/www/ath</i></b><br />
 Anstelle von <i>/config/www/ath</i> kann auch ein beliebiger anderer Pfad gewählt werden, dann müssen jedoch auch alle nachstehenden Auftreten sowie die Pfadangaben in der Datei <i>ath.sh</i>, sowie ggf. die Zugriffsrechte auf diesen Pfad entsprechend geändert werden.<br />
 <br />
