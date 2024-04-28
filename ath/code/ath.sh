@@ -12,7 +12,7 @@
 #
 # Zeiten (nur einzeln zu verwenden)
 #  -h        sucht nach Terminen heute
-#  -m        sucht nach Terminen morgen (Default ohne Angabe einer Option)
+#  -m        sucht nach Terminen morgen (Default ohne Zeit-Parameter)
 #  -n        sucht nach den nächsten Terminen ab morgen
 #
 # Optionen
@@ -24,7 +24,7 @@
 #
 # Filter
 #   Eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens
-#   drei Zeichen lang), die in der Abfuhrart vorkommen soll
+#   drei Zeichen lang), die in der Abfuhrart vorkommen soll.
 #
 # -----------------------------------------------------------------------------
 #
