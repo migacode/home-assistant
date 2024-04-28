@@ -126,26 +126,26 @@ Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard an
 Zusätzlich zu den oben angegebenen "Standard"-Sensoren nutzt die Karte exemplarisch die folgenden weiteren Sensoren, welche den jeweils nächsten Abfuhrtermin der einzelnen Abfallarten für die erste konfigurierte Straße zur Verfügung stellen. Vor der Verwendung der Karte müssen diese Sensoren natürlich wie oben bei den ersten Sensoren beschrieben noch angelegt werden. Selbstverständlich können sowohl die Karte als auch die Sensoren ganz nach Belieben angepasst werden.<br />
 
 ```yaml
-- sensor:
-    command: "/config/www/ath/ath.sh -a -n -s 1 -w bio"
-    name: ath_next_bio
-    scan_interval: 600
-- sensor:
-    command: "/config/www/ath/ath.sh -a -n -s 1 -w gelb"
-    name: ath_next_gelb
-    scan_interval: 600
-- sensor:
-    command: "/config/www/ath/ath.sh -a -n -s 1 -w rest"
-    name: ath_next_rest
-    scan_interval: 600
-- sensor:
-    command: "/config/www/ath/ath.sh -a -n -s 1 -w papier"
-    name: ath_next_papier
-    scan_interval: 600
-- sensor:
-    command: "/config/www/ath/ath.sh -a -n -s 1 -w schadstoff"
-    name: ath_next_schadstoff
-    scan_interval: 600
+  - sensor:
+      command: "/config/www/ath/ath.sh -a -n -s 1 -w bio"
+      name: ath_next_bio
+      scan_interval: 600
+  - sensor:
+      command: "/config/www/ath/ath.sh -a -n -s 1 -w gelb"
+      name: ath_next_gelb
+      scan_interval: 600
+  - sensor:
+      command: "/config/www/ath/ath.sh -a -n -s 1 -w rest"
+      name: ath_next_rest
+      scan_interval: 600
+  - sensor:
+      command: "/config/www/ath/ath.sh -a -n -s 1 -w papier"
+      name: ath_next_papier
+      scan_interval: 600
+  - sensor:
+      command: "/config/www/ath/ath.sh -a -n -s 1 -w schadstoff"
+      name: ath_next_schadstoff
+      scan_interval: 600
 ```
 Darüber hinaus verwendet die Karte das HACS-Modul "card-mod", jedoch nur zur Justierung von Abständen. Wer card-mod nicht verwendet, oder wem die Karte unformatiert besser gefällt, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
 <br />
