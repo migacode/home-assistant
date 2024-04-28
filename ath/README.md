@@ -55,21 +55,22 @@ Die Ausgabe des Skripts <b>ash.sh</b> lässt sich über verschiedene Parameter e
 <br />
 <i>Zeiten</i> (nur einzeln zu verwenden)
 <code>
- -h&nbsp;&nbsp;&nbsp;sucht nach Terminen heute<br />
- -m&nbsp;&nbsp;&nbsp;sucht nach Terminen morgen (Default ohne Zeit-Parameter)<br />
- -n&nbsp;&nbsp;&nbsp;sucht nach den nächsten Terminen ab morgen<br />
+&nbsp;-h&nbsp;&nbsp;&nbsp;sucht nach Terminen heute<br />
+&nbsp;-m&nbsp;&nbsp;&nbsp;sucht nach Terminen morgen (Default ohne Zeit-Parameter)<br />
+&nbsp;-n&nbsp;&nbsp;&nbsp;sucht nach den nächsten Terminen ab morgen<br />
 </code>
 <br />
 <i>Optionen</i>
 <code>
- -a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unterdrückt die Anzeige der Abfuhr/Abfallarten<br />
- -d&nbsp;Datum&nbsp;&nbsp;&nbsp;sucht beginnend mit diesem Datum (Format: TTMM) statt morgen<br />
- -o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unterdrückt die Anzeige des Straßenamens/Ortes<br />
- -s&nbsp;Index&nbsp;&nbsp;&nbsp;sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)<br />
- -w&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stellt dem Datum (sofern angezeigt) auch den Wochentag voran<br />
+&nbsp;-a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unterdrückt die Anzeige der Abfuhr/Abfallarten<br />
+&nbsp;-d&nbsp;Datum&nbsp;&nbsp;&nbsp;sucht beginnend mit diesem Datum (Format: TTMM) statt morgen<br />
+&nbsp;-o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unterdrückt die Anzeige des Straßenamens/Ortes<br />
+&nbsp;-s&nbsp;Index&nbsp;&nbsp;&nbsp;sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)<br />
+&nbsp;-w&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stellt dem Datum (sofern angezeigt) auch den Wochentag voran<br />
 </code>
 <br />
-<i>Filter</i> ist eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens 3 Zeichen lang), die in der Abfuhrart vorkommen soll.<br />
+<i>Filter</i>
+&nbsp;Eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens drei Zeichen lang), die in der Abfuhrart vorkommen soll.<br />
 <h3>Beispiele</h3>
 <b>ath.sh -m</b><br />sucht für alle Straßen nach allen Abfuhrarten am morgigen Tag<br />
 <br />
