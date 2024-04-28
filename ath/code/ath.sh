@@ -3,7 +3,7 @@
 # AbfuhrTerminHinweise (ATH) - Anzeige von Terminen zur Abfallabholung
 # -----------------------------------------------------------------------------
 # Name:    ath.sh
-# Version: 1.21
+# Version: 1.22
 # Datum:   28.04.2024
 # Quelle:  https://github.com/migacode/home-assistant
 # -----------------------------------------------------------------------------
@@ -16,12 +16,14 @@
 #  -n        sucht nach den nächsten Terminen ab morgen
 #
 # Optionen
-#  -s Index  sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)
+#  -a        unterdrückt die Anzeige der Abfuhr/Abfallarten
 #  -d Datum  sucht beginnend mit diesem Datum (Format: TTMM) statt morgen
+#  -s Index  sucht nur in der Straße mit dem Index (1 .. n wie in DATA_FILES)
 #  -w        stellt dem Datum (sofern angezeigt) auch den Wochentag voran
 #
-# Filter ist eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens
-# 3 Zeichen lang), die in der Abfuhrart vorkommen soll
+# Filter
+#   Eine beliebige Zeichenfolge (ohne Leerzeichen und mindestens
+#   drei Zeichen lang), die in der Abfuhrart vorkommen soll
 #
 # -----------------------------------------------------------------------------
 #
@@ -156,15 +158,20 @@ then
     SEARCH_FILTER=""
   fi
 fi
-# ---------------------------------
-# Gewünschten Such-Modus ermitteln
-# ---------------------------------
+# ------------------------------
+# Gewählte Optionen analysieren
+# ------------------------------
 SEARCH_STREET=0
 SHOW_WEEK_DAY=0
+HIDE_TRASH_TYPE=0
 ARG_POS=1
 for arg in ${PARAMETER_LIST[@]};
 do
   ((ARG_POS+=1))
+  # -----------------------------------
+  # Anzeige der Abfallart unterdrücken
+  # -----------------------------------
+  if [ "$arg" == "a" ]; then HIDE_TRASH_TYPE=1; fi
   # -----------------------------------------
   # Suche ab einem bestimmten Datum anfangen
   # -----------------------------------------
@@ -206,6 +213,10 @@ do
       fi
     fi
   fi
+  # -------------------
+  # Wochentag anzeigen
+  # -------------------
+  if [ "$arg" == "w" ]; then SHOW_WEEK_DAY=1; fi
   # ----------------------------------------------------
   # Wenn der letzte Parameter zu dem vorherigen gehört,
   # ist dieser kein Filter, so dass jener leer bleibt
@@ -218,10 +229,6 @@ do
       SEARCH_FILTER=""
     fi
   fi
-  # -------------------
-  # Wochentag anzeigen
-  # -------------------
-  if [ "$arg" == "w" ]; then SHOW_WEEK_DAY=1; fi
 done
 # -----------------------------------------------------------------------------
 # Anpassung des abzufragenden Zeitraums
@@ -331,23 +338,29 @@ do
           then
             COLLECTIONS_FOUND+="${DATA_NAMES[$CURRENT_STREET]}: "
           fi
-          # ---------------------------------------------------------
-          # Arten der Abfuhr extrahieren und durch Semikolon trennen
-          # ---------------------------------------------------------
-          TOMORROW_COLLECTIONS=$(echo ${TOMORROW_COLLECTIONS} | sed "s/SUMMARY\s*\:\s*//gi")
-          TOMORROW_COLLECTIONS=$(echo "$TOMORROW_COLLECTIONS" | tr -s '\r\n' ';' | tr -s '\r' ';' | tr -s '\n' ';')
-          TOMORROW_COLLECTIONS=$(echo "$TOMORROW_COLLECTIONS" | sed -e 's/;\s*$//gi')
-          # -------------------------------------------------------------
-          # Wenn es mehr als eine Abfuhr gibt, diese durch "und" trennen
-          # -------------------------------------------------------------
-          if [ $NUMBER_OF_COLLECTIONS -gt 1 ];
+          # -------------------------------------------------------------------
+          # Abfuhrarten (nur anzeigen wenn dies nicht unterdrückt werden soll)
+          # -------------------------------------------------------------------
+          if [ $HIDE_TRASH_TYPE -eq 0 ];
           then
-            TOMORROW_COLLECTIONS=$(echo "$TOMORROW_COLLECTIONS" | sed -e 's/;/ und/gi')
+            # ---------------------------------------------------------
+            # Arten der Abfuhr extrahieren und durch Semikolon trennen
+            # ---------------------------------------------------------
+            TOMORROW_COLLECTIONS=$(echo ${TOMORROW_COLLECTIONS} | sed "s/SUMMARY\s*\:\s*//gi")
+            TOMORROW_COLLECTIONS=$(echo "$TOMORROW_COLLECTIONS" | tr -s '\r\n' ';' | tr -s '\r' ';' | tr -s '\n' ';')
+            TOMORROW_COLLECTIONS=$(echo "$TOMORROW_COLLECTIONS" | sed -e 's/;\s*$//gi')
+            # -------------------------------------------------------------
+            # Wenn es mehr als eine Abfuhr gibt, diese durch "und" trennen
+            # -------------------------------------------------------------
+            if [ $NUMBER_OF_COLLECTIONS -gt 1 ];
+            then
+              TOMORROW_COLLECTIONS=$(echo "$TOMORROW_COLLECTIONS" | sed -e 's/;/ und/gi')
+            fi
+            # ------------------------------
+            # Gefundene Abfuhren hinzufügen
+            # ------------------------------
+            COLLECTIONS_FOUND+="$TOMORROW_COLLECTIONS"
           fi
-          # ------------------------------
-          # Gefundene Abfuhren hinzufügen
-          # ------------------------------
-          COLLECTIONS_FOUND+="$TOMORROW_COLLECTIONS"
           # ------------------------------------------------------
           # Wenn es weitere Straßen gibt, Trennzeichen hinzufügen
           # ------------------------------------------------------
@@ -371,4 +384,4 @@ done
 # Ergebnis bereinigen und ausgeben
 # -----------------------------------------------------------------------------
 if [ "$COLLECTIONS_FOUND" == "" ]; then COLLECTIONS_FOUND="$NO_COLLECTION"; fi
-echo $(echo "$COLLECTIONS_FOUND" | sed -e "s/$SEPERATOR\s*$//")
+echo $(echo "$COLLECTIONS_FOUND" | sed -e "s/$SEPERATOR\s*$//" | sed -e "s/\:\s*$//")
