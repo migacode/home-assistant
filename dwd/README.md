@@ -30,15 +30,19 @@ Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warnc
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 <br />
-1. An den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
+1.a. Im Bereich <i>Konfiguration</i> an den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
 (Wer den Sensor wie oben angeben für Hörstel angelegt hat, kann diesen Schritt überspringen ;)<br />
 <br />
 <img src="./img/DWD_img_changes_automation_1.png">
+1.b. Unter <i>trigger:</i> an der markierten Stelle die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen (diesmal die vollständigen Namen mit Nummern).<br />
+<br />
 <img src="./img/DWD_img_changes_automation_2.png">
-2. An den markierten Stellen die Entitäts-Namen der Benachrichtigungs-Dienste jeweils durch die eigenen ersetzen.<br />
+1.c. Unter <i>action:</i> an den markierten Stellen die Service-Namen für die Benachrichtigungen jeweils durch die eigenen ersetzen.<br />
 <br />
 <img src="./img/DWD_img_changes_automation_3.png">
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann in dem Bereich <i>action:</i> die Zeilen für den jeweiligen Service einfach löschen.<br />
+<br />
+2. Bei Bedarf die Konfiguration (siehe Bild unter 1.a.) für den Mitteilungsversand und die Darstellung der Mitteilungen nach eigenen Wünschen anpassen.<br />
 <br />
 3. Nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automatisierungen neu zu laden :)<br />
 <br />
