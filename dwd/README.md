@@ -30,7 +30,7 @@ Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warnc
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 <br />
-1.a. Im Bereich <i>Konfiguration</i> an den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
+1.a. Im Bereich <i>Konfiguration</i> an der markierten Stelle die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
 <br />
 <img src="./img/DWD_img_changes_automation_1.png">
 1.b. Unter <i>trigger:</i> an den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
