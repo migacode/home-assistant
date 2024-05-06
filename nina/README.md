@@ -20,7 +20,8 @@ Der Warndienst <b>NINA</b> vom <a href="https://www.bbk.bund.de/DE/Warnung-Vorso
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 <br />
 1.a. Im Bereich <i>Konfiguration</i> an der markierten Stelle den Entitäts-Namen der Sensoren durch den eigenen ersetzen. Dabei beachten, für den Eintrag <i>nina_entity_name</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
-<img src="./img/NINA_img_changes_automation_1.png"><br />
+<br />
+<img src="./img/NINA_img_changes_automation_1.png">
 1.b. Unter <i>trigger:</i> an der markierten Stelle die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen (diesmal die vollständigen Namen mit Nummern).<br />
 <br />
 <img src="./img/NINA_img_changes_automation_2.png">
