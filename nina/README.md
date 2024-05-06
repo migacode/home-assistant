@@ -19,15 +19,19 @@ Der Warndienst <b>NINA</b> vom <a href="https://www.bbk.bund.de/DE/Warnung-Vorso
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 <br />
-1. An den markierten Stellen die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen.<br />
+1.a. Im Bereich <i>Konfiguration</i> an der markierten Stelle den Entitäts-Namen der Sensoren jeweils durch den eigenen ersetzen.<br />
 Dabei beachten, für den Eintrag <i>nina_entity_name</i> den Entitäts-Namen generisch ohne Nummern, aber mit Unterstrich am Ende zu schreiben ;)<br />
 <br />
-<img src="./img/NINA_img_changes_automation_1.png">
+<img src="./img/NINA_img_changes_automation_1.png"><br />
+1.b. Unter <i>trigger:</i> an der markierten Stelle die Entitäts-Namen der Sensoren jeweils durch die eigenen ersetzen (diesmal die vollständigen Namen mit Nummern).<br />
+<br />
 <img src="./img/NINA_img_changes_automation_2.png">
-2. An den markierten Stellen die Service-Namen für die Benachrichtigungen jeweils durch die eigenen ersetzen.<br />
+1.c. Unter <i>action:</i> an den markierten Stellen die Service-Namen für die Benachrichtigungen jeweils durch die eigenen ersetzen.<br />
 <br />
 <img src="./img/NINA_img_changes_automation_3.png">
 Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachrichtigung an Telegram, die HA-App oder das Dashboard wünscht, kann in dem Bereich <i>action:</i> die Zeilen für den jeweiligen Service einfach löschen.<br />
+<br />
+2. Bei Bedarf die Konfiguration (siehe Bild unter 1.a) nach eigenen Wünschen anpassen.<br />
 <br />
 3. Nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automatisierungen neu zu laden :)<br />
 <br />
@@ -36,7 +40,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <hr>
 <h3>NodeRED-Flow zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard</h3>
 <img src="./img/NINA_img_nodered_flow.png">
-<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_nodered_flow_1.51.json"><strong>NINA_warnings_nodered_flow_1.51.json</strong></a><br />
+<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_nodered_flow_1.52.json"><strong>NINA_warnings_nodered_flow_1.52.json</strong></a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
