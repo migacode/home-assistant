@@ -1,8 +1,8 @@
 # =============================================================================
 # DWD-Warnungen versenden - Home Assistant Automatisierung
 # -----------------------------------------------------------------------------
-# Version: 1.20
-# Datum:   23.04.2023
+# Version: 1.38
+# Datum:   08.05.2024
 # Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 - id: "dwd_warnings"
@@ -10,41 +10,103 @@
   description: ""
   variables:
     alert_message: "
-{#- ------------------------------------------------------------------- -#}
-{#- Entitäten der DWD-Sensoren (vollständige Namen)                     -#}
-{#- ------------------------------------------------------------------- -#}
+{#- ======================================================================= -#}
+{#- Konfiguration                                                           -#}
+{#- ======================================================================= -#}
+{#- ----------------------------------------------------------------------- -#}
+{#- Entitäten der DWD-Sensoren (vollständige Namen)                         -#}
+{#- ----------------------------------------------------------------------- -#}
 {%- set dwd_entity_name_cw = 'sensor.dwd_warnungen_hoerstel_current_warning_level' -%}
 {%- set dwd_entity_name_aw = 'sensor.dwd_warnungen_hoerstel_advance_warning_level' -%}
-{#- ------------------------------------------------------------------- -#}
+{#- ----------------------------------------------------------------------- -#}
+{#- Mitteilungsversand                                                      -#}
+{#- ----------------------------------------------------------------------- -#}
+{#- Kleinste Warnstufe, ab der Mitteilungen versendet werden (1 = alle)     -#}
+{%- set minimum_warning_level     = 1                                       -%}
+{#- Mitteilung versenden, wenn alle Meldungen aufgehoben (true | false)     -#}
+{%- set send_cancellation_message = true                                    -%}
+{#- ----------------------------------------------------------------------- -#}
+{#- Darstellung                                                             -#}
+{#- ----------------------------------------------------------------------- -#}
+{#- Wetter-Symbole anzeigen (true | false)                                  -#}
+{%- set show_weather_symbols      = true                                    -%}
+{#- Aktuelle Warnstufe anzeigen (true | false)                              -#}
+{%- set show_warning_level        = true                                    -%}
+{#- Zeitpunkt der letzten Aktualisierung anzeigen (true | false)            -#}
+{%- set show_last_update_time     = true                                    -%}
+{#- Im Mitteilungstext 'Amtliche Warnung vor ' entfernen (true | false)     -#}
+{%- set remove_pre_text_amtliche  = true                                    -%}
+{#- Zusätzlicher Text, der hinter der Haupt-Überschrift angezeigt wird      -#}
+{%- set main_headline_add_text    = ' (über HA)'                            -%}
+{#- ======================================================================= -#}
+{#- Initialisierung                                                         -#}
+{#- ACHTUNG: Mit Namespace arbeiten, damit Werte von Variablen auch in den  -#}
+{#- for-Loops verarbeitet werden können (unfassbar was Jinja hier macht!)   -#}
+{#- ======================================================================= -#}
 {%- set weather_warnidx = ['EIS', 'FROST', 'GEWITTER', 'HAGEL', 'HITZE', 'KALT', 'KÄLTE', 'ORKAN', 'REGEN', 'SCHNEE', 'STURM', 'WASSER', 'WIND'] -%}
 {%- set weather_symbols = ['❄️', '❄️', '🌩', '🌩', '☀️', '❄️', '❄️', '🌪', '☂️', '⛄️', '🌪', '🌊', '💨'] -%}
-{%- set blitz = '⚡' -%}
+{%- if show_weather_symbols -%}{%- set blitz = '⚡ ' -%}{%- else -%}{%- set blitz = '' -%}{%- endif -%}
 {%- set trennlinie = '\n───\n' -%}
+{%- set ns = namespace() -%}
+{#- ======================================================================= -#}
+{#- Here we go ...                                                          -#}
+{#- ======================================================================= -#}
 {%- set number_current_warnings = state_attr(dwd_entity_name_cw, 'warning_count') -%}
 {%- set number_advanced_warnings = state_attr(dwd_entity_name_aw, 'warning_count') -%}
 {%- if ((number_current_warnings != 0 and number_current_warnings != None) or (number_advanced_warnings != 0 and number_advanced_warnings != None)) -%}
-  {%- if number_current_warnings != None and number_advanced_warnings != None -%}
-    {%- set number_all_warnings = number_current_warnings + number_advanced_warnings -%}
-  {%- else -%}
-    {%- set number_all_warnings = 0 -%}
-  {%- endif -%}
-  {{blitz}} ***DWD-WARNUNG{%- if number_all_warnings > 1 -%}EN ({{ number_all_warnings }}){%- endif -%}*** {{blitz}} (über HA){{trennlinie}}
+  {#- --------------------------------------------------------------------- -#}
+  {#- Zuerst prüfen, ob es anzuzeigende Warnungen gibt                      -#}
+  {#- --------------------------------------------------------------------- -#}
+  {%- set ns.warnings_to_show = 0 -%}
   {%- if number_current_warnings != 0 and number_current_warnings != None -%}
     {%- for i in range(number_current_warnings) -%}
-      {%- set headline = state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_headline') -%}***{{ headline | regex_replace('Amtliche Warnung vor ','',true) | trim }}***{{' '}}{%- for item in weather_warnidx -%}{%- if item in headline.upper() -%}{{ weather_symbols[loop.index0] | trim }}{%- endif -%}{%- endfor -%}{{'\n'}}{{'XXX'}}
-      {{- 'Aktuelle Warnstufe: ***' ~ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_level') ~ '***' | trim }}{{'\n'}}
-      {{- state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}{{'ZZZ'}}Von {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_end') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.{{trennlinie}}
+      {%- set level = state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_level') | int -%}
+      {%- if level >= minimum_warning_level -%}
+        {%- set ns.warnings_to_show = ns.warnings_to_show + 1 -%}
+      {%- endif -%}
     {%- endfor -%}
   {%- endif -%}
   {%- if number_advanced_warnings != 0 and number_advanced_warnings != None -%}
     {%- for i in range(number_advanced_warnings) -%}
-      {%- set headline = state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_headline') -%}***{{ headline | regex_replace('Amtliche Warnung vor ','',true) | trim }}***{{' '}}{%- for item in weather_warnidx -%}{%- if item in headline.upper() -%}{{ weather_symbols[loop.index0] | trim }}{%- endif -%}{%- endfor -%}{{'\n'}}{{'XXX'}}
-      {{- 'Erweiterte Warnstufe: ***' ~ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_level') ~ '***' | trim }}{{'\n'}}
-      {{- state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}{{'ZZZ'}}Von {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }} bis {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_end') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}.{{trennlinie}}
+      {%- set level = state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_level') | int -%}
+      {%- if level >= minimum_warning_level -%}
+        {%- set ns.warnings_to_show = ns.warnings_to_show + 1 -%}
+      {%- endif -%}
     {%- endfor -%}
   {%- endif -%}
-{%- else -%}
-  Alle DWD-Warnmeldungen wurden aufgehoben.
+  {#- --------------------------------------------------------------------- -#}
+  {#- Wenn es anzuzeigende Warnungen gibt, die Mitteilung zusammenbauen     -#}
+  {#- --------------------------------------------------------------------- -#}
+  {%- if ns.warnings_to_show > 0 -%}
+    {#- set main_headline = 'TEST: (' ~ number_current_warnings ~ ' + ' ~ number_advanced_warnings ~ ' = ' ~ ns.warnings_to_show ~ ') ' ~ blitz ~ '***DWD-WARNUNG' -#}
+    {%- set main_headline = blitz ~ '***DWD-WARNUNG' -%}
+    {%- if ns.warnings_to_show > 1 -%}{%- set main_headline = main_headline ~ 'EN (' ~ ns.warnings_to_show ~ ')' -%}{%- endif -%}
+    {%- set main_headline = main_headline ~ '*** ' ~ blitz ~ main_headline_add_text ~ trennlinie -%}
+    {{main_headline}}
+    {%- if number_current_warnings != 0 and number_current_warnings != None -%}
+      {%- for i in range(number_current_warnings) -%}
+        {%- set level = state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_level') | int -%}
+        {%- if level >= minimum_warning_level -%}
+          {%- set headline = state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_headline') -%}{{'***'}}{%- if remove_pre_text_amtliche -%}{{ headline | regex_replace('Amtliche Warnung vor\\s','',true) | trim }}{%- else -%}{{ headline | trim }}{%- endif -%}{{'*** '}}{%- if show_weather_symbols -%}{%- for item in weather_warnidx -%}{%- if item in headline.upper() -%}{{ weather_symbols[loop.index0] | trim }}{%- endif -%}{%- endfor -%}{%- endif -%}{{'\n'}}{{'XXX'}}
+          {%- if show_warning_level -%}{{ 'Aktuelle Warnstufe: ***' ~ level ~ '***' | trim }}{{'\n'}}{%- endif -%}
+          {%- if show_last_update_time -%}{%- set sent_time = state_attr(dwd_entity_name_cw, 'last_update') -%}{%- if sent_time != '' and sent_time != None -%}Letzte Aktualisierung: {{ sent_time | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{{'\n'}}{%- endif -%}{%- endif -%}
+          {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}{{'ZZZ'}}Ab {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{{' bis '}}{{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_end') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{{trennlinie}}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- if number_advanced_warnings != 0 and number_advanced_warnings != None -%}
+      {%- for i in range(number_advanced_warnings) -%}
+        {%- set level = state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_level') | int -%}
+        {%- if level >= minimum_warning_level -%}
+          {%- set headline = state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_headline') -%}{{'***'}}{%- if remove_pre_text_amtliche -%}{{ headline | regex_replace('Amtliche Warnung vor\\s','',true) | trim }}{%- else -%}{{ headline | trim }}{%- endif -%}{{'*** '}}{%- if show_weather_symbols -%}{%- for item in weather_warnidx -%}{%- if item in headline.upper() -%}{{ weather_symbols[loop.index0] | trim }}{%- endif -%}{%- endfor -%}{%- endif -%}{{'\n'}}{{'XXX'}}
+          {%- if show_warning_level -%}{{ 'Vorwarnstufe: ***' ~ level ~ '***' | trim }}{{'\n'}}{%- endif -%}
+          {%- if show_last_update_time -%}{%- set sent_time = state_attr(dwd_entity_name_aw, 'last_update') -%}{%- if sent_time != '' and sent_time != None -%}Letzte Aktualisierung: {{ sent_time | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{{'\n'}}{%- endif -%}{%- endif -%}
+          {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}{{'ZZZ'}}Ab {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{{' bis '}}{{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_end') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{{trennlinie}}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- else -%}{%- if send_cancellation_message -%}Alle DWD-Warnmeldungen wurden aufgehoben.{{main_headline_add_text}}{%- endif -%}
 {%- endif -%}"
   trigger:
     - platform: state
@@ -53,6 +115,10 @@
     - platform: state
       entity_id: sensor.dwd_warnungen_hoerstel_advance_warning_level
       attribute: warning_count
+  condition:
+    # Nachricht nur versenden, wenn diese nicht leer ist
+    - condition: template
+      value_template: "{{ alert_message | trim != '' }}"
   action:
     - parallel:
       # Nachricht für Telegram formatieren und versenden
@@ -64,7 +130,7 @@
       - service: notify.mobile_app_galaxy_von_michael
         continue_on_error: true
         data:
-          message: "{%- set appmsg = alert_message | regex_replace('(XXX).+\n.+\n(ZZZ)','') | replace(' Uhr','') | replace(' um ',' ') | replace('***','') | trim -%}{{ appmsg[0:255] ~ '\n(Details siehe HA-App)' }}"
+          message: "{%- set appmsg = alert_message | regex_replace('(XXX)((.|\n|\r)*)(ZZZ)','') | replace(' Uhr','') | replace(' um ',' ') | replace('***','') | trim -%}{{ appmsg[0:255] ~ '\n(Details siehe HA-App)' }}"
           data:
             ledColor: "red"
       # Nachricht für das Dashboard formatieren und versenden
