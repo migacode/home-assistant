@@ -73,7 +73,7 @@
   {#- Wenn es anzuzeigende Warnungen gibt, die Mitteilung zusammenbauen     -#}
   {#- --------------------------------------------------------------------- -#}
   {%- if ns.warnings_to_show > 0 -%}
-    {{blitz}}***NINA-WARNUNG{%- if ns.warnings_to_show > 1 -%}EN ({{ ns.warnings_to_show }}){%- endif -%}*** {{blitz}}{{main_headline_add_text}}{{trennlinie}}
+    {{blitz}}***NINA-WARNUNG{%- if ns.warnings_to_show > 1 -%}{{'EN ('}}{{ ns.warnings_to_show }}{{')'}}{%- endif -%}*** {{blitz}}{{main_headline_add_text}}{{trennlinie}}
     {%- for i in range(5) -%}
       {%- if is_state(nina_entity_name ~ loop.index, 'on') -%}
         {%- set level = 1 -%}{%- set level_text = state_attr(nina_entity_name ~ loop.index, 'severity') -%}
