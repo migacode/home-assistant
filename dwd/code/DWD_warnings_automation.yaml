@@ -78,11 +78,7 @@
   {#- Wenn es anzuzeigende Warnungen gibt, die Mitteilung zusammenbauen     -#}
   {#- --------------------------------------------------------------------- -#}
   {%- if ns.warnings_to_show > 0 -%}
-    {#- set main_headline = 'TEST: (' ~ number_current_warnings ~ ' + ' ~ number_advanced_warnings ~ ' = ' ~ ns.warnings_to_show ~ ') ' ~ blitz ~ '***DWD-WARNUNG' -#}
-    {%- set main_headline = blitz ~ '***DWD-WARNUNG' -%}
-    {%- if ns.warnings_to_show > 1 -%}{%- set main_headline = main_headline ~ 'EN (' ~ ns.warnings_to_show ~ ')' -%}{%- endif -%}
-    {%- set main_headline = main_headline ~ '*** ' ~ blitz ~ main_headline_add_text ~ trennlinie -%}
-    {{main_headline}}
+    {{blitz}}***DWD-WARNUNG{%- if ns.warnings_to_show > 1 -%}{{'EN ('}}{{ ns.warnings_to_show }}{{')'}}{%- endif -%}*** {{blitz}}{{main_headline_add_text}}{{trennlinie}}
     {%- if number_current_warnings != 0 and number_current_warnings != None -%}
       {%- for i in range(number_current_warnings) -%}
         {%- set level = state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_level') | int -%}
