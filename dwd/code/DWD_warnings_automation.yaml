@@ -1,8 +1,8 @@
 # =============================================================================
 # DWD-Warnungen versenden - Home Assistant Automatisierung
 # -----------------------------------------------------------------------------
-# Version: 1.38
-# Datum:   08.05.2024
+# Version: 1.39
+# Datum:   09.05.2024
 # Quelle:  https://github.com/migacode/home-assistant
 # =============================================================================
 - id: "dwd_warnings"
@@ -86,7 +86,10 @@
           {%- set headline = state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_headline') -%}{{'***'}}{%- if remove_pre_text_amtliche -%}{{ headline | regex_replace('Amtliche Warnung vor\\s','',true) | trim }}{%- else -%}{{ headline | trim }}{%- endif -%}{{'*** '}}{%- if show_weather_symbols -%}{%- for item in weather_warnidx -%}{%- if item in headline.upper() -%}{{ weather_symbols[loop.index0] | trim }}{%- endif -%}{%- endfor -%}{%- endif -%}{{'\n'}}{{'XXX'}}
           {%- if show_warning_level -%}{{ 'Aktuelle Warnstufe: ***' ~ level ~ '***' | trim }}{{'\n'}}{%- endif -%}
           {%- if show_last_update_time -%}{%- set sent_time = state_attr(dwd_entity_name_cw, 'last_update') -%}{%- if sent_time != '' and sent_time != None -%}Letzte Aktualisierung: {{ sent_time | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{{'\n'}}{%- endif -%}{%- endif -%}
-          {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}{{'ZZZ'}}Ab {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{{' bis '}}{{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_end') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{{trennlinie}}
+          {%- set from_time = state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_start') -%}{%- if from_time != '' and from_time != None -%}{%- set from_time = from_time | as_timestamp -%}{%- else -%}{%- set from_time = '' -%}{%- endif -%}
+          {%- set to_time = state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_end') -%}{%- if to_time != '' and to_time != None -%}{%- set to_time = to_time | as_timestamp -%}{%- else -%}{%- set to_time = '' -%}{%- endif -%}
+          {{ state_attr(dwd_entity_name_cw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}{{'ZZZ'}}{%- if from_time != '' -%}Ab {{ from_time | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{%- endif -%}{%- if to_time != '' -%}{{' bis '}}{{ to_time | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{%- endif -%}
+          {{trennlinie}}
         {%- endif -%}
       {%- endfor -%}
     {%- endif -%}
@@ -97,7 +100,10 @@
           {%- set headline = state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_headline') -%}{{'***'}}{%- if remove_pre_text_amtliche -%}{{ headline | regex_replace('Amtliche Warnung vor\\s','',true) | trim }}{%- else -%}{{ headline | trim }}{%- endif -%}{{'*** '}}{%- if show_weather_symbols -%}{%- for item in weather_warnidx -%}{%- if item in headline.upper() -%}{{ weather_symbols[loop.index0] | trim }}{%- endif -%}{%- endfor -%}{%- endif -%}{{'\n'}}{{'XXX'}}
           {%- if show_warning_level -%}{{ 'Vorwarnstufe: ***' ~ level ~ '***' | trim }}{{'\n'}}{%- endif -%}
           {%- if show_last_update_time -%}{%- set sent_time = state_attr(dwd_entity_name_aw, 'last_update') -%}{%- if sent_time != '' and sent_time != None -%}Letzte Aktualisierung: {{ sent_time | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{{'\n'}}{%- endif -%}{%- endif -%}
-          {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}{{'ZZZ'}}Ab {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_start') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{{' bis '}}{{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_end') | as_timestamp | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{{trennlinie}}
+          {%- set from_time = state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_start') -%}{%- if from_time != '' and from_time != None -%}{%- set from_time = from_time | as_timestamp -%}{%- else -%}{%- set from_time = '' -%}{%- endif -%}
+          {%- set to_time = state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_end') -%}{%- if to_time != '' and to_time != None -%}{%- set to_time = to_time | as_timestamp -%}{%- else -%}{%- set to_time = '' -%}{%- endif -%}
+          {{ state_attr(dwd_entity_name_aw, 'warning_' ~ loop.index ~ '_description') | trim }}{{'\n'}}{{'ZZZ'}}{%- if from_time != '' -%}Ab {{ from_time | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{%- endif -%}{%- if to_time != '' -%}{{' bis '}}{{ to_time | timestamp_custom('***%d.%m.%Y*** um ***%H:%M*** Uhr', true) | trim }}{%- endif -%}
+          {{trennlinie}}
         {%- endif -%}
       {%- endfor -%}
     {%- endif -%}
