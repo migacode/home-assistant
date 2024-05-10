@@ -39,7 +39,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <hr>
 <h3>NodeRED-Flow zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard</h3>
 <img src="./img/NINA_img_nodered_flow.png">
-<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_nodered_flow_1.52.json"><strong>NINA_warnings_nodered_flow_1.52.json</strong></a><br />
+<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_nodered_flow_1.53.json"><strong>NINA_warnings_nodered_flow_1.53.json</strong></a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
