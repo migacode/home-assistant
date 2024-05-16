@@ -15,7 +15,7 @@ Der Warndienst <b>NINA</b> vom <a href="https://www.bbk.bund.de/DE/Warnung-Vorso
 <hr>
 <h3>Automatisierung zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard (native)</h3>
 <img style="float:left;" src="./img/NINA_img_notifications.png">
-<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_automation.yaml"><strong>NINA_warnings_automation.yaml</strong></a><br />
+<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_automation_1.50.yaml"><strong>NINA_warnings_automation_1.50.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 <br />
@@ -39,7 +39,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <hr>
 <h3>NodeRED-Flow zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard</h3>
 <img src="./img/NINA_img_nodered_flow.png">
-<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_nodered_flow_1.53.json"><strong>NINA_warnings_nodered_flow_1.53.json</strong></a><br />
+<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_nodered_flow_1.55.json"><strong>NINA_warnings_nodered_flow_1.55.json</strong></a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
