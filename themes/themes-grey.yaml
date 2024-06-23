@@ -2,7 +2,7 @@
 # Datei: themes-grey.yaml
 # Zweck: Layout und Farben des Frontends (CSS)
 # Autor: Michael Gasbers (kontakt@migano.de)
-# Letzte Änderung: 30.01.2023
+# Letzte Änderung: 23.06.2024
 # =============================================================================
 
 # =============================================================================
@@ -14,7 +14,7 @@ Cool-Dark-Grey:
   # -----------------------------------------------------------------------
   # Schrift (Text)
   primary-text-color:   '#cccccc'           # Haupttexte
-  secondary-text-color: '#aaaaaa'           # Info-Texte und Einstellungs-Icons
+  secondary-text-color: '#ccaa88'           # Info-Texte und Einstellungs-Icons
   primary-color:        '#888888'           # Interne Verweise/Links
   paper-listbox-color:  '#aaaaaa'           # Geräte-Listen
   mdc-theme-primary:    '#88cc88'           # Konfigurations-Buttons/Links
