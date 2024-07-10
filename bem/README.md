@@ -37,8 +37,6 @@ In allen Nodes namens "<b>Aktuellen Füllstand einlesen</b>" die Entität <b>sen
 
 <hr>
 <h3>Handhabung und Funktionsweise</h3>
-<b>Erläuterungen zur Handhabung und Funktionsweise</b>
-<br />
 <br />
 Ein Messvorgang besteht <b>immer aus zwei Schritten</b> - einer Messung des Füllstandes zu Beginn und einer Messung zum Ende jeder Entnahme.<br />
 Die beiden Schritte werden entsprechend durch die Automatisierungs-Flows 1. (Entnahme Beginn) und 2. (Entnahme Ende) abgebildet.<br />
@@ -46,3 +44,6 @@ In <b>Flow 1</b> wird der zum Zeitpunkt dessen Aufrufs gemessene Füllstand des 
 In <b>Flow 2</b> wird der aktuelle Füllstand des Behälters erneut eingelesen und die Differenz zu dem in Flow 1 gemessenen und gespeicherten Stand ermittelt. Die ermittelte Differenz (letzte Entnahmemenge) dann in dem Helfer <b>bem_entnahme_letzte</b> gespeichert, sowie der Gesamtentnahmemenge hinzu addiert. Die neue Gesamtentnahmemenge wird wiederrum in dem Helfer <b>bem_entnahme_gesamt</b> gespeichert.<br />
 Insofern muss vor Beginn <b>jeder</b> Entnahme der Flow 1, sowie nach dem Ende der Entnahme Flow 2 getriggert werden - beispielsweise parallel zum Ein- bzw. Ausschalten einer Pumpe.<br />
 <b>ACHTUNG:</b> Ein Aufruf von Flow 2 ohne vorherigen Aufruf von Flow 1 führt natürlich dazu, dass Flow 2 den gespeicherten Füllstand noch von vor der/n vorletzten Entnahme/n als Basiswert verwendet, die Messung insofern auch die vorletzte/n Entnahmemenge/n mehrfach beinhaltet und somit auch die Werte der entnommenen Einzel- und Gesamtmenge verfälscht!
+<br />
+Nach der Einrichtung lassen sich die Helfer dann einfach bspw. als Gauge-Card in das Dashboard von Home Assistant einbinden (s. Beispiel).<br />
+<img src="./img/bem_img_card.png">
