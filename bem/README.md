@@ -16,7 +16,7 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die
 <ul>
 <li>Bei <b>1</b> den maximalen Wert gemäß des eigenen Umfeldes eintragen. Dieser Wert sollte höher sein als die Summe aller Entnahmen erreichen kann.</li>
 <li>Bei <b>2</b> die Schrittgröße ist entsprechend der gewünschten Genauigkeit einzustellen (in diesem Beispiel 1/1000 = Milliliter).</li>
-<li>Bei <b>3</b> die Entität-IDs exakt so benennen wie oben angegeben (der Entitäts-Name hingegen ist egal), oder statt dessen die Entität-IDs in den NodeRED-Flows entsprechend ändern (mehr Aufwand).</li>
+<li>Bei <b>3</b> die Entität-IDs jeweils exakt so benennen wie oben angegeben (der Entitäts-Name hingegen ist egal), oder statt dessen die Entität-IDs in den NodeRED-Flows entsprechend ändern (mehr Aufwand).</li>
 </ul>
 
 <hr>
@@ -32,7 +32,7 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
-In allen Nodes namens "<b>Aktuellen Füllstand einlesen</b>" die Entität <b>sensor.behaelter_fuellstand_aktuell</b> durch die Entität des eigenen tatsächlichen Sensor ersetzen, welcher den Füllstand des realen Behälters enthält. <b>Achtung:<b> Einen geänderten Node nicht einfach über einen anderen gleichlautenden Node kopieren, da die einzelnen Nodes trotz gleicher Bezeichnung unterschiedliche Ausgänge haben!<br /><br />
+In allen Nodes namens "<b>Aktuellen Füllstand einlesen</b>" die Entität <b>sensor.behaelter_fuellstand_aktuell</b> durch die Entität des eigenen tatsächlichen Sensor ersetzen, welcher den Füllstand des realen Behälters enthält. <b>Achtung:</b> Einen geänderten Node nicht einfach über einen anderen gleichlautenden Node kopieren, da die einzelnen Nodes trotz gleicher Bezeichnung unterschiedliche Ausgänge haben!<br /><br />
 <img src="./img/bem_img_change_nodes.png">
 
 <hr>
