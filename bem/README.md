@@ -5,14 +5,13 @@
 Dazu verwendet <b>BEM</b> nur die Standard-Funktionen von Home Assistant und NodeRED, es werden keine zusätzlichen Integrationen, Add-Ons, HACS-Module oder NodeRED-Paletten benötigt.
 <hr>
 <h2>Vorbereitung</h2>
-Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandssensor die folgenden Helfer, welche zunächst in Home Assistant angelegt werden müssen.<br />
+Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandssensor die folgenden Helfer, welche zunächst in Home Assistant angelegt werden müssen.<br /><br />
 <img src="./img/bem_img_helper.png">
-Helfer<ul>
+<ul>
 <li> Behälter Entnahme gesamt (<b>input_number.bem_entnahme_gesamt</b>)</li>
 <li> Behälter Entnahme letzte (<b>input_number.bem_entnahme_letzte</b>)</li>
 <li> Behälter Stand bei Beginn letzter Entnahme (<b>input_number.bem_stand_bei_beginn_letzter_entnahme</b>)</li>
-</ul>
-<b>Wichtig</b>: Diese Helfer sind in Home Assistant als Typ <b>Nummer</b> (<i>input_number</i>) anzulegen. Für alle Helfer sind folgende Punkte zu beachten:<br /><br />
+</ul><b>Wichtig</b>: Diese Helfer sind in Home Assistant als Typ <b>Nummer</b> (<i>input_number</i>) anzulegen. Für alle Helfer sind folgende Punkte zu beachten:<br /><br />
 <img src="./img/bem_img_helper_entnahme_gesamt.png">
 <ul>
 <li>1 Maximalen Wert gemäß dem eigenen Umfeld eintragen. Dieser Wert sollte höher sein als die Summe aller Entnahmen erreichen kann.</li>
