@@ -1,11 +1,11 @@
 <h1>Home Assistant // BEM - Behälter-Entnahme-Messung</h1>
 
-<b>BEM</b> ist eine einfache Automatisierung für Home Assistant zur Erfassung von Entnahmemengen aus beliebigen Behältern wie beispielsweise Wassertanks. Dabei wird vorausgesetzt, dass der Behälter bereits über einen Sensor verfügt, welcher den aktuellen Füllstand des Behälters misst, und dieser in Home Assistant bereits als entsprechender Sensor eingerichtet ist.<br />
+<b>BEM</b> ist eine einfache Automatisierung für Home Assistant zur Erfassung von Entnahmemengen aus beliebigen Behältern wie beispielsweise Wassertanks. Dabei wird vorausgesetzt, dass der Behälter bereits über einen Sensor verfügt, welcher den aktuellen Füllstand des Behälters misst, und dieser in Home Assistant bereits als entsprechende Sensor-Entität eingerichtet ist.<br />
 <b>BEM</b> speichert dann fortwährend bei jeder Entnahme die letzte entnommene sowie die insgesamt entnommene Menge und stellt beide Werte in Home Assistant zur Verfügung.<br />
 Dazu verwendet <b>BEM</b> nur die Standard-Funktionen von Home Assistant und NodeRED, es werden keine zusätzlichen Integrationen, Add-Ons, HACS-Module oder NodeRED-Paletten benötigt.
 <hr>
 <h2>Vorbereitung</h2>
-Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandssensor die folgenden Helfer, welche zunächst in Home Assistant angelegt werden müssen.<br /><br />
+Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die folgenden Helfer, welche zunächst in Home Assistant angelegt werden müssen.<br /><br />
 <img src="./img/bem_img_helper.png">
 <ul>
 <li> Behälter Entnahme gesamt (<b>input_number.bem_entnahme_gesamt</b>)</li>
@@ -14,9 +14,9 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandssensor di
 </ul><b>Wichtig</b>: Diese Helfer sind in Home Assistant als Typ <b>Nummer</b> (<i>input_number</i>) anzulegen. Für alle Helfer sind folgende Punkte zu beachten:<br /><br />
 <img src="./img/bem_img_helper_entnahme_gesamt.png">
 <ul>
-<li>1 Maximalen Wert gemäß dem eigenen Umfeld eintragen. Dieser Wert sollte höher sein als die Summe aller Entnahmen erreichen kann.</li>
-<li>2 Die Schrittgröße ist entsprechend der gewünschten Genauigkeit einzustellen (in diesem Beispiel 1/1000 = Milliliter).</li>
-<li>3 Die Entität-IDs exakt so umbenennen wie oben angegeben (Umlaute wurden umgewandelt), oder statt dessen die Entität-IDs in den NodeRED-Flows entsprechend ändern (mehr Aufwand).</li>
+<li>Bei <b>1</b> den maximalen Wert gemäß des eigenen Umfeldes eintragen. Dieser Wert sollte höher sein als die Summe aller Entnahmen erreichen kann.</li>
+<li>Bei <b>2</b> die Schrittgröße ist entsprechend der gewünschten Genauigkeit einzustellen (in diesem Beispiel 1/1000 = Milliliter).</li>
+<li>Bei <b>3</b> die Entität-IDs exakt so benennen wie oben angegeben (der Entitätsname hingegen ist egal), oder statt dessen die Entität-IDs in den NodeRED-Flows entsprechend ändern (mehr Aufwand).</li>
 </ul>
 
 <hr>
@@ -32,13 +32,17 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandssensor di
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
-In allen Nodes namens "<b>Aktuellen Füllstand einlesen</b>" die Entität <i>sensor.behaelter_fuellstand_aktuell</i> durch die Entität des eigenen tatsächlichen Sensor ersetzen, welcher den Füllstand des realen Behälters enthält.<br /><br />
+In allen Nodes namens "<b>Aktuellen Füllstand einlesen</b>" die Entität <b>sensor.behaelter_fuellstand_aktuell</b> durch die Entität des eigenen tatsächlichen Sensor ersetzen, welcher den Füllstand des realen Behälters enthält.<br /><br />
 <img src="./img/bem_img_change_nodes.png">
-<br />
-<br />
 
 <hr>
 <h3>Handhabung und Funktionsweise</h3>
 <b>Erläuterungen zur Handhabung und Funktionsweise</b>
 <br />
 <br />
+Ein Messvorgang besteht <b>immer aus zwei Schritten<b> - einer Messung des Füllstandes zu Beginn und einer Messung zum Ende jeder Entnahme.<br />
+Die beiden Schritte werden entsprechend durch die Automatisierungs-Nodes 1 (Entnahme Beginn) und 2 (Entnahme Ende) abgebildet.
+In <b>Flow 1</b> wird der zum Zeitpunkt dessen Aufrufs gemessene Füllstand des Behälters in dem Helfer <b>bem_stand_bei_beginn_letzter_entnahme</b> gespeichert.
+In <b>Flow 2</b> wird der aktuelle Füllstand des Behälters erneut eingelesen und die Differenz zu dem in Flow 1 gemessenen und gespeicherten Stand ermittelt. Die ermittelte Differenz (letzte Entnahmemenge) dann in dem Helfer <b>bem_entnahme_letzte</b> gespeichert, sowie der Gesamtentnahmemenge hinzu addiert. Die neue Gesamtentnahmemenge wird wiederrum in dem Helfer <b>bem_entnahme_gesamt</b> gespeichert.<br />
+Insofern muss vor Beginn <b>jeder</b> Entnahme der Flow 1, sowie nach dem Ende der Entnahme Flow 2 getriggert werden - beispielsweise parallel zum Ein- bzw. Ausschalten einer Pumpe.<br />
+<b>ACHTUNG:<b> Ein Aufruf von Flow 2 ohne vorherigen Aufruf von Flow 1 führt natürlich dazu, dass Flow 2 den gespeicherten Füllstand noch von vor der/n vorletzten Entnahme/n als Basiswert verwendet, die Messung insofern auch die vorletzte/n Entnahmemenge/n mehrfach beinhaltet und somit auch die Werte der entnommenen Einzel- und Gesamtmenge verfälscht!
