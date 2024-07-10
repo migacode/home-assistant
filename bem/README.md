@@ -15,8 +15,8 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die
 <img src="./img/bem_img_helper_entnahme_gesamt.png">
 <ul>
 <li>Bei <b>1</b> den maximalen Wert gemäß des eigenen Umfeldes eintragen. Dieser Wert sollte höher sein als die Summe aller Entnahmen erreichen kann.</li>
-<li>Bei <b>2</b> die Schrittgröße ist entsprechend der gewünschten Genauigkeit einzustellen (in diesem Beispiel 1/1000 = Milliliter).</li>
-<li>Bei <b>3</b> die Entität-IDs jeweils exakt so benennen wie oben angegeben (der Entitäts-Name hingegen ist egal), oder statt dessen die Entität-IDs in den NodeRED-Flows entsprechend ändern (mehr Aufwand).</li>
+<li>Bei <b>2</b> ist die Schrittgröße entsprechend der gewünschten Genauigkeit einzustellen (in diesem Beispiel 1/1000 = Milliliter).</li>
+<li>Bei <b>3</b> die Entitäts-ID exakt so benennen wie zu dem jeweiligen Helfer oben angegeben (der Entitäts-Name hingegen ist egal), oder statt dessen die Entitäts-IDs in den NodeRED-Flows entsprechend ändern (mehr Aufwand).</li>
 </ul>
 
 <hr>
