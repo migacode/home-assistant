@@ -46,28 +46,3 @@ Insofern muss vor Beginn <b>jeder</b> Entnahme der Flow 1, sowie nach dem Ende d
 <br />
 Nach der Einrichtung lassen sich die Helfer dann einfach bspw. als Gauge-Card in das Dashboard von Home Assistant einbinden (in dem nachstehenden Beispiel wurden zuzätzlich Templates zur Rundung der Werte verwendet ;).<br /><br />
 <img src="./img/bem_img_card.png">
-
-<table>
-<tr><td>Name</td><td>Behälter Entnahme letzte (gerundet)</td></tr>
-<tr><td>Entity</td><td>sensor.bem_entnahme_letzte_gerundet</td></tr>
-<tr><td>Template:</td><td>{{ states('input_number.bem_entnahme_letzte') | round(0) }}</td></tr>
-<tr><td colspan="2"></td></tr>
-<tr><td>Name</td><td>Behälter Entnahme gesamt (gerundet)</td></tr>
-<tr><td>Entity</td><td>sensor.bem_entnahme_gesamt_gerundet</td></tr>
-<tr><td>Template:</td><td>{{ states('input_number.bem_entnahme_gesamt') | round(0) }}</td></tr>
-<tr><td colspan="2"></td></tr>
-<tr><td>Name</td><td>Behälter Entnahme gesamt (m3)</td></tr>
-<tr><td>Entity</td><td>sensor.bem_entnahme_gesamt_m3</td></tr>
-<tr><td>Template:</td><td>{{ (states('input_number.bem_entnahme_gesamt') | float / 1000) | round(2) }}</td></tr>
-<tr><td colspan="2"></td></tr>
-<tr><td colspan="2">Realer Sensor</td></tr>
-<tr><td colspan="2"></td></tr>
-<tr><td>Name</td><td>Behälter Füllstand aktuell (gerundet)</td></tr>
-<tr><td>Entity</td><td>sensor.behaelter_fuellstand_aktuell_gerundet</td></tr>
-<tr><td>Template:</td><td>{{ states('sensor.behaelter_fuellstand_aktuell') | round(0) }}</td></tr>
-<tr><td colspan="2"></td></tr>
-<tr><td>Name</td><td>Behälter Füllstand aktuell (prozent)</td></tr>
-<tr><td>Entity</td><td>sensor.behaelter_fuellstand_aktuell_prozent</td></tr>
-<tr><td>Template:</td><td>{{ (states('sensor.behaelter_fuellstand_aktuell') | int / <b>10000</b> * 100) | round(2) }}</td></tr>
-<tr><td colspan="2"><b>Achtung:</b> Hier die maximale Füllmenge des eigenen Behälters eintragen.</td></tr>
-</table>
