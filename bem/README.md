@@ -13,7 +13,8 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die
 <li> Behälter Stand bei Beginn letzter Entnahme (<b>input_number.bem_stand_bei_beginn_letzter_entnahme</b>)</li>
 </ul>
 <img src="./img/bem_img_helper_entnahme_gesamt.png">
-<b>Wichtig</b>: Für alle diese Helfer sind folgende Punkte zu beachten:<br /><br /><ul>
+<b>Wichtig</b>: Für alle diese Helfer sind folgende Punkte zu beachten:<br />
+<ul>
 <li>In Home Assistant als Typ <b>Nummer</b> (<i>input_number</i>) anlegen.</li>
 <li>Bei <b>1</b> den maximalen Wert gemäß des eigenen Umfeldes eintragen. Dieser Wert sollte höher sein als die Summe aller Entnahmen erreichen kann.</li>
 <li>Bei <b>2</b> ist die Schrittgröße entsprechend der gewünschten Genauigkeit einzustellen (in diesem Beispiel 1/1000 = Milliliter).</li>
