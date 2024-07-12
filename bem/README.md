@@ -56,7 +56,7 @@ Die nachstehende Dashboard-Karte bietet einige Funktionen<ul>
 <li>Überwachung des Entnahme-Status</li>
 <li>Manuelle Steuerung der Entnahme</li>
 <li>Zurücksetzen des Gesamtentnahmezählers</li>
-<ul>
+</ul>
 Für die Berechnung der Entnahmemengen spielt es übrigens keine Rolle, ob der Entnahme-Status automatisiert aus den NodeRED-Flows oder manuell über diese Karte gesteuert wird - sogar eine gemischte Verwendung ist möglich.
 <img src="./img/bem_img_card.png">
 <b>Download</b> Dashboard-Karte&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_dashboard_card_1.10.yaml"><strong>bem_dashboard_card_1.10.yaml</strong></a><br />
@@ -65,6 +65,7 @@ Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard an
 <br />
 Zur besseren Darstellung der Messwerte (Rundung etc.) verwendet die Karte zusätzliche Sensoren. Um diese anzulegen sind die folgenden Zeilen in der <b>configuration.yaml</b> unter dem Bereich <b>template:</b> hinzuzufügen.<br />
 <b>ACHTUNG:<b> Die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell<b> muss wie zuvor natürlich auch wieder durch die Entitäts-ID des eigenen tatsächlichen Sensors ersetzt werden, sowie die Kapazität in der Formel (der Wert 10000) an die Größe (Fassungsvermögen) des eigenen Behälters angepasst werden.<br />
+
 ```yaml
 # =============================================================================
 # Behälter-Entnahme-Messung (BEM) - Templates
@@ -92,10 +93,12 @@ Zur besseren Darstellung der Messwerte (Rundung etc.) verwendet die Karte zusät
     - name: "Behälter Füllstand aktuell (prozent)"
       state: "{{ ((states('sensor.behaelter_fuellstand_aktuell') | float) / 10000 * 100) | round(2) }}"
 ```
+
 <br />
 <br />
 Da die "action"-Bereiche von Dashboard-Karten leider (noch?) keine Templates unterstützen, müssen wir uns diesbezüglich zudem noch mit zusätzlichen Skripten behelfen. Dazu sind die folgenden Zeilen in der <b>configuration.yaml</b> unter dem Bereich <b>script:</b> hinzuzufügen.<br />
 <b>Nochmal ACHTUNG:<b> Die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell<b> muss wie zuvor natürlich auch wieder durch die Entitäts-ID des eigenen tatsächlichen Sensors ersetzt werden.<br />
+
 ```yaml
 # =============================================================================
 # Behälter-Entnahme-Messung (BEM) - Scripts
@@ -146,4 +149,5 @@ Da die "action"-Bereiche von Dashboard-Karten leider (noch?) keine Templates unt
         data:
           value: "{{ (letzte_gesamt + stand_beginn - stand_ende) | float }}"
 ```
+
 <br />
