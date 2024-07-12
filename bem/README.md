@@ -11,7 +11,7 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die
 <li> Behälter Entnahme gesamt (<b>input_number.bem_entnahme_gesamt</b>)</li>
 <li> Behälter Entnahme letzte (<b>input_number.bem_entnahme_letzte</b>)</li>
 <li> Behälter Stand bei Beginn letzter Entnahme (<b>input_number.bem_stand_bei_beginn_letzter_entnahme</b>)</li>
-</ul><b>Wichtig</b>: Diese Helfer sind in Home Assistant als Typ <b>Nummer</b> (<i>input_number</i>) anzulegen.<br />
+</ul><b>Wichtig</b>: Diese Helfer sind in Home Assistant als Typ <b>Nummer</b> (<i>input_number</i>) anzulegen.<br /><br />
 <img src="./img/bem_img_helper_entnahme_gesamt.png">
 Für alle diese Helfer sind folgende Punkte zu beachten:<br />
 <ul>
@@ -64,7 +64,7 @@ Für die Berechnung der Entnahmemengen spielt es übrigens keine Rolle, ob der E
 <br />
 Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
 <br />
-<b>Erweiterung 1:<b><br />
+<b>Erforderliche Erweiterung 1 für interaktive Dashboard-Karte:</b><br />
 Zur besseren Darstellung der Messwerte (Rundung etc.) verwendet die Karte zusätzliche Sensoren. Um diese anzulegen sind die folgenden Zeilen in der <b>configuration.yaml</b> unter dem Bereich <b>template:</b> hinzuzufügen.<br />
 <b>ACHTUNG:</b> Die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b> muss wie zuvor natürlich auch wieder durch die Entitäts-ID des eigenen tatsächlichen Sensors ersetzt werden, sowie die Kapazität in der Formel (der Wert <i>10000</i>) an die Größe (Fassungsvermögen) des eigenen Behälters angepasst werden.<br />
 
@@ -97,7 +97,7 @@ Zur besseren Darstellung der Messwerte (Rundung etc.) verwendet die Karte zusät
 ```
 
 <br />
-<b>Erweiterung 2:<b><br />
+<b>Erforderliche Erweiterung 2 für interaktive Dashboard-Karte:</b><br />
 Da die "action"-Bereiche von Dashboard-Karten leider (noch?) keine Templates unterstützen, müssen wir uns diesbezüglich noch mit zusätzlichen Skripten behelfen. Dazu sind die folgenden Zeilen in der <b>configuration.yaml</b> unter dem Bereich <b>script:</b> hinzuzufügen.<br />
 <b>Nochmal ACHTUNG:</b> Die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b> muss wie zuvor natürlich auch wieder durch die Entitäts-ID des eigenen tatsächlichen Sensors ersetzt werden.<br />
 
