@@ -54,17 +54,17 @@ In <b>Flow 2</b> wird der aktuelle Füllstand des Behälters erneut eingelesen u
 <h3>Interaktive Dashboard-Karte</h3>
 Die nachstehende Dashboard-Karte enthält diverse Funktionen zur Anzeige und Steuerung von <b>BEM</b>:
 <ul>
-<li>Anzeige des Behälterfüllstandes absolut und prozentual</li>
-<li>Anzeige der Einzel- und Gesamt-Entnahmemengen</li>
-<li>Anzeige und Überwachung des Entnahmestatus</li>
-<li>Buttons zur manuellen Steuerung des Entnahmestatus</li>
-<li>Button zum Zurücksetzen des Gesamtentnahmezählers</li>
+<li>Anzeige des Behälterfüllstandes in absoluter und prozentualer Wertigkeit</li>
+<li>Anzeige der Einzel- und Gesamt-Entnahmemengen in verschiedenen Einheiten</li>
+<li>Visuelle Anzeige zur Überwachung des aktuellen Entnahmestatus</li>
+<li>Buttons zur manuellen Steuerung des Entnahmestatus (mit Sicherheitsabfrage)</li>
+<li>Button zum Zurücksetzen des Gesamtentnahmezählers (mit Sicherheitsabfrage)</li>
 </ul>
 Für die Berechnung der Entnahmemengen spielt es übrigens keine Rolle, ob der Entnahmestatus automatisiert aus den NodeRED-Flows oder manuell über diese Karte gesteuert wird - sogar eine gemischte Verwendung ist möglich.<br /><br />
 <img src="./img/bem_img_card.png">
 <b>Download</b> Dashboard-Karte&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_dashboard_card_1.10.yaml"><strong>bem_dashboard_card_1.10.yaml</strong></a><br />
 <br />
-Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
+Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen und nachstehende Erweiterungen in Home Assistant hinzufügen.<br />
 <br />
 <b>Erforderliche Erweiterung 1 für interaktive Dashboard-Karte:</b><br />
 Zur besseren Darstellung der Messwerte (Rundung etc.) verwendet die Karte zusätzliche Sensoren. Um diese anzulegen sind die folgenden Zeilen in der <b>configuration.yaml</b> unter dem Bereich <b>template:</b> hinzuzufügen.<br />
