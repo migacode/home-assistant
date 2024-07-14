@@ -24,7 +24,7 @@ Darüber hinaus ist noch ein Helfer "Behälter Entnahme Status" (<b>input_boolea
 <img src="./img/bem_img_helper_2.png">
 
 <h3>Tipp</h3>
-<b>BEM</b> verwendet für den aktuellen Füllstand des Behälters sowohl in den NodeRED-Flows als auch in den Komponenten von Home Assistant (Dashboard-Karte, Skripte, Templates) die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b>, welche bei der Einrichtung überall (derzeit insgesamt rund 10 Vorkommen) durch die Entitäts-ID des eigenen, tatsächlichen bereits eingerichteten Sensors zu ersetzen ist. Sofern Letzterer noch nicht anderweitig (bspw. in anderen Automatisierungen) in Verwendung ist, ist es eventuell einfacher und schneller, die Entitäts-ID des bestehenden Sensors in <b>sensor.behaelter_fuellstand_aktuell</b> zu ändern ;).
+<b>BEM</b> verwendet für den aktuellen Füllstand des Behälters sowohl in den NodeRED-Flows als auch in den Komponenten von Home Assistant (Dashboard-Karte, Skripte, Templates) die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b>, welche bei der Einrichtung überall (derzeit insgesamt rund 10 Vorkommen) durch die Entitäts-ID des eigenen, tatsächlichen bereits eingerichteten Sensors zu ersetzen ist. Sofern Letzterer noch nicht anderweitig (bspw. in anderen Automatisierungen) in Verwendung ist, ist es eventuell einfacher und schneller, die Entitäts-ID des bestehenden Sensors in <b>sensor.behaelter_fuellstand_aktuell</b> zu ändern und die diesbezüglich nachstehend zahlreich aufgeführten Änderungen zu ignorieren ;).
 
 <hr>
 <h2>BEM (Varianten)</h2><ul>
