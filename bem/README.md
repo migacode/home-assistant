@@ -64,49 +64,59 @@ Für die Berechnung der Entnahmemengen spielt es übrigens keine Rolle, ob der E
 <img src="./img/bem_img_card.png">
 <b>Download</b> Dashboard-Karte&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_dashboard_card_1.10.yaml"><strong>bem_dashboard_card_1.10.yaml</strong></a><br />
 <br />
-Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen und die Gewichtung der Gauge-Anzeigen (severity) nach eigenen Wünschen anpassen. Zudem sind nachstehende Erweiterungen in Home Assistant hinzufügen.<br />
+Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen, darin die maximale Inhaltsmenge des Behälters (der Wert max: 5000) durch die maximale Füllmenge des realen Behälters ersetzen und die Werte für die Gewichtung der Gauge-Anzeigen (severity) gemäß den eigenen Wünschen an die realen Gegebenheiten anpassen.<br />
+Zudem sind nachstehende Erweiterungen in Home Assistant hinzufügen.<br />
 <br />
 <b>Erforderliche Erweiterung 1 für interaktive Dashboard-Karte:</b><br />
 Zur besseren Darstellung der Messwerte (Rundung etc.) verwendet die Karte zusätzliche Sensoren. Um diese anzulegen sind die folgenden Zeilen in der <b>configuration.yaml</b> unter dem Bereich <b>template:</b> hinzuzufügen.<br />
-<b>Achtung:</b> Die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b> muss wie zuvor natürlich auch wieder durch die Entitäts-ID des eigenen tatsächlichen Sensors ersetzt werden, sowie die Kapazität in der Formel (der Wert <i>10000</i>) an die Größe (Fassungsvermögen) des eigenen Behälters angepasst werden.<br />
+<b>Achtung:</b> Die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b> muss wie zuvor natürlich auch wieder überall durch die Entitäts-ID des eigenen tatsächlichen Sensors ersetzt werden, sowie die Kapazität in der Formel für die prozentuale Angabe des Füllstandes (der Wert <i>5000</i>) an die Größe (Fassungsvermögen/maximaler Füllstand) des eigenen Behälters angepasst werden.<br />
 
 ```yaml
 # =============================================================================
 # Behälter-Entnahme-Messung (BEM) - Templates
-# Version: 1.10
+# Version: 1.20
 # =============================================================================
 # -----------------------------------------------------------------------------
 # Umwandlung von in Helfern gespeicherten Werten zur Verwendung im Dashboard
 # -----------------------------------------------------------------------------
   - sensor:
-    - name: "Behälter Entnahme letzte (gerundet)"
+    - name: "BEM Entnahme letzte gerundet"
       state: "{{ states('input_number.bem_entnahme_letzte') | round(0) }}"
   - sensor:
-    - name: "Behälter Entnahme gesamt (gerundet)"
+    - name: "BEM Entnahme gesamt gerundet"
       state: "{{ states('input_number.bem_entnahme_gesamt') | round(0) }}"
   - sensor:
-    - name: "Behälter Entnahme gesamt (m3)"
+    - name: "BEM Entnahme gesamt in m3"
       state: "{{ (states('input_number.bem_entnahme_gesamt') | float / 1000) | round(2) }}"
 # -----------------------------------------------------------------------------
 # Umwandlung von echtem gemessenen Füllstand zur Verwendung im Dashboard
 # -----------------------------------------------------------------------------
+# ACHTUNG: 'sensor.behaelter_fuellstand_aktuell' durch die Entitäts-ID
+#          des eigenen tatsächlichen Sensors ersetzen, sowie die Kapazität in
+#          der Formel für die prozentuale Angabe des Füllstandes (Wert 5000)
+#          an die Größe (maximaler Füllstand) des eigenen Behälters anpassen.
+# -----------------------------------------------------------------------------
   - sensor:
-    - name: "Behälter Füllstand aktuell (gerundet)"
+    - name: "BEM Fuellstand aktuell gerundet"
       state: "{{ states('sensor.behaelter_fuellstand_aktuell') | float | round(0) }}"
   - sensor:
-    - name: "Behälter Füllstand aktuell (prozent)"
-      state: "{{ ((states('sensor.behaelter_fuellstand_aktuell') | float) / 10000 * 100) | round(2) }}"
+    - name: "BEM Fuellstand aktuell prozentual"
+      state: "{{ ((states('sensor.behaelter_fuellstand_aktuell') | float) / 5000 * 100) | round(2) }}"
 ```
 
 <br />
 <b>Erforderliche Erweiterung 2 für interaktive Dashboard-Karte:</b><br />
 Da die "action"-Sequenzen von Dashboard-Buttons leider (noch?) keine Templates unterstützen, müssen wir uns diesbezüglich mit zusätzlichen Skripten behelfen. Dazu sind die folgenden Zeilen in der <b>configuration.yaml</b> unter dem Bereich <b>script:</b> hinzuzufügen.<br />
-<b>Nochmal Achtung:</b> Die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b> muss wie zuvor natürlich auch wieder durch die Entitäts-ID des eigenen tatsächlichen Sensors ersetzt werden.<br />
+<b>Nochmal Achtung:</b> Die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b> muss wie zuvor natürlich auch wieder überall durch die Entitäts-ID des eigenen tatsächlichen Sensors ersetzt werden.<br />
 
 ```yaml
 # =============================================================================
 # Behälter-Entnahme-Messung (BEM) - Scripts
-# Version: 1.10
+# Version: 1.20
+# -----------------------------------------------------------------------------
+# ACHTUNG: Die ID 'sensor.behaelter_fuellstand_aktuell' bei "Entnahme Beginn"
+#          und "Entnahme Ende" durch die Entitäts-ID des eigenen tatsächlichen
+#          Sensors ersetzen.
 # =============================================================================
 # -----------------------------------------------------------------------------
 # Entnahme Beginn
