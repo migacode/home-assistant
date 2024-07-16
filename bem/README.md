@@ -9,7 +9,7 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die
 <img src="./img/bem_img_helper.png"><br />
 1. Als Erstes den Helfer "BEM Stand aktuell" (<b>sensor.bem_stand_aktuell</b>) als Typ <b>Template für einen Sensor</b> anlegen. Dieser Helfer enthält den Stand des tatsächlichen Sensors, dessen Entitäts-ID wie folgt in das Feld "Zustandstemplate" einzutragen ist (dazu einfach die Entität 'sensor.behaelter_fuellstand_aktuell' gegen die des eigenen Sensors ersetzen). Dies vereinfacht die Einrichtung von <b>BEM</b>, da so nur an dieser einen Stelle die ID des realen Sensors eingetragen werden muss und dann sämtliche Funktionen von <b>BEM</b> mit dem Template-Sensor arbeiten.<br /><br />
 <img src="./img/bem_img_helper_stand_aktuell.png"><br />
-2. Die folgenden Helfer dienen der Berechnung und Speicherung von Entnahmemengen und bleiben als solche auch bei einem Neustart von Home Assistant erhalten.<br /><br />
+2. Die folgenden Helfer dienen der Berechnung und Speicherung von Entnahmemengen und bleiben als solche auch bei einem Neustart von Home Assistant erhalten.<br />
 <ul>
 <li> "BEM Entnahme gesamt" (<b>input_number.bem_entnahme_gesamt</b>)</li>
 <li> "BEM Entnahme letzte" (<b>input_number.bem_entnahme_letzte</b>)</li>
@@ -19,7 +19,7 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die
 <ul>
 <li>In Home Assistant als Typ <b>Nummer</b> (<i>input_number</i>) anlegen.</li>
 <li>Bei <b>1</b> den maximalen Wert gemäß des eigenen Umfeldes eintragen. Dieser Wert sollte höher sein als die Summe aller Entnahmen erreichen kann.</li>
-<li>Bei <b>2</b> ist die Schrittgröße entsprechend der gewünschten Genauigkeit einzustellen (in diesem Beispiel 1/1000 = Milliliter).</li>
+<!-- <li>Bei <b>2</b> ist die Schrittgröße entsprechend der gewünschten Genauigkeit einzustellen (in diesem Beispiel 1/1000 = Milliliter).</li> -->
 <li>Bei <b>3</b> die Entitäts-ID exakt so benennen wie zu dem jeweiligen Helfer oben angegeben (der Entitäts-Name hingegen ist egal), oder statt dessen die Entitäts-IDs in den NodeRED-Flows entsprechend ändern (mehr Aufwand).</li>
 </ul>
 3. Darüber hinaus ist noch ein Helfer "BEM Entnahme Status" (<b>input_boolean.bem_entnahme_status</b>) als Typ <b>Schalter</b> (<i>input_boolean</i>) anzulegen, welcher den aktuellen Status der Entnahme speichert, so dass darüber eine Absicherung des Entnahmeablaufs erfolgen kann.<br /><br />
