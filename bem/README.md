@@ -11,13 +11,13 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die
 <img src="./img/bem_img_helper_stand_aktuell.png">
 <b>2.</b> Den Helfer "<b>BEM Entnahme Status</b>" (input_boolean.bem_entnahme_status) als Typ <b>Schalter</b> (<i>input_boolean</i>) anlegen, welcher den aktuellen Status der Entnahme speichert, so dass darüber eine Steuerung und Absicherung des Entnahmeverlaufs erfolgen kann.<br /><br />
 <b>3.</b> Die folgenden Helfer dienen der Berechnung und Speicherung von Entnahmemengen und müssen als Typ <b>Nummer</b> (<i>input_number</i>) angelegt werden.<br />
+<b>Wichtig</b>: Bei diesen Helfern ist in dem Feld für den maximalen Wert ein geeigneter Wert gemäß den eigenen Gegebenheiten einzutragen (in dem Beispiel unten enthält der Behälter 5000 Liter und die Gesamtmenge aller Entnahmen kann bis zu 100000 Liter betragen).<br />
 <ul>
 <li> "<b>BEM Entnahme gesamt</b>" (input_number.bem_entnahme_gesamt)</li>
 <li> "<b>BEM Entnahme letzte</b>" (input_number.bem_entnahme_letzte)</li>
 <li> "<b>BEM Stand bei Beginn letzter Entnahme</b>" (input_number.bem_stand_bei_beginn_letzter_entnahme)</li>
 </ul>
 <img src="./img/bem_img_helper_input_number.png">
-<b>Wichtig</b>: Bei diesen Helfern ist in dem Feld für den maximalen Wert ein geeigneter Wert gemäß den eigenen Gegebenheiten einzutragen (in diesem Beispiel enthält der Behälter 5000 Liter und die Gesamtmenge aller Entnahmen kann bis zu 100.000 Liter betragen).<br />
 <!-- <ul>
 <li>In Home Assistant</li>
 <li>Bei <b>1</b> den maximalen Wert gemäß des eigenen Umfeldes eintragen. Dieser Wert sollte höher sein als die Summe aller Entnahmen erreichen kann.</li>
