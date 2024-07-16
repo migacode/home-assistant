@@ -30,7 +30,7 @@
 
   - sensor:
     - name: "BEM Stand aktuell in m3"
-      state: "{{ (states('input_number.bem_stand_aktuell') | float / 1000) | round(2) }}"
+      state: "{{ (states('sensor.bem_stand_aktuell') | float / 1000) | round(2) }}"
 
 # -----------------------------------------------------------------------------
 # Prozentuale Angaben
@@ -40,7 +40,7 @@
 # -----------------------------------------------------------------------------
   - sensor:
     - name: "BEM Entnahme letzte prozentual"
-      state: "{{ ((states('sensor.bem_entnahme_letzte') | float) / 5000 * 100) | round(2) }}"
+      state: "{{ ((states('input_number.bem_entnahme_letzte') | float) / 5000 * 100) | round(2) }}"
 
   - sensor:
     - name: "BEM Stand aktuell prozentual"
