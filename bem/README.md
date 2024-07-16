@@ -6,11 +6,15 @@ Dazu verwendet <b>BEM</b> nur die Standard-Funktionen von Home Assistant und ggf
 <hr>
 <h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die folgenden Helfer, welche zunächst in Home Assistant angelegt werden müssen.<br /><br />
-<img src="./img/bem_img_helper_1.png">
+1. Als Erstes den Helfer "BEM Stand aktuell" (<b>sensor.bem_stand_aktuell</b>) als Typ <b>Template für einen Sensor</b> anlegen. Dieser Helfer enthält den Stand des tatsächlichen Sensors, dessen Entitäts-ID wie folgt in das Feld "Zustandstemplate" einzutragen ist (die Entität 'sensor.behaelter_fuellstand_aktuell' gegen die des eigenen Sensors ersetzen). Dies vereinfacht die Einrichtung von <b>BEM</b>, da so nur an dieser einen Stelle die ID des realen Sensors eingetragen werden muss und dann sämtliche Funktionen von <b>BEM</b> mit dem Template-Sensor arbeiten.<br />
+<img src="./img/bem_img_helper_1.png"><br />
+<img src="./img/bem_img_helper_stand_aktuell.png"><br />
+2. Damit die Werte
+<img src="./img/bem_img_helper_2.png">
 <ul>
-<li> Behälter Entnahme gesamt (<b>input_number.bem_entnahme_gesamt</b>)</li>
-<li> Behälter Entnahme letzte (<b>input_number.bem_entnahme_letzte</b>)</li>
-<li> Behälter Stand bei Beginn letzter Entnahme (<b>input_number.bem_stand_bei_beginn_letzter_entnahme</b>)</li>
+<li> "BEM Entnahme gesamt" (<b>input_number.bem_entnahme_gesamt</b>)</li>
+<li> "BEM Entnahme letzte" (<b>input_number.bem_entnahme_letzte</b>)</li>
+<li> "BEM Stand bei Beginn letzter Entnahme" (<b>input_number.bem_stand_bei_beginn_letzter_entnahme</b>)</li>
 </ul>
 <img src="./img/bem_img_helper_entnahme_gesamt.png">
 <b>Wichtig</b>: Für alle diese Helfer sind folgende Punkte zu beachten:<br />
@@ -20,8 +24,8 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die
 <li>Bei <b>2</b> ist die Schrittgröße entsprechend der gewünschten Genauigkeit einzustellen (in diesem Beispiel 1/1000 = Milliliter).</li>
 <li>Bei <b>3</b> die Entitäts-ID exakt so benennen wie zu dem jeweiligen Helfer oben angegeben (der Entitäts-Name hingegen ist egal), oder statt dessen die Entitäts-IDs in den NodeRED-Flows entsprechend ändern (mehr Aufwand).</li>
 </ul>
-Darüber hinaus ist noch ein Helfer "Behälter Entnahme Status" (<b>input_boolean.bem_entnahme_status</b>) als Typ <b>Schalter</b> (<i>input_boolean</i>) anzulegen - auch hier die korrekte Benennung der Entitäts-ID beachten!<br /><br />
-<img src="./img/bem_img_helper_2.png">
+3. Darüber hinaus ist noch ein Helfer "BEM Entnahme Status" (<b>input_boolean.bem_entnahme_status</b>) als Typ <b>Schalter</b> (<i>input_boolean</i>) anzulegen, welcher den aktuellen Status der Entnahme speichert, so dass darüber eine Absicherung des Entnahmeablaufs erfolgen kann.<br /><br />
+<img src="./img/bem_img_helper_3.png">
 
 <h3>Tipp</h3>
 <b>BEM</b> verwendet für den aktuellen Füllstand des Behälters sowohl in den NodeRED-Flows als auch in den Komponenten von Home Assistant (Dashboard-Karte, Skripte, Templates) die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b>, welche bei der Einrichtung überall (derzeit insgesamt rund 10 Vorkommen) durch die Entitäts-ID des eigenen, tatsächlichen bereits eingerichteten Sensors zu ersetzen ist. Sofern Letzterer noch nicht anderweitig (bspw. in anderen Automatisierungen) in Verwendung ist, ist es eventuell einfacher und schneller, die Entitäts-ID des bestehenden Sensors in <b>sensor.behaelter_fuellstand_aktuell</b> zu ändern und die diesbezüglich nachstehend zahlreich aufgeführten Änderungen zu ignorieren ;).
@@ -36,7 +40,7 @@ Darüber hinaus ist noch ein Helfer "Behälter Entnahme Status" (<b>input_boolea
 <hr>
 <h3>NodeRED-Flow</h3>
 <img src="./img/bem_img_nodered_flow.png">
-<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_nodered_flow_1.10.json"><strong>bem_nodered_flow_1.10.json</strong></a><br />
+<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_nodered_flow_1.30.json"><strong>bem_nodered_flow_1.30.json</strong></a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
@@ -65,7 +69,7 @@ Die nachstehende Dashboard-Karte enthält diverse Funktionen zur Anzeige und Ste
 </ul>
 Für die Berechnung der Entnahmemengen spielt es übrigens keine Rolle, ob der Entnahmestatus automatisiert aus den NodeRED-Flows oder manuell über diese Karte gesteuert wird - sogar eine gemischte Verwendung ist möglich.<br /><br />
 <img src="./img/bem_img_card.png">
-<b>Download</b> Dashboard-Karte&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_dashboard_card_1.20.yaml"><strong>bem_dashboard_card_1.20.yaml</strong></a><br />
+<b>Download</b> Dashboard-Karte&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_dashboard_card_1.30.yaml"><strong>bem_dashboard_card_1.30.yaml</strong></a><br />
 <br />
 Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen, darin die maximale Inhaltsmenge des Behälters (der Wert max: 5000) durch die maximale Füllmenge des realen Behälters ersetzen und die Werte für die Gewichtung der Gauge-Anzeigen (severity) gemäß den eigenen Wünschen an die realen Gegebenheiten anpassen.<br />
 Zudem sind nachstehende Erweiterungen in Home Assistant hinzufügen.<br />
@@ -73,100 +77,18 @@ Zudem sind nachstehende Erweiterungen in Home Assistant hinzufügen.<br />
 <b>Erforderliche Erweiterung 1 für interaktive Dashboard-Karte:</b><br />
 Zur besseren Darstellung der Messwerte (Rundung etc.) verwendet die Karte zusätzliche Sensoren. Um diese anzulegen sind die folgenden Zeilen in der <b>configuration.yaml</b> unter dem Bereich <b>template:</b> hinzuzufügen.<br />
 <b>Achtung:</b> Die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b> muss wie zuvor natürlich auch wieder überall durch die Entitäts-ID des eigenen tatsächlichen Sensors ersetzt werden, sowie die Kapazität in der Formel für die prozentuale Angabe des Füllstandes (der Wert <i>5000</i>) an die Größe (Fassungsvermögen/maximaler Füllstand) des eigenen Behälters angepasst werden.<br />
-Nachstehenden Code kopieren oder downloaden&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_templates_1.20.yaml"><strong>bem_templates_1.20.yaml</strong></a>.<br />
+Nachstehenden Code kopieren oder downloaden&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_templates_1.30.yaml"><strong>bem_templates_1.30.yaml</strong></a>.<br />
 
 ```yaml
-# =============================================================================
-# Behälter-Entnahme-Messung (BEM) - Templates
-# Version: 1.20
-# =============================================================================
-# -----------------------------------------------------------------------------
-# Umwandlung von in Helfern gespeicherten Werten zur Verwendung im Dashboard
-# -----------------------------------------------------------------------------
-  - sensor:
-    - name: "BEM Entnahme letzte gerundet"
-      state: "{{ states('input_number.bem_entnahme_letzte') | round(0) }}"
-  - sensor:
-    - name: "BEM Entnahme gesamt gerundet"
-      state: "{{ states('input_number.bem_entnahme_gesamt') | round(0) }}"
-  - sensor:
-    - name: "BEM Entnahme gesamt in m3"
-      state: "{{ (states('input_number.bem_entnahme_gesamt') | float / 1000) | round(2) }}"
-# -----------------------------------------------------------------------------
-# Umwandlung von echtem gemessenen Füllstand zur Verwendung im Dashboard
-# -----------------------------------------------------------------------------
-# ACHTUNG: 'sensor.behaelter_fuellstand_aktuell' durch die Entitäts-ID
-#          des eigenen tatsächlichen Sensors ersetzen, sowie die Kapazität in
-#          der Formel für die prozentuale Angabe des Füllstandes (Wert 5000)
-#          an die Größe (maximaler Füllstand) des eigenen Behälters anpassen.
-# -----------------------------------------------------------------------------
-  - sensor:
-    - name: "BEM Fuellstand aktuell gerundet"
-      state: "{{ states('sensor.behaelter_fuellstand_aktuell') | float | round(0) }}"
-  - sensor:
-    - name: "BEM Fuellstand aktuell prozentual"
-      state: "{{ ((states('sensor.behaelter_fuellstand_aktuell') | float) / 5000 * 100) | round(2) }}"
 ```
 
 <br />
 <b>Erforderliche Erweiterung 2 für interaktive Dashboard-Karte:</b><br />
 Da die "action"-Sequenzen von Dashboard-Buttons leider (noch?) keine Templates unterstützen, müssen wir uns diesbezüglich mit zusätzlichen Skripten behelfen. Dazu sind die folgenden Zeilen in der <b>configuration.yaml</b> unter dem Bereich <b>script:</b> hinzuzufügen.<br />
 <b>Nochmal Achtung:</b> Die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b> muss wie zuvor natürlich auch wieder überall durch die Entitäts-ID des eigenen tatsächlichen Sensors ersetzt werden.<br />
-Nachstehenden Code kopieren oder downloaden&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_scripts_1.20.yaml"><strong>bem_scripts_1.20.yaml</strong></a>.<br />
+Nachstehenden Code kopieren oder downloaden&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_scripts_1.30.yaml"><strong>bem_scripts_1.30.yaml</strong></a>.<br />
 
 ```yaml
-# =============================================================================
-# Behälter-Entnahme-Messung (BEM) - Scripts
-# Version: 1.20
-# -----------------------------------------------------------------------------
-# ACHTUNG: Die ID 'sensor.behaelter_fuellstand_aktuell' bei "Entnahme Beginn"
-#          und "Entnahme Ende" durch die Entitäts-ID des eigenen tatsächlichen
-#          Sensors ersetzen.
-# =============================================================================
-# -----------------------------------------------------------------------------
-# Entnahme Beginn
-# -----------------------------------------------------------------------------
-  bem_entnahme_beginn:
-    alias: BEM - Entnahme Beginn
-    description: ""
-    sequence:
-      - service: input_number.set_value
-        continue_on_error: true
-        target:
-          entity_id: input_number.bem_stand_bei_beginn_letzter_entnahme
-        data:
-          value: "{{ states('sensor.behaelter_fuellstand_aktuell') | float }}"
-      - service: input_boolean.turn_on
-        continue_on_error: true
-        target:
-          entity_id: input_boolean.bem_entnahme_status
-# -----------------------------------------------------------------------------
-# Entnahme Ende
-# -----------------------------------------------------------------------------
-  bem_entnahme_ende:
-    alias: BEM - Entnahme Ende
-    variables:
-      letzte_gesamt: "{{ states('input_number.bem_entnahme_gesamt') | float }}"
-      stand_beginn: "{{ states('input_number.bem_stand_bei_beginn_letzter_entnahme') | float }}"
-      stand_ende: "{{ states('sensor.behaelter_fuellstand_aktuell') | float }}"
-    description: ""
-    sequence:
-      - service: input_boolean.turn_off
-        continue_on_error: true
-        target:
-          entity_id: input_boolean.bem_entnahme_status
-      - service: input_number.set_value
-        continue_on_error: true
-        target:
-          entity_id: input_number.bem_entnahme_letzte
-        data:
-          value: "{{ (stand_beginn - stand_ende) | float }}"
-      - service: input_number.set_value
-        continue_on_error: true
-        target:
-          entity_id: input_number.bem_entnahme_gesamt
-        data:
-          value: "{{ (letzte_gesamt + stand_beginn - stand_ende) | float }}"
 ```
 
 <br />
