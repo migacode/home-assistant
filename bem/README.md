@@ -6,17 +6,15 @@ Dazu verwendet <b>BEM</b> nur die Standard-Funktionen von Home Assistant und ggf
 <hr>
 <h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die folgenden Helfer, welche zunächst in Home Assistant angelegt werden müssen.<br /><br />
-1. Als Erstes den Helfer "BEM Stand aktuell" (<b>sensor.bem_stand_aktuell</b>) als Typ <b>Template für einen Sensor</b> anlegen. Dieser Helfer enthält den Stand des tatsächlichen Sensors, dessen Entitäts-ID wie folgt in das Feld "Zustandstemplate" einzutragen ist (die Entität 'sensor.behaelter_fuellstand_aktuell' gegen die des eigenen Sensors ersetzen). Dies vereinfacht die Einrichtung von <b>BEM</b>, da so nur an dieser einen Stelle die ID des realen Sensors eingetragen werden muss und dann sämtliche Funktionen von <b>BEM</b> mit dem Template-Sensor arbeiten.<br /><br />
-<img src="./img/bem_img_helper_1.png"><br />
+<img src="./img/bem_img_helper.png"><br />
+1. Als Erstes den Helfer "BEM Stand aktuell" (<b>sensor.bem_stand_aktuell</b>) als Typ <b>Template für einen Sensor</b> anlegen. Dieser Helfer enthält den Stand des tatsächlichen Sensors, dessen Entitäts-ID wie folgt in das Feld "Zustandstemplate" einzutragen ist (dazu einfach die Entität 'sensor.behaelter_fuellstand_aktuell' gegen die des eigenen Sensors ersetzen). Dies vereinfacht die Einrichtung von <b>BEM</b>, da so nur an dieser einen Stelle die ID des realen Sensors eingetragen werden muss und dann sämtliche Funktionen von <b>BEM</b> mit dem Template-Sensor arbeiten.<br /><br />
 <img src="./img/bem_img_helper_stand_aktuell.png"><br />
-2. Die folgenden Helfer dienen der Berechnung und Speicherung von Entnahmemengen und bleiben als solche auch bei einem Neustart von Home Assistant erhalten.<br />
-<img src="./img/bem_img_helper_2.png">
+2. Die folgenden Helfer dienen der Berechnung und Speicherung von Entnahmemengen und bleiben als solche auch bei einem Neustart von Home Assistant erhalten.<br /><br />
 <ul>
 <li> "BEM Entnahme gesamt" (<b>input_number.bem_entnahme_gesamt</b>)</li>
 <li> "BEM Entnahme letzte" (<b>input_number.bem_entnahme_letzte</b>)</li>
 <li> "BEM Stand bei Beginn letzter Entnahme" (<b>input_number.bem_stand_bei_beginn_letzter_entnahme</b>)</li>
 </ul>
-<img src="./img/bem_img_helper_entnahme_gesamt.png">
 <b>Wichtig</b>: Für alle diese Helfer sind folgende Punkte zu beachten:<br />
 <ul>
 <li>In Home Assistant als Typ <b>Nummer</b> (<i>input_number</i>) anlegen.</li>
@@ -25,7 +23,6 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen Füllstandsensor die
 <li>Bei <b>3</b> die Entitäts-ID exakt so benennen wie zu dem jeweiligen Helfer oben angegeben (der Entitäts-Name hingegen ist egal), oder statt dessen die Entitäts-IDs in den NodeRED-Flows entsprechend ändern (mehr Aufwand).</li>
 </ul>
 3. Darüber hinaus ist noch ein Helfer "BEM Entnahme Status" (<b>input_boolean.bem_entnahme_status</b>) als Typ <b>Schalter</b> (<i>input_boolean</i>) anzulegen, welcher den aktuellen Status der Entnahme speichert, so dass darüber eine Absicherung des Entnahmeablaufs erfolgen kann.<br /><br />
-<img src="./img/bem_img_helper_3.png">
 
 <h3>Tipp</h3>
 <b>BEM</b> verwendet für den aktuellen Füllstand des Behälters sowohl in den NodeRED-Flows als auch in den Komponenten von Home Assistant (Dashboard-Karte, Skripte, Templates) die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b>, welche bei der Einrichtung überall (derzeit insgesamt rund 10 Vorkommen) durch die Entitäts-ID des eigenen, tatsächlichen bereits eingerichteten Sensors zu ersetzen ist. Sofern Letzterer noch nicht anderweitig (bspw. in anderen Automatisierungen) in Verwendung ist, ist es eventuell einfacher und schneller, die Entitäts-ID des bestehenden Sensors in <b>sensor.behaelter_fuellstand_aktuell</b> zu ändern und die diesbezüglich nachstehend zahlreich aufgeführten Änderungen zu ignorieren ;).
