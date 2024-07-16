@@ -1,0 +1,47 @@
+# =============================================================================
+# Behälter-Entnahme-Messung (BEM) - Templates
+# Version: 1.30
+# =============================================================================
+# -----------------------------------------------------------------------------
+# Angaben gerundet
+# -----------------------------------------------------------------------------
+  - sensor:
+  - sensor:
+    - name: "BEM Entnahme gesamt gerundet"
+      state: "{{ states('input_number.bem_entnahme_gesamt') | round(0) }}"
+
+    - name: "BEM Entnahme letzte gerundet"
+      state: "{{ states('input_number.bem_entnahme_letzte') | round(0) }}"
+
+  - sensor:
+    - name: "BEM Stand aktuell gerundet"
+      state: "{{ states('sensor.bem_stand_aktuell') | float | round(0) }}"
+
+# -----------------------------------------------------------------------------
+# Angaben in m³
+# -----------------------------------------------------------------------------
+  - sensor:
+    - name: "BEM Entnahme gesamt in m3"
+      state: "{{ (states('input_number.bem_entnahme_gesamt') | float / 1000) | round(2) }}"
+
+  - sensor:
+    - name: "BEM Entnahme letzte in m3"
+      state: "{{ (states('input_number.bem_entnahme_letzte') | float / 1000) | round(2) }}"
+
+  - sensor:
+    - name: "BEM Stand aktuell in m3"
+      state: "{{ (states('input_number.bem_stand_aktuell') | float / 1000) | round(2) }}"
+
+# -----------------------------------------------------------------------------
+# Prozentuale Angaben
+# -----------------------------------------------------------------------------
+# ACHTUNG: In den Formeln für die prozentualen Angaben des Füllstandes ist der
+# maximale Füllstand des eigenen Behälters (hier der Wert 5000) einzutragen.
+# -----------------------------------------------------------------------------
+  - sensor:
+    - name: "BEM Entnahme letzte prozentual"
+      state: "{{ ((states('sensor.bem_entnahme_letzte') | float) / 5000 * 100) | round(2) }}"
+
+  - sensor:
+    - name: "BEM Stand aktuell prozentual"
+      state: "{{ ((states('sensor.bem_stand_aktuell') | float) / 5000 * 100) | round(2) }}"
