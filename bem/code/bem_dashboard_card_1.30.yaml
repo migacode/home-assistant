@@ -15,7 +15,7 @@ cards:
       - type: horizontal-stack
         cards:
           - type: gauge
-            entity: sensor.bem_fuellstand_aktuell_gerundet
+            entity: sensor.bem_stand_aktuell_gerundet
             name: Inhalt (Liter)
             min: 0
             max: 5000
@@ -24,7 +24,7 @@ cards:
               yellow: 750
               red: 0
           - type: gauge
-            entity: sensor.bem_fuellstand_aktuell_prozentual
+            entity: sensor.bem_stand_aktuell_prozentual
             name: Füllstand (%)
             min: 0
             max: 100
