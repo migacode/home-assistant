@@ -6,10 +6,10 @@
 # Angaben gerundet
 # -----------------------------------------------------------------------------
   - sensor:
-  - sensor:
     - name: "BEM Entnahme gesamt gerundet"
       state: "{{ states('input_number.bem_entnahme_gesamt') | round(0) }}"
 
+  - sensor:
     - name: "BEM Entnahme letzte gerundet"
       state: "{{ states('input_number.bem_entnahme_letzte') | round(0) }}"
 
