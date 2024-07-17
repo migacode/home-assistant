@@ -201,7 +201,7 @@ Nachstehenden Code kopieren oder downloaden&nbsp;&raquo;&nbsp;<a href="https://g
           value: "{{ (letzte_gesamt + zufall) | float }}"
 ```
 <br />
-<b>Achtung:</b> Damit die Erweiterungen in der <b>configuration.yaml<b> wirksam werden, müssen die Templates und Skripte bei den Entwickler-Werkzeugen neu geladen, oder Home Assistant neu gestartet werden.<br />
+<b>Achtung:</b> Damit die Erweiterungen in der <b>configuration.yaml</b> wirksam werden, müssen die Templates und Skripte bei den Entwickler-Werkzeugen neu geladen, oder Home Assistant neu gestartet werden.<br />
 <br />
 Unter Verwendung der vorstehenden Erweiterungen kann die Dashboard-Karte nun angelegt werden.<br />
 <br />
