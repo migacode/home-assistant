@@ -18,15 +18,6 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen bereits eingerichtet
 <li> "<b>BEM Stand bei Beginn letzter Entnahme</b>" (input_number.bem_stand_bei_beginn_letzter_entnahme)</li>
 </ul>
 <img src="./img/bem_img_helper_input_number.png">
-<!-- <ul>
-<li>In Home Assistant</li>
-<li>Bei <b>1</b> den maximalen Wert gemäß des eigenen Umfeldes eintragen. Dieser Wert sollte höher sein als die Summe aller Entnahmen erreichen kann.</li>
-<li>Bei <b>2</b> ist die Schrittgröße entsprechend der gewünschten Genauigkeit einzustellen (in diesem Beispiel 1/1000 = Milliliter).</li>
-<li>Bei <b>3</b> die Entitäts-ID exakt so benennen wie zu dem jeweiligen Helfer oben angegeben (der Entitäts-Name hingegen ist egal), oder statt dessen die Entitäts-IDs in den NodeRED-Flows entsprechend ändern (mehr Aufwand).</li>
-</ul>
-
-<h3>Tipp</h3>
-<b>BEM</b> verwendet für den aktuellen Füllstand des Behälters sowohl in den NodeRED-Flows als auch in den Komponenten von Home Assistant (Dashboard-Karte, Skripte, Templates) die Entitäts-ID <b>sensor.behaelter_fuellstand_aktuell</b>, welche bei der Einrichtung überall (derzeit insgesamt rund 10 Vorkommen) durch die Entitäts-ID des eigenen, tatsächlichen bereits eingerichteten Sensors zu ersetzen ist. Sofern Letzterer noch nicht anderweitig (bspw. in anderen Automatisierungen) in Verwendung ist, ist es eventuell einfacher und schneller, die Entitäts-ID des bestehenden Sensors in <b>sensor.behaelter_fuellstand_aktuell</b> zu ändern und die diesbezüglich nachstehend zahlreich aufgeführten Änderungen zu ignorieren ;). -->
 
 <hr>
 <h2>BEM (Varianten)</h2><ul>
@@ -40,11 +31,7 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen bereits eingerichtet
 <img src="./img/bem_img_nodered_flow.png">
 <b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_nodered_flow_1.30.json"><strong>bem_nodered_flow_1.30.json</strong></a><br />
 <br />
-Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
-<br />
-<!-- In allen Nodes namens "<b>Aktuellen Füllstand einlesen</b>" die Entität <b>sensor.behaelter_fuellstand_aktuell</b> durch die Entität des eigenen tatsächlichen Sensor ersetzen, welcher den Füllstand des realen Behälters enthält.<br />
-<b>Achtung:</b> Einen geänderten Node nicht einfach über einen anderen gleichlautenden Node kopieren, da die einzelnen Nodes trotz gleicher Bezeichnung unterschiedliche Ausgänge haben!<br /><br />
-<img src="./img/bem_img_change_nodes.png"> -->
+Den Quelltext/Flow einfach in NodeRED importieren. Sofern die zuvor bei der Vorbereitung aufgelisteten Helfer alle eingerichtet sind, ist hier keine weitere Anpassung mehr erforderlich - außer natürlich, dass die Trigger der Flows 1. und 2. mit eigenen Ereignissen (bspw. das Starten und Stoppen einer Pumpe) verbunden werden müssen. Aber auch ohne diese Verbindung können die Flows über die jeweiligen Inject-Buttons sofort manuell verwendet werden.<br />
 
 <hr>
 <h3>Handhabung und Funktionsweise</h3>
