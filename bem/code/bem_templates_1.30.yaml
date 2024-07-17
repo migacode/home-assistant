@@ -1,6 +1,9 @@
 # =============================================================================
 # Behälter-Entnahme-Messung (BEM) - Templates
 # Version: 1.30
+# -----------------------------------------------------------------------------
+# Einbindung in der configuration.yaml unter den Bereich "template:"
+# ACHTUNG: Bei Auslagerung in eine Include-Datei die Einrückung anpassen :|
 # =============================================================================
 # -----------------------------------------------------------------------------
 # Angaben gerundet

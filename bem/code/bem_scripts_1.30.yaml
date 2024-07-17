@@ -1,6 +1,9 @@
 # =============================================================================
 # Behälter-Entnahme-Messung (BEM) - Scripts
 # Version: 1.30
+# -----------------------------------------------------------------------------
+# Einbindung in der configuration.yaml unter dem Bereich "script:"
+# ACHTUNG: Bei Auslagerung in eine Include-Datei die Einrückung anpassen :|
 # =============================================================================
 # -----------------------------------------------------------------------------
 # Entnahme Beginn
@@ -28,6 +31,33 @@
       letzte_gesamt: "{{ states('input_number.bem_entnahme_gesamt') | float }}"
       stand_beginn: "{{ states('input_number.bem_stand_bei_beginn_letzter_entnahme') | float }}"
       stand_ende: "{{ states('sensor.bem_stand_aktuell') | float }}"
+    description: ""
+    sequence:
+      - service: input_boolean.turn_off
+        continue_on_error: true
+        target:
+          entity_id: input_boolean.bem_entnahme_status
+      - service: input_number.set_value
+        continue_on_error: true
+        target:
+          entity_id: input_number.bem_entnahme_letzte
+        data:
+          value: "{{ (stand_beginn - stand_ende) | float }}"
+      - service: input_number.set_value
+        continue_on_error: true
+        target:
+          entity_id: input_number.bem_entnahme_gesamt
+        data:
+          value: "{{ (letzte_gesamt + stand_beginn - stand_ende) | float }}"
+# -----------------------------------------------------------------------------
+# Entnahme Zufall
+# -----------------------------------------------------------------------------
+  bem_entnahme_zufall:
+    alias: BEM - Entnahme Zufall
+    variables:
+      letzte_gesamt: "{{ states('input_number.bem_entnahme_gesamt') | float }}"
+      stand_beginn: "{{ states('input_number.bem_stand_bei_beginn_letzter_entnahme') | float }}"
+      stand_ende: "{{ (states('sensor.bem_stand_aktuell') | float) + (range(1, 100) | random) }}"
     description: ""
     sequence:
       - service: input_boolean.turn_off
