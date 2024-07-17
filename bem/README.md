@@ -31,7 +31,7 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen bereits eingerichtet
 <img src="./img/bem_img_nodered_flow.png">
 <b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_nodered_flow_1.30.json"><strong>bem_nodered_flow_1.30.json</strong></a><br />
 <br />
-Den Quelltext/Flow einfach in NodeRED importieren. Sofern die zuvor bei der Vorbereitung aufgelisteten Helfer alle eingerichtet sind, ist hier keine weitere Anpassung mehr erforderlich - außer natürlich, dass die Trigger der Flows 1. und 2. mit eigenen Ereignissen (bspw. das Starten und Stoppen einer Pumpe) verbunden werden müssen. Aber auch ohne diese Verbindung können die Flows über die jeweiligen Inject-Buttons sofort manuell verwendet werden.<br />
+Den Quelltext/Flow einfach in NodeRED importieren. Sofern die zuvor bei der Vorbereitung aufgelisteten Helfer alle eingerichtet sind, ist hier keine weitere Anpassung mehr erforderlich - außer natürlich, dass die Trigger (Inject-Nodes) der Flows 1. und 2. durch eigene Ereignissen (bspw. das Starten und Stoppen einer Pumpe) verbunden werden müssen. Aber auch ohne diese Verbindung können die Flows direkt über die jeweiligen Inject-Buttons manuell verwendet werden.<br />
 
 <hr>
 <h3>Handhabung und Funktionsweise</h3>
@@ -66,6 +66,56 @@ Zur besseren Darstellung der Messwerte (Rundung etc.) verwendet die Karte zusät
 Nachstehenden Code kopieren oder downloaden&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_templates_1.30.yaml"><strong>bem_templates_1.30.yaml</strong></a>.<br />
 
 ```yaml
+# =============================================================================
+# Behälter-Entnahme-Messung (BEM) - Templates
+# Version: 1.30
+# -----------------------------------------------------------------------------
+# Einbindung in der configuration.yaml unter den Bereich "template:"
+# ACHTUNG: Bei Auslagerung in eine Include-Datei die Einrückung anpassen :|
+# =============================================================================
+# -----------------------------------------------------------------------------
+# Angaben gerundet
+# -----------------------------------------------------------------------------
+  - sensor:
+    - name: "BEM Entnahme gesamt gerundet"
+      state: "{{ states('input_number.bem_entnahme_gesamt') | round(0) }}"
+
+  - sensor:
+    - name: "BEM Entnahme letzte gerundet"
+      state: "{{ states('input_number.bem_entnahme_letzte') | round(0) }}"
+
+  - sensor:
+    - name: "BEM Stand aktuell gerundet"
+      state: "{{ states('sensor.bem_stand_aktuell') | float | round(0) }}"
+
+# -----------------------------------------------------------------------------
+# Angaben in m³
+# -----------------------------------------------------------------------------
+  - sensor:
+    - name: "BEM Entnahme gesamt in m3"
+      state: "{{ (states('input_number.bem_entnahme_gesamt') | float / 1000) | round(2) }}"
+
+  - sensor:
+    - name: "BEM Entnahme letzte in m3"
+      state: "{{ (states('input_number.bem_entnahme_letzte') | float / 1000) | round(2) }}"
+
+  - sensor:
+    - name: "BEM Stand aktuell in m3"
+      state: "{{ (states('sensor.bem_stand_aktuell') | float / 1000) | round(2) }}"
+
+# -----------------------------------------------------------------------------
+# Prozentuale Angaben
+# -----------------------------------------------------------------------------
+# ACHTUNG: In den Formeln für die prozentualen Angaben des Füllstandes ist der
+# maximale Füllstand des eigenen Behälters (hier der Wert 5000) einzutragen.
+# -----------------------------------------------------------------------------
+  - sensor:
+    - name: "BEM Entnahme letzte prozentual"
+      state: "{{ ((states('input_number.bem_entnahme_letzte') | float) / 5000 * 100) | round(2) }}"
+
+  - sensor:
+    - name: "BEM Stand aktuell prozentual"
+      state: "{{ ((states('sensor.bem_stand_aktuell') | float) / 5000 * 100) | round(2) }}"
 ```
 
 <br />
@@ -75,6 +125,85 @@ Da die "action"-Sequenzen von Dashboard-Buttons leider (noch?) keine Templates u
 Nachstehenden Code kopieren oder downloaden&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_scripts_1.30.yaml"><strong>bem_scripts_1.30.yaml</strong></a>.<br />
 
 ```yaml
+# =============================================================================
+# Behälter-Entnahme-Messung (BEM) - Scripts
+# Version: 1.30
+# -----------------------------------------------------------------------------
+# Einbindung in der configuration.yaml unter dem Bereich "script:"
+# ACHTUNG: Bei Auslagerung in eine Include-Datei die Einrückung anpassen :|
+# =============================================================================
+# -----------------------------------------------------------------------------
+# Entnahme Beginn
+# -----------------------------------------------------------------------------
+  bem_entnahme_beginn:
+    alias: BEM - Entnahme Beginn
+    description: ""
+    sequence:
+      - service: input_number.set_value
+        continue_on_error: true
+        target:
+          entity_id: input_number.bem_stand_bei_beginn_letzter_entnahme
+        data:
+          value: "{{ states('sensor.bem_stand_aktuell') | float }}"
+      - service: input_boolean.turn_on
+        continue_on_error: true
+        target:
+          entity_id: input_boolean.bem_entnahme_status
+# -----------------------------------------------------------------------------
+# Entnahme Ende
+# -----------------------------------------------------------------------------
+  bem_entnahme_ende:
+    alias: BEM - Entnahme Ende
+    variables:
+      letzte_gesamt: "{{ states('input_number.bem_entnahme_gesamt') | float }}"
+      stand_beginn: "{{ states('input_number.bem_stand_bei_beginn_letzter_entnahme') | float }}"
+      stand_ende: "{{ states('sensor.bem_stand_aktuell') | float }}"
+    description: ""
+    sequence:
+      - service: input_boolean.turn_off
+        continue_on_error: true
+        target:
+          entity_id: input_boolean.bem_entnahme_status
+      - service: input_number.set_value
+        continue_on_error: true
+        target:
+          entity_id: input_number.bem_entnahme_letzte
+        data:
+          value: "{{ (stand_beginn - stand_ende) | float }}"
+      - service: input_number.set_value
+        continue_on_error: true
+        target:
+          entity_id: input_number.bem_entnahme_gesamt
+        data:
+          value: "{{ (letzte_gesamt + stand_beginn - stand_ende) | float }}"
+# -----------------------------------------------------------------------------
+# Entnahme Zufall
+# -----------------------------------------------------------------------------
+  bem_entnahme_zufall:
+    alias: BEM - Entnahme Zufall
+    variables:
+      zufall: "{{ (range(100, 10000) | random | float) / 100 }}"
+      letzte_gesamt: "{{ states('input_number.bem_entnahme_gesamt') | float }}"
+      stand_beginn: "{{ states('input_number.bem_stand_bei_beginn_letzter_entnahme') | float }}"
+      stand_ende: "{{ (states('sensor.bem_stand_aktuell') | float) + zufall }}"
+    description: ""
+    sequence:
+      - service: input_boolean.turn_off
+        continue_on_error: true
+        target:
+          entity_id: input_boolean.bem_entnahme_status
+      - service: input_number.set_value
+        continue_on_error: true
+        target:
+          entity_id: input_number.bem_entnahme_letzte
+        data:
+          value: "{{ zufall }}"
+      - service: input_number.set_value
+        continue_on_error: true
+        target:
+          entity_id: input_number.bem_entnahme_gesamt
+        data:
+          value: "{{ (letzte_gesamt + zufall) | float }}"
 ```
 
 <br />
