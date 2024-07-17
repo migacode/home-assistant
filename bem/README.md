@@ -200,7 +200,9 @@ Nachstehenden Code kopieren oder downloaden&nbsp;&raquo;&nbsp;<a href="https://g
         data:
           value: "{{ (letzte_gesamt + zufall) | float }}"
 ```
-
+<br />
+<b>Achtung:</b> Damit die Erweiterungen in der <b>configuration.yaml<b> wirksam werden, müssen die Templates und Skripte bei den Entwickler-Werkzeugen neu geladen, oder Home Assistant neu gestartet werden.<br />
+<br />
 Unter Verwendung der vorstehenden Erweiterungen kann die Dashboard-Karte nun angelegt werden.<br />
 <br />
 <b>Download</b> Dashboard-Karte&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_dashboard_card_1.30.yaml"><strong>bem_dashboard_card_1.30.yaml</strong></a><br />
