@@ -55,7 +55,7 @@ Die nachstehende Dashboard-Karte enthält diverse Funktionen zur Anzeige und Ste
 </ul>
 Für die Berechnung der Entnahmemengen spielt es übrigens keine Rolle, ob der Entnahmestatus automatisiert aus den NodeRED-Flows oder manuell über diese Karte gesteuert wird - sogar eine gemischte Verwendung ist möglich.<br /><br />
 <img src="./img/bem_img_card.png">
-Vor der Anlage der Dashboard-Karte sind in Home Assistant noch zwei Erweiterungen durchführen.<br />
+Vor der Anlage der Dashboard-Karte sind in Home Assistant noch zwei Erweiterungen durchführen.<br /><br />
 <b>Erforderliche Erweiterung 1 für interaktive Dashboard-Karte:</b><br />
 Zur besseren Darstellung der Messwerte (Rundung etc.) verwendet die Karte zusätzliche Sensoren. Um diese anzulegen sind die folgenden Zeilen in der <b>configuration.yaml</b> unter dem Bereich <b>template:</b> hinzuzufügen.<br />
 <b>Achtung:</b> Die Kapazität in den Formeln für die prozentualen Angaben der Füllstände (der Wert <i>5000</i>) muss an die Größe (Fassungsvermögen/maximaler Füllstand) des eigenen Behälters angepasst werden.<br />
@@ -207,5 +207,5 @@ Unter Verwendung der vorstehenden Erweiterungen kann die Dashboard-Karte nun ang
 <br />
 Den Quelltext als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen, darin die maximale Inhaltsmenge des Behälters (der Wert max: 5000) durch die maximale Füllmenge des realen Behälters ersetzen und die Werte für die Gewichtung der Gauge-Anzeigen (severity) gemäß den eigenen Wünschen an die realen Gegebenheiten anpassen.<br />
 <br />
-Fertig..<br />
+Fertig.<br />
 <br />
