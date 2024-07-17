@@ -31,7 +31,7 @@ Zur Ausführung benötigt <b>BEM</b> neben einem beliebigen bereits eingerichtet
 <img src="./img/bem_img_nodered_flow.png">
 <b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/bem/code/bem_nodered_flow_1.30.json"><strong>bem_nodered_flow_1.30.json</strong></a><br />
 <br />
-Den Quelltext/Flow einfach in NodeRED importieren. Sofern die zuvor bei der Vorbereitung aufgelisteten Helfer alle eingerichtet sind, ist hier keine weitere Anpassung mehr erforderlich - außer natürlich, dass die Trigger (Inject-Nodes) der Flows 1. und 2. durch eigene Ereignissen (bspw. das Starten und Stoppen einer Pumpe) verbunden werden müssen. Aber auch ohne diese Verbindung können die Flows direkt über die jeweiligen Inject-Buttons manuell verwendet werden.<br />
+Den Quelltext/Flow einfach in NodeRED importieren. Sofern die zuvor bei der Vorbereitung aufgelisteten Helfer alle korrekt eingerichtet sind, ist hier keine weitere Anpassung mehr erforderlich - außer natürlich, dass die Trigger (Inject-Nodes) der Flows 1. und 2. mit eigenen Ereignissen (bspw. das Starten und Stoppen einer Pumpe) verbunden werden müssen. Aber auch ohne diese Verbindungen können die Flows direkt über die jeweiligen Inject-Buttons manuell verwendet werden.<br />
 
 <hr>
 <h3>Handhabung und Funktionsweise</h3>
