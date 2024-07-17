@@ -55,9 +55,10 @@
   bem_entnahme_zufall:
     alias: BEM - Entnahme Zufall
     variables:
+      zufall: "{{ (range(100, 10000) | random | float) / 100 }}"
       letzte_gesamt: "{{ states('input_number.bem_entnahme_gesamt') | float }}"
       stand_beginn: "{{ states('input_number.bem_stand_bei_beginn_letzter_entnahme') | float }}"
-      stand_ende: "{{ (states('sensor.bem_stand_aktuell') | float) + (range(1, 100) | random) }}"
+      stand_ende: "{{ (states('sensor.bem_stand_aktuell') | float) + zufall }}"
     description: ""
     sequence:
       - service: input_boolean.turn_off
@@ -69,10 +70,10 @@
         target:
           entity_id: input_number.bem_entnahme_letzte
         data:
-          value: "{{ (stand_beginn - stand_ende) | float }}"
+          value: "{{ zufall }}"
       - service: input_number.set_value
         continue_on_error: true
         target:
           entity_id: input_number.bem_entnahme_gesamt
         data:
-          value: "{{ (letzte_gesamt + stand_beginn - stand_ende) | float }}"
+          value: "{{ (letzte_gesamt + zufall) | float }}"
