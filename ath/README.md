@@ -151,6 +151,6 @@ Zusätzlich zu den oben angegebenen "Standard"-Sensoren nutzt die Karte exemplar
       name: ath_next_schadstoff
       scan_interval: 600
 ```
-Darüber hinaus verwendet die Karte das HACS-Modul "card-mod", jedoch nur zur Justierung von Abständen. Wer card-mod nicht verwendet, oder wem die Karte unformatiert besser gefällt, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
+Darüber hinaus verwendet die Karte das HACS-Modul "card-mod" zur Anpassung der Symbol-Farben. Wer card-mod nicht verwendet, oder wem die Karte unformatiert besser gefällt, der kann die entsprechenden Style-Angaben natürlich problemlos entfernen.<br />
 <br />
 <hr>
