@@ -25,15 +25,40 @@ cards:
       - entity: sensor.ath_next_bio
         name: Biotonne
         icon: mdi:flower
+        card_mod:
+          style: |-
+            :host {
+              --card-mod-icon-color: #664400;
+            }
       - entity: sensor.ath_next_gelb
         name: Gelbe Tonne
         icon: mdi:sack
+        card_mod:
+          style: |-
+            :host {
+              --card-mod-icon-color: #aaaa00;
+            }
       - entity: sensor.ath_next_papier
         name: Papiertonne
         icon: mdi:newspaper-variant
+        card_mod:
+          style: |-
+            :host {
+              --card-mod-icon-color: #1133ff;
+            }
       - entity: sensor.ath_next_rest
         name: Restmülltonne
         icon: mdi:trash-can
+        card_mod:
+          style: |-
+            :host {
+              --card-mod-icon-color: #333333;
+            }
       - entity: sensor.ath_next_schadstoff
         name: Schadstoffmobil
         icon: mdi:biohazard
+        card_mod:
+          style: |-
+            :host {
+              --card-mod-icon-color: #aa0000;
+            }
