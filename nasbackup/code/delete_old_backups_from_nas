@@ -1,0 +1,36 @@
+#!/bin/bash
+###############################################################################
+#                                                                             #
+#                   Löschen aller alten Backups auf dem NAS                   #
+#                 ------------------------------------------                  #
+# ACHTUNG: Es werden alle .tar-Archive in dem Backup-Ordner des NAS gelöscht, #
+# also darauf achten, dass dort keine anderen Archive gespeichert werden!     #
+#                                                                             #
+###############################################################################
+# -----------------------------------------------------------------------------
+# Speicherort der Backups (vollständiger Pfad der Netzwerkfreigabe)
+# -----------------------------------------------------------------------------
+nas_path="/share/NAS_backups_shared"
+
+# -----------------------------------------------------------------------------
+# Log-Datei
+# -----------------------------------------------------------------------------
+log_file="$nas_path/deleted_backups.log"
+
+# -----------------------------------------------------------------------------
+# Anzahl zurückliegender Tage, deren Backups nicht gelöscht werden
+# -----------------------------------------------------------------------------
+keep_days=7
+
+# -----------------------------------------------------------------------------
+# Here we go ...
+# -----------------------------------------------------------------------------
+echo "------------------------------------------" >> "$log_file"
+echo "Gelöscht am $(date):" >> "$log_file"
+alte_backups=$(find "$nas_path" -depth -mindepth 1 -maxdepth 1 -type f -iname "*.tar" -mtime +${keep_days} -print | wc -l)
+if [ $alte_backups -gt 0 ];
+then
+  find "$nas_path" -depth -mindepth 1 -maxdepth 1 -type f -iname "*.tar" -mtime +${keep_days} -print -delete &>>"$log_file"
+else
+  echo "Keine" >> "$log_file"
+fi
