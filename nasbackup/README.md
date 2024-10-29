@@ -71,10 +71,13 @@ HA-Kenner merken übrigens sicher schnell, dass die YAML-Notation dieser Automat
         compressed: true
         homeassistant_exclude_database: false
         location: NAS_backups_system
+        # password: my_password
   mode: single
 
 ```
 
+Wenn die Sicherung mit einem Passwort versehen werden soll, muss der entsprechende Parameter auskommentiert und gesetzt werden.<br />
+<br />
 <hr/>
 <h2>3. Automatisierung zum Löschen alter HA-Backups auf dem NAS</h2>
 Die regelmäßige automatische Erstellung von HA-Sicherungen auf dem NAS sollte nun bereits funktionieren. Aufgrund der Größe der jeweiligen Backup-Dateien kommen dabei im Laufe der Zeit natürlich enorme Datenmengen zustande, so dass man vermutlich den Zeitraum der zur Verfügung stehenden Sicherungen eingrenzen und ältere Backup-Dateien löschen möchte. Natürlich kann man das von Zeit zu Zeit manuell machen, schöner wäre aber, wenn sich auch dies automatisieren ließe. Leider bietet HA selbst keinen Dienst an, mit welchem sich Backups automatisiert löschen lassen. Daher muss dies mit einem eigenen Script erledigt werden. Wie jedoch schon zuvor gesagt, ist das Verzeichnis mit den Backup-Dateien im Userspace von HA nicht zugänglich. Um als Benutzer innerhalb von HA trotzdem direkten Zugriff auf die Backup-Dateien auf dem NAS zu erhalten, muss also zunächst ein weiterer Netzwerkspeicher, diesmal allerdings vom Typ <i>Freigabe</i>, angelegt werden, welcher die selbe Server-Freigabe hat, wie die des zuvor eingerichteten <i>Backup-Netzwerkspeichers</i>.
@@ -97,7 +100,7 @@ Dadurch wird im für Benutzer zugänglichen Teil des HA-Dateisystems ein Ordner 
 <br/>
 Wenn alles richtig gemacht wurde, sind beide Netzwerkspeicher in der Übersicht zu sehen.<br/>
 <img src="img/HA_Netzwerkspeicher.png" name="Netzwerkspeicher" border="0"/>
-<br/>
+
 <h3>3.2 Script einrichten</h3>
 Um das automatisierte Löschen veralteter Backup-Dateien auf dem NAS zu bewerkstelligen, sind folgende Schritte erforderlich.<br/>
 <h4>3.2.1 Script-Datei anlegen</h4>
@@ -149,7 +152,7 @@ Genau wie in der Automatisierung des HA-Backups können die Zeiten selbstverstä
 <hr/>
 
 <h2>4. Dashboard-Karte zur Steuerung der automatisierten HA-Backups</h2>
-<img src="img/NASBACK_Dashboard-Card.png" name="Dashboard-Karte" border="0"/><br />
+<img src="img/HABACK_Dashboard-Card.png" name="Dashboard-Karte" border="0"/><br />
 <br />
 Zum (de-)aktivieren der automatischen Backups sowie zur schnellen außerplanmäßigen Erstellung eines Backups auf dem NAS kann die nachstehende Dashboard-Karte verwendet werden. Dazu den Quelltext einfach als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
 
