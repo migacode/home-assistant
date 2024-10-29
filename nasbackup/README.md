@@ -28,11 +28,11 @@ Nachdem das NAS wie oben stehend für die Speicherung von HA-Backups konfigurier
 Diese kann man in HA unter <i>Einstellungen -&gt; System -&gt; Speicher -&gt; Netzwerkspeicher hinzufügen</i> konfigurieren.<br/>
 In der Maske die folgenden Eintragungen machen (ggf. natürlich angepasst an die eigene Umgebung) und den Netzwerkspeicher mit dem Button "Verbinden" anlegen.<br/>
 <ul>
-<li>Name: NAS_backups_system (Name frei konfigurierbar)</li>
+<li>Name: NAS_backups_system</li>
 <li>Verwendung: Backup</li>
 <li>Server: 192.168.188.1/nas (Adresse des NAS)</li>
 <li>Protokoll: Samba/Windows (SMB/CIFS)</li>
-<li>Server-Freigabe: NAS1/Home Assistant/backups (Verzeichnis wie auf dem NAS angelegt)</li>
+<li>Server-Freigabe: NAS1/Home Assistant/backups (wie auf dem NAS angelegt)</li>
 <li>Benutzername: ha_backup (bzw. Name des NAS-Benutzers wie auf dem NAS angelegt)</li>
 <li>Passwort: Kennwort des NAS-Benutzers (wie auf dem NAS angelegt)</li>
 </ul>
@@ -86,11 +86,11 @@ Die regelmäßige automatische Erstellung von HA-Sicherungen auf dem NAS sollte 
 Weiteren Netzwerkspeicher in HA unter <i>Einstellungen -&gt; System -&gt; Speicher -&gt; Netzwerkspeicher hinzufügen</i> wie folgt einrichten.<br />
 In der Maske die folgenden Eintragungen machen (ggf. natürlich angepasst an die eigene Umgebung) und den Netzwerkspeicher mit dem Button "Verbinden" anlegen.<br/>
 <ul>
-<li>Name: NAS_backups_shared (Name frei konfigurierbar)</li>
+<li>Name: NAS_backups_shared</li>
 <li>Verwendung: Freigabe</li>
 <li>Server: 192.168.188.1/nas (Adresse des NAS)</li>
 <li>Protokoll: Samba/Windows (SMB/CIFS)</li>
-<li>Server-Freigabe: NAS1/Home Assistant/backups (Verzeichnis wie auf dem NAS angelegt)</li>
+<li>Server-Freigabe: NAS1/Home Assistant/backups (wie auf dem NAS angelegt)</li>
 <li>Benutzername: ha_backup (bzw. Name des NAS-Benutzers wie auf dem NAS angelegt)</li>
 <li>Passwort: Kennwort des NAS-Benutzers (wie auf dem NAS angelegt)</li>
 </ul>
