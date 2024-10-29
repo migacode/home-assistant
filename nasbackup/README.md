@@ -2,7 +2,6 @@
 <h2>Automatische HA-Backups auf ein NAS</h2>
 Da die Vorhaltung der System-Backups von Home Assistant auf dem selben Datenträger wie das HA-OS selbst im Extremfall (Medium defekt o.ä.) ziemlich sinnlos ist, kann man wie nachstehend beschrieben automatisiert vollständige Sicherungen von Home Assistant auf einem NAS erstellen, sowie ebenfalls automatisiert alle dort befindlichen Backups löschen, welche älter als x Tage sind.<br/>
 Im Gegensatz zu diversen Lösungen anderer Anbieter ist diese hier ausschließlich mit HA-Bordmitteln realisiert - ohne jegliche Add-ons, HACS oder sonstigen Code von unbekannten Dritten.<br/>
-<br/>
 <hr/>
 <h2>1. Einstellungen in der FRITZ!Box / FRITZ!NAS (exemplarisch)</h2>
 Als NAS wird in diesem Fall beispielhaft ein FRITZ!NAS verwendet - es kann jedoch jedes beliebige andere NAS verwendet werden, welches per SMB Verzeichnisse im Netzwerk zur Verfügung stellt.<br/>
@@ -25,7 +24,6 @@ Hier ein&nbsp;»&nbsp;<a href="img/HA_Backup_FB_Benutzer.png" target="_blank">Be
 <hr/>
 <h2>2. Automatisierung von vollständigen HA-Backups auf das NAS</h2>
 Nachdem das NAS wie oben stehend für die Speicherung von HA-Backups konfiguriert ist, kann die Speicherung von HA-Backups darauf sowie die automatische Erstellung dieser Backups in Home Assistant eingerichtet werden. Dazu sind folgende Schritte erforderlich.<br />
-<br />
 <h3>2.1 Netzwerkspeicher zur Verwendung für HA-System-Backups anlegen</h3>
 Diese kann man in HA unter <i>Einstellungen -&gt; System -&gt; Speicher -&gt; Netzwerkspeicher hinzufügen</i> konfigurieren.<br/>
 In der Maske die folgenden Eintragungen machen (ggf. natürlich angepasst an die eigene Umgebung) und den Netzwerkspeicher mit dem Button "Verbinden" anlegen.<br/>
@@ -39,7 +37,6 @@ In der Maske die folgenden Eintragungen machen (ggf. natürlich angepasst an die
 <li>Passwort: Kennwort des NAS-Benutzers (wie auf dem NAS angelegt)</li>
 </ul>
 Bild zu&nbsp;»&nbsp;<a href="img/HA_NAS_backups_system.png" target="_blank">Hinzufügen eines Backup-Netzwerkspeichers in HA</a><br />
-<br/>
 <h3>2.2 Standard-Backup-Speicherort von HA auf NAS ändern</h3>
 Um diesen Netzwerkspeicher grundsätzlich für alle System-Backups zu verwenden, ist dies in den Einstellungen von HA wie folgt zu konfigurieren:<br/>
 <i>Einstellungen -&gt; System -&gt; Backups -&gt; 3-Punkte-Menü -&gt; Standard-Backup-Speicherort ändern -&gt; <b>NAS_backups_system</b></i> auswählen.<br/>
@@ -49,7 +46,6 @@ Alternativ dazu kann man den Standard-Backup-Speicherort jedoch auch für HA-int
 <h3>2.3 Automatisierung einrichten</h3>
 Die nachstehende Automatisierung in die <i>automations.yaml</i> eintragen. In diesem Beispiel wird jeden Tag morgens um 03:45 Uhr ein Backup erstellt. Die Wochentage als <i>Condition</i> sind optional, damit man Backups auch nur an bestimmten Tagen (beispielsweise wöchentlich) konfigurieren kann. Die Zeiten können selbstverständlich gemäß den eigenen Anforderungen angepasst werden.<br/>
 HA-Kenner merken übrigens sicher schnell, dass die YAML-Notation dieser Automatisierung bereits die "Neue" ist, welche seit Version 2024.10 verwendet wird - daher ist die Mindestvoraussetzung für den Ablauf dieser Automatisierung natürlich auch die entsprechend installierte Version des HA-Core. ;)<br/>
-<br/>
 
 ```yaml
 
@@ -79,8 +75,6 @@ HA-Kenner merken übrigens sicher schnell, dass die YAML-Notation dieser Automat
 
 ```
 
-<br />
-<br />
 <hr/>
 <h2>3. Automatisierung zum Löschen alter HA-Backups auf dem NAS</h2>
 Die regelmäßige automatische Erstellung von HA-Sicherungen auf dem NAS sollte nun bereits funktionieren. Aufgrund der Größe der jeweiligen Backup-Dateien kommen dabei im Laufe der Zeit natürlich enorme Datenmengen zustande, so dass man vermutlich den Zeitraum der zur Verfügung stehenden Sicherungen eingrenzen und ältere Backup-Dateien löschen möchte. Natürlich kann man das von Zeit zu Zeit manuell machen, schöner wäre aber, wenn sich auch dies automatisieren ließe. Leider bietet HA selbst keinen Dienst an, mit welchem sich Backups automatisiert löschen lassen. Daher muss dies mit einem eigenen Script erledigt werden. Wie jedoch schon zuvor gesagt, ist das Verzeichnis mit den Backup-Dateien im Userspace von HA nicht zugänglich. Um als Benutzer innerhalb von HA trotzdem direkten Zugriff auf die Backup-Dateien auf dem NAS zu erhalten, muss also zunächst ein weiterer Netzwerkspeicher vom Typ <i>Freigabe</i> angelegt werden, welcher die selbe Server-Freigabe hat, wie die des zuvor eingerichteten <i>Backup-Netzwerkspeicher<i>.
@@ -108,12 +102,10 @@ Wenn alles richtig gemacht wurde, sind beide Netzwerkspeicher in der Übersicht 
 Um das automatisierte Löschen veralteter Backup-Dateien auf dem NAS zu bewerkstelligen, sind folgende Schritte erforderlich.<br/>
 <h4>3.2.1 Script-Datei anlegen</h4>
 Das folgende Script ist als Datei an einem beliebigen Ort zu hinterlegen. In unserem Beispiel heißt die Datei <b>delete_old_backups_from_nas</b> und liegt in dem Ordner <b>/config/tools</b>. Nicht vergessen, die Konfiguration innerhalb dieser Datei ggf. entsprechend den eigenen Anforderungen anzupassen und die Datei mit chmod +x ausführbar zu machen. ;)<br />
-<br />
 <b>Download</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nasbackup/code/delete_old_backups_from_nas"><strong>delete_old_backups_from_nas</strong></a><br />
 
 <h4>3.2.2 Shell Command einrichten</h4>
 Damit das Script aus einer Automatisierung aufrufen werden kann, muss dies in der HA-Konfiguration mit einem <i>Shell Command</i> verknüpft werden. Dazu in der <b>configuration.yaml</b> den Absatz <i>shell_command:</i> erweitern bzw. wenn noch nicht vorhanden anlegen:<br />
-<br />
 
 ```yaml
 
@@ -122,13 +114,9 @@ shell_command:
 
 ```
 
-<br />
-<br />
 <h3>3.3 Automatisierung einrichten</h3>
 Nachdem das Script und zugehörige Shell Command eingerichtet ist, kann dieses automatisiert aufgerufen werden. Lokale Backups werden durch diese Automatisierung zudem nicht gelöscht. Hier die dazugehörige Automatisierung. In diesem Beispiel wird jeden Tag morgens um 04:56 Uhr ein Durchlauf gestartet. Die Wochentage als <i>Condition</i> sind optional, damit man Durchläufe auch nur an bestimmten Tagen (beispielsweise wöchentlich) konfigurieren kann.<br />
 Genau wie in der Automatisierung des HA-Backups können die Zeiten selbstverständlich auch hier gemäß den eigenen Anforderungen angepasst werden, und auch diese Automatisierung verwendet die "neue" YAML-Notation.<br />
-<br />
-
 
 ```yaml
 
@@ -153,10 +141,8 @@ Genau wie in der Automatisierung des HA-Backups können die Zeiten selbstverstä
       data: {}
   mode: single
 
-
 ```
 
-<br />
 <b>Achtung:</b> Durch das Script werden alle veralteten TAR-Archive (.tar) in dem Backup-Ordner des NAS gelöscht - also darauf achten, dass in diesem Ordner keine anderen TAR-Archive gespeichert werden, welche nicht gelöscht werden sollen<br />
 <br />
 
@@ -214,7 +200,6 @@ cards:
     show_state: false
     show_name: true
     show_icon: false
-
 
 ```
 
