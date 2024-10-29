@@ -149,6 +149,8 @@ Genau wie in der Automatisierung des HA-Backups können die Zeiten selbstverstä
 <hr/>
 
 <h2>4. Dashboard-Karte zur Steuerung der automatisierten HA-Backups</h2>
+<img src="img/NASBACK_Dashboard-Card.png" name="Dashboard-Karte" border="0"/><br />
+<br />
 Zum (de-)aktivieren der automatischen Backups sowie zur schnellen außerplanmäßigen Erstellung eines Backups auf dem NAS kann die nachstehende Dashboard-Karte verwendet werden. Dazu den Quelltext einfach als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
 
 ```yaml
@@ -203,6 +205,5 @@ cards:
 ```
 
 Darüber hinaus verwendet die Karte das HACS-Modul "card-mod" zur Anpassung der Symbol-Farben. Wer card-mod nicht verwendet, oder wem die Karte unformatiert besser gefällt, der kann die entsprechenden Style-Angaben natürlich problemlos entfernen.<br />
-<img src="img/NASBACK_Dashboard-Karte.png" name="Dashboard-Karte" border="0"/>
 <br />
 <hr>
