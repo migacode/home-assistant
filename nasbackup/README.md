@@ -148,6 +148,7 @@ Genau wie in der Automatisierung des HA-Backups können die Zeiten selbstverstä
 
 <b>Achtung:</b> Durch das Script werden alle veralteten TAR-Archive (.tar) in dem Backup-Ordner des NAS gelöscht - also darauf achten, dass in diesem Ordner keine anderen TAR-Archive gespeichert werden, welche nicht gelöscht werden sollen<br />
 <br />
+Das Script legt zudem auch eine Log-Datei an, in welchem die einzelnen Aufrufe und ggf. gelöschte Dateien protokolliert werden.
 
 <hr/>
 
