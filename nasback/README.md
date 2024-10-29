@@ -105,7 +105,7 @@ Wenn alles richtig gemacht wurde, sind beide Netzwerkspeicher in der Übersicht 
 Um das automatisierte Löschen veralteter Backup-Dateien auf dem NAS zu bewerkstelligen, sind folgende Schritte erforderlich.<br/>
 <h4>3.2.1 Script-Datei anlegen</h4>
 Das folgende Script ist als Datei an einem beliebigen Ort zu hinterlegen. In diesem Fall heißt die Datei <b>delete_old_backups_from_nas</b> und liegt in dem Ordner <b>/config/tools</b>. Nicht vergessen, die Konfiguration innerhalb dieser Datei ggf. entsprechend den eigenen Anforderungen anzupassen und die Datei mit chmod +x ausführbar zu machen. ;)<br />
-<b>Download</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nasbackup/code/delete_old_backups_from_nas"><strong>delete_old_backups_from_nas</strong></a><br />
+<b>Download</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nasback/code/delete_old_backups_from_nas"><strong>delete_old_backups_from_nas</strong></a><br />
 
 <h4>3.2.2 Shell Command einrichten</h4>
 Damit das Script aus einer Automatisierung aufrufen werden kann, muss dies in der HA-Konfiguration mit einem <i>Shell Command</i> verknüpft werden. Dazu in der <b>configuration.yaml</b> den Absatz <i>shell_command:</i> erweitern bzw. wenn noch nicht vorhanden anlegen:<br />
