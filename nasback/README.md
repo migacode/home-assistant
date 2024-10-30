@@ -79,8 +79,9 @@ HA-Kenner merken übrigens sicher schnell, dass die YAML-Notation dieser Automat
 Wenn die Sicherung mit einem Passwort versehen werden soll, muss der entsprechende Parameter auskommentiert und gesetzt werden.<br />
 <br />
 <b>Wichtig:</b> Nach Anlage der Automatisierung nicht vergessen, die Konfiguration von Home Assistant zu aktualisieren (YAML-Konfiguration neu laden oder HA neu starten).<br />
-In der Liste der Backups erscheinen die automatisierten Backups fortan mit dem Standort "NAS_backups_system" - lokale Backups liegen weiterhin auf "Datenträger".<br />
-<img src="img/HA_Backups_Standort.png" name="Backup-Standort" border="0"/>
+In der Liste der Backups erscheinen die automatisierten Backups fortan mit dem Standort "NAS_backups_system" - lokale Backups liegen weiterhin auf "Datenträger" (siehe Bild).<br />
+<br />
+<img src="img/HA_Backups_Standort.png" name="Backup-Standort" border="0"/><br />
 <br />
 
 <hr/>
