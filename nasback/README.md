@@ -112,21 +112,16 @@ Bei Badarf ist zudem auch die Konfiguration innerhalb dieser Datei an die eigene
 <b>Exkurs: Datei anlegen</b><br />
 Am einfachsten wird die vorstehende Datei mit einem Tool der Wahl in das HA-Dateisystem kopiert. Sollte das gerade nicht möglich sein oder der manuelle Weg bevorzugt werden, kann die Erstellung der Datei in HA auch schnell und einfach a) mit dem Add-on <i>File editor</i> oder b) über die Konsole bzw. in einem Terminal von HA mittels des eingebauten Texteditors <i>nano</i> erfolgen.<br />
 In letzterem Fall wie folgt vorgehen:<br />
-<br />
 $ cd /config<br />
 $ mkdir tools <i>(nur falls noch nicht vorhanden)</i><br />
 $ cd tools<br />
 $ nano delete_old_backups_from_nas<br />
-<br />
 -&gt; Text eingeben<br />
 -&gt;Mit Ctrl-S Datei speichern<br />
 -&gt;Mit Ctrl-X Editor verlassen<br />
-<br />
 --------------------<br />
-<br />
 <b>Wichtig:</b> Egal auf welche Art die Script-Datei angelegt worden ist - damit diese ausführbar wird, müssen die Zugriffsrechte korrekt gesetzt werden. Dazu folgenden Befehl eingeben:
 $ chmod +x delete_old_backups_from_nas<br />
-<br />
 
 <h4>3.2.2 Shell Command einrichten</h4>
 Damit das Script aus einer Automatisierung aufrufen werden kann, muss dies in der HA-Konfiguration mit einem <i>Shell Command</i> verknüpft werden. Dazu in der <b>configuration.yaml</b> den Absatz <i>shell_command:</i> erweitern bzw. wenn noch nicht vorhanden anlegen:<br />
