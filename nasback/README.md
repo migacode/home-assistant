@@ -78,9 +78,12 @@ HA-Kenner merken übrigens sicher schnell, dass die YAML-Notation dieser Automat
 
 Wenn die Sicherung mit einem Passwort versehen werden soll, muss der entsprechende Parameter auskommentiert und gesetzt werden.<br />
 <br />
+Die regelmäßige automatische Erstellung von HA-Sicherungen auf dem NAS sollte nun bereits funktionieren. In der Liste der Backups erscheinen diese fortan mit dem Standort "NAS_backups_system" (lokale Backups liegen auf "Datenträger").
+<img src="img/HA_Backups_Standort.png" name="Backup-Standort" border="0"/>
+<br />
 <hr/>
 <h2>3. Automatisierung zum Löschen alter HA-Backups auf dem NAS</h2>
-Die regelmäßige automatische Erstellung von HA-Sicherungen auf dem NAS sollte nun bereits funktionieren. Aufgrund der Größe der jeweiligen Backup-Dateien kommen dabei im Laufe der Zeit natürlich enorme Datenmengen zustande, so dass man vermutlich den Zeitraum der zur Verfügung stehenden Sicherungen eingrenzen und ältere Backup-Dateien löschen möchte. Natürlich kann man das von Zeit zu Zeit manuell machen, schöner wäre aber, wenn sich auch dies automatisieren ließe. Leider bietet HA selbst keinen Dienst an, mit welchem sich Backups automatisiert löschen lassen. Daher muss dies mit einem eigenen Script erledigt werden. Wie jedoch schon zuvor gesagt, ist das Verzeichnis mit den Backup-Dateien im Userspace von HA nicht zugänglich. Um als Benutzer innerhalb von HA trotzdem direkten Zugriff auf die Backup-Dateien auf dem NAS zu erhalten, muss also zunächst ein weiterer Netzwerkspeicher, diesmal allerdings vom Typ <i>Freigabe</i>, angelegt werden, welcher die selbe Server-Freigabe hat, wie die des zuvor eingerichteten <i>Backup-Netzwerkspeichers</i>.
+Aufgrund der Größe der jeweiligen Backup-Dateien kommen im Laufe der Zeit natürlich enorme Datenmengen zustande, so dass man vermutlich den Zeitraum der zur Verfügung stehenden Sicherungen eingrenzen und ältere Backup-Dateien löschen möchte. Natürlich kann man das von Zeit zu Zeit manuell machen, schöner wäre aber, wenn sich auch dies automatisieren ließe. Leider bietet HA selbst keinen Dienst an, mit welchem sich Backups automatisiert löschen lassen. Daher muss dies mit einem eigenen Script erledigt werden. Wie jedoch schon zuvor gesagt, ist das Verzeichnis mit den Backup-Dateien im Userspace von HA nicht zugänglich. Um als Benutzer innerhalb von HA trotzdem direkten Zugriff auf die Backup-Dateien auf dem NAS zu erhalten, muss also zunächst ein weiterer Netzwerkspeicher, diesmal allerdings vom Typ <i>Freigabe</i>, angelegt werden, welcher die selbe Server-Freigabe hat, wie die des zuvor eingerichteten <i>Backup-Netzwerkspeichers</i>.
 
 <h3>3.1 Netzwerkspeicher mit Freigabe zum Zugriff durch Benutzer anlegen</h3>
 Weiteren Netzwerkspeicher in HA unter <i>Einstellungen -&gt; System -&gt; Speicher -&gt; Netzwerkspeicher hinzufügen</i> wie folgt einrichten.<br />
@@ -105,23 +108,22 @@ Wenn alles richtig gemacht wurde, sind beide Netzwerkspeicher in der Übersicht 
 Um das automatisierte Löschen veralteter Backup-Dateien auf dem NAS zu bewerkstelligen, sind folgende Schritte erforderlich.<br/>
 <h4>3.2.1 Script-Datei anlegen</h4>
 Das folgende Script ist als Datei an einem beliebigen Ort zu hinterlegen. In diesem Fall heißt die Datei <b>delete_old_backups_from_nas</b> und liegt in dem Ordner <b>/config/tools</b>. Wenn das Script an einem anderen Ort hinterlegt wird, muss lediglich die Pfadangabe in dem weiter unten stehenden <i>Shell Command</i> entspechend angepasst werden.<br />
-Bei Badarf ist zudem auch die Konfiguration innerhalb dieser Datei an die eigenen Anforderungen anzupassen.<br />
+Bei Bedarf ist zudem auch die Konfiguration innerhalb dieser Datei an die eigenen Anforderungen anzupassen.<br />
 <b>Download</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nasback/code/delete_old_backups_from_nas"><strong>delete_old_backups_from_nas</strong></a><br />
-<br />
---------------------<br />
-<b>Exkurs: Datei anlegen</b><br />
-Am einfachsten wird die vorstehende Datei mit einem Tool der Wahl in das HA-Dateisystem kopiert. Sollte das gerade nicht möglich sein oder der manuelle Weg bevorzugt werden, kann die Erstellung der Datei in HA auch schnell und einfach a) mit dem Add-on <i>File editor</i> oder b) über die Konsole bzw. in einem Terminal von HA mittels des eingebauten Texteditors <i>nano</i> erfolgen.<br />
+----------------------------------------<br />
+<b>Exkurs: Datei neu anlegen</b><br />
+Am einfachsten wird die vorstehende Datei mit einem Tool der Wahl in das HA-Dateisystem kopiert. Sollte das gerade nicht möglich sein, oder der manuelle Weg bevorzugt werden, kann die Erstellung der Datei in HA auch schnell und einfach a) mit dem Add-on <i>File editor</i> oder b) über die Kommandozeile der Konsole bzw. in einem Terminal von HA mittels des eingebauten Text-Editors <i>nano</i> erfolgen.<br />
 In letzterem Fall wie folgt vorgehen:<br />
 $ cd /config<br />
 $ mkdir tools <i>(nur falls noch nicht vorhanden)</i><br />
 $ cd tools<br />
 $ nano delete_old_backups_from_nas<br />
 -&gt; Text eingeben<br />
--&gt;Mit Ctrl-S Datei speichern<br />
--&gt;Mit Ctrl-X Editor verlassen<br />
---------------------<br />
-<b>Wichtig:</b> Egal auf welche Art die Script-Datei angelegt worden ist - damit diese ausführbar wird, müssen die Zugriffsrechte korrekt gesetzt werden. Dazu folgenden Befehl eingeben:
-$ chmod +x delete_old_backups_from_nas<br />
+-&gt; Mit Ctrl-S Datei speichern<br />
+-&gt; Mit Ctrl-X Editor verlassen<br />
+----------------------------------------<br />
+<b>Wichtig:</b> Egal auf welche Art die Script-Datei angelegt worden ist - damit diese ausführbar wird, müssen deren Zugriffsrechte korrekt gesetzt werden. Dazu auf der Kommandozeile im selben Ordner in dem die Datei liegt folgenden Befehl eingeben:<br />
+chmod +x delete_old_backups_from_nas<br />
 
 <h4>3.2.2 Shell Command einrichten</h4>
 Damit das Script aus einer Automatisierung aufrufen werden kann, muss dies in der HA-Konfiguration mit einem <i>Shell Command</i> verknüpft werden. Dazu in der <b>configuration.yaml</b> den Absatz <i>shell_command:</i> erweitern bzw. wenn noch nicht vorhanden anlegen:<br />
