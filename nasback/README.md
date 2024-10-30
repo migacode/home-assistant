@@ -104,8 +104,29 @@ Wenn alles richtig gemacht wurde, sind beide Netzwerkspeicher in der Übersicht 
 <h3>3.2 Script einrichten</h3>
 Um das automatisierte Löschen veralteter Backup-Dateien auf dem NAS zu bewerkstelligen, sind folgende Schritte erforderlich.<br/>
 <h4>3.2.1 Script-Datei anlegen</h4>
-Das folgende Script ist als Datei an einem beliebigen Ort zu hinterlegen. In diesem Fall heißt die Datei <b>delete_old_backups_from_nas</b> und liegt in dem Ordner <b>/config/tools</b>. Nicht vergessen, die Konfiguration innerhalb dieser Datei ggf. entsprechend den eigenen Anforderungen anzupassen und die Datei mit chmod +x ausführbar zu machen. ;)<br />
-<b>Download</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nasback/code/delete_old_backups_from_nas"><strong>delete_old_backups_from_nas</strong></a><br />
+Das folgende Script ist als Datei an einem beliebigen Ort zu hinterlegen. In diesem Fall heißt die Datei <b>delete_old_backups_from_nas</b> und liegt in dem Ordner <b>/config/tools</b>. Wenn das Script an einem anderen Ort hinterlegt wird, muss lediglich die Pfadangabe in dem weiter unten stehenden <i>Shell Command</i> entspechend angepasst werden.<br />
+Bei Badarf ist zudem auch die Konfiguration innerhalb dieser Datei an die eigenen Anforderungen anzupassen.<br />
+<b>Download</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nasbackup/code/delete_old_backups_from_nas"><strong>delete_old_backups_from_nas</strong></a><br />
+<br />
+--------------------<br />
+<b>Exkurs: Datei anlegen</b><br />
+Am einfachsten wird die vorstehende Datei mit einem Tool der Wahl in das HA-Dateisystem kopiert. Sollte das gerade nicht möglich sein oder der manuelle Weg bevorzugt werden, kann die Erstellung der Datei in HA auch schnell und einfach a) mit dem Add-on <i>File editor</i> oder b) über die Konsole bzw. in einem Terminal von HA mittels des eingebauten Texteditors <i>nano</i> erfolgen.<br />
+In letzterem Fall wie folgt vorgehen:<br />
+<br />
+$ cd /config<br />
+$ mkdir tools <i>(nur falls noch nicht vorhanden)</i><br />
+$ cd tools<br />
+$ nano delete_old_backups_from_nas<br />
+<br />
+-&gt; Text eingeben<br />
+-&gt;Mit Ctrl-S Datei speichern<br />
+-&gt;Mit Ctrl-X Editor verlassen<br />
+<br />
+--------------------<br />
+<br />
+<b>Wichtig:</b> Egal auf welche Art die Script-Datei angelegt worden ist - damit diese ausführbar wird, müssen die Zugriffsrechte korrekt gesetzt werden. Dazu folgenden Befehl eingeben:
+$ chmod +x delete_old_backups_from_nas<br />
+<br />
 
 <h4>3.2.2 Shell Command einrichten</h4>
 Damit das Script aus einer Automatisierung aufrufen werden kann, muss dies in der HA-Konfiguration mit einem <i>Shell Command</i> verknüpft werden. Dazu in der <b>configuration.yaml</b> den Absatz <i>shell_command:</i> erweitern bzw. wenn noch nicht vorhanden anlegen:<br />
@@ -116,6 +137,10 @@ shell_command:
   delete_old_backups_from_nas: "/config/tools/delete_old_backups_from_nas"
 
 ```
+
+<br />
+sollte das Script an einem anderen Ort hinterlegt sein und/oder ein anderer Dateiname dafür verwendet werden, ist die Zeile wie folgt zu ändern:<br />
+  delete_old_backups_from_nas: <i>"/Absoluter_Pfad_zu_Script_Datei/Datei_Name"</i>
 
 <h3>3.3 Automatisierung einrichten</h3>
 Nachdem das Script und zugehörige Shell Command eingerichtet ist, kann dieses automatisiert aufgerufen werden. Lokale Backups werden durch diese Automatisierung übrigens nicht gelöscht. Hier die dazugehörige Automatisierung. In diesem Beispiel wird jeden Tag morgens um 04:56 Uhr ein Durchlauf gestartet. Die Wochentage als <i>Condition</i> sind optional, damit man Durchläufe auch nur an bestimmten Tagen (beispielsweise wöchentlich) konfigurieren kann.<br />
@@ -163,38 +188,15 @@ type: vertical-stack
 title: Automatisches Backup auf NAS
 cards:
   - type: entities
-    card_mod:
-      style: |
-        ha-card {
-          margin-top: -10px;
-        }
     entities:
       - entity: automation.vollstandiges_ha_backup_auf_nas
         name: Täglich vollständiges HA-Backup erstellen
         icon: mdi:upload-network
-        card_mod:
-          style: |-
-            :host {
-              {% if is_state("automation.vollstandiges_ha_backup_auf_nas", "on") %}
-                --card-mod-icon-color: rgba(0,200,0,1);
-              {% else %}
-                --card-mod-icon-color: grey;
-              {% endif %}
-            }
         secondary_info: last-triggered
     state_color: true
     show_header_toggle: false
   - type: button
     name: Jetzt ein HA-Backup auf dem NAS erstellen
-    card_mod:
-      style: |
-        ha-card {
-          color: {{ states('input_text.card_mod_text_color') }};
-          background: {{ states('input_text.card_mod_background_color_1') }};
-          text-align: center;
-          margin-top: -5px;
-          border-color: {{ states('input_text.card_mod_border_color_1') }};
-        }
     tap_action:
       confirmation:
         text: Jetzt vollständige Sicherung von HA auf NAS erstellen?
