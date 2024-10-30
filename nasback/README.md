@@ -108,7 +108,7 @@ Wenn alles richtig gemacht wurde, sind beide Netzwerkspeicher in der Übersicht 
 <img src="img/HA_Netzwerkspeicher.png" name="Netzwerkspeicher" border="0"/>
 
 <h3>3.2 Script einrichten</h3>
-Um das automatisierte Löschen veralteter Backup-Dateien auf dem NAS zu bewerkstelligen, sind folgende Schritte erforderlich.<br/>
+Um das automatisierte Löschen veralteter Backup-Dateien auf dem NAS zu bewerkstelligen, muss zunächst das folgende Script angelegt werden, welches diese Dateien findet und löscht. Lokale Backups werden durch dieses Script übrigens nicht gelöscht.<br/>
 <h4>3.2.1 Script-Datei anlegen</h4>
 Das folgende Script ist als Datei an einem beliebigen Ort zu hinterlegen. In diesem Fall heißt die Datei <b>delete_old_backups_from_nas</b> und liegt in dem Ordner <b>/config/tools</b>. Wenn das Script an einem anderen Ort hinterlegt wird, muss lediglich die Pfadangabe in dem weiter unten stehenden <i>Shell Command</i> entspechend angepasst werden.<br />
 Bei Bedarf ist zudem auch die Konfiguration innerhalb dieser Datei an die eigenen Anforderungen anzupassen.<br />
@@ -126,7 +126,7 @@ $ nano delete_old_backups_from_nas<br />
 -&gt; Mit Ctrl-X Editor verlassen<br />
 ----------------------------------------<br />
 <b>Wichtig:</b> Egal auf welche Art die Script-Datei angelegt worden ist - damit diese ausführbar wird, müssen deren Zugriffsrechte korrekt gesetzt werden. Dazu auf der Kommandozeile im selben Ordner in dem die Datei liegt folgenden Befehl eingeben:<br />
-chmod +x delete_old_backups_from_nas<br />
+chmod +x ./delete_old_backups_from_nas<br />
 
 <h4>3.2.2 Shell Command einrichten</h4>
 Damit das Script aus einer Automatisierung aufgerufen werden kann, muss dies in der HA-Konfiguration mit einem <i>Shell Command</i> verknüpft werden. Dazu in der <b>configuration.yaml</b> den Absatz <i>shell_command:</i> erweitern bzw. wenn noch nicht vorhanden anlegen:<br />
@@ -142,7 +142,7 @@ Sollte das Script an einem anderen Ort hinterlegt sein und/oder ein anderer Date
 &nbsp;&nbsp;delete_old_backups_from_nas: <i>"/Absoluter_Pfad_zu_Script_Datei/Datei_Name"</i>
 
 <h3>3.3 Automatisierung einrichten</h3>
-Nachdem das Script und zugehörige Shell Command eingerichtet sind, kann das Script automatisiert aufgerufen werden. Lokale Backups werden durch diese Automatisierung übrigens nicht gelöscht. Hier die dazugehörige Automatisierung. In diesem Beispiel wird jeden Tag morgens um 04:56 Uhr ein Durchlauf gestartet. Die Wochentage als <i>Condition</i> sind optional, damit man Durchläufe auch nur an bestimmten Tagen (beispielsweise wöchentlich) konfigurieren kann.<br />
+Nachdem das Script und zugehörige Shell Command eingerichtet sind, kann das Script automatisiert aufgerufen werden. In diesem Beispiel wird jeden Tag morgens um 04:56 Uhr ein Durchlauf gestartet. Die Wochentage als <i>Condition</i> sind optional, damit man Durchläufe auch nur an bestimmten Tagen (beispielsweise wöchentlich) konfigurieren kann.<br />
 Genau wie in der Automatisierung des HA-Backups können die Zeiten selbstverständlich auch hier gemäß den eigenen Anforderungen angepasst werden, und auch diese Automatisierung verwendet die "neue" YAML-Notation.<br />
 
 ```yaml
