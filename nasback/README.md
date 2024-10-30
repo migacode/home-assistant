@@ -172,6 +172,8 @@ Genau wie in der Automatisierung des HA-Backups können die Zeiten selbstverstä
 
 <b>Achtung:</b> Durch das Script werden alle veralteten TAR-Archive (.tar) in dem Backup-Ordner des NAS gelöscht - also darauf achten, dass in diesem Ordner keine anderen TAR-Archive gespeichert werden, welche nicht gelöscht werden sollen<br />
 <br />
+Wie immer bei Änderung oder Anlage einer Automatisierung wird diese Änderung erst nach dem Neuladen der YAML-Konfiguration oder einem HA-Neustart aktiv.<br />
+<br />
 <b>Hinweis:</b> Das Script legt in dem Backup-Ordner auf dem NAS zudem auch eine Log-Datei an, in welchem die einzelnen Aufrufe und ggf. gelöschte Dateien protokolliert werden.<br />
 <br />
 
@@ -209,5 +211,5 @@ cards:
 
 ```
 
-Darüber hinaus verwendet die Karte das HACS-Modul "card-mod" zur Anpassung der Symbol-Farben. Wer card-mod nicht verwendet, oder wem die Karte unformatiert besser gefällt, der kann die entsprechenden Style-Angaben natürlich problemlos entfernen.<br />
+<br />
 <hr>
