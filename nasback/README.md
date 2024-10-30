@@ -138,12 +138,11 @@ shell_command:
 
 ```
 
-<br />
-sollte das Script an einem anderen Ort hinterlegt sein und/oder ein anderer Dateiname dafür verwendet werden, ist die Zeile wie folgt zu ändern:<br />
-  delete_old_backups_from_nas: <i>"/Absoluter_Pfad_zu_Script_Datei/Datei_Name"</i>
+Sollte das Script an einem anderen Ort hinterlegt sein und/oder ein anderer Dateiname dafür verwendet werden, ist die Zeile wie folgt zu ändern:<br />
+&nbsp;&nbsp;delete_old_backups_from_nas: <i>"/Absoluter_Pfad_zu_Script_Datei/Datei_Name"</i>
 
 <h3>3.3 Automatisierung einrichten</h3>
-Nachdem das Script und zugehörige Shell Command eingerichtet ist, kann dieses automatisiert aufgerufen werden. Lokale Backups werden durch diese Automatisierung übrigens nicht gelöscht. Hier die dazugehörige Automatisierung. In diesem Beispiel wird jeden Tag morgens um 04:56 Uhr ein Durchlauf gestartet. Die Wochentage als <i>Condition</i> sind optional, damit man Durchläufe auch nur an bestimmten Tagen (beispielsweise wöchentlich) konfigurieren kann.<br />
+Nachdem das Script und zugehörige Shell Command eingerichtet sind, kann das Script automatisiert aufgerufen werden. Lokale Backups werden durch diese Automatisierung übrigens nicht gelöscht. Hier die dazugehörige Automatisierung. In diesem Beispiel wird jeden Tag morgens um 04:56 Uhr ein Durchlauf gestartet. Die Wochentage als <i>Condition</i> sind optional, damit man Durchläufe auch nur an bestimmten Tagen (beispielsweise wöchentlich) konfigurieren kann.<br />
 Genau wie in der Automatisierung des HA-Backups können die Zeiten selbstverständlich auch hier gemäß den eigenen Anforderungen angepasst werden, und auch diese Automatisierung verwendet die "neue" YAML-Notation.<br />
 
 ```yaml
