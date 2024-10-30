@@ -129,7 +129,7 @@ $ nano delete_old_backups_from_nas<br />
 chmod +x delete_old_backups_from_nas<br />
 
 <h4>3.2.2 Shell Command einrichten</h4>
-Damit das Script aus einer Automatisierung aufrufen werden kann, muss dies in der HA-Konfiguration mit einem <i>Shell Command</i> verknüpft werden. Dazu in der <b>configuration.yaml</b> den Absatz <i>shell_command:</i> erweitern bzw. wenn noch nicht vorhanden anlegen:<br />
+Damit das Script aus einer Automatisierung aufgerufen werden kann, muss dies in der HA-Konfiguration mit einem <i>Shell Command</i> verknüpft werden. Dazu in der <b>configuration.yaml</b> den Absatz <i>shell_command:</i> erweitern bzw. wenn noch nicht vorhanden anlegen:<br />
 
 ```yaml
 
