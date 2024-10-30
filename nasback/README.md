@@ -78,9 +78,11 @@ HA-Kenner merken übrigens sicher schnell, dass die YAML-Notation dieser Automat
 
 Wenn die Sicherung mit einem Passwort versehen werden soll, muss der entsprechende Parameter auskommentiert und gesetzt werden.<br />
 <br />
-Die regelmäßige automatische Erstellung von HA-Sicherungen auf dem NAS sollte nun bereits funktionieren. In der Liste der Backups erscheinen diese fortan mit dem Standort "NAS_backups_system" (lokale Backups liegen auf "Datenträger").
+<b>Wichtig:</b> Nach Anlage der Automatisierung nicht vergessen, die Konfiguration von Home Assistant zu aktualisieren (YAML-Konfiguration neu laden oder HA neu starten).<br />
+In der Liste der Backups erscheinen die automatisierten Backups fortan mit dem Standort "NAS_backups_system" - lokale Backups liegen weiterhin auf "Datenträger".<br />
 <img src="img/HA_Backups_Standort.png" name="Backup-Standort" border="0"/>
 <br />
+
 <hr/>
 <h2>3. Automatisierung zum Löschen alter HA-Backups auf dem NAS</h2>
 Aufgrund der Größe der jeweiligen Backup-Dateien kommen im Laufe der Zeit natürlich enorme Datenmengen zustande, so dass man vermutlich den Zeitraum der zur Verfügung stehenden Sicherungen eingrenzen und ältere Backup-Dateien löschen möchte. Natürlich kann man das von Zeit zu Zeit manuell machen, schöner wäre aber, wenn sich auch dies automatisieren ließe. Leider bietet HA selbst keinen Dienst an, mit welchem sich Backups automatisiert löschen lassen. Daher muss dies mit einem eigenen Script erledigt werden. Wie jedoch schon zuvor gesagt, ist das Verzeichnis mit den Backup-Dateien im Userspace von HA nicht zugänglich. Um als Benutzer innerhalb von HA trotzdem direkten Zugriff auf die Backup-Dateien auf dem NAS zu erhalten, muss also zunächst ein weiterer Netzwerkspeicher, diesmal allerdings vom Typ <i>Freigabe</i>, angelegt werden, welcher die selbe Server-Freigabe hat, wie die des zuvor eingerichteten <i>Backup-Netzwerkspeichers</i>.
