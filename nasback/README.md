@@ -106,7 +106,7 @@ Um das automatisierte Löschen veralteter Backup-Dateien auf dem NAS zu bewerkst
 <h4>3.2.1 Script-Datei anlegen</h4>
 Das folgende Script ist als Datei an einem beliebigen Ort zu hinterlegen. In diesem Fall heißt die Datei <b>delete_old_backups_from_nas</b> und liegt in dem Ordner <b>/config/tools</b>. Wenn das Script an einem anderen Ort hinterlegt wird, muss lediglich die Pfadangabe in dem weiter unten stehenden <i>Shell Command</i> entspechend angepasst werden.<br />
 Bei Badarf ist zudem auch die Konfiguration innerhalb dieser Datei an die eigenen Anforderungen anzupassen.<br />
-<b>Download</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nasbackup/code/delete_old_backups_from_nas"><strong>delete_old_backups_from_nas</strong></a><br />
+<b>Download</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nasback/code/delete_old_backups_from_nas"><strong>delete_old_backups_from_nas</strong></a><br />
 <br />
 --------------------<br />
 <b>Exkurs: Datei anlegen</b><br />
