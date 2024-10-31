@@ -11,7 +11,6 @@ Zur Einbindung des NAS in Home Assistant müssen von diesem bekannt sein:<br/><u
 <li>Name des NAS-Benutzers</li>
 <li>Passwort des NAS-Benutzers</li>
 </ul>
-<br/>
 <b>1.1 USB-Speichermedium einrichten</b><br/>
 Ein geeignetes USB-Speichermedium mit ausreichend großer Kapazität für mindestens 10 Backups als USB-Speicher mit Namen <b>NAS1</b> einrichten. Der Name <b>NAS1</b> kann beliebig gewählt werden, muss dann aber natürlich in der folgenden Einrichtung an allen vorkommenden Stellen entsprechend angepasst werden.<br/>
 Die Größe einer vollständigen Sicherung kann man in HA unter <i>Einstellungen -&gt; System -&gt; Backups</i> sehen, wenn eine solche erstellt ist. Typischerweise wächst die Größe von Vollsicherungen jedoch im Laufe der Zeit kontinuierlich an, sowie natürlich mit jeder Erweiterung des Systems - das sollte man bei der Dimensionierung des auf dem NAS zur Verfügung stehenden Speicherplatzes selbstverständlich berücksichtigen.<br />
