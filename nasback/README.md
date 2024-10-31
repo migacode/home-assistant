@@ -3,8 +3,14 @@
 Da die Vorhaltung der System-Backups von Home Assistant auf dem selben Datenträger wie das HA-OS selbst im Extremfall (Medium defekt o.ä.) ziemlich sinnlos ist, kann man wie nachstehend beschrieben automatisiert vollständige Sicherungen von Home Assistant auf einem NAS erstellen, sowie ebenfalls automatisiert alle dort befindlichen Backups löschen, welche älter als x Tage sind.<br/>
 Im Gegensatz zu diversen Lösungen anderer Anbieter ist diese hier ausschließlich mit HA-Bordmitteln realisiert - ohne jegliche Add-ons, HACS oder sonstigen Code von unbekannten Dritten.<br/>
 <hr/>
-<h2>1. Einrichtung in der FRITZ!Box / FRITZ!NAS (exemplarisch)</h2>
+<h2>1. Einrichtung des NAS - exemplarisch in der FRITZ!Box / FRITZ!NAS</h2>
 Als NAS wird in diesem Fall beispielhaft ein FRITZ!NAS verwendet - es kann jedoch jedes beliebige andere NAS verwendet werden, welches per SMB Verzeichnisse im Netzwerk zur Verfügung stellt.<br/>
+Zur Einbindung des NAS in Home Assistant müssen von diesem bekannt sein:<br/><ul>
+<li>Adresse des NAS</li>
+<li>Bezeichnung des freigegebenen Verzeichnisses</li>
+<li>Name des NAS-Benutzers</li>
+<li>Passwort des NAS-Benutzers</li>
+</ul>
 <br/>
 <b>1.1 USB-Speichermedium einrichten</b><br/>
 Ein geeignetes USB-Speichermedium mit ausreichend großer Kapazität für mindestens 10 Backups als USB-Speicher mit Namen <b>NAS1</b> einrichten. Der Name <b>NAS1</b> kann beliebig gewählt werden, muss dann aber natürlich in der folgenden Einrichtung an allen vorkommenden Stellen entsprechend angepasst werden.<br/>
