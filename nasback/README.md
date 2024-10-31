@@ -4,10 +4,9 @@ Da die Vorhaltung der System-Backups von Home Assistant auf dem selben Datenträ
 Im Gegensatz zu diversen Lösungen anderer Anbieter ist diese hier ausschließlich mit HA-Bordmitteln realisiert - ohne jegliche Add-ons, HACS oder sonstigen Code von unbekannten Dritten.<br/>
 <hr/>
 <h2>1. Einrichtung des NAS - exemplarisch in der FRITZ!Box / FRITZ!NAS</h2>
-Als NAS wird in diesem Fall beispielhaft ein FRITZ!NAS verwendet - es kann jedoch jedes beliebige andere NAS verwendet werden, welches per SMB Verzeichnisse im Netzwerk zur Verfügung stellt.<br/>
-Zur Einbindung des NAS in Home Assistant müssen von diesem bekannt sein:<br/><ul>
-<li>Adresse des NAS</li>
-<li>Bezeichnung des freigegebenen Verzeichnisses</li>
+Als NAS wird in diesem Fall beispielhaft ein FRITZ!NAS verwendet - es kann jedoch jedes beliebige andere NAS verwendet werden, welches per SMB Verzeichnisse im Netzwerk zur Verfügung stellt. Zur Einbindung eines NAS in Home Assistant müssen auf dem NAS eingerichtet und bekannt sein:<br/><ul>
+<li>(IP-)Adresse des NAS</li>
+<li>Bezeichnung des freigegebenen Verzeichnisses/Ordners</li>
 <li>Name des NAS-Benutzers</li>
 <li>Passwort des NAS-Benutzers</li>
 </ul>
