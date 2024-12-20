@@ -3,8 +3,8 @@
 # AbfuhrTerminHinweise (ATH) - Anzeige von Terminen zur Abfallabholung
 # -----------------------------------------------------------------------------
 # Name:    ath.sh
-# Version: 1.24
-# Datum:   28.04.2024
+# Version: 1.30
+# Datum:   19.12.2024
 # Quelle:  https://github.com/migacode/home-assistant
 # -----------------------------------------------------------------------------
 #
@@ -54,14 +54,14 @@ FILES_PATH="/config/www/ath"
 declare -A DATA_FILES # Dateien mit Informationen zu den Abfuhrterminen
 declare -A DATA_NAMES # Angezeigte Sraßennamen
 # ----------------------------------------------------------------------
-DATA_FILES[1]="vennweghoerstel.ics"
-DATA_NAMES[1]="Vennweg"
+DATA_FILES[1]="stuewwestrassehoerstel.ics"
+DATA_NAMES[1]="Stüwwestraße"
 # -----------
-# DATA_FILES[2]="stuewwestrassehoerstel.ics"
-# DATA_NAMES[2]="Stüwwestraße"
+# DATA_FILES[2]="awb-abfuhrtermine.ics"
+# DATA_NAMES[2]="Köln"
 # -----------
-# DATA_FILES[3]="awb-abfuhrtermine.ics"
-# DATA_NAMES[3]="Köln"
+# DATA_FILES[3]="vennweghoerstel.ics"
+# DATA_NAMES[3]="Vennweg"
 # -----------------------------------------------------------------------------
 # Angezeigtes Trennzeichen zwischen den Straßen
 # -----------------------------------------------------------------------------
@@ -85,6 +85,7 @@ NO_COLLECTION="Keine"
 # -----------------------------------------------------------------------------
 THIS_YEAR=$(date +"%Y")
 NEXT_YEAR=$((THIS_YEAR+1))
+NTWO_YEAR=$((THIS_YEAR+2))
 # -----------------------------------------------------------------------------
 # Anzahl der zu überwachenden (konfigurierten) Straßen ermitteln
 # -----------------------------------------------------------------------------
@@ -131,6 +132,8 @@ TODAY_LAST_SECOND=$((TODAY_FIRST_SECOND+SECONDS_A_DAY-1))
 TOMORROW_LAST_SECOND=$((TODAY_LAST_SECOND+SECONDS_A_DAY))
 NEXT_YEAR_FIRST_SECOND=$(date -d"$NEXT_YEAR-01-01" +"%s")
 THIS_YEAR_LAST_SECOND=$((NEXT_YEAR_FIRST_SECOND-1))
+NTWO_YEAR_FIRST_SECOND=$(date -d"$NTWO_YEAR-01-01" +"%s")
+NEXT_YEAR_LAST_SECOND=$((NTWO_YEAR_FIRST_SECOND-1))
 # -----------------------------------------------------------------------------
 # Festlegen des abzufragenden Zeitraums
 # Default: Nur morgen nach Terminen suchen
@@ -243,7 +246,7 @@ done
 if [ "$SEARCH_MODE" == "FROM" ];
 then
   CURRENT_DATE=$FROM_FIRST_SECOND
-  LAST_DATE=$THIS_YEAR_LAST_SECOND
+  LAST_DATE=$NEXT_YEAR_LAST_SECOND
 fi
 # Mit Parameter "h" nur heute nach Terminen suchen
 if [ "$SEARCH_MODE" == "TODAY" ];
@@ -257,11 +260,11 @@ then
   CURRENT_DATE=$TOMORROW_FIRST_SECOND
   LAST_DATE=$TOMORROW_LAST_SECOND
 fi
-# Mit Parameter "n" den nächsten Termin bis zum Ende des Jahres suchen
+# Mit Parameter "n" den nächsten Termin bis zum Ende des nächsten Jahres suchen
 if [ "$SEARCH_MODE" == "NEXT" ];
 then
   CURRENT_DATE=$TOMORROW_FIRST_SECOND
-  LAST_DATE=$THIS_YEAR_LAST_SECOND
+  LAST_DATE=$NEXT_YEAR_LAST_SECOND
 fi
 # -----------------------------------------------------------------------------
 # NUR ZUM TESTEN
