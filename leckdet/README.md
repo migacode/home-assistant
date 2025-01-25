@@ -25,7 +25,7 @@ Die fertigen Entitäten sollten danach in der Liste der Helfer so zu finden sein
 <br />
 <img src="./img/leckdet_img_helpers.png">
 <hr>
-<h2>LeckDat (Varianten)</h2><ul>
+<h2>LeckDet (Varianten)</h2><ul>
 <li><b>LeckDet</b> steht aktuell nur als <a href="#nodered_flow">NodeRED-Flow</a> zur Verfügung.</li>
 </ul>
 <a id="nodered_flow"></a>
