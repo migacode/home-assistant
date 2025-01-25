@@ -2,14 +2,14 @@
 
 <b>LeckDet</b> ist eine einfache Automatisierung für Home Assistant zur Erkennung von unerwünschten Verbräuchen in beliebigen Leitungssystemen, wie beispielsweise Rohrbrüche von Wasserleitungen im Haus. Dabei wird vorausgesetzt, dass das Leitungssystem bereits über einen Verbrauchs-Zähler verfügt, welcher den bisherigen Gesamt-Verbrauch und/oder laufende Verbräuche anzeigt, und diese/r in Home Assistant bereits als entsprechende Sensor-Entität/en eingerichtet ist/sind.<br /><br />
 <b>Funktionsweise</b><br />
-Innerhalb eines Zeitraums, in welchem kein beabsichtiger Verbrauch zu erwarten ist (typischerweise nachts), wird in bestimmten Abständen der jeweils aktuelle Zählerstand eingelesen und intern gespeichert.
+Innerhalb eines Zeitraums, in welchem kein beabsichtigter Verbrauch zu erwarten ist (typischerweise nachts), wird in bestimmten Abständen der jeweils aktuelle Zählerstand eingelesen und intern gespeichert.
 Nach der letzten Messung werden alle gemessenen Zählerstände miteinander verglichen. Wenn sich alle eingelesenen Zählerstände mindestens um einen frei konfigurierbaren Wert voneinander unterscheiden, liegt vermutlich eine Leckage vor.
-Durch die Verwendung mehrfacher Zählerstandserfassungen können innerhalb des überwachten Zeitraums sogar (natürlich nicht zu viele) normale Entnahmen erfolgen, ohne dass dadurch die Erkennung eines permanenten unerwünschten Verbrauchs beeinträchtigt wird.<br />
+Durch die Verwendung mehrfacher Zählerstanderfassungen können innerhalb des überwachten Zeitraums sogar (natürlich nicht zu viele) normale Entnahmen erfolgen, ohne dass dadurch die Erkennung eines permanenten unerwünschten Verbrauchs beeinträchtigt wird.<br />
 Darüber hinaus verwendet <b>LeckDet</b> nur die Standard-Funktionen von Home Assistant und ggf. NodeRED, es werden keine zusätzlichen Integrationen, Add-Ons, HACS-Module oder NodeRED-Paletten benötigt.
 <hr>
 <h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>LeckDet</b> neben einem beliebigen bereits eingerichteten Verbrauchs-Sensor die folgenden Helfer, welche zunächst in Home Assistant angelegt werden müssen.<br /><br />
-<b>1.</b> Als Erstes die Helfer "<b>Leckage Detektiv Zählerstand 1, Leckage Detektiv Zählerstand 2 und Leckage Detektiv Zählerstand 3</b>" (input_number.leckage_detektiv_zahlerstand_1, input_number.leckage_detektiv_zahlerstand_2 und input_number.leckage_detektiv_zahlerstand_3) jeweils als Typ <b>Zahlenwert-Eingabe</b> anlegen.<br />
+<b>1.</b> Als Erstes die Helfer "<b>Leckage Detektiv Zählerstand 1</b>", "<b>Leckage Detektiv Zählerstand 2</b>" und "<b>Leckage Detektiv Zählerstand 3</b>" (input_number.leckage_detektiv_zahlerstand_1, input_number.leckage_detektiv_zahlerstand_2 und input_number.leckage_detektiv_zahlerstand_3) jeweils als Typ <b>Zahlenwert-Eingabe</b> anlegen.<br />
 Dabei beachten, im Namen die fortlaufende Nummer zu ändern <b>(1)</b>.<br /><b>Achtung:</b> Die Entitäten der Helfer werden bei der Anlage des Helfers automatisch aus dessen eingegebenen Namen erzeugt - dabei werden alle Umlaute umgewandelt, so dass in den Namen der entsprechenden Entitäten ~z<i>a</i>hlerstand~ statt ~z<i>ä</i>hlerstand~ enthalten ist.<br />
 <br />
 Darüber hinaus muss der <b>Maximalwert</b> so hoch gesetzt werden, dass dieser nie erreicht werden kann <b>(2)</b>.<br />
