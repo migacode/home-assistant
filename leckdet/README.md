@@ -1,6 +1,6 @@
 <h1>Home Assistant // LeckDet - Leckage Detektiv</h1>
 
-<b>LeckDet</b> ist eine einfache Automatisierung für Home Assistant zur Erkennung von unerwünschten Verbräuchen in beliebigen Leitungssystemen, wie beispielsweise Rohrbrüche von Wasserleitungen im Haus. Dabei wird vorausgesetzt, dass das Leitungssystem bereits über einen Verbrauchs-Zähler verfügt, welcher den bisherigen Gesamt-Verbrauch und/oder laufende Verbräuche anzeigt, und diese/r in Home Assistant bereits als entsprechende Sensor-Entität/en eingerichtet ist/sind.<br /><br />
+<b>LeckDet</b> ist eine einfache Automatisierung für Home Assistant zur Erkennung von unerwünschten Verbräuchen in beliebigen Leitungssystemen, wie beispielsweise Rohrbrüche von Wasserleitungen im Haus. Für die Verwendung von <b>LeckDet</b> wird vorausgesetzt, dass das Leitungssystem bereits über einen Verbrauchs-Zähler verfügt, welcher den bisherigen Gesamt-Verbrauch und/oder laufende Verbräuche anzeigt, und diese/r in Home Assistant bereits als entsprechende Sensor-Entität/en eingerichtet ist/sind.<br /><br />
 <b>Funktionsweise</b><br />
 Innerhalb eines Zeitraums, in welchem kein beabsichtigter Verbrauch zu erwarten ist (typischerweise nachts), wird in bestimmten Abständen der jeweils aktuelle Zählerstand eingelesen und intern gespeichert.
 Nach der letzten Messung werden alle gemessenen Zählerstände miteinander verglichen. Wenn sich alle eingelesenen Zählerstände mindestens um einen frei konfigurierbaren Wert voneinander unterscheiden, liegt vermutlich eine Leckage vor.
@@ -9,12 +9,12 @@ Darüber hinaus verwendet <b>LeckDet</b> nur die Standard-Funktionen von Home As
 <hr>
 <h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>LeckDet</b> neben einem beliebigen bereits eingerichteten Verbrauchs-Sensor die folgenden Helfer, welche zunächst in Home Assistant angelegt werden müssen.<br /><br />
-<b>1.</b> Als Erstes die Helfer "<b>Leckage Detektiv Zählerstand 1</b>", "<b>Leckage Detektiv Zählerstand 2</b>" und "<b>Leckage Detektiv Zählerstand 3</b>" (input_number.leckage_detektiv_zahlerstand_1, input_number.leckage_detektiv_zahlerstand_2 und input_number.leckage_detektiv_zahlerstand_3) jeweils als Typ <b>Zahlenwert-Eingabe</b> anlegen.<br />
-Dabei beachten, im Namen die fortlaufende Nummer zu ändern <b>(1)</b>.<br /><b>Achtung:</b> Die Entitäten der Helfer werden bei der Anlage des Helfers automatisch aus dessen eingegebenen Namen erzeugt - dabei werden alle Umlaute umgewandelt, so dass in den Namen der entsprechenden Entitäten ~z<i>a</i>hlerstand~ statt ~z<i>ä</i>hlerstand~ enthalten ist.<br />
+<b>1.</b> Als Erstes die Helfer "<b>Leckage Detektiv Zählerstand 1</b>", "<b>Leckage Detektiv Zählerstand 2</b>" und "<b>Leckage Detektiv Zählerstand 3</b>" (input_number.leckage_detektiv_zahlerstand_1, input_number.leckage_detektiv_zahlerstand_2 und input_number.leckage_detektiv_zahlerstand_3) jeweils als Typ <b>Zahlenwert-Eingabe</b> anlegen.
+Dabei beachten, im <b>Namen<b> die fortlaufende Nummer zu ändern <b>(s.u. 1)</b>.<br /><b>Achtung:</b> Die Entitäten der Helfer werden bei der Anlage des Helfers automatisch aus dessen eingegebenen Namen erzeugt - dabei werden alle Umlaute umgewandelt, so dass in den Namen der entsprechenden Entitäten ~z<i>a</i>hlerstand~ statt ~z<i>ä</i>hlerstand~ enthalten ist.<br />
 <br />
-Darüber hinaus muss der <b>Maximalwert</b> so hoch gesetzt werden, dass dieser nie erreicht werden kann <b>(2)</b>.<br />
+Als nächstes muss der <b>Maximalwert</b> so hoch gesetzt werden, dass dieser durch einen Wert des Sensors zur Verbrauchsmessung nie erreicht werden kann <b>(s.u. 2)</b>.<br />
 <br />
-Ebenfalls ist es sehr wichtig, die <b>Schrittweite</b> mit hinreichend vielen Stellen hinter dem Komma anzugeben - vier Stellen [0,0001] entsprechen der aktuellen Standard-Auflösung der in Deutschland verbauten Wasserzähler <b>(3)</b>.<br />
+Ebenfalls ist es sehr wichtig, die <b>Schrittweite</b> mit hinreichend vielen Stellen hinter dem Komma anzugeben - beispielsweise entsprechen vier Stellen [0,0001] der aktuellen Standard-Auflösung der in Deutschland verbauten Wasserzähler <b>(s.u. 3)</b>.<br />
 <br />
 <img src="./img/leckdet_img_helper_1.png"><br />
 <br />
