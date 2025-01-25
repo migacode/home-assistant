@@ -9,15 +9,17 @@ Darüber hinaus verwendet <b>LeckDet</b> nur die Standard-Funktionen von Home As
 <hr>
 <h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>LeckDet</b> neben einem beliebigen bereits eingerichteten Verbrauchs-Sensor die folgenden Helfer, welche zunächst in Home Assistant angelegt werden müssen.<br /><br />
-<b>1.</b> Als Erstes die Helfer "<b>Leckage Detektiv Zählerstand 1, Leckage Detektiv Zählerstand 2 und Leckage Detektiv Zählerstand 3</b>" (input_number.leckage_detektiv_zahlerstand_1, input_number.leckage_detektiv_zahlerstand_2 und input_number.leckage_detektiv_zahlerstand_3) jeweils als Typ <b>Zahlenwert-Eingabe</b> anlegen.<br /><br />
-Dabei beachten, im Namen die fortlaufende Nummer zu ändern <b>(1)</b>.<br /><b>Achtung:<b> Die Entitäten der Helfer werden bei der Anlage des Helfers automatisch aus dessen eingegebenen Namen erzeugt - dabei werden alle Umlaute umgewandelt, so dass in den Namen der entsprechenden Entitäten ~z<i>a</i>hlerstand~ statt ~z<i>ä</i>hlerstand~ enthalten ist.<br />
+<b>1.</b> Als Erstes die Helfer "<b>Leckage Detektiv Zählerstand 1, Leckage Detektiv Zählerstand 2 und Leckage Detektiv Zählerstand 3</b>" (input_number.leckage_detektiv_zahlerstand_1, input_number.leckage_detektiv_zahlerstand_2 und input_number.leckage_detektiv_zahlerstand_3) jeweils als Typ <b>Zahlenwert-Eingabe</b> anlegen.<br />
+Dabei beachten, im Namen die fortlaufende Nummer zu ändern <b>(1)</b>.<br /><b>Achtung:</b> Die Entitäten der Helfer werden bei der Anlage des Helfers automatisch aus dessen eingegebenen Namen erzeugt - dabei werden alle Umlaute umgewandelt, so dass in den Namen der entsprechenden Entitäten ~z<i>a</i>hlerstand~ statt ~z<i>ä</i>hlerstand~ enthalten ist.<br />
 <br />
 Darüber hinaus muss der <b>Maximalwert</b> so hoch gesetzt werden, dass dieser nie erreicht werden kann <b>(2)</b>.<br />
 <br />
 Ebenfalls ist es sehr wichtig, die <b>Schrittweite</b> mit hinreichend vielen Stellen hinter dem Komma anzugeben - vier Stellen [0,0001] entsprechen der aktuellen Standard-Auflösung der in Deutschland verbauten Wasserzähler <b>(3)</b>.<br />
+<br />
 <img src="./img/leckdet_img_helper_1.png"><br />
+<br />
 <b>2.</b> Den Helfer "<b>Leckage Detektiv - Leck erkannt</b>" (input_boolean.leckage_detektiv_leck_erkannt) als Typ <b>Schalter</b> anlegen, welcher den aktuellen Status der Erkennung wiedergibt, so dass darüber weitere individuelle Aktionen getriggert werden können.<br /><br />
-<img src="./img/leckdet_img_helper_2.png">
+<img src="./img/leckdet_img_helper_2.png"><br />
 <br />
 Die fertigen Entitäten sollten danach in der Liste der Helfer so zu finden sein:<br />
 <img src="./img/leckdet_img_helpers.png">
@@ -25,7 +27,6 @@ Die fertigen Entitäten sollten danach in der Liste der Helfer so zu finden sein
 <h2>LeckDat (Varianten)</h2><ul>
 <li><b>LeckDet</b> steht aktuell nur als <a href="#nodered_flow">NodeRED-Flow</a> zur Verfügung.</li>
 </ul>
-<br />
 <a id="nodered_flow"></a>
 <hr>
 <h3>NodeRED-Flow</h3>
