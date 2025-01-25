@@ -41,9 +41,9 @@ Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
 <img src="./img/leckdet_img_changes_node_1.png">
 <br />
-<b>2.</b> In den vier Inject-Nodes "<i>Erste Messung um ...</i>" bis "<i>Vierte Messung um ...</i>" sind bei Bedarf die Uhrzeiten auf die individuellen Gegebenheiten vor Ort anzupassen. <b>Achtung:<b> Nicht nur im Namen des Node, sondern insbesondere in dem relevanten unteren Teil der Maske ;).<br />
+<b>2.</b> In den vier Inject-Nodes "<i>Erste Messung um ...</i>" bis "<i>Vierte Messung um ...</i>" sind bei Bedarf die Uhrzeiten auf die individuellen Gegebenheiten vor Ort anzupassen. <b>Achtung:</b> Nicht nur im Namen des Node, sondern insbesondere in dem relevanten unteren Teil der Maske ;).<br />
 <br />
-<img src="./img/leckdet_img_changes_node_2.png">
+<img src="./img/leckdet_img_changes_node_2.png"><br />
 <br />
 <b>3.</b> Die eigentliche Logik der Leckage-Erkennung ist in dem Funktions-Node "<i>Auf Leckage prüfen</i>" untergebracht. Für eine individuelle Erweiterung oder Konfiguration der Logik kann dieser Node bei Bedarf natürlich ebenfalls einfach angepasst werden.<br />
 <br />
