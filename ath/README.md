@@ -1,4 +1,4 @@
-<h1>Home Assistant // AbfuhrTerminHinweise (ATH)</h1>
+<h1>Home Assistant // Abfuhr-Termin-Hinweise (ATH)</h1>
 
 Mit diesem Tool können Abfuhrtermine für Abfall und jede beliebige andere Entsorgung überwacht, und automatisiert Hinweise auf eine am Folgetag anstehende Abfuhr versendet werden.
 Die Einrichtung dieses Tools ist in wenigen einfachen Schritten erledigt. Zur Vorbereitung sind in Home Assistant lediglich drei einfache Sensoren anzulegen und die zugehörigen Dateien zu kopieren.
