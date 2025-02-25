@@ -1,4 +1,4 @@
-<h1>Home Assistant // LeckDet - Leckage Detektiv</h1>
+<h1>Home Assistant // Leckage Detektiv (LeckDet)</h1>
 
 <b>LeckDet</b> ist eine einfache Automatisierung für Home Assistant zur Erkennung von unerwünschten Verbräuchen in beliebigen Leitungssystemen, wie beispielsweise Rohrbrüche von Wasserleitungen im Haus.<br /><br />
 <b>Funktionsweise</b><br />
