@@ -1,12 +1,12 @@
 <h1>Home Assistant // Noticade - Notification Cascade - Benachrichtigungs-Kaskade</h1>
 
-<b>Noticade</b> löst bei dem Auftreten eines Ereignisses eine Banachrichtigungs-Kaskade aus, bei welcher rollierend nacheinander verschiedene Empfänger über die HA-App und per Telefon-Anruf kontaktiert werden.
+<b>Noticade</b> löst bei dem Auftreten eines Ereignisses eine Benachrichtigungs-Kaskade aus, bei welcher rollierend nacheinander verschiedene Empfänger über die HA-App und per Telefon-Anruf kontaktiert werden.
 <b>Noticade</b> sendet Nachrichten dazu an die HA-Apps, welche dort sowohl als Text angezeigt als auch als Sprache ausgegeben werden (Letzteres aktuell leider nur auf Geräten mit Android).<br />
 Dazu verwendet <b>Noticade</b> nur die Standard-Funktionen von Home Assistant und ggf. NodeRED, es werden keine zusätzlichen Add-Ons, HACS-Module oder NodeRED-Paletten benötigt. Bei Verwendung der Telefon-Anruf-Funktion muss lediglich die Integration <b><a href="https://www.home-assistant.io/integrations/fritzbox/" target="_blank">AVM FRITZ!SmartHome</a></b> zusätzlich installiert werden.
 <hr>
 <h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>Noticade</b> keine Helfer - zur Triggerung kann jede beliebige Entität verwendet werden, welche den Zustand "on" einnehmen kann (natürlich kann auch jeder andere Zustand überwacht werden, allerdings muss dies dann auch an allen relevanten Stellen im Script bzw. Flow angepasst werden.).<br />
-Es wird jedoch trotzdem die Verwendung eines separaten Helfers als Trigger empfohlen, der nur bei Auftreten des eigentlich zu überwachenden Ereignisses auf "on" gesetzt wird. Auf diese Weise kann man die Benachrichtigungs-Kaskade ggf. abschalten, selbst wenn der auslösende Zustand vielleicht noch nicht behoben ist (bspw. Heizungsaufall).<br />
+Es wird jedoch trotzdem die Verwendung eines separaten Helfers als Trigger empfohlen, der nur bei Auftreten des eigentlich zu überwachenden Ereignisses auf "on" gesetzt wird. Auf diese Weise kann man die Benachrichtigungs-Kaskade ggf. abschalten, selbst wenn der auslösende Zustand vielleicht noch nicht behoben ist (bspw. Ausfall der Heizung).<br />
 Sofern <b>Noticade</b> auch Telefon-Anrufe anstoßen soll, müssen dazu vorher in einer FRITZ!Box im Bereich "Smart Home" entsprechende Vorlagen für automatische Anrufe erstellt werden. Wie das in der Fritz!Box geht, kann man sich &nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/noticade/img/fb_smarthome_vorlage_anruf_erstellen.png" target="_blank">hier</a> ansehen.<br />
 <br />
 <hr>
