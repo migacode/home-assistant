@@ -40,13 +40,11 @@ Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
 
 <b>2.</b> In Node "Initalisierung" im Bereich "Konfiguration" die dort vorhandenen Werte gemäß den eigenen Wünschen anpassen.<br />
-<b>2.1.</b> In der Voreingestellung werden je Empfänger 3 mal jeweils im Abstand von 60 Sekunden Benachrichtigung versendet.<br />
+<b>3.</b> In der Voreingestellung werden je Empfänger 3 mal jeweils im Abstand von 60 Sekunden Benachrichtigung versendet.<br />
 Exemplarisch sind für drei Empfänger die Entitäten der HA-Apps und Telefon-Anruf-Vorlagen angelegt, welche durch die eigenen ersetzt werden müssen. Wenn weniger benötigt werden, können die entsprechenden Zeilen einfach gelöscht werden, wenn mehr benötigt werden, einfach weitere Zeilen nach gleichem Schema hinzufügen.<br />
 <b>Achtung:</b> Es ist darauf zu achten, dass die Nummerierung bei 0 anfängt und kontinuierlich sein muss, also keine Nummer zu überspringen ist.<br />
 Zudem muss die Anzahl der Einträge in den beiden Listen für die HA-Apps und Anruf-Vorlagen identisch sein.<br />
-Wenn für einen Empfänger keine HA-App-Benachrichtigung oder kein Anruf erfolgen soll, ist in dem entsprecheden Eintrag das Wort "none" einzutragen.<br />
-<b>2.2.</b> HA-Apps: <i>mobile_app_(0 .. n)</i> mit den Entitäten der jeweils eigenen mobilen HA-Apps ersetzen.<br />
-<b>2.3.</b> Anruf-Vorlagen: <i>anruf_telefon_(0 .. n)</i> jeweils mit den entsprechenden eigenen Entitäten ersetzen.
+Wenn für einen Empfänger keine HA-App-Benachrichtigung oder kein Anruf erfolgen soll, ist in dem entsprechenden Eintrag das Wort <i>none</i> einzutragen.<br />
 <br /><br />
 <img src="./img/noticade_img_node_2_initialisierung.png">
 <br />
