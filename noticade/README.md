@@ -1,6 +1,6 @@
 <h1>Home Assistant // Noticade - Notification Cascade - Benachrichtigungs-Kaskade</h1>
 
-<b>Noticade</b> löst bei dem Auftreten eines Ereignisses eine Banachrichtigungs-Kaskade aus, bei welcher nacheinander verschiedene Empfänger über die HA-App und per Telefon-Anruf kontaktiert werden.
+<b>Noticade</b> löst bei dem Auftreten eines Ereignisses eine Banachrichtigungs-Kaskade aus, bei welcher rollierend nacheinander verschiedene Empfänger über die HA-App und per Telefon-Anruf kontaktiert werden.
 <b>Noticade</b> sendet Nachrichten dazu an die HA-Apps, welche dort sowohl als Text angezeigt als auch als Sprache ausgegeben werden (Letzteres aktuell leider nur auf Geräten mit Android).<br />
 Dazu verwendet <b>Noticade</b> nur die Standard-Funktionen von Home Assistant und ggf. NodeRED, es werden keine zusätzlichen Add-Ons, HACS-Module oder NodeRED-Paletten benötigt. Bei Verwendung der Telefon-Anruf-Funktion muss lediglich die Integration <b><a href="https://www.home-assistant.io/integrations/fritzbox/" target="_blank">AVM FRITZ!SmartHome</a></b> zusätzlich installiert werden.
 <hr>
@@ -40,7 +40,7 @@ Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
 
 <b>2.</b> In Node "Initalisierung" im Bereich "Konfiguration" die dort vorhandenen Werte gemäß den eigenen Wünschen anpassen.<br />
-In der Voreingestellung werden je Empfänger 3 mal jeweils im Abstand von 60 Sekunden Benachrichtigung versendet.<br />
+In der Voreinstellung werden 3 mal nacheinander jeweils im Abstand von 60 Sekunden Benachrichtigungen an den selben Empfänger versendet, bevor mit dem nächsten Empfänger auf gleiche Weise weiter gemacht wird. Nach dem letzten Empfänger wird automatisch wieder mit dem ersten Empfänger begonnen.<br />
 Exemplarisch sind für drei Empfänger die Entitäten der HA-Apps und Telefon-Anruf-Vorlagen angelegt, welche durch die eigenen ersetzt werden müssen. Wenn weniger benötigt werden, können die entsprechenden Zeilen einfach gelöscht werden, wenn mehr benötigt werden, einfach weitere Zeilen nach gleichem Schema hinzufügen.<br />
 <b>Achtung:</b> Es ist darauf zu achten, dass die Nummerierung bei 0 anfängt und kontinuierlich sein muss, also keine Nummer zu überspringen ist.<br />
 Zudem muss die Anzahl der Einträge in den beiden Listen für die HA-Apps und Anruf-Vorlagen identisch sein.<br />
