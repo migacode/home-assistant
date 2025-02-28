@@ -1,8 +1,8 @@
 <h1>Home Assistant // Noticade - Notification Cascade - Benachrichtigungs-Kaskade</h1>
 
-<b>Noticade</b> löst bei dem Auftreten eines Ereignisses eine Benachrichtigungs-Kaskade aus, bei welcher rollierend nacheinander verschiedene Empfänger über die HA-App und per Telefon-Anruf kontaktiert werden.
+<b>Noticade</b> löst bei dem Auftreten eines Ereignisses eine Benachrichtigungs-Kaskade aus, bei welcher solange rollierend nacheinander verschiedene Empfänger über die HA-App und per Telefon-Anruf kontaktiert werden, wie der Zustand des auslösenden Ereignisses vorherrscht.
 <b>Noticade</b> sendet Nachrichten dazu an die HA-Apps, welche dort sowohl als Text angezeigt als auch als Sprache ausgegeben werden (Letzteres aktuell leider nur auf Geräten mit Android).<br />
-Dazu verwendet <b>Noticade</b> nur die Standard-Funktionen von Home Assistant und ggf. NodeRED, es werden keine zusätzlichen Add-Ons, HACS-Module oder NodeRED-Paletten benötigt. Bei Verwendung der Telefon-Anruf-Funktion muss lediglich die Integration <b><a href="https://www.home-assistant.io/integrations/fritzbox/" target="_blank">AVM FRITZ!SmartHome</a></b> zusätzlich installiert werden.
+Dazu verwendet <b>Noticade</b> nur die Standard-Funktionen von Home Assistant und ggf. NodeRED, es werden keine zusätzlichen Add-Ons, HACS-Module oder NodeRED-Paletten benötigt. Bei Verwendung der Telefon-Anruf-Funktion muss lediglich die Integration <b><a href="https://www.home-assistant.io/integrations/fritzbox/" target="_blank">AVM FRITZ!SmartHome</a></b> von Home Assistant installiert werden.
 <hr>
 <h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>Noticade</b> keine Helfer - zur Triggerung kann jede beliebige Entität verwendet werden, welche den Zustand "on" einnehmen kann (natürlich kann auch jeder andere Zustand überwacht werden, allerdings muss dies dann auch an allen relevanten Stellen im Script bzw. Flow angepasst werden.).<br />
