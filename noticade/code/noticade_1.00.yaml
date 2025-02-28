@@ -1,0 +1,173 @@
+# ==============================================================================
+# Noticade - Benachrichtigungs-Kaskade - Home Assistant Automatisierung
+# Version: 1.00
+# Datum:   28.02.2025
+# Quelle:  https://github.com/migacode/home-assistant
+# ==============================================================================
+#        Automatisierung für kaskadierende Benachrichtigungen an HA-Apps
+#  sowie optional mit Telefon-Anrufen über die Integration AVM FRITZ!SmartHome
+# ==============================================================================
+#  Solange das auslösende Ereignis bzw. ein bestimmter Zustand vorhanden ist,
+#  werden alle Empfänger in bestimmten zeitlichen Abständen nacheinander über
+#  die HA-Apps benachrichtigt. Nach dem letzten Empfänger wird wieder mit dem
+#  ersten Empfänger angefangen.
+# ==============================================================================
+- id: 'benachrichtigungs_kaskade_1'
+  alias: 'Benachrichtigungs-Kaskade 1'
+  description: 'Kaskadierende Benachrichtigungen an HA-Apps'
+
+  # ----------------------------------------------------------------------------
+  # Individuelle Konfiguration
+  # ----------------------------------------------------------------------------
+  variables:
+    # Mitteilungstext, der über die HA-Apps ausgegeben wird
+    message_to_send: 'Achtung Achtung, es ist etwas passiert. Bitte nachsehen!'
+    # Anzahl Nachrichten je Empfänger, nach denen mit dem jeweils danach
+    # folgenden Empfänger weitergemacht wird
+    message_repeats: 3
+    # Wartezeit zwischen einzelnen Nachrichten (Stunden)
+    message_delay_h: 0
+    # Wartezeit zwischen einzelnen Nachrichten (Minuten)
+    message_delay_m: 0
+    # Wartezeit zwischen einzelnen Nachrichten (Sekunden)
+    message_delay_s: 60
+
+  # ----------------------------------------------------------------------------
+  # Auslösendes Ereignis
+  # ----------------------------------------------------------------------------
+  triggers:
+  - trigger: state
+    entity_id: input_boolean.ereignis_zustand
+    to: 'on'
+
+  # ----------------------------------------------------------------------------
+  # Zusätzliche Bedingungen (nicht das/die auslösende Ereignis/Bedingung!)
+  # ----------------------------------------------------------------------------
+  conditions: []
+
+  # ----------------------------------------------------------------------------
+  # Automatisierungs-Modus
+  # ----------------------------------------------------------------------------
+  # Eventuell neu ausgelöste Kaskaden werden immer nacheinander abgearbeitet,
+  # so dass immer die gesamte Kaskade mit allen Empfängern durchlaufen wird.
+  mode: queued
+
+  # ----------------------------------------------------------------------------
+  # Here we go ...
+  # ----------------------------------------------------------------------------
+  actions:
+  - repeat:
+      # ------------------------------------------------------------------------
+      # Äußere Schleife - Solange der auslösende Zustand vorhanden ist ...
+      # ------------------------------------------------------------------------
+      while:
+      - condition: state
+        entity_id: input_boolean.ereignis_zustand
+        state: 'on'
+      sequence:
+      # ------------------------------------------------------------------------
+      # 1. Iteration / HA-App / Empfänger
+      # ------------------------------------------------------------------------
+      - repeat:
+          count: '{{ message_repeats }}'
+          sequence:
+          # Nur weitermachen, wenn der auslösende Zustand noch vorhanden ist
+          - condition: state
+            entity_id: input_boolean.ereignis_zustand
+            state: 'on'
+          # Text-Ausgabe auf HA-App
+          - action: notify.mobile_app_1
+            continue_on_error: true
+            data:
+              message: '{{ message_to_send }} Das ist der {{ repeat.index }}. Aufruf.'
+          # Sprach-Ausgabe auf HA-App (derzeit leider nur auf Android)
+          - action: notify.mobile_app_1
+            continue_on_error: true
+            data:
+              message: TTS
+              data:
+                ttl: 0
+                priority: high
+                media_stream: alarm_stream
+                tts_text: "{{ message_to_send }}"
+          # Anruf auf Telefon über FRITZ!SmartHome
+          - action: button.press
+            continue_on_error: true
+            target:
+              entity_id: button.anruf_telefon_1
+          # Bestimmte Zeit warten
+          - delay:
+              hours: '{{ message_delay_h }}'
+              minutes: '{{ message_delay_m }}'
+              seconds: '{{ message_delay_s }}'
+      # ------------------------------------------------------------------------
+      # 2. Iteration / HA-App / Empfänger
+      # ------------------------------------------------------------------------
+      - repeat:
+          count: '{{ message_repeats }}'
+          sequence:
+          # Nur weitermachen, wenn der auslösende Zustand noch vorhanden ist
+          - condition: state
+            entity_id: input_boolean.ereignis_zustand
+            state: 'on'
+          # Text-Ausgabe auf HA-App
+          - action: notify.mobile_app_2
+            continue_on_error: true
+            data:
+              message: '{{ message_to_send }} Das ist der {{ repeat.index }}. Aufruf.'
+          # Sprach-Ausgabe auf HA-App (derzeit leider nur auf Android)
+          - action: notify.mobile_app_2
+            continue_on_error: true
+            data:
+              message: TTS
+              data:
+                ttl: 0
+                priority: high
+                media_stream: alarm_stream
+                tts_text: "{{ message_to_send }}"
+          # Anruf auf Telefon über FRITZ!SmartHome
+          - action: button.press
+            continue_on_error: true
+            target:
+              entity_id: button.anruf_telefon_2
+          # Bestimmte Zeit warten
+          - delay:
+              hours: '{{ message_delay_h }}'
+              minutes: '{{ message_delay_m }}'
+              seconds: '{{ message_delay_s }}'
+      # ------------------------------------------------------------------------
+      # 3. Iteration / HA-App / Empfänger
+      # ------------------------------------------------------------------------
+      - repeat:
+          count: '{{ message_repeats }}'
+          sequence:
+          # Nur weitermachen, wenn der auslösende Zustand noch vorhanden ist
+          - condition: state
+            entity_id: input_boolean.ereignis_zustand
+            state: 'on'
+          # Text-Ausgabe auf HA-App
+          - action: notify.mobile_app_3
+            continue_on_error: true
+            data:
+              message: '{{ message_to_send }} Das ist der {{ repeat.index }}. Aufruf.'
+          # Sprach-Ausgabe auf HA-App (derzeit leider nur auf Android)
+          - action: notify.mobile_app_3
+            continue_on_error: true
+            data:
+              message: TTS
+              data:
+                ttl: 0
+                priority: high
+                media_stream: alarm_stream
+                tts_text: "{{ message_to_send }}"
+          # Anruf auf Telefon über FRITZ!SmartHome
+          - action: button.press
+            continue_on_error: true
+            target:
+              entity_id: button.anruf_telefon_3
+          # Bestimmte Zeit warten
+          - delay:
+              hours: '{{ message_delay_h }}'
+              minutes: '{{ message_delay_m }}'
+              seconds: '{{ message_delay_s }}'
+      # ------------------------------------------------------------------------
