@@ -22,18 +22,11 @@ Zur Integration von <b>Noticade</b> in Home Assistant stehen zwei Varianten zur 
 <h3>Automatisierung (native)</h3>
 <b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/noticade/code/noticade_1.00.yaml"><strong>noticade_1.00.yaml</strong></a><br />
 <br />
-Den Quelltext in die <b>automations.yaml</b> kopieren und im Bereich "Individuelle Konfiguration" <br />
-<br />
-1. Die Parameter im Absatz "Individuelle Konfiguration / variables" gemäß eigenen Vorstellungen anpassen.<br />
-<br />
-2. In der Vorlage sind drei Iterationen / Empfänger angelegt. Wenn weniger benötigt werden, überzählige Iterationen einfach löschen. Wenn mehr benötigt werden, einen beliebigen Iterations-Block vollständig kopieren und am Ende hinzufügen.<br />
-<br />
-3. Sämtliche Vorkommen von "input_boolean.ereignis_zustand" mit der Entität des eigenen zu überwachenden Helfers oder Sensors ersetzen.<br />
-<br />
-4. Sämtliche Vorkommen von "notify.mobile_app_(1 .. n)" mit den Entitäten der jeweils eigenen mobilen HA-Apps ersetzen.<br />
-<br />
-5. Wenn Telefon-Anrufe sämtliche Vorkommen von "button.anruf_telefon_(1 .. n)" jeweils mit den entsprechenden eigenen Entitäten ersetzt werden. Wenn durch diese Automatisierung keine Anrufe erfolgen sollen, sollten die entsprechenden Aktionen entweder auskommentiert oder gelöscht werden.<br />
-<br />
+Den Quelltext in die <b>automations.yaml</b> kopieren und im Bereich "Individuelle Konfiguration / variables" alle Parameter gemäß eigenen Vorstellungen anpassen.<br />
+1. In der Vorlage sind drei Iterationen / Empfänger angelegt. Wenn weniger benötigt werden, überzählige Iterationen einfach löschen. Wenn mehr benötigt werden, einen beliebigen Iterations-Block vollständig kopieren und am Ende hinzufügen.<br />
+2. Sämtliche Vorkommen von <i>input_boolean.ereignis_zustand</i> mit der Entität des eigenen zu überwachenden Sensors bzw. Helfers ersetzen.<br />
+3. Sämtliche Vorkommen von <i>notify.mobile_app_(1 .. n)</i> mit den Entitäten der jeweils eigenen mobilen HA-Apps ersetzen.<br />
+4. Wenn Telefon-Anrufe erfolgen sollen, sämtliche Vorkommen von <i>button.anruf_telefon_(1 .. n)</i> jeweils mit den entsprechenden eigenen Entitäten ersetzt werden. Wenn durch diese Automatisierung keine Anrufe erfolgen sollen, sollten die entsprechenden Aktionen entweder auskommentiert oder gelöscht werden.<br />
 <br />
 <a id="nodered_flow"></a>
 <hr>
@@ -46,8 +39,14 @@ Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 1. In Node "Ereignis (Zustand)" die Entität durch die gewünschte zu überwachende Entität bzw. einen entsprechenden Helfer ersetzen.<br /><br />
 <img src="./img/noticade_img_node_1_trigger.png">
 <br />
-2. In Node "Initalisierung" im Bereich "Konfiguration" die dort vorhandenen Werte gemäß den eigenen Wünschen anpassen..<br />
-In der Voreingestellung werden je Empfänger 3 mal jeweils im Abstand von 60 Sekunden Benachrichtigung versendet. In der
+2. In Node "Initalisierung" im Bereich "Konfiguration" die dort vorhandenen Werte gemäß den eigenen Wünschen anpassen.<br />
+2.1. In der Voreingestellung werden je Empfänger 3 mal jeweils im Abstand von 60 Sekunden Benachrichtigung versendet.<br />
+Exemplarisch sind für drei Empfänger die Entitäten der HA-Apps und Telefon-Anruf-Vorlagen angelegt, welche durch die eigenen ersetzt werden müssen.<br />
+<b>Achtung:</b> Es ist darauf zu achten, dass die Nummerierung bei 0 anfängt und kontinuierlich sein muss, also keine Nummer zu überspringen ist.<br />
+Zudem muss die Anzahl der Einträge in den beiden Listen für die HA-Apps und Anruf-Vorlagen identisch sein.<br />
+Wenn für einen Empfänger keine HA-App-Benachrichtigung oder kein Anruf erfolgen soll, ist in dem entsprecheden Eintrag das Wort "none" einzutragen.<br />
+2.2. HA-Apps: <i>mobile_app_(1 .. n)</i> mit den Entitäten der jeweils eigenen mobilen HA-Apps ersetzen.<br />
+2.3. Anruf-Vorlagen: <i>anruf_telefon_(1 .. n)</i> jeweils mit den entsprechenden eigenen Entitäten ersetzen.
 <br /><br />
 <img src="./img/noticade_img_node_2_initialisierung.png">
 <br />
