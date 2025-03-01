@@ -6,8 +6,8 @@ Dazu verwendet <b>Noticade</b> nur die Standard-Funktionen von Home Assistant un
 <hr>
 <h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>Noticade</b> im Grunde keine Helfer - zur Triggerung kann jede beliebige Entität verwendet werden, welche den Zustand "on" einnehmen kann (natürlich kann auch jeder andere Zustand überwacht werden, allerdings muss dies dann auch an allen relevanten Stellen im Script bzw. Flow angepasst werden.).<br />
-Es wird jedoch trotzdem die Verwendung eines separaten Helfers als Trigger empfohlen, der nur bei Auftreten des eigentlich zu überwachenden Ereignisses auf "on" gesetzt wird.
-Am einfachsten erstellt man dazu einen Helfer vom Typ "Schalter" (input_boolean) sowie eine zugehörige Automation, welche diesen Helfer auf Status "on" setzt, wenn das zu überwachende Ereigniss eintritt - etwa in der Form:<br />
+Es wird jedoch trotzdem die Verwendung eines separaten Helfers als Trigger empfohlen, der nur bei Auftreten des eigentlich zu überwachenden Ereignisses auf "on" gesetzt wird (in den Vorlagen ist dies <i>input_boolean.ereignis_zustand<i>).
+Am einfachsten erstellt man dazu einen Helfer vom Typ "Schalter" sowie eine zugehörige Automation, welche diesen Helfer auf Status "on" setzt, wenn das zu überwachende Ereigniss eintritt - etwa in der Form:<br /><br />
 
 ```yaml
 triggers:
@@ -43,7 +43,7 @@ Den Quelltext in die <b>automations.yaml</b> kopieren und wie folgt ändern.<br 
 <b>3.</b> Sämtliche Vorkommen von <i>input_boolean.ereignis_zustand</i> mit der Entität des eigenen zu überwachenden Sensors bzw. Helfers ersetzen.<br /><br />
 <b>4.</b> Sämtliche Vorkommen von <i>notify.mobile_app_(1 .. n)</i> mit den Entitäten der jeweils eigenen mobilen HA-Apps ersetzen.<br /><br />
 <b>5.</b> Wenn Telefon-Anrufe erfolgen sollen, sämtliche Vorkommen von <i>button.anruf_telefon_(1 .. n)</i> jeweils mit den entsprechenden eigenen Entitäten ersetzen. Wenn durch diese Automation keine Anrufe erfolgen sollen, sollten die entsprechenden Aktionen entweder auskommentiert oder gelöscht werden.<br /><br />
-Zuletzt micht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automationen neu zu laden :)<br />
+Zuletzt micht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automationen neu zu laden :)<br /><br />
 
 <a id="nodered_flow"></a>
 <hr>
@@ -58,8 +58,9 @@ Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
 
 <b>2.</b> In Node "Initalisierung" im Bereich "Konfiguration" die dort vorhandenen Werte gemäß den eigenen Wünschen anpassen.<br />
-In der Voreinstellung werden 3 mal nacheinander jeweils im Abstand von 60 Sekunden Benachrichtigungen an den selben Empfänger versendet, bevor mit dem nächsten Empfänger auf gleiche Weise weiter gemacht wird. Nach dem letzten Empfänger wird automatisch wieder mit dem ersten Empfänger begonnen.<br />
+In der Voreinstellung werden 3 mal nacheinander jeweils im Abstand von 60 Sekunden Benachrichtigungen an den selben Empfänger versendet, bevor mit dem nächsten Empfänger auf gleiche Weise weiter gemacht wird. Nach dem letzten Empfänger wird automatisch wieder mit dem ersten Empfänger begonnen.
 Exemplarisch sind für drei Empfänger die Entitäten der HA-Apps und Telefon-Anruf-Vorlagen angelegt, welche durch die eigenen ersetzt werden müssen. Wenn weniger benötigt werden, können die entsprechenden Zeilen einfach gelöscht werden, wenn mehr benötigt werden, einfach weitere Zeilen nach gleichem Schema hinzufügen.<br />
+<br />
 <b>Achtung:</b> Es ist darauf zu achten, dass die Nummerierung bei 0 anfängt und kontinuierlich sein muss, also keine Nummer zu überspringen ist.<br />
 Zudem muss die Anzahl der Einträge in den beiden Listen für die HA-Apps und Anruf-Vorlagen identisch sein.<br />
 Wenn für einen Empfänger keine HA-App-Benachrichtigung oder kein Anruf erfolgen soll, ist in dem entsprechenden Eintrag das Wort <i>none</i> einzutragen.<br />
@@ -67,3 +68,4 @@ Wenn für einen Empfänger keine HA-App-Benachrichtigung oder kein Anruf erfolge
 <img src="./img/noticade_img_node_2_initialisierung.png">
 <br />
 <hr>
+<b>Viel Erfolg!</b>
