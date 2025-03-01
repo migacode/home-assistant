@@ -21,7 +21,7 @@
   # ----------------------------------------------------------------------------
   variables:
     # Mitteilungstext, der über die HA-Apps ausgegeben wird
-    message_to_send: 'Achtung Achtung, es ist etwas passiert. Bitte nachsehen!'
+    message_to_send: 'Achtung Achtung! Zuhause es ist irgendwas passiert.'
     # Anzahl Nachrichten je Empfänger, nach denen mit dem jeweils danach
     # folgenden Empfänger weitergemacht wird
     message_repeats: 3
