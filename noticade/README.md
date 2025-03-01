@@ -38,11 +38,10 @@ Zur Integration von <b>Noticade</b> in Home Assistant stehen zwei Varianten zur 
 <b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/noticade/code/noticade_1.00.yaml"><strong>noticade_1.00.yaml</strong></a><br />
 <br />
 Den Quelltext in die <b>automations.yaml</b> kopieren und wie folgt ändern.<br /><br />
-<b>1.</b> Im Bereich "Individuelle Konfiguration / variables" alle Parameter gemäß eigenen Vorstellungen anpassen.<br /><br />
-In der Voreinstellung werden 3 mal nacheinander jeweils im Abstand von einer Minute Benachrichtigungen an den selben Empfänger versendet, bevor mit dem nächsten Empfänger auf gleiche Weise weiter gemacht wird. Nach dem letzten Empfänger wird automatisch wieder mit dem ersten Empfänger begonnen.
-<br />
+<b>1.</b> Im Bereich "Individuelle Konfiguration / variables" alle Parameter gemäß eigenen Vorstellungen anpassen.<br />
+In der Voreinstellung werden 3 mal nacheinander jeweils im Abstand von einer Minute Benachrichtigungen an den selben Empfänger versendet, bevor mit dem nächsten Empfänger auf gleiche Weise weiter gemacht wird. Nach dem letzten Empfänger wird automatisch wieder mit dem ersten Empfänger begonnen.<br /><br />
 <img src="./img/noticade_img_yaml_config.png">
-<br />
+
 <b>2.</b> In der Vorlage sind drei Iterationen / Empfänger angelegt. Wenn weniger benötigt werden, überzählige Iterationen einfach löschen. Wenn mehr benötigt werden, einen beliebigen Iterations-Block vollständig kopieren und am Ende hinzufügen.<br /><br />
 <b>3.</b> Sämtliche Vorkommen von <i>input_boolean.ereignis_zustand</i> mit der Entität des eigenen zu überwachenden Sensors bzw. Helfers ersetzen.<br /><br />
 <b>4.</b> Sämtliche Vorkommen von <i>notify.mobile_app_(1 .. n)</i> mit den Entitäten der jeweils eigenen mobilen HA-Apps ersetzen.<br /><br />
