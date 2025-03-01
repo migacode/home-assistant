@@ -1,4 +1,4 @@
-<h1>Home Assistant // Noticade - Notification Cascade - Benachrichtigungs-Kaskade</h1>
+<h1>Home Assistant // Noticade - Notification Cascade<br />Benachrichtigungs-Kaskade</h1>
 
 <b>Noticade</b> löst bei dem Auftreten eines Ereignisses eine Benachrichtigungs-Kaskade aus, bei welcher solange rollierend nacheinander verschiedene Empfänger über die HA-App und per Telefon-Anruf kontaktiert werden, wie der Zustand des auslösenden Ereignisses vorherrscht.
 <b>Noticade</b> sendet Nachrichten an die HA-Apps, welche dort sowohl als Text angezeigt als auch als Sprache ausgegeben werden (Letzteres aktuell leider nur auf Geräten mit Android).<br />
