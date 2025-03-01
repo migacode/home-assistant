@@ -6,7 +6,7 @@ Dazu verwendet <b>Noticade</b> nur die Standard-Funktionen von Home Assistant un
 <hr>
 <h2>Vorbereitung</h2>
 Zur Ausführung benötigt <b>Noticade</b> im Grunde keine Helfer - zur Triggerung kann jede beliebige Entität verwendet werden, welche den Zustand "on" einnehmen kann (natürlich kann auch jeder andere Zustand überwacht werden, allerdings muss dies dann auch an allen relevanten Stellen im Script bzw. Flow angepasst werden.).<br />
-Es wird jedoch trotzdem die Verwendung eines separaten Helfers als Trigger empfohlen, der nur bei Auftreten des eigentlich zu überwachenden Ereignisses auf "on" gesetzt wird (in den Vorlagen ist dies <i>input_boolean.ereignis_zustand<i>).
+Es wird jedoch trotzdem die Verwendung eines separaten Helfers als Trigger empfohlen, der nur bei Auftreten des eigentlich zu überwachenden Ereignisses auf "on" gesetzt wird (in den Vorlagen ist dies <i>input_boolean.ereignis_zustand</i>).
 Am einfachsten erstellt man dazu einen Helfer vom Typ "Schalter" sowie eine zugehörige Automation, welche diesen Helfer auf Status "on" setzt, wenn das zu überwachende Ereigniss eintritt - etwa in der Form:<br /><br />
 
 ```yaml
