@@ -5,9 +5,9 @@
 Dazu verwendet <b>Noticade</b> nur die Standard-Funktionen von Home Assistant und ggf. NodeRED, es werden keine zusätzlichen Add-Ons, HACS-Module oder NodeRED-Paletten benötigt. Bei Verwendung der Telefon-Anruf-Funktion muss lediglich die Integration <b><a href="https://www.home-assistant.io/integrations/fritzbox/" target="_blank">AVM FRITZ!SmartHome</a></b> von Home Assistant installiert sein.
 <hr>
 <h2>Vorbereitung</h2>
-Zur Ausführung benötigt <b>Noticade</b> keine Helfer - zur Triggerung kann jede beliebige Entität verwendet werden, welche den Zustand "on" einnehmen kann (natürlich kann auch jeder andere Zustand überwacht werden, allerdings muss dies dann auch an allen relevanten Stellen im Script bzw. Flow angepasst werden.).<br />
+Zur Ausführung benötigt <b>Noticade</b> im Grunde keine Helfer - zur Triggerung kann jede beliebige Entität verwendet werden, welche den Zustand "on" einnehmen kann (natürlich kann auch jeder andere Zustand überwacht werden, allerdings muss dies dann auch an allen relevanten Stellen im Script bzw. Flow angepasst werden.).<br />
 Es wird jedoch trotzdem die Verwendung eines separaten Helfers als Trigger empfohlen, der nur bei Auftreten des eigentlich zu überwachenden Ereignisses auf "on" gesetzt wird.
-Am einfachsten erstellt man dazu einen Helfer vom Typ "Schalter" (input_boolean) sowie eine zugehörige Automation, welche diesen Helfer auf Status "on" setzt, wenn das zu überwachende Ereigniss eintritt - etwa in der Form:
+Am einfachsten erstellt man dazu einen Helfer vom Typ "Schalter" (input_boolean) sowie eine zugehörige Automation, welche diesen Helfer auf Status "on" setzt, wenn das zu überwachende Ereigniss eintritt - etwa in der Form:<br />
 
 ```yaml
 triggers:
@@ -22,27 +22,29 @@ actions:
       entity_id: input_boolean.<ENTITÄT_DES_HELFERS>
 ```
 
-Auf diese Weise kann man die Benachrichtigungs-Kaskade ggf. abschalten, selbst wenn der auslösende Zustand vielleicht noch nicht behoben ist (bspw. bei Ausfall der Heizung mit andauernder Reparatur).<br />
+Auf diese Weise kann man die Benachrichtigungs-Kaskade ggf. abschalten, selbst wenn der auslösende Zustand vielleicht noch nicht behoben ist - bspw. bei Ausfall der Heizung mit andauernder Reparatur.<br />
 Sofern <b>Noticade</b> auch Telefon-Anrufe anstoßen soll, müssen dazu vorher in einer FRITZ!Box im Bereich "Smart Home" entsprechende Vorlagen für automatische Anrufe erstellt werden. Wie das in der FRITZ!Box geht, kann man sich &nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/noticade/img/fb_smarthome_vorlage_anruf_erstellen.png" target="_blank">hier</a> ansehen.<br />
 <br />
 <hr>
 <h2>Noticade für Home Assistant (Varianten)</h2>
 Zur Integration von <b>Noticade</b> in Home Assistant stehen zwei Varianten zur Verfügung, so dass sich jeder seine bevorzugte Variante aussuchen kann.<br /><ul>
-<li><a href="#automation">Native Automatisierung (Yaml-Code)</a></li>
+<li><a href="#automation">Native Automation (Yaml-Code)</a></li>
 <li><a href="#nodered_flow">NodeRED-Flow (mit JavaScript-Funktionsblock)</a></li>
 </ul>
 
 <a id="automation"></a>
 <hr>
-<h3>Automatisierung (native)</h3>
+<h3>Automation (native)</h3>
 <b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/noticade/code/noticade_1.00.yaml"><strong>noticade_1.00.yaml</strong></a><br />
 <br />
-Den Quelltext in die <b>automations.yaml</b> kopieren und wie folgt ändern.<br />
-<b>1.</b> Im Bereich "Individuelle Konfiguration / variables" alle Parameter gemäß eigenen Vorstellungen anpassen.<br />
-<b>2.</b> In der Vorlage sind drei Iterationen / Empfänger angelegt. Wenn weniger benötigt werden, überzählige Iterationen einfach löschen. Wenn mehr benötigt werden, einen beliebigen Iterations-Block vollständig kopieren und am Ende hinzufügen.<br />
-<b>3.</b> Sämtliche Vorkommen von <i>input_boolean.ereignis_zustand</i> mit der Entität des eigenen zu überwachenden Sensors bzw. Helfers ersetzen.<br />
-<b>4.</b> Sämtliche Vorkommen von <i>notify.mobile_app_(1 .. n)</i> mit den Entitäten der jeweils eigenen mobilen HA-Apps ersetzen.<br />
-<b>5.</b> Wenn Telefon-Anrufe erfolgen sollen, sämtliche Vorkommen von <i>button.anruf_telefon_(1 .. n)</i> jeweils mit den entsprechenden eigenen Entitäten ersetzen. Wenn durch diese Automatisierung keine Anrufe erfolgen sollen, sollten die entsprechenden Aktionen entweder auskommentiert oder gelöscht werden.<br />
+Den Quelltext in die <b>automations.yaml</b> kopieren und wie folgt ändern.<br /><br />
+<b>1.</b> Im Bereich "Individuelle Konfiguration / variables" alle Parameter gemäß eigenen Vorstellungen anpassen.<br /><br />
+<b>2.</b> In der Vorlage sind drei Iterationen / Empfänger angelegt. Wenn weniger benötigt werden, überzählige Iterationen einfach löschen. Wenn mehr benötigt werden, einen beliebigen Iterations-Block vollständig kopieren und am Ende hinzufügen.<br /><br />
+<b>3.</b> Sämtliche Vorkommen von <i>input_boolean.ereignis_zustand</i> mit der Entität des eigenen zu überwachenden Sensors bzw. Helfers ersetzen.<br /><br />
+<b>4.</b> Sämtliche Vorkommen von <i>notify.mobile_app_(1 .. n)</i> mit den Entitäten der jeweils eigenen mobilen HA-Apps ersetzen.<br /><br />
+<b>5.</b> Wenn Telefon-Anrufe erfolgen sollen, sämtliche Vorkommen von <i>button.anruf_telefon_(1 .. n)</i> jeweils mit den entsprechenden eigenen Entitäten ersetzen. Wenn durch diese Automation keine Anrufe erfolgen sollen, sollten die entsprechenden Aktionen entweder auskommentiert oder gelöscht werden.<br /><br />
+Zuletzt micht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automationen neu zu laden :)<br />
+
 <a id="nodered_flow"></a>
 <hr>
 <h3>NodeRED-Flow</h3>
