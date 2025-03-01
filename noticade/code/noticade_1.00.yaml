@@ -1,7 +1,7 @@
 # ==============================================================================
 # Noticade - Benachrichtigungs-Kaskade - Home Assistant Automatisierung
 # Version: 1.00
-# Datum:   28.02.2025
+# Datum:   01.03.2025
 # Quelle:  https://github.com/migacode/home-assistant
 # ==============================================================================
 #        Automatisierung für kaskadierende Benachrichtigungen an HA-Apps
@@ -21,16 +21,16 @@
   # ----------------------------------------------------------------------------
   variables:
     # Mitteilungstext, der über die HA-Apps ausgegeben wird
-    message_to_send: 'Achtung Achtung! Zuhause es ist irgendwas passiert.'
+    noticade_message: 'Achtung! Zuhause ist irgendwas passiert.'
     # Anzahl Nachrichten je Empfänger, nach denen mit dem jeweils danach
     # folgenden Empfänger weitergemacht wird
-    message_repeats: 3
+    noticade_repeat: 3
     # Wartezeit zwischen einzelnen Nachrichten (Stunden)
-    message_delay_h: 0
+    noticade_delay_h: 0
     # Wartezeit zwischen einzelnen Nachrichten (Minuten)
-    message_delay_m: 0
+    noticade_delay_m: 1
     # Wartezeit zwischen einzelnen Nachrichten (Sekunden)
-    message_delay_s: 60
+    noticade_delay_s: 0
 
   # ----------------------------------------------------------------------------
   # Auslösendes Ereignis
@@ -69,7 +69,7 @@
       # 1. Iteration / HA-App / Empfänger
       # ------------------------------------------------------------------------
       - repeat:
-          count: '{{ message_repeats }}'
+          count: '{{ noticade_repeat }}'
           sequence:
           # Nur weitermachen, wenn der auslösende Zustand noch vorhanden ist
           - condition: state
@@ -79,7 +79,7 @@
           - action: notify.mobile_app_1
             continue_on_error: true
             data:
-              message: '{{ message_to_send }} Das ist der {{ repeat.index }}. Aufruf.'
+              message: '{{ noticade_message }} Das ist der {{ repeat.index }}. Aufruf.'
           # Sprach-Ausgabe auf HA-App (derzeit leider nur auf Android)
           - action: notify.mobile_app_1
             continue_on_error: true
@@ -89,7 +89,7 @@
                 ttl: 0
                 priority: high
                 media_stream: alarm_stream
-                tts_text: "{{ message_to_send }}"
+                tts_text: "{{ noticade_message }}"
           # Anruf auf Telefon über FRITZ!SmartHome
           - action: button.press
             continue_on_error: true
@@ -97,14 +97,14 @@
               entity_id: button.anruf_telefon_1
           # Bestimmte Zeit warten
           - delay:
-              hours: '{{ message_delay_h }}'
-              minutes: '{{ message_delay_m }}'
-              seconds: '{{ message_delay_s }}'
+              hours: '{{ noticade_delay_h }}'
+              minutes: '{{ noticade_delay_m }}'
+              seconds: '{{ noticade_delay_s }}'
       # ------------------------------------------------------------------------
       # 2. Iteration / HA-App / Empfänger
       # ------------------------------------------------------------------------
       - repeat:
-          count: '{{ message_repeats }}'
+          count: '{{ noticade_repeat }}'
           sequence:
           # Nur weitermachen, wenn der auslösende Zustand noch vorhanden ist
           - condition: state
@@ -114,7 +114,7 @@
           - action: notify.mobile_app_2
             continue_on_error: true
             data:
-              message: '{{ message_to_send }} Das ist der {{ repeat.index }}. Aufruf.'
+              message: '{{ noticade_message }} Das ist der {{ repeat.index }}. Aufruf.'
           # Sprach-Ausgabe auf HA-App (derzeit leider nur auf Android)
           - action: notify.mobile_app_2
             continue_on_error: true
@@ -124,7 +124,7 @@
                 ttl: 0
                 priority: high
                 media_stream: alarm_stream
-                tts_text: "{{ message_to_send }}"
+                tts_text: "{{ noticade_message }}"
           # Anruf auf Telefon über FRITZ!SmartHome
           - action: button.press
             continue_on_error: true
@@ -132,14 +132,14 @@
               entity_id: button.anruf_telefon_2
           # Bestimmte Zeit warten
           - delay:
-              hours: '{{ message_delay_h }}'
-              minutes: '{{ message_delay_m }}'
-              seconds: '{{ message_delay_s }}'
+              hours: '{{ noticade_delay_h }}'
+              minutes: '{{ noticade_delay_m }}'
+              seconds: '{{ noticade_delay_s }}'
       # ------------------------------------------------------------------------
       # 3. Iteration / HA-App / Empfänger
       # ------------------------------------------------------------------------
       - repeat:
-          count: '{{ message_repeats }}'
+          count: '{{ noticade_repeat }}'
           sequence:
           # Nur weitermachen, wenn der auslösende Zustand noch vorhanden ist
           - condition: state
@@ -149,7 +149,7 @@
           - action: notify.mobile_app_3
             continue_on_error: true
             data:
-              message: '{{ message_to_send }} Das ist der {{ repeat.index }}. Aufruf.'
+              message: '{{ noticade_message }} Das ist der {{ repeat.index }}. Aufruf.'
           # Sprach-Ausgabe auf HA-App (derzeit leider nur auf Android)
           - action: notify.mobile_app_3
             continue_on_error: true
@@ -159,7 +159,7 @@
                 ttl: 0
                 priority: high
                 media_stream: alarm_stream
-                tts_text: "{{ message_to_send }}"
+                tts_text: "{{ noticade_message }}"
           # Anruf auf Telefon über FRITZ!SmartHome
           - action: button.press
             continue_on_error: true
@@ -167,7 +167,7 @@
               entity_id: button.anruf_telefon_3
           # Bestimmte Zeit warten
           - delay:
-              hours: '{{ message_delay_h }}'
-              minutes: '{{ message_delay_m }}'
-              seconds: '{{ message_delay_s }}'
+              hours: '{{ noticade_delay_h }}'
+              minutes: '{{ noticade_delay_m }}'
+              seconds: '{{ noticade_delay_s }}'
       # ------------------------------------------------------------------------
