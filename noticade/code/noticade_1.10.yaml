@@ -1,0 +1,183 @@
+# ==============================================================================
+# Noticade - Benachrichtigungs-Kaskade - Home Assistant Automatisierung
+# Version: 1.10
+# Datum:   05.03.2025
+# Quelle:  https://github.com/migacode/home-assistant
+# ==============================================================================
+#        Automatisierung für kaskadierende Benachrichtigungen an HA-Apps
+#  sowie optional mit Telefon-Anrufen über die Integration AVM FRITZ!SmartHome
+# ==============================================================================
+#  Solange das auslösende Ereignis bzw. ein bestimmter Zustand vorhanden ist,
+#  werden alle Empfänger in bestimmten zeitlichen Abständen nacheinander über
+#  die HA-Apps benachrichtigt. Nach dem letzten Empfänger wird wieder mit dem
+#  ersten Empfänger angefangen.
+# ==============================================================================
+- id: 'benachrichtigungs_kaskade_1'
+  alias: 'Benachrichtigungs-Kaskade 1'
+  description: 'Kaskadierende Benachrichtigungen an HA-Apps'
+
+  # ============================================================================
+  # Konfiguration
+  # ============================================================================
+  variables:
+
+    # --------------------------------------------------------------------------
+    # Mitteilungstext, der über die HA-Apps ausgegeben wird.
+    # --------------------------------------------------------------------------
+    noticade_message: 'Achtung! Zuhause ist irgendwas passiert.'
+
+    # --------------------------------------------------------------------------
+    # Anzahl Benachrichtigungs-Durchläufe je Empfänger, nach denen mit dem
+    # jeweils danach folgenden Empfänger weitergemacht wird. Bei einem Wert
+    # von 1 wird direkt nach jeweils nur einem Durchlauf und nach Ablauf der
+    # Verzögerungszeit mit dem nächsten Empfänger weitergemacht.
+    # --------------------------------------------------------------------------
+    noticade_repeat: 3
+
+    # --------------------------------------------------------------------------
+    # Verzögerungszeit zwischen den einzelnen Benachrichtigungen
+    # --------------------------------------------------------------------------
+    # Stunden
+    noticade_delay_h: 0
+    # Minuten
+    noticade_delay_m: 1
+    # Sekunden
+    noticade_delay_s: 0
+
+    # --------------------------------------------------------------------------
+    # Entitäten der HA-Mobile-Apps
+    # -----------------------------
+    # Angabe ohne vorangestelltes "notify."
+    # ACHTUNG: Anzahl und Position äquivalent zu noticade_phone_id.
+    # Um keine Nachricht an einen Empfänger zu senden, entsprechenden Eintrag
+    # mit 'none' füllen (nicht leer- oder weglassen) => - 'none'
+    # --------------------------------------------------------------------------
+    noticade_app_id:
+      - 'none'
+      - 'mobile_app_mobiltelefon_1'
+      - 'mobile_app_mobiltelefon_2'
+
+    # --------------------------------------------------------------------------
+    # Entitäten der Telefon-Anruf-Vorlagen aus Integration AVM Fritz!SmartHome
+    # -------------------------------------------------------------------------
+    # Angabe ohne vorangestelltes "button."
+    # ACHTUNG: Anzahl und Position äquivalent zu noticade_app_id.
+    # Um einen Empfänger nicht anzurufen, den entsprechenden Eintrag mit 'none'
+    # füllen (nicht leer- oder weglassen) => - 'none'
+    # --------------------------------------------------------------------------
+    noticade_phone_id:
+      - 'anruf_haustelefon_1'
+      - 'anruf_mobiltelefon_1'
+      - 'anruf_mobiltelefon_2'
+
+  # ============================================================================
+  # Ende der Konfiguration
+  # ============================================================================
+
+  # ----------------------------------------------------------------------------
+  # Automatisierungs-Modus
+  # ----------------------------------------------------------------------------
+  # Eventuell neu ausgelöste Kaskaden werden immer nacheinander abgearbeitet,
+  # so dass immer die gesamte Kaskade mit allen Empfängern durchlaufen wird.
+  # ----------------------------------------------------------------------------
+  mode: queued
+
+  # ----------------------------------------------------------------------------
+  # Auslösendes Ereignis
+  # ----------------------------------------------------------------------------
+  triggers:
+  - trigger: state
+    entity_id: input_boolean.ereignis_zustand
+    to: 'on'
+
+  # ----------------------------------------------------------------------------
+  # Zusätzliche Bedingungen (nicht das/die auslösende Ereignis/Bedingung!)
+  # ----------------------------------------------------------------------------
+  conditions: []
+
+  # ----------------------------------------------------------------------------
+  # Here we go ...
+  # ----------------------------------------------------------------------------
+  actions:
+  - repeat:
+      # ------------------------------------------------------------------------
+      # Solange der auslösende Zustand vorhanden ist ...
+      # ------------------------------------------------------------------------
+      while:
+      - condition: state
+        entity_id: input_boolean.ereignis_zustand
+        state: 'on'
+      sequence:
+      # ------------------------------------------------------------------------
+      #  ... für jeden Empfänger ...
+      # ------------------------------------------------------------------------
+      - repeat:
+          count: '{{ noticade_app_id | count }}'
+          sequence:
+          # --------------------------------------------------------------------
+          # Aktuelle Entitäten für Ausgabe-Pfade einlesen
+          # --------------------------------------------------------------------
+          - variables:
+              current_ha_app_id: '{{ noticade_app_id[repeat.index - 1] }}'
+              current_phone_id: '{{ noticade_phone_id[repeat.index - 1] }}'
+          # --------------------------------------------------------------------
+          #  ... so viele Durchgänge je Empfänger wie konfiguriert ...
+          # --------------------------------------------------------------------
+          - repeat:
+              count: '{{ noticade_repeat }}'
+              sequence:
+              # ----------------------------------------------------------------
+              # Nur weitermachen, wenn der auslösende Zustand noch vorhanden ist
+              # ----------------------------------------------------------------
+              - condition: state
+                entity_id: input_boolean.ereignis_zustand
+                state: 'on'
+              # ----------------------------------------------------------------
+              # Ausgaben auf die HA-App nur wenn eine ID dazu existiert
+              # ----------------------------------------------------------------
+              - if:
+                  - condition: template
+                    value_template: >-
+                      {{ current_ha_app_id != 'none' }}
+                then:
+                  # ------------------------
+                  # Text-Ausgabe auf HA-App
+                  # ------------------------
+                  - action: notify.{{ current_ha_app_id }}
+                    continue_on_error: true
+                    data:
+                      message: "{{ noticade_message }} Das ist der {{ repeat.index }}. Aufruf."
+                  # -----------------------------------------------------------
+                  # Sprach-Ausgabe auf HA-App (derzeit leider nur auf Android)
+                  # -----------------------------------------------------------
+                  - action: notify.{{ current_ha_app_id }}
+                    continue_on_error: true
+                    data:
+                      message: TTS
+                      data:
+                        ttl: 0
+                        priority: high
+                        media_stream: alarm_stream
+                        tts_text: "{{ noticade_message }}"
+              # ----------------------------------------------------------------
+              # Telefon-Anruf nur wenn eine ID dazu existiert
+              # ----------------------------------------------------------------
+              - if:
+                  - condition: template
+                    value_template: >-
+                      {{ current_phone_id != 'none' }}
+                then:
+                  # ---------------------------------------
+                  # Anruf auf Telefon über FRITZ!SmartHome
+                  # ---------------------------------------
+                  - action: button.press
+                    continue_on_error: true
+                    target:
+                      entity_id: button.{{ current_phone_id }}
+              # ----------------------------------------------------------------
+              # Verzögerung
+              # ----------------------------------------------------------------
+              - delay:
+                  hours: '{{ noticade_delay_h }}'
+                  minutes: '{{ noticade_delay_m }}'
+                  seconds: '{{ noticade_delay_s }}'
