@@ -24,7 +24,7 @@ actions:
 
 Auf diese Weise kann man die Benachrichtigungs-Kaskade ggf. abschalten, selbst wenn der auslösende Zustand vielleicht noch nicht behoben ist - bspw. bei Ausfall der Heizung mit andauernder Reparatur.<br />
 Sofern <b>Noticade</b> auch Telefon-Anrufe anstoßen soll, müssen dazu vorher in einer FRITZ!Box im Bereich "Smart Home" entsprechende Vorlagen für automatische Anrufe erstellt werden. Wie das in der FRITZ!Box geht, kann man sich &nbsp;&raquo;&nbsp;<a href="./fb_smarthome_vorlage_anruf.md" target="_blank">hier</a> ansehen.<br />
-<span style="float:left;">Vorlagen für automatische Anrufe in der FRITZ!Box erstellen&nbsp;&raquo;&nbsp;</span><a href="./fb_smarthome_vorlage_anruf.md" target="_blank"><img src="./img/fb_smarthome_vorlage_anruf_erstellen_thumb.png"></a><br />
+Vorlagen für automatische Anrufe in der FRITZ!Box erstellen&nbsp;&raquo;&nbsp;<br /><br /><br /><a href="./fb_smarthome_vorlage_anruf.md" target="_blank"><img src="./img/fb_smarthome_vorlage_anruf_erstellen_thumb.png"></a>
 <br />
 <hr>
 <h2>Noticade für Home Assistant (Varianten)</h2>
