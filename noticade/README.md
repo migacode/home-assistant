@@ -42,12 +42,11 @@ Den Quelltext in die <b>automations.yaml</b> kopieren und wie folgt ändern.<br 
 In der Voreinstellung werden 3 mal nacheinander jeweils im Abstand von einer Minute Benachrichtigungen an den selben Empfänger versendet, bevor mit dem nächsten Empfänger auf gleiche Weise weiter gemacht wird. Nach dem letzten Empfänger wird automatisch wieder mit dem ersten Empfänger begonnen.<br /><br />
 <img src="./img/noticade_img_yaml_config.png">
 Exemplarisch sind für drei Empfänger die Entitäten der HA-Apps und Telefon-Anruf-Vorlagen angelegt, welche durch die eigenen ersetzt werden müssen. Wenn weniger benötigt werden, können die entsprechenden Zeilen einfach gelöscht werden, wenn mehr benötigt werden, einfach weitere Zeilen nach gleichem Schema hinzufügen.<br />
-<b>Achtung:</b> Es ist darauf zu achten, dass die Anzahl der Einträge in den beiden Listen für die HA-Apps und Anruf-Vorlagen identisch sein.<br />
-Wenn für einen Empfänger keine HA-App-Benachrichtigung oder kein Anruf erfolgen soll, ist in dem entsprechenden Eintrag das Wort <i>none</i> (klein geschrieben) einzutragen.<br />
+<b>Achtung:</b> Es ist darauf zu achten, dass die Anzahl der Einträge in den beiden Listen für die HA-Apps und Anruf-Vorlagen identisch sind.<br />
+Wenn für einen Empfänger keine HA-App-Benachrichtigung oder kein Anruf erfolgen soll, ist in dem entsprechenden Eintrag das Wort <i>none</i> (klein geschrieben) einzutragen.<br /><br />
 <b>2.</b> Sämtliche Vorkommen von <i>input_boolean.ereignis_zustand</i> mit der Entität des eigenen zu überwachenden Sensors bzw. Helfers ersetzen.<br />
-Dies ist leider erforderlich, weil die Entitäts-ID bei Triggern in Automationen von Home Assistant derzeit noch nicht Templete-fähig ist.<br /><br />
-Gegebenenfalls kann an diesen Stellen auch der zu überwachende Status des Sensors angepasst werden (bspw. 'off' statt 'on').<br /><br />
-<br />
+Dies ist leider erforderlich, weil die Entitäts-ID bei Triggern in Automationen von Home Assistant derzeit leider noch nicht Template-fähig ist.<br /><br />
+Gegebenenfalls kann an diesen Stellen auch der zu überwachende Status des Sensors angepasst werden (bspw. '<i>off</i>' statt '<i>on</i>').<br /><br />
 Zuletzt nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automationen neu zu laden :)<br /><br />
 
 <a id="nodered_flow"></a>
