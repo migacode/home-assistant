@@ -45,9 +45,9 @@ Exemplarisch sind für drei Empfänger die Entitäten der HA-Apps und Telefon-An
 <b>Achtung:</b> Es ist darauf zu achten, dass die Anzahl der Einträge in den beiden Listen für die HA-Apps und Anruf-Vorlagen identisch sind.<br />
 Wenn für einen Empfänger keine HA-App-Benachrichtigung oder kein Anruf erfolgen soll, ist in dem entsprechenden Eintrag das Wort <i>none</i> (klein geschrieben) einzutragen.<br /><br />
 <b>2.</b> Sämtliche Vorkommen von <i>input_boolean.ereignis_zustand</i> mit der Entität des eigenen zu überwachenden Sensors bzw. Helfers ersetzen.<br />
-Dies ist leider erforderlich, weil die Entitäts-ID bei Triggern in Automationen von Home Assistant derzeit leider noch nicht Template-fähig ist.<br /><br />
+Dies ist leider erforderlich, weil die Entitäts-ID bei Triggern in Automationen von Home Assistant derzeit leider noch nicht Template-fähig ist.<br />
 Gegebenenfalls kann an diesen Stellen auch der zu überwachende Status des Sensors angepasst werden (bspw. '<i>off</i>' statt '<i>on</i>').<br /><br />
-Zuletzt nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automationen neu zu laden :)<br /><br />
+Zuletzt nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automationen neu zu laden. :)<br /><br />
 
 <a id="nodered_flow"></a>
 <hr>
