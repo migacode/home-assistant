@@ -1,7 +1,7 @@
 # ==============================================================================
 # Noticade - Benachrichtigungs-Kaskade - Home Assistant Automatisierung
 # Version: 1.10
-# Datum:   05.03.2025
+# Datum:   06.03.2025
 # Quelle:  https://github.com/migacode/home-assistant
 # ==============================================================================
 #        Automatisierung für kaskadierende Benachrichtigungen an HA-Apps
@@ -24,7 +24,7 @@
     # --------------------------------------------------------------------------
     # Mitteilungstext, der über die HA-Apps ausgegeben wird.
     # --------------------------------------------------------------------------
-    noticade_message: 'Achtung! Zuhause ist irgendwas passiert.'
+    noticade_message: 'Achtung! Zuhause ist etwas passiert.'
 
     # --------------------------------------------------------------------------
     # Anzahl Benachrichtigungs-Durchläufe je Empfänger, nach denen mit dem
