@@ -35,24 +35,26 @@ Zur Integration von <b>Noticade</b> in Home Assistant stehen zwei Varianten zur 
 <a id="automation"></a>
 <hr>
 <h3>Automation (native)</h3>
-<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/noticade/code/noticade_1.00.yaml"><strong>noticade_1.00.yaml</strong></a><br />
+<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/noticade/code/noticade_1.10.yaml"><strong>noticade_1.10.yaml</strong></a><br />
 <br />
 Den Quelltext in die <b>automations.yaml</b> kopieren und wie folgt ändern.<br /><br />
-<b>1.</b> Im Bereich "Individuelle Konfiguration / variables" alle Parameter gemäß eigenen Vorstellungen anpassen.<br />
+<b>1.</b> Im Bereich "Konfiguration / variables" alle Parameter gemäß eigenen Vorstellungen anpassen.<br />
 In der Voreinstellung werden 3 mal nacheinander jeweils im Abstand von einer Minute Benachrichtigungen an den selben Empfänger versendet, bevor mit dem nächsten Empfänger auf gleiche Weise weiter gemacht wird. Nach dem letzten Empfänger wird automatisch wieder mit dem ersten Empfänger begonnen.<br /><br />
 <img src="./img/noticade_img_yaml_config.png">
-
-<b>2.</b> In der Vorlage sind drei Iterationen / Empfänger angelegt. Wenn weniger benötigt werden, überzählige Iterationen einfach löschen. Wenn mehr benötigt werden, einen beliebigen Iterations-Block vollständig kopieren und am Ende hinzufügen.<br /><br />
-<b>3.</b> Sämtliche Vorkommen von <i>input_boolean.ereignis_zustand</i> mit der Entität des eigenen zu überwachenden Sensors bzw. Helfers ersetzen.<br /><br />
-<b>4.</b> Sämtliche Vorkommen von <i>notify.mobile_app_(1 .. n)</i> mit den Entitäten der jeweils eigenen mobilen HA-Apps ersetzen.<br /><br />
-<b>5.</b> Wenn Telefon-Anrufe erfolgen sollen, sämtliche Vorkommen von <i>button.anruf_telefon_(1 .. n)</i> jeweils mit den entsprechenden eigenen Entitäten ersetzen. Wenn durch diese Automation keine Anrufe erfolgen sollen, sollten die entsprechenden Aktionen entweder auskommentiert oder gelöscht werden.<br /><br />
+Exemplarisch sind für drei Empfänger die Entitäten der HA-Apps und Telefon-Anruf-Vorlagen angelegt, welche durch die eigenen ersetzt werden müssen. Wenn weniger benötigt werden, können die entsprechenden Zeilen einfach gelöscht werden, wenn mehr benötigt werden, einfach weitere Zeilen nach gleichem Schema hinzufügen.<br />
+<b>Achtung:</b> Es ist darauf zu achten, dass die Anzahl der Einträge in den beiden Listen für die HA-Apps und Anruf-Vorlagen identisch sein.<br />
+Wenn für einen Empfänger keine HA-App-Benachrichtigung oder kein Anruf erfolgen soll, ist in dem entsprechenden Eintrag das Wort <i>none</i> (klein geschrieben) einzutragen.<br />
+<b>2.</b> Sämtliche Vorkommen von <i>input_boolean.ereignis_zustand</i> mit der Entität des eigenen zu überwachenden Sensors bzw. Helfers ersetzen.<br />
+Dies ist leider erforderlich, weil die Entitäts-ID bei Triggern in Automationen von Home Assistant derzeit noch nicht Templete-fähig ist.<br /><br />
+Gegebenenfalls kann an diesen Stellen auch der zu überwachende Status des Sensors angepasst werden (bspw. 'off' statt 'on').<br /><br />
+<br />
 Zuletzt nicht vergessen bei den Entwicklerwerkzeugen die Konfiguration zu prüfen und Automationen neu zu laden :)<br /><br />
 
 <a id="nodered_flow"></a>
 <hr>
 <h3>NodeRED-Flow</h3>
 <img src="./img/noticade_img_nodered_flow.png">
-<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/noticade/code/noticade_nodered_flow_1.00.json"><strong>noticade_nodered_flow_1.00.json</strong></a><br />
+<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/noticade/code/noticade_nodered_flow_1.10.json"><strong>noticade_nodered_flow_1.10.json</strong></a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
