@@ -1,6 +1,6 @@
 <h1>Home Assistant // NAS-Backup</h1>
 <h2>Automatische HA-Backups auf ein NAS</h2>
-<b>Hinweis:</b> Seit der Version 2025.5 hat Home Assistant seine internen System-Backups dahingehend erweitert, dass diese auch auf externen Medien wie NAS-Systemen gespeichert werden können, was dieses Tool somit obsolet macht.
+<b>Hinweis:</b> Seit der Version 2025.5 hat Home Assistant seine internen System-Backups dahingehend erweitert, dass diese auch auf externen Medien wie NAS-Systemen gespeichert werden können, was dieses Tool seitdem obsolet macht.
 Zu Anschauungszwecken für die Einrichtung und Verwendung von NAS-Medien in Home Assistant bleibt <b>NAS-Backup</b> aber noch hier verfügbar.<br />
 <br />
 Da die Vorhaltung der System-Backups von Home Assistant auf dem selben Datenträger wie das HA-OS selbst im Extremfall (Medium defekt o.ä.) ziemlich sinnlos ist, kann man wie nachstehend beschrieben automatisiert vollständige Sicherungen von Home Assistant auf einem NAS erstellen, sowie ebenfalls automatisiert alle dort befindlichen Backups löschen, welche älter als x Tage sind.<br/>
