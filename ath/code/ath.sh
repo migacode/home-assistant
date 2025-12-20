@@ -3,8 +3,8 @@
 # AbfuhrTerminHinweise (ATH) - Anzeige von Terminen zur Abfallabholung
 # -----------------------------------------------------------------------------
 # Name:    ath.sh
-# Version: 1.30
-# Datum:   19.12.2024
+# Version: 1.31
+# Datum:   20.12.2025
 # Quelle:  https://github.com/migacode/home-assistant
 # -----------------------------------------------------------------------------
 #
@@ -110,10 +110,11 @@ do
   then
     COLLECTIONS_FOUND+="$MISSING_TEXT"
   else
-    # ------------------------------------------------
-    # 2. Prüfen ob die Info-Datei für dieses Jahr ist
-    # ------------------------------------------------
-    if [ $(grep -c -E "DATE:$THIS_YEAR" "$INFO_DATA_FILE") -eq 0 ];
+    # ------------------------------------------------------------------
+    # 2. Prüfen ob die Info-Datei für dieses oder das folgende Jahr ist
+    # ------------------------------------------------------------------
+    if [ $(grep -c -E "DATE:$THIS_YEAR" "$INFO_DATA_FILE") -eq 0 ] &&
+       [ $(grep -c -E "DATE:$NEXT_YEAR" "$INFO_DATA_FILE") -eq 0 ];
     then
       COLLECTIONS_FOUND+="$MISSING_TEXT"
     fi
