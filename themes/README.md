@@ -1,6 +1,6 @@
 # Home Assistant // Themen
 
-<b>Achtung:</b> So oft wie Home Assistant seine Benutzeroberfläche laufend verschlimmbessert komme ich leider nicht mehr hinterher - die Themen sind daher nicht mehr aktuell und einzelne Objekte können eventuell nicht so aussehen wie in dem Themna konfiguriert.
+<b>Achtung:</b> So oft wie Home Assistant seine Benutzeroberfläche laufend verschlimmbessert komme ich leider nicht mehr hinterher - die Themen sind daher nicht mehr aktuell und einzelne Objekte können eventuell nicht so aussehen wie in dem Thema konfiguriert.
 
 Für alle, die gerne eine weniger bunte Benutzeroberfläche in Home Assistant möchten, habe ich die folgenden Themen erstellt.
 Die Farben für die Einstellung von Lichtern sowie die Statusanzeigen von Entitäten bleiben dabei selbstverständlich erhalten.
