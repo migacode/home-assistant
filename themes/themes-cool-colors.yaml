@@ -1,0 +1,262 @@
+# ==============================================================================
+# Datei: themes-cool-colors.yaml
+# Zweck: Layout und Farben des Frontends (CSS)
+# Autor: Michael Gasbers (kontakt@migano.de)
+# Letzte Änderung: 14.05.2026
+# ==============================================================================
+
+# ==============================================================================
+# Cool Colors basic (ohne Hintergrundverlauf und ohne Schatten)
+# ==============================================================================
+Cool Colors basic:
+  modes:
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # Modus Hell
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    light:
+      # ------------------------------------------------------------------------
+      # Allgemein
+      # ------------------------------------------------------------------------
+      primary-color:              '#8d5138' # Primäre Systemfarbe
+      primary-text-color:         '#000000' # Primäre Schriftfarbe
+      secondary-text-color:       '#888888' # Sekundäre Schriftfarbe
+      ha-color-on-primary-normal: '#8d5138' # Schriftfarbe interne Links/Buttons
+      # ------------------------------------------------------------------------
+      # Symbole
+      # ------------------------------------------------------------------------
+      state-icon-color: '#888888'
+      # ------------------------------------------------------------------------
+      # Trennlinien
+      # ------------------------------------------------------------------------
+      entities-divider-color: '#a8a8a8'
+      # ------------------------------------------------------------------------
+      # Schalter
+      # ------------------------------------------------------------------------
+      # Schalter aus
+      # -------------
+      ha-switch-background-color:               '#cccccc'   # Schalter-Hintergrund
+      ha-switch-border-color:                   transparent # Schalter-Rand
+      ha-switch-thumb-background-color:         '#999999'   # Knopf-Mitte
+      ha-switch-thumb-border-color:             '#777777'   # Knopf-Rand
+      # -------------
+      # Schalter ein
+      # -------------
+      ha-switch-checked-background-color:       '#cccccc'   # Schalter-Hintergrund
+      ha-switch-checked-border-color:           transparent # Schalter-Rand
+      ha-switch-checked-thumb-background-color: '#00ee00'   # Knopf-Mitte
+      ha-switch-checked-thumb-border-color:     '#00bb00'   # Knopf-Rand
+      # ------------------------------------------------------------------------
+      # Schieberegler
+      # ------------------------------------------------------------------------
+      ha-slider-indicator-color: '#888888' # Linie von Start bis Knopf (Wert)
+      ha-slider-thumb-color:     '#333333' # Knopf
+      # ------------------------------------------------------------------------
+      # Karten
+      # ------------------------------------------------------------------------
+      # Hintergrund
+      # ------------
+      # ha-card-background: 'linear-gradient(to bottom, rgba(255,255,255,1), rgba(224,224,224,1))'
+      ha-card-background: '#eeeeee'
+      # --------------
+      # Überschriften
+      # --------------
+      ha-card-header-color: '#8d5138'
+      # ----------
+      # Umrandung
+      # ----------
+      ha-card-border-width:  '2px'
+      ha-card-border-color:  '#aaaaaa'
+      ha-card-border-radius: '6px'
+      # ---------
+      # Schatten
+      # ---------
+      # ha-card-box-shadow: '4px 4px 4px rgba(0,0,0,0.3), -4px 4px 4px rgba(0,0,0,0.3)'
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # Modus Dunkel
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    dark:
+      # ------------------------------------------------------------------------
+      # Allgemein
+      # ------------------------------------------------------------------------
+      primary-color:              '#ddaa77' # Primäre Systemfarbe
+      primary-text-color:         '#ffffff' # Primäre Schriftfarbe
+      secondary-text-color:       '#888888' # Sekundäre Schriftfarbe
+      ha-color-on-primary-normal: '#8d5138' # Schriftfarbe interne Links/Buttons
+      # ------------------------------------------------------------------------
+      # Symbole
+      # ------------------------------------------------------------------------
+      state-icon-color: '#888888'
+      # ------------------------------------------------------------------------
+      # Trennlinien
+      # ------------------------------------------------------------------------
+      entities-divider-color: '#383838'
+      # ------------------------------------------------------------------------
+      # Schalter
+      # ------------------------------------------------------------------------
+      # Schalter aus
+      # -------------
+      ha-switch-background-color:               '#000000'   # Schalter-Hintergrund
+      ha-switch-border-color:                   transparent # Schalter-Rand
+      ha-switch-thumb-background-color:         '#888888'   # Knopf-Mitte
+      ha-switch-thumb-border-color:             '#777777'   # Knopf-Rand
+      # -------------
+      # Schalter ein
+      # -------------
+      ha-switch-checked-background-color:       '#000000'   # Schalter-Hintergrund
+      ha-switch-checked-border-color:           transparent # Schalter-Rand
+      ha-switch-checked-thumb-background-color: '#00ff00'   # Knopf-Mitte
+      ha-switch-checked-thumb-border-color:     '#00ff00'   # Knopf-Rand
+      # ------------------------------------------------------------------------
+      # Schieberegler
+      # ------------------------------------------------------------------------
+      ha-slider-indicator-color: '#888888' # Linie von Start bis Knopf
+      ha-slider-thumb-color:     '#dddddd' # Knopf
+      # ------------------------------------------------------------------------
+      # Karten
+      # ------------------------------------------------------------------------
+      # Hintergrund
+      # ------------
+      # ha-card-background: 'linear-gradient(to bottom, rgba(56,56,56,1), rgba(16,16,16,1))'
+      ha-card-background: '#1a1a1a'
+      # --------------
+      # Überschriften
+      # --------------
+      ha-card-header-color: '#ff8844'
+      # ----------
+      # Umrandung
+      # ----------
+      ha-card-border-width:  '2px'
+      ha-card-border-color:  '#333333'
+      ha-card-border-radius: '6px'
+      # ---------
+      # Schatten
+      # ---------
+      # ha-card-box-shadow: '5px 5px 5px rgba(0,0,0,0.3), -5px 5px 5px rgba(0,0,0,0.3)'
+
+# ==============================================================================
+# Cool Colors plus (mit Hintergrundverlauf und mit Schatten)
+# ==============================================================================
+Cool Colors plus:
+  modes:
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # Modus Hell
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    light:
+      # ------------------------------------------------------------------------
+      # Allgemein
+      # ------------------------------------------------------------------------
+      primary-color:              '#8d5138' # Primäre Systemfarbe
+      primary-text-color:         '#000000' # Primäre Schriftfarbe
+      secondary-text-color:       '#888888' # Sekundäre Schriftfarbe
+      ha-color-on-primary-normal: '#8d5138' # Schriftfarbe interne Links/Buttons
+      # ------------------------------------------------------------------------
+      # Symbole
+      # ------------------------------------------------------------------------
+      state-icon-color: '#888888'
+      # ------------------------------------------------------------------------
+      # Trennlinien
+      # ------------------------------------------------------------------------
+      entities-divider-color: '#a8a8a8'
+      # ------------------------------------------------------------------------
+      # Schalter
+      # ------------------------------------------------------------------------
+      # Schalter aus
+      # -------------
+      ha-switch-background-color:               '#cccccc'   # Schalter-Hintergrund
+      ha-switch-border-color:                   transparent # Schalter-Rand
+      ha-switch-thumb-background-color:         '#999999'   # Knopf-Mitte
+      ha-switch-thumb-border-color:             '#777777'   # Knopf-Rand
+      # -------------
+      # Schalter ein
+      # -------------
+      ha-switch-checked-background-color:       '#cccccc'   # Schalter-Hintergrund
+      ha-switch-checked-border-color:           transparent # Schalter-Rand
+      ha-switch-checked-thumb-background-color: '#00ee00'   # Knopf-Mitte
+      ha-switch-checked-thumb-border-color:     '#00bb00'   # Knopf-Rand
+      # ------------------------------------------------------------------------
+      # Schieberegler
+      # ------------------------------------------------------------------------
+      ha-slider-indicator-color: '#888888' # Linie von Start bis Knopf (Wert)
+      ha-slider-thumb-color:     '#333333' # Knopf
+      # ------------------------------------------------------------------------
+      # Karten
+      # ------------------------------------------------------------------------
+      # Hintergrund
+      # ------------
+      ha-card-background: 'linear-gradient(to bottom, rgba(255,255,255,1), rgba(224,224,224,1))'
+      # ha-card-background: '#eeeeee'
+      # --------------
+      # Überschriften
+      # --------------
+      ha-card-header-color: '#8d5138'
+      # ----------
+      # Umrandung
+      # ----------
+      ha-card-border-width:  '2px'
+      ha-card-border-color:  '#aaaaaa'
+      ha-card-border-radius: '6px'
+      # ---------
+      # Schatten
+      # ---------
+      ha-card-box-shadow: '4px 4px 4px rgba(0,0,0,0.3), -4px 4px 4px rgba(0,0,0,0.3)'
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # Modus Dunkel
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    dark:
+      # ------------------------------------------------------------------------
+      # Allgemein
+      # ------------------------------------------------------------------------
+      primary-color:              '#ddaa77' # Primäre Systemfarbe
+      primary-text-color:         '#ffffff' # Primäre Schriftfarbe
+      secondary-text-color:       '#888888' # Sekundäre Schriftfarbe
+      ha-color-on-primary-normal: '#8d5138' # Schriftfarbe interne Links/Buttons
+      # ------------------------------------------------------------------------
+      # Symbole
+      # ------------------------------------------------------------------------
+      state-icon-color: '#888888'
+      # ------------------------------------------------------------------------
+      # Trennlinien
+      # ------------------------------------------------------------------------
+      entities-divider-color: '#383838'
+      # ------------------------------------------------------------------------
+      # Schalter
+      # ------------------------------------------------------------------------
+      # Schalter aus
+      # -------------
+      ha-switch-background-color:               '#000000'   # Schalter-Hintergrund
+      ha-switch-border-color:                   transparent # Schalter-Rand
+      ha-switch-thumb-background-color:         '#888888'   # Knopf-Mitte
+      ha-switch-thumb-border-color:             '#777777'   # Knopf-Rand
+      # -------------
+      # Schalter ein
+      # -------------
+      ha-switch-checked-background-color:       '#000000'   # Schalter-Hintergrund
+      ha-switch-checked-border-color:           transparent # Schalter-Rand
+      ha-switch-checked-thumb-background-color: '#00ff00'   # Knopf-Mitte
+      ha-switch-checked-thumb-border-color:     '#00ff00'   # Knopf-Rand
+      # ------------------------------------------------------------------------
+      # Schieberegler
+      # ------------------------------------------------------------------------
+      ha-slider-indicator-color: '#888888' # Linie von Start bis Knopf
+      ha-slider-thumb-color:     '#dddddd' # Knopf
+      # ------------------------------------------------------------------------
+      # Karten
+      # ------------------------------------------------------------------------
+      # Hintergrund
+      # ------------
+      ha-card-background: 'linear-gradient(to bottom, rgba(56,56,56,1), rgba(16,16,16,1))'
+      # ha-card-background: '#1a1a1a'
+      # --------------
+      # Überschriften
+      # --------------
+      ha-card-header-color: '#ff8844'
+      # ----------
+      # Umrandung
+      # ----------
+      ha-card-border-width:  '2px'
+      ha-card-border-color:  '#333333'
+      ha-card-border-radius: '6px'
+      # ---------
+      # Schatten
+      # ---------
+      ha-card-box-shadow: '5px 5px 5px rgba(0,0,0,0.3), -5px 5px 5px rgba(0,0,0,0.3)'
