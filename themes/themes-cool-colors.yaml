@@ -121,7 +121,7 @@ Cool Colors basic:
       # --------------
       # Überschriften
       # --------------
-      ha-card-header-color: '#ff8844'
+      ha-card-header-color: '#ddaa77'
       # ----------
       # Umrandung
       # ----------
@@ -249,7 +249,7 @@ Cool Colors plus:
       # --------------
       # Überschriften
       # --------------
-      ha-card-header-color: '#ff8844'
+      ha-card-header-color: '#ddaa77'
       # ----------
       # Umrandung
       # ----------
