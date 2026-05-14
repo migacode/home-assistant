@@ -15,7 +15,6 @@ Wie bei jeder Konfigurationsänderung muss zur Aktivierung der Themen Home Assis
 Danach stehen die neuen Themen bei den persönlichen Design-Einstellungen als "Cool Colors basic" und "Cool Colors plus" - jeweils als helles und dunkles Design - zur Auswahl:
 
 <img src="./img/ha_enstellungen_design.png">
-<br />
 <hr>
 <b>Standard von Home Assistant (nur zum Vergleich)<b>
 <br /><br />
