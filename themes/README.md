@@ -4,7 +4,7 @@ Für alle, die gerne eine weniger bunte Benutzeroberfläche in Home Assistant m�
 Die Farben für die Einstellung von Lichtern sowie die Statusanzeigen von Entitäten bleiben dabei selbstverständlich erhalten.
 Darüber hinaus sind die Themen unabhängig von den Einstellungen des Browsers, d.h. sie sehen identisch aus, egal ob der Browser auf hell oder dunkel eingestellt ist.
 
-Zur Einbindung einfach die Datei <a href="https://github.com/migacode/home-assistant/blob/main/themes/themes-cool-colors.yaml">themes-cool-colors.yaml</a> in das Verzeichnis <b>/config</b> kopieren und in der Datei <b>configuration.yaml</b> folgendes eintragen (falls der Absatz <b>fronted:</b> bereits vorhanden ist, natürlich nur den <b>themes:</b>-Eintrag darunter hinzufügen.
+Zur Einbindung einfach die Datei <a href="https://github.com/migacode/home-assistant/blob/main/themes/themes-cool-colors.yaml">themes-cool-colors.yaml</a> in das Verzeichnis <b>/config</b> (bzw. neu <b>/homeassistant</b>) kopieren und in der Datei <b>configuration.yaml</b> folgendes eintragen (falls der Absatz <b>fronted:</b> bereits vorhanden ist, natürlich nur den <b>themes:</b>-Eintrag darunter hinzufügen.
 
 ```yaml
 frontend:
@@ -12,17 +12,23 @@ frontend:
 ```
 
 Wie bei jeder Konfigurationsänderung muss zur Aktivierung der Themen Home Assistant leider neu gestartet bzw. die Konfiguration neu geladen werden.
-Die neuen Themen stehen danach bei den entsprechenden Einstellungen zur Auswahl.
+Die neuen Themen stehen danach bei den entsprechenden Einstellungen zum Design als "Cool Colors basic" und "Cool Colors plus" zur Auswahl.
+
+<img src="./img/ha_enstellungen_design.png">
+<br />
 
 <hr>
 <b>Standard von Home Assistant (nur zum Vergleich)<b>
+<br />
 <img src="./img/ha_standard_light.png">
 <img src="./img/ha_standard_dark.png">
 <br /><br />
 <b>Cool Colors basic (ohne Farbverlauf und ohne Schatten)<b>
+<br />
 <img src="./img/cool_colors_basic_light.png">
 <img src="./img/cool_colors_basic_dark.png">
 <br /><br />
 <b>Cool Colors plus (mit Farbverlauf und mit Schatten)<b>
+<br />
 <img src="./img/cool_colors_plus_light.png">
 <img src="./img/cool_colors_plus_dark.png">
