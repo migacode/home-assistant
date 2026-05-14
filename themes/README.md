@@ -12,7 +12,7 @@ frontend:
 ```
 
 Wie bei jeder Konfigurationsänderung muss zur Aktivierung der Themen Home Assistant leider neu gestartet bzw. die Konfiguration neu geladen werden.
-Danach stehen die neuen Themen bei den persönlichen Design-Einstellungen als "Cool Colors basic" und "Cool Colors plus" zur Auswahl (siehe Bild).
+Danach stehen die neuen Themen bei den persönlichen Design-Einstellungen als "Cool Colors basic" und "Cool Colors plus" - jeweils als helles und dunkles Design - zur Auswahl:
 
 <img src="./img/ha_enstellungen_design.png">
 <br />
