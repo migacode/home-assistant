@@ -1,8 +1,9 @@
 # ==============================================================================
-# Datei: themes-cool-colors.yaml
-# Zweck: Layout und Farben des Frontends (CSS)
-# Autor: Michael Gasbers (kontakt@migano.de)
-# Letzte Änderung: 14.05.2026
+# Datei:   themes-cool-colors.yaml
+# Zweck:   Layout und Farben des Frontends (CSS)
+# Autor:   Michael Gasbers (kontakt@migano.de)
+# Version: 1.10
+# Letzte Änderung: 15.05.2026
 # ==============================================================================
 
 # ==============================================================================
@@ -21,6 +22,7 @@ Cool Colors basic:
       primary-text-color:         '#000000' # Primäre Schriftfarbe
       secondary-text-color:       '#888888' # Sekundäre Schriftfarbe
       ha-color-on-primary-normal: '#8d5138' # Schriftfarbe interne Links/Buttons
+      markdown-link-color:        '#8d5138' # Schriftfarbe Links in Markdowns
       # ------------------------------------------------------------------------
       # Symbole
       # ------------------------------------------------------------------------
@@ -81,7 +83,8 @@ Cool Colors basic:
       primary-color:              '#ddaa77' # Primäre Systemfarbe
       primary-text-color:         '#ffffff' # Primäre Schriftfarbe
       secondary-text-color:       '#888888' # Sekundäre Schriftfarbe
-      ha-color-on-primary-normal: '#8d5138' # Schriftfarbe interne Links/Buttons
+      ha-color-on-primary-normal: '#ddaa77' # Schriftfarbe interne Links/Buttons (8d5138)
+      markdown-link-color:        '#ddaa77' # Schriftfarbe Links in Markdowns
       # ------------------------------------------------------------------------
       # Symbole
       # ------------------------------------------------------------------------
@@ -149,6 +152,7 @@ Cool Colors plus:
       primary-text-color:         '#000000' # Primäre Schriftfarbe
       secondary-text-color:       '#888888' # Sekundäre Schriftfarbe
       ha-color-on-primary-normal: '#8d5138' # Schriftfarbe interne Links/Buttons
+      markdown-link-color:        '#8d5138' # Schriftfarbe Links in Markdowns
       # ------------------------------------------------------------------------
       # Symbole
       # ------------------------------------------------------------------------
@@ -209,7 +213,8 @@ Cool Colors plus:
       primary-color:              '#ddaa77' # Primäre Systemfarbe
       primary-text-color:         '#ffffff' # Primäre Schriftfarbe
       secondary-text-color:       '#888888' # Sekundäre Schriftfarbe
-      ha-color-on-primary-normal: '#8d5138' # Schriftfarbe interne Links/Buttons
+      ha-color-on-primary-normal: '#ddaa77' # Schriftfarbe interne Links/Buttons (8d5138)
+      markdown-link-color:        '#ddaa77' # Schriftfarbe Links in Markdowns
       # ------------------------------------------------------------------------
       # Symbole
       # ------------------------------------------------------------------------
