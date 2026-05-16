@@ -2,8 +2,8 @@
 # Datei:   themes-cool-colors.yaml
 # Zweck:   Layout und Farben des Frontends (CSS)
 # Autor:   Michael Gasbers (kontakt@migano.de)
-# Version: 1.10
-# Letzte Änderung: 15.05.2026
+# Version: 1.12
+# Letzte Änderung: 16.05.2026
 # ==============================================================================
 
 # ==============================================================================
@@ -68,11 +68,11 @@ Cool Colors basic:
       # ----------
       ha-card-border-width:  '2px'
       ha-card-border-color:  '#aaaaaa'
-      ha-card-border-radius: '6px'
+      ha-card-border-radius: '8px'
       # ---------
       # Schatten
       # ---------
-      # ha-card-box-shadow: '4px 4px 4px rgba(0,0,0,0.3), -4px 4px 4px rgba(0,0,0,0.3)'
+      # ha-card-box-shadow: '6px 6px 6px rgba(0,0,0,0.3), -6px 6px 6px rgba(0,0,0,0.3)'
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Modus Dunkel
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -130,11 +130,11 @@ Cool Colors basic:
       # ----------
       ha-card-border-width:  '2px'
       ha-card-border-color:  '#333333'
-      ha-card-border-radius: '6px'
+      ha-card-border-radius: '8px'
       # ---------
       # Schatten
       # ---------
-      # ha-card-box-shadow: '5px 5px 5px rgba(0,0,0,0.3), -5px 5px 5px rgba(0,0,0,0.3)'
+      # ha-card-box-shadow: '6px 6px 6px rgba(0,0,0,0.3), -6px 6px 6px rgba(0,0,0,0.3)'
 
 # ==============================================================================
 # Cool Colors plus (mit Hintergrundverlauf und mit Schatten)
@@ -198,11 +198,11 @@ Cool Colors plus:
       # ----------
       ha-card-border-width:  '2px'
       ha-card-border-color:  '#aaaaaa'
-      ha-card-border-radius: '6px'
+      ha-card-border-radius: '8px'
       # ---------
       # Schatten
       # ---------
-      ha-card-box-shadow: '4px 4px 4px rgba(0,0,0,0.3), -4px 4px 4px rgba(0,0,0,0.3)'
+      ha-card-box-shadow: '6px 6px 6px rgba(0,0,0,0.3), -6px 6px 6px rgba(0,0,0,0.3)'
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Modus Dunkel
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -260,8 +260,8 @@ Cool Colors plus:
       # ----------
       ha-card-border-width:  '2px'
       ha-card-border-color:  '#333333'
-      ha-card-border-radius: '6px'
+      ha-card-border-radius: '8px'
       # ---------
       # Schatten
       # ---------
-      ha-card-box-shadow: '5px 5px 5px rgba(0,0,0,0.3), -5px 5px 5px rgba(0,0,0,0.3)'
+      ha-card-box-shadow: '6px 6px 6px rgba(0,0,0,0.3), -6px 6px 6px rgba(0,0,0,0.3)'
