@@ -2,8 +2,8 @@
 # Datei:   themes-cool-colors.yaml
 # Zweck:   Layout und Farben des Frontends (CSS)
 # Autor:   Michael Gasbers (kontakt@migano.de)
-# Version: 1.12
-# Letzte Änderung: 16.05.2026
+# Version: 1.20
+# Letzte Änderung: 17.05.2026
 # ==============================================================================
 
 # ==============================================================================
@@ -23,6 +23,10 @@ Cool Colors basic:
       secondary-text-color:       '#888888' # Sekundäre Schriftfarbe
       ha-color-on-primary-normal: '#8d5138' # Schriftfarbe interne Links/Buttons
       markdown-link-color:        '#8d5138' # Schriftfarbe Links in Markdowns
+      # ------------------------------------------------------------------------
+      # Individuelle Farben zur Verwendung mit card-mod
+      # ------------------------------------------------------------------------
+      cardmod-value-color: '#774422' # Angezeigte Werte (.state, .value)
       # ------------------------------------------------------------------------
       # Symbole
       # ------------------------------------------------------------------------
@@ -85,6 +89,10 @@ Cool Colors basic:
       secondary-text-color:       '#888888' # Sekundäre Schriftfarbe
       ha-color-on-primary-normal: '#ddaa77' # Schriftfarbe interne Links/Buttons (8d5138)
       markdown-link-color:        '#ddaa77' # Schriftfarbe Links in Markdowns
+      # ------------------------------------------------------------------------
+      # Individuelle Farben zur Verwendung mit card-mod
+      # ------------------------------------------------------------------------
+      cardmod-value-color: '#ccaa88' # Angezeigte Werte (.state, .value)
       # ------------------------------------------------------------------------
       # Symbole
       # ------------------------------------------------------------------------
@@ -154,6 +162,10 @@ Cool Colors plus:
       ha-color-on-primary-normal: '#8d5138' # Schriftfarbe interne Links/Buttons
       markdown-link-color:        '#8d5138' # Schriftfarbe Links in Markdowns
       # ------------------------------------------------------------------------
+      # Individuelle Farben zur Verwendung mit card-mod
+      # ------------------------------------------------------------------------
+      cardmod-value-color: '#774422' # Angezeigte Werte (.state, .value)
+      # ------------------------------------------------------------------------
       # Symbole
       # ------------------------------------------------------------------------
       state-icon-color: '#888888'
@@ -213,8 +225,12 @@ Cool Colors plus:
       primary-color:              '#ddaa77' # Primäre Systemfarbe
       primary-text-color:         '#ffffff' # Primäre Schriftfarbe
       secondary-text-color:       '#888888' # Sekundäre Schriftfarbe
-      ha-color-on-primary-normal: '#ddaa77' # Schriftfarbe interne Links/Buttons (8d5138)
+      ha-color-on-primary-normal: '#ddaa77' # Schriftfarbe interne Links/Buttons
       markdown-link-color:        '#ddaa77' # Schriftfarbe Links in Markdowns
+      # ------------------------------------------------------------------------
+      # Individuelle Farben zur Verwendung mit card-mod
+      # ------------------------------------------------------------------------
+      cardmod-value-color: '#ccaa88' # Angezeigte Werte (.state, .value)
       # ------------------------------------------------------------------------
       # Symbole
       # ------------------------------------------------------------------------
