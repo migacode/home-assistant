@@ -30,7 +30,7 @@ Der Schalter Wetterwarnungen muss in Home Assistant als Helfer des Typs <i>Schal
 <hr>
 <h3>Automatisierung zum Versenden von DWD-Warnungen an Telegram, HA-App und Dashboard (native)</h3>
 <img src="./img/DWD_img_notifications.png">
-<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_automation_1.50.yaml"><strong>DWD_warnings_automation_1.50.yaml</strong></a><br />
+<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_automation_1.60.yaml"><strong>DWD_warnings_automation_1.60.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 <br />
