@@ -13,6 +13,9 @@ Der <i>name</i> ist frei wählbar, Home Assistant setzt daraus allerdings die Na
 Warncell-IDs: https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html<br />
 <b>Hinweis:</b> Neue Sensoren werden in Home Assistant leider erst nach einem Neustart aktiv.
 
+Da es oft vorkommt, dass sich ein Status bzw. Meldungstext innerhalb weniger Minuten ändert (bspw. wenn sich die Uhrzeit um wenige Minuten verschiebt, obwohl sich an der grundsätzlichen Gefahr nichts geändert hat), und die Automatisierung dadurch (korrekterweise) sehr viele Warnungen zum gleichen Ereignis versendet, lassen sich der Versand von Warnungen mit dem Schalter <b>Wetterwarnungen</b> temporär ein- und ausschalten.
+Der Schalter Wetterwarnungen muss in Home Assistant als Helfer des Typs <i>Schalter</i> (input_boolean.wetterwarnungen) angelegt werden und kann dann beliebig im Dashboard angezeigt und verwendet werden.
+
 <hr>
 <h2>Erweiterungen für die DWD-Integration (Deutscher Wetterdienst) von Home Assistant</h2><ul>
 <li><a href="#automation">Native Automatisierung zum Versenden von DWD-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
