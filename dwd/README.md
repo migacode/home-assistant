@@ -82,7 +82,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <hr>
 <h3>Dashboard-(Lovelace-)Karte zur Anzeige von DWD-Warnungen in Home Assistant</h3>
 <img src="./img/DWD_img_no_warnings.png"><img src="./img/DWD_img_warning_1.png"><img src="./img/DWD_img_warning_2.png">
-<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_dashboard_card.yaml"><strong>DWD_warnings_dashboard_card.yaml</strong></a><br />
+<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/dwd/code/DWD_warnings_dashboard_card_1.20.yaml"><strong>DWD_warnings_dashboard_card_1.20.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
 <br />
