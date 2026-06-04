@@ -71,7 +71,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <hr>
 <h3>Dashboard-(Lovelace-)Karte zur Anzeige von NINA-Warnungen in Home Assistant</h3>
 <img src="./img/NINA_img_no_warnings.png"><img src="./img/NINA_img_warning_1.png"><img src="./img/NINA_img_warning_2.png">
-<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_dashboard_card.yaml"><strong>NINA_warnings_dashboard_card.yaml</strong></a><br />
+<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_dashboard_card_1.30.yaml"><strong>NINA_warnings_dashboard_card_1.30.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code einfügen) im Dashboard anlegen.<br />
 <br />
