@@ -2,6 +2,10 @@
 
 Der Warndienst <b>NINA</b> vom <a href="https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-nina_node.html">Bundesamt für Bevölkerungsschutz und Katastrophenhilfe</a> kann auch in Home Assistant eingebunden werden. Dazu muss in den Einstellungen von Home Assistant lediglich die <a href="https://www.home-assistant.io/integrations/nina/">NINA-Integration</a> hinzugefügt werden.
 
+<b>NEU:</b>
+Da es oft vorkommt, dass sich ein Status bzw. Meldungstext innerhalb weniger Minuten ändert (bspw. wenn sich die Uhrzeit um wenige Minuten verschiebt, obwohl sich an der grundsätzlichen Gefahr nichts geändert hat), und die Automatisierung dadurch (korrekterweise) sehr viele Warnungen zum gleichen Ereignis versendet, läßt sich der Versand von Warnungen mit dem Schalter <b>Wetterwarnungen</b> temporär ein- und ausschalten.
+Der Schalter Wetterwarnungen muss in Home Assistant als Helfer des Typs <i>Schalter</i> (input_boolean.wetterwarnungen) angelegt werden und kann dann beliebig im Dashboard angezeigt und verwendet werden.
+
 <hr>
 <h2>Erweiterungen für die NINA-Integration von Home Assistant</h2><ul>
 <li><a href="#automation">Native Automatisierung zum Versenden von NINA-Warnungen an Telegram<sup>1</sup>, HA-App<sup>2</sup> und Dashboard</a></li>
@@ -15,7 +19,7 @@ Der Warndienst <b>NINA</b> vom <a href="https://www.bbk.bund.de/DE/Warnung-Vorso
 <hr>
 <h3>Automatisierung zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard (native)</h3>
 <img style="float:left;" src="./img/NINA_img_notifications.png">
-<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_automation_1.50.yaml"><strong>NINA_warnings_automation_1.50.yaml</strong></a><br />
+<b>Quelltext</b>&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_automation_1.60.yaml"><strong>NINA_warnings_automation_1.60.yaml</strong></a><br />
 <br />
 Den Quelltext wie folgt anpassen und in die <b>automations.yaml</b> kopieren.<br />
 <br />
@@ -39,7 +43,7 @@ Selbstverständlich muss man auch nicht alle Kanäle nutzen - wer keine Benachri
 <hr>
 <h3>NodeRED-Flow zum Versenden von NINA-Warnungen an Telegram, HA-App und Dashboard</h3>
 <img src="./img/NINA_img_nodered_flow.png">
-<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_nodered_flow_1.55.json"><strong>NINA_warnings_nodered_flow_1.55.json</strong></a><br />
+<b>Download</b> NodeRED-Flow&nbsp;&raquo;&nbsp;<a href="https://github.com/migacode/home-assistant/blob/main/nina/code/NINA_warnings_nodered_flow_1.60.json"><strong>NINA_warnings_nodered_flow_1.60.json</strong></a><br />
 <br />
 Den Quelltext/Flow in NodeRED importieren und wie folgt anpassen.<br />
 <br />
@@ -77,7 +81,6 @@ Den Quelltext wie folgt anpassen und als neue Karte (manuell über YAML-Code ein
 2. Wer einen anderen Ort als Hörstel verwendet, möchte vermutlich auch noch die Überschrift mit der Angabe <i>title:</i> anpassen.<br/>
 <br />
 3. Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden color-Variablen anpassen.<br />
-Darüber hinaus verwendet die Karte das HACS-Modul "card-mod", jedoch nur zur Gestaltung der Karten-Umrandung. Wer card-mod nicht verwendet, oder wem die Karte unformatiert besser gefällt, der kann die entsprechenden Style-Angaben problemlos entfernen.<br />
 <br />
 
 <hr>
