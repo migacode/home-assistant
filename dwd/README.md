@@ -96,6 +96,8 @@ Die dazu benötigten Angaben findet man auf den Webseiten des DWD unter <a href=
 3. Die Schriftfarben sind für die Darstellung auf dunklem Hintergrund konfiguriert. Wer die Karte auf einem hellen Hintergrund nutzen möchte (oder andere Farben bevorzugt), kann die Farben ggf. sehr einfach durch andere RGB-Werte in den entsprechend selbsterklärenden color-Variablen anpassen.<br />
 <br />
 <b>Tipp:</b> Wer den Schalter zum Versand der Wetterwarnungen nutzt, sollte sich sicherheitshalber auch die folgende Automatisierung einrichten, welche den Versand nach 24 Stunden automatisch wieder einschaltet, falls man vergisst diesen nach dem manuellen Ausschalten auch wieder einzuschalten. ;)<br />
+<b>Hinweis</b>: In älteren Versionen von Home Assistant muss die Integration manuell in der <b>configuration.yaml</b> durch Anlage eines Sensors (nachstehend als Beispiel für die Stadt Hörstel) angelegt werden.<br/>
+
 ```yaml
 - id: 'weather_warnings_auto_on'
   alias: Versand von Wetterwarnungen nach 24 Stunden einschalten
@@ -119,4 +121,5 @@ Die dazu benötigten Angaben findet man auf den Webseiten des DWD unter <a href=
     data: {}
   mode: single
 ```
+
 <hr>
